@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -501,9 +501,9 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Analytic value of the integral= 1.5707963267948966
-The MC integral of f(x) = sqrt(1-x^2) in [-1,1] is 1.5725149083240442 +- 0.0014060588630999433
-The fractional uncertainty is 0.000894146602780697
-The fractional difference from the analytical value is 0.0010940829818810822
+The MC integral of f(x) = sqrt(1-x^2) in [-1,1] is 1.5725835419534127 +- 0.0014097055700682784
+The fractional uncertainty is 0.0008964265061029365
+The fractional difference from the analytical value is 0.001137776507386409
 </pre></div>
 </div>
 </div>
@@ -547,7 +547,7 @@ The fractional difference from the analytical value is 0.0010940829818810822
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum weight found= 1.9999999999997788 at -4.7019933657743707e-07
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum weight found= 1.99999999998746 at 3.541162387321606e-06
 </pre></div>
 </div>
 </div>
@@ -634,7 +634,7 @@ The fractional difference from the analytical value is 0.0010940829818810822
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c784d597a35b19d3b4fe1c09937bcffa4e261f8bbbb6496ae11402d5107e6eb5.png" src="../../_images/c784d597a35b19d3b4fe1c09937bcffa4e261f8bbbb6496ae11402d5107e6eb5.png" />
+<img alt="../../_images/b82726873cd7e12139481465e9e84dc454f19a8df8295a2546a17fb1c8a0445f.png" src="../../_images/b82726873cd7e12139481465e9e84dc454f19a8df8295a2546a17fb1c8a0445f.png" />
 </div>
 </div>
 <p>We are now ready to proceed to the particle physics case!</p>
@@ -666,21 +666,7 @@ The fractional difference from the analytical value is 0.0010940829818810822
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">And</span> <span class="n">integrate</span><span class="o">!</span><span class="w"> </span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-    <span class="n">And</span> <span class="n">integrate</span><span class="err">!</span>
-        <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
+<p>And integrate!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fix the COM energy globally</span>
@@ -692,6 +678,12 @@ The fractional difference from the analytical value is 0.0010940829818810822
 <span class="n">Int</span><span class="p">,</span> <span class="n">Err</span><span class="p">,</span> <span class="n">MaxW</span><span class="p">,</span> <span class="n">xMaxW</span> <span class="o">=</span> <span class="n">mcint</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> <span class="c1"># this way you can access both the integral and its error</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The cross section in pb is:&#39;</span><span class="p">,</span> <span class="n">Int</span><span class="o">*</span><span class="n">pbconvert</span><span class="p">,</span> <span class="s1">&#39;+-&#39;</span><span class="p">,</span> <span class="n">Err</span><span class="o">*</span><span class="n">pbconvert</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Maximum weight found=&#39;</span><span class="p">,</span> <span class="n">MaxW</span><span class="p">,</span> <span class="s1">&#39;at&#39;</span><span class="p">,</span> <span class="n">xMaxW</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cross section in pb is: 103.29507402942116 +- 0.07308594935326991
+Maximum weight found= 3.976104308022493e-07 at -0.9999955172579347
 </pre></div>
 </div>
 </div>
@@ -709,6 +701,11 @@ The fractional difference from the analytical value is 0.0010940829818810822
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The analytical cross sectin for e+e- -&gt; gamma -&gt; mu+mu- at 30 GeV is 103.22013054444798
+</pre></div>
+</div>
+</div>
 </div>
 <p>Evidently these two are compatible!</p>
 <p>We are now ready to proceed to the event generation stage. This will consist simply of generating the <span class="math notranslate nohighlight">\(\cos \theta\)</span> values and then “reconstructing” the momenta according to those values, for each event. The angle <span class="math notranslate nohighlight">\(\phi\)</span> can be chosen uniformly and randomly in the interval <span class="math notranslate nohighlight">\((0,2 \pi\)</span>). Let’s start by generating a list of <span class="math notranslate nohighlight">\(\cos \theta\)</span>, distributed according to our differential cross section. This list is essentially the list of events.</p>
@@ -723,6 +720,11 @@ The fractional difference from the analytical value is 0.0010940829818810822
 
 <span class="c1"># check that the number of events generated is as requested:</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of events generated=&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of events generated= 10000
 </pre></div>
 </div>
 </div>
@@ -755,6 +757,9 @@ The fractional difference from the analytical value is 0.0010940829818810822
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># show the plot here</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d97763d4f910b2bf1f545d1ba005fb1806ca19ebf9565dbd8d28acaa792369bd.png" src="../../_images/d97763d4f910b2bf1f545d1ba005fb1806ca19ebf9565dbd8d28acaa792369bd.png" />
 </div>
 </div>
 <p>Therefore, our events have indeed the right distribution: they follow the differential cross section, as expected!</p>
@@ -799,6 +804,14 @@ The fractional difference from the analytical value is 0.0010940829818810822
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">reconstructed_events</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p=&#39;</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p= [15.0, 0, 0, 15.0]
+p= [15.0, 0, 0, -15.0]
+p= [15.0, -10.616804917922003, 9.496234739467484, -4.701593252049578]
+p= [15.0, 10.616804917922003, -9.496234739467484, -4.701593252049578]
 </pre></div>
 </div>
 </div>
