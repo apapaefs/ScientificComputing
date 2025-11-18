@@ -1,0 +1,69 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.11/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.10/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import random 
+import math
+import matplotlib.pyplot as plt # import matplotlib
+import numpy as np
+
+x = []
+
+# We have x = (y)**(1/3) and we pick y in [0,1] 
+for i in range(10000): # generate 1000 points
+    y = random.random() # generate random numbers in [0,1]
+    x.append( (y)**(1/3) )
+
+
+# create the real distribution for comparison. Use numpy"
+xcomp = np.linspace(0,1,100)
+ycomp = 3*np.square(xcomp)
+    
+# create a histogram of x:
+fig, ax = plt.subplots() # create the elements required for matplotlib. This creates a figure containing a single axes.
+
+# set the labels and titles:
+ax.set_xlabel(r'$x$', fontsize=20) # set the x label
+ax.set_ylabel(r'$P(x)$', fontsize=20) # set the y label. Note that the 'r' is necessary to remove the need for double slashes. You can use LaTeX! 
+ax.set_title('Histogram', fontsize=20) # set the title 
+
+# make a histogram of the values, density=True normalizes the histogram
+ax.hist(x, label='generated values via inversion method', density=True, bins=100) 
+
+# compare to how we expect it to look like:
+ax.plot(xcomp, ycomp, label='expected shape of $f(x) = 3x^2$')
+
+# construct the legend:
+ax.legend(loc='upper center')  # Add a legend
+
+plt.show() # show the plot here
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 3[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mrandom[39;00m 
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mmath[39;00m
+[0;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m [38;5;66;03m# import matplotlib[39;00m
+[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[1;32m      6[0m x [38;5;241m=[39m []
+
+[0;31mModuleNotFoundError[0m: No module named 'matplotlib'
+
