@@ -3,7 +3,7 @@
 
 title: An Introduction to Scientific Computing (with Particle Physics Phenomenology)
 author: Andreas Papaefstathiou
-logo: d2lbanner2.png
+logo: newlogo.png
 copyright : 2024, 2025
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
