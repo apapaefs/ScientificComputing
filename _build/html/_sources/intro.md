@@ -19,6 +19,7 @@ Here, you will find examples and notes, as well as additional material.
 - Computational Physics, Problem Solving with Python - Rubin H. Landau, Manuel J. Páez, Christian C. Bordeianu.
 - Computational Physics (Fortran Version) - Steve E. Koonin, Dawn C. Meredith. 
 - Nonlinear Dynamics and Chaos - Steven H. Strogatz.
+- Modern Particle Physics - Mark Thomson. 
 - How-to: write a parton-level Monte Carlo particle physics event generator, arXiv:1412.4677.
 - Pyresias: How To Write a Toy Parton Shower, Andreas Papaefstathiou, arXiv:2406.03528.
   

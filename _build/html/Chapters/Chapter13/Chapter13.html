@@ -501,9 +501,9 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Analytic value of the integral= 1.5707963267948966
-The MC integral of f(x) = sqrt(1-x^2) in [-1,1] is 1.5725835419534127 +- 0.0014097055700682784
-The fractional uncertainty is 0.0008964265061029365
-The fractional difference from the analytical value is 0.001137776507386409
+The MC integral of f(x) = sqrt(1-x^2) in [-1,1] is 1.5716022694953475 +- 0.0014113796288543756
+The fractional uncertainty is 0.0008980514066752903
+The fractional difference from the analytical value is 0.0005130790585024161
 </pre></div>
 </div>
 </div>
@@ -547,7 +547,7 @@ The fractional difference from the analytical value is 0.001137776507386409
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum weight found= 1.99999999998746 at 3.541162387321606e-06
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum weight found= 1.9999999999963183 at 1.9187789950247947e-06
 </pre></div>
 </div>
 </div>
@@ -634,7 +634,7 @@ The fractional difference from the analytical value is 0.001137776507386409
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b82726873cd7e12139481465e9e84dc454f19a8df8295a2546a17fb1c8a0445f.png" src="../../_images/b82726873cd7e12139481465e9e84dc454f19a8df8295a2546a17fb1c8a0445f.png" />
+<img alt="../../_images/a8a836cc88589b1a4b398129afbe3f28fa9be61f950b80c3a82d2344db95b4c0.png" src="../../_images/a8a836cc88589b1a4b398129afbe3f28fa9be61f950b80c3a82d2344db95b4c0.png" />
 </div>
 </div>
 <p>We are now ready to proceed to the particle physics case!</p>
@@ -682,8 +682,8 @@ The fractional difference from the analytical value is 0.001137776507386409
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cross section in pb is: 103.29507402942116 +- 0.07308594935326991
-Maximum weight found= 3.976104308022493e-07 at -0.9999955172579347
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cross section in pb is: 103.31947253376366 +- 0.0730306975317041
+Maximum weight found= 3.976034881699665e-07 at 0.9999780562147662
 </pre></div>
 </div>
 </div>
@@ -759,7 +759,7 @@ Maximum weight found= 3.976104308022493e-07 at -0.9999955172579347
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d97763d4f910b2bf1f545d1ba005fb1806ca19ebf9565dbd8d28acaa792369bd.png" src="../../_images/d97763d4f910b2bf1f545d1ba005fb1806ca19ebf9565dbd8d28acaa792369bd.png" />
+<img alt="../../_images/6cfc020e0ce83fc55e845a75382294f927f0ef88627e38fb50ed4c417191cc33.png" src="../../_images/6cfc020e0ce83fc55e845a75382294f927f0ef88627e38fb50ed4c417191cc33.png" />
 </div>
 </div>
 <p>Therefore, our events have indeed the right distribution: they follow the differential cross section, as expected!</p>
@@ -810,8 +810,8 @@ Maximum weight found= 3.976104308022493e-07 at -0.9999955172579347
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p= [15.0, 0, 0, 15.0]
 p= [15.0, 0, 0, -15.0]
-p= [15.0, -10.616804917922003, 9.496234739467484, -4.701593252049578]
-p= [15.0, 10.616804917922003, -9.496234739467484, -4.701593252049578]
+p= [15.0, -12.687175893207707, -6.722861007969084, 4.340358017760533]
+p= [15.0, 12.687175893207707, 6.722861007969084, 4.340358017760533]
 </pre></div>
 </div>
 </div>
@@ -820,6 +820,38 @@ p= [15.0, 10.616804917922003, -9.496234739467484, -4.701593252049578]
 <p>Since there is effectively only one degree of freedom, there’s not many variables that are interesting in this simple case. We can imagine reconstructing the ``transverse momentum’’, the magnitude of the momentum in the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> directions, defined as:</p>
 <p><span class="math notranslate nohighlight">\(p_T = \sqrt{p_x^2 + p_y^2}\)</span></p>
 <p>Let’s calculate this per event for the outgoing <span class="math notranslate nohighlight">\(\mu^-\)</span> and plot it!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pT_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># the list that will contain all the transverse momenta</span>
+<span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span> <span class="n">reconstructed_events</span><span class="p">:</span>
+    <span class="n">pmm</span> <span class="o">=</span> <span class="n">ev</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># the mu- is the third entry in the event in this case</span>
+    <span class="n">pT</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pmm</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">pmm</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">pT_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pT</span><span class="p">)</span>
+
+<span class="c1"># PLOT! </span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># create the elements required for matplotlib. This creates a figure containing a single axes.</span>
+
+<span class="c1"># set the labels and titles:</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$p_T$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># set the x label</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;frequency&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># set the y label</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Transverse momentum of the muon in $e^+ e^- \rightarrow \gamma \rightarrow \mu^+ \mu^-$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># set the title </span>
+
+<span class="c1"># make one-dimensional plots using the above arrays, add a custom label, linestyles and colors:</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pT_list</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;hit-or-miss&quot;</span><span class="p">)</span> 
+
+<span class="c1"># construct the legend:</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>  <span class="c1"># Add a legend</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># show the plot here</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/dedccd107eb829935ccea3e6bdd5653fae5de745ed0764368e321798ce249d74.png" src="../../_images/dedccd107eb829935ccea3e6bdd5653fae5de745ed0764368e321798ce249d74.png" />
+</div>
+</div>
+<p>An interesting next step is to consider the full process for <span class="math notranslate nohighlight">\(e^+ e^- \rightarrow \mu^+ \mu^-\)</span>, which includes a contribution from the <span class="math notranslate nohighlight">\(Z\)</span> boson. The main difference in the way that the <span class="math notranslate nohighlight">\(Z\)</span> boson interacts with the leptons is that it couples with different strengths to the left- and right-handed fermions.</p>
+<p>See the details discussed in secton 3.1.2 of <a class="reference external" href="https://arxiv.org/pdf/1412.4677">https://arxiv.org/pdf/1412.4677</a>. Following these, you should be able to address section 3.2, Exercise 1.</p>
 </section>
 </section>
 
