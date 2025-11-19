@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12. A Brief Introduction to Monte Carlo Event Generators in Particle Physics &#8212; An Introduction to Scientific Computing (with Particle Physics Phenomenology)</title>
+    <title>13. A Brief Introduction to Monte Carlo Event Generators in Particle Physics &#8212; An Introduction to Scientific Computing (with Particle Physics Phenomenology)</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapters/Chapter13/Chapter13';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="13. Parton Shower Monte Carlos" href="../Chapter14/Chapter14.html" />
-    <link rel="prev" title="11. More Monte Carlo: The Metropolis Algorithm" href="../Chapter11/Chapter11.html" />
+    <link rel="next" title="14. Parton Shower Monte Carlos" href="../Chapter14/Chapter14.html" />
+    <link rel="prev" title="12. An Introduction to Particle Physics Phenomenology" href="../Chapter12/Chapter12.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,9 +193,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../Chapter9/Chapter9.html">9. Boundary Value and Eigenvalue Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter10/Chapter10.html">10. Partial Differential Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter11/Chapter11.html">11. More Monte Carlo: The Metropolis Algorithm</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. A Brief Introduction to Monte Carlo Event Generators in Particle Physics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter14/Chapter14.html">13. Parton Shower Monte Carlos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter15/Chapter15.html">14. Artificial Intelligence and Machine Learning in Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter12/Chapter12.html">12. An Introduction to Particle Physics Phenomenology</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. A Brief Introduction to Monte Carlo Event Generators in Particle Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter14/Chapter14.html">14. Parton Shower Monte Carlos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter15/Chapter15.html">15. Artificial Intelligence and Machine Learning in Physics</a></li>
 </ul>
 
     </div>
@@ -391,9 +392,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-for-the-cross-section">12.1. Integrating for the Cross Section</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-event-generators">12.2. Monte Carlo Event Generators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-monte-carlo-event-generator-for-e-e-rightarrow-mu-mu">12.3. A Monte Carlo Event Generator for <span class="math notranslate nohighlight">\(e^+ e^- \rightarrow \mu^+ \mu^-\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-for-the-cross-section">13.1. Integrating for the Cross Section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-event-generators">13.2. Monte Carlo Event Generators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-monte-carlo-event-generator-for-e-e-rightarrow-mu-mu">13.3. A Monte Carlo Event Generator for <span class="math notranslate nohighlight">\(e^+ e^- \rightarrow \mu^+ \mu^-\)</span></a></li>
 </ul>
             </nav>
         </div>
@@ -406,9 +407,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="a-brief-introduction-to-monte-carlo-event-generators-in-particle-physics">
-<h1><span class="section-number">12. </span>A Brief Introduction to Monte Carlo Event Generators in Particle Physics<a class="headerlink" href="#a-brief-introduction-to-monte-carlo-event-generators-in-particle-physics" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">13. </span>A Brief Introduction to Monte Carlo Event Generators in Particle Physics<a class="headerlink" href="#a-brief-introduction-to-monte-carlo-event-generators-in-particle-physics" title="Link to this heading">#</a></h1>
 <section id="integrating-for-the-cross-section">
-<h2><span class="section-number">12.1. </span>Integrating for the Cross Section<a class="headerlink" href="#integrating-for-the-cross-section" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.1. </span>Integrating for the Cross Section<a class="headerlink" href="#integrating-for-the-cross-section" title="Link to this heading">#</a></h2>
 <p>Here, we will extend our Monte Carlo integration method to perform an integral to get the <em>cross section</em> for a specific process.</p>
 <p>Remember that the cross section is defined as (See Mark Thomson, page 70):</p>
 <p><span class="math notranslate nohighlight">\(\sigma=\)</span> (number of particles per unit time per target particle)/(incident flux),</p>
@@ -420,7 +421,7 @@ document.write(`
 <p>Generally speaking, integrals over differential cross sections will be complicated multi-differential and multi-dimensional functions of several variables, and therefore the Monte Carlo technique is the ideal method for solving them. In the first example we will consider here, the cross section can also be calculated analytically. However, we are going to use this as a first step towards understanding Monte Carlo event generators.</p>
 </section>
 <section id="monte-carlo-event-generators">
-<h2><span class="section-number">12.2. </span>Monte Carlo Event Generators<a class="headerlink" href="#monte-carlo-event-generators" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.2. </span>Monte Carlo Event Generators<a class="headerlink" href="#monte-carlo-event-generators" title="Link to this heading">#</a></h2>
 <p>This part of the tutorial is primarily based on the article <a class="reference external" href="https://arxiv.org/pdf/1412.4677">https://arxiv.org/pdf/1412.4677</a>.</p>
 <p>In a similar way to the Monte Carlo integration that we have previously discussed, we can scan over a function <span class="math notranslate nohighlight">\(f(x)\)</span>, and “collect” phase-space points, along with their associated “probabilities”, that are proportional to the weight of each in the calculation for the integral. These points effectively correspond to possible “events”, with their weights corresponding to their probability of occurring.</p>
 <p>However, if we want to use these events, e.g. to perform an experimental analysis, then we must always carry the associated weight around for use in histograms, averages and so on. This can be inconvenient, but also very inefficient, as time may be wasted in some latter part of the simulation (e.g. a simulation of the effects of the detector) to events that possess only a very small weight.</p>
@@ -643,7 +644,7 @@ The fractional difference from the analytical value is 0.0005130790585024161
 <p>We are now ready to proceed to the particle physics case!</p>
 </section>
 <section id="a-monte-carlo-event-generator-for-e-e-rightarrow-mu-mu">
-<h2><span class="section-number">12.3. </span>A Monte Carlo Event Generator for <span class="math notranslate nohighlight">\(e^+ e^- \rightarrow \mu^+ \mu^-\)</span><a class="headerlink" href="#a-monte-carlo-event-generator-for-e-e-rightarrow-mu-mu" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.3. </span>A Monte Carlo Event Generator for <span class="math notranslate nohighlight">\(e^+ e^- \rightarrow \mu^+ \mu^-\)</span><a class="headerlink" href="#a-monte-carlo-event-generator-for-e-e-rightarrow-mu-mu" title="Link to this heading">#</a></h2>
 <p>The differential cross section for the process <span class="math notranslate nohighlight">\(e^+ e^- \rightarrow \gamma \rightarrow \mu^+ \mu^-\)</span> is given by:</p>
 <p><span class="math notranslate nohighlight">\(\frac{\mathrm{d}\sigma}{\mathrm{d} \Omega} = \frac{ \alpha^2 } { 4s} (1+ \cos^2\theta)\)</span>,</p>
 <p>where <span class="math notranslate nohighlight">\(\alpha = e^2/(4\pi)\)</span> is the QED running coupling.</p>
@@ -889,12 +890,12 @@ p= [15.0, 12.687175893207707, 6.722861007969084, 4.340358017760533]
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Chapter11/Chapter11.html"
+       href="../Chapter12/Chapter12.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>More Monte Carlo: The Metropolis Algorithm</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>An Introduction to Particle Physics Phenomenology</p>
       </div>
     </a>
     <a class="right-next"
@@ -902,7 +903,7 @@ p= [15.0, 12.687175893207707, 6.722861007969084, 4.340358017760533]
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Parton Shower Monte Carlos</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Parton Shower Monte Carlos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -922,9 +923,9 @@ p= [15.0, 12.687175893207707, 6.722861007969084, 4.340358017760533]
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-for-the-cross-section">12.1. Integrating for the Cross Section</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-event-generators">12.2. Monte Carlo Event Generators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-monte-carlo-event-generator-for-e-e-rightarrow-mu-mu">12.3. A Monte Carlo Event Generator for <span class="math notranslate nohighlight">\(e^+ e^- \rightarrow \mu^+ \mu^-\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-for-the-cross-section">13.1. Integrating for the Cross Section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-event-generators">13.2. Monte Carlo Event Generators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-monte-carlo-event-generator-for-e-e-rightarrow-mu-mu">13.3. A Monte Carlo Event Generator for <span class="math notranslate nohighlight">\(e^+ e^- \rightarrow \mu^+ \mu^-\)</span></a></li>
 </ul>
   </nav></div>
 
