@@ -1,4 +1,4 @@
-# An Introduction to Scientific Computing (with Particle Physics Phenomenology)
+# An Introduction to Scientific Computing
 
 ## Introduction
 
