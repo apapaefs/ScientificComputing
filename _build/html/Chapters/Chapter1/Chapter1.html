@@ -619,7 +619,7 @@ document.write(`
 <h3><span class="section-number">1.2.3. </span>JupyterLab Notebooks and First Code<a class="headerlink" href="#jupyterlab-notebooks-and-first-code" title="Link to this heading">#</a></h3>
 <p>There are many ways to use Python. It can be used directly in a shell (terminal), but I will mainly be using JupyterLab notebooks, such as the one you are currently looking at.</p>
 <p>JupyterLab is a web-based, interactive development environment for notebooks, code, and data. Here, we will use it to run Python code.</p>
-<p>First, log into the JupyterHub server on Timur as described <a class="reference internal" href="#Connecting-to-the-KSU-Physics-Workstation-(Timur)"><span class="xref myst">above</span></a>.</p>
+<p>First, log into the JupyterHub server on Timur as described <a class="reference internal" href="#l#connecting-to-the-ksu-physics-workstation-timur"><span class="xref myst">above</span></a>.</p>
 <p>After you have performed step 4, you should have a new notebook open called <code class="docutils literal notranslate"><span class="pre">Untitled.ipynb</span></code>. You can write code in there.</p>
 <p>As a first test, let’s load the NumPy (numerical Python) module and use it to get the value of π. We will discuss modules later in this chapter.</p>
 <p>Type:</p>
@@ -733,7 +733,7 @@ document.write(`
 </section>
 <section id="manipulating-strings">
 <h3><span class="section-number">1.2.7. </span>Manipulating Strings<a class="headerlink" href="#manipulating-strings" title="Link to this heading">#</a></h3>
-<p>It’s very easy to manipulate text in Python (represented by “strings”). You can define strings as above, either in “” or ‘’.</p>
+<p>It’s very easy to manipulate text in Python (i.e. strings). You can define strings as above, and you can use either double or single quotation marks: “” or ‘’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">String3</span> <span class="o">=</span> <span class="n">String1</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">NumberOfEggs</span><span class="p">)</span> <span class="o">+</span>  <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">String2</span>
@@ -1745,16 +1745,6 @@ pear
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">73</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">fibo</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;fibo&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>This does not add the names of the functions defined in fibo directly to the current namespace; it only adds the module name fibo there. Using the module name you can access the functions:</p>
 <div class="cell docutils container">
@@ -1911,7 +1901,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;banana&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;apple&#39;
 </pre></div>
 </div>
 </div>
@@ -1923,7 +1913,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[91, 73, 7, 46, 38, 20, 93, 64, 85, 32]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[22, 12, 1, 20, 21, 56, 32, 85, 65, 29]
 </pre></div>
 </div>
 </div>
@@ -1935,7 +1925,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2067182414422717
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5136824108195944
 </pre></div>
 </div>
 </div>
@@ -1947,7 +1937,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
@@ -1979,12 +1969,6 @@ pear
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
-Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
 </pre></div>
 </div>
 </div>
@@ -2074,7 +2058,7 @@ Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) S
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(10)
 </pre></div>
 </div>
 </div>
@@ -2115,6 +2099,17 @@ Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) S
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">constants</span><span class="p">,</span> <span class="n">special</span><span class="p">,</span> <span class="n">integrate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">98</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">scipy</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">constants</span><span class="p">,</span> <span class="n">special</span><span class="p">,</span> <span class="n">integrate</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
 </pre></div>
 </div>
 </div>
