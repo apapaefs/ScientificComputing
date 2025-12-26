@@ -18,25 +18,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-x = int(input("Please enter an integer: "))
+eggs * 2
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
-Cell [0;32mIn[27], line 1[0m
-[0;32m----> 1[0m x [38;5;241m=[39m [38;5;28mint[39m([38;5;28;43minput[39;49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mPlease enter an integer: [39;49m[38;5;124;43m"[39;49m[43m)[49m)
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[6], line 1[0m
+[0;32m----> 1[0m [43meggs[49m [38;5;241m*[39m [38;5;241m2[39m
 
-File [0;32m/usr/local/lib/python3.11/site-packages/ipykernel/kernelbase.py:1281[0m, in [0;36mKernel.raw_input[0;34m(self, prompt)[0m
-[1;32m   1279[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_allow_stdin:
-[1;32m   1280[0m     msg [38;5;241m=[39m [38;5;124m"[39m[38;5;124mraw_input was called, but this frontend does not support input requests.[39m[38;5;124m"[39m
-[0;32m-> 1281[0m     [38;5;28;01mraise[39;00m StdinNotImplementedError(msg)
-[1;32m   1282[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_input_request(
-[1;32m   1283[0m     [38;5;28mstr[39m(prompt),
-[1;32m   1284[0m     [38;5;28mself[39m[38;5;241m.[39m_parent_ident[[38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m],
-[1;32m   1285[0m     [38;5;28mself[39m[38;5;241m.[39mget_parent([38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m),
-[1;32m   1286[0m     password[38;5;241m=[39m[38;5;28;01mFalse[39;00m,
-[1;32m   1287[0m )
-
-[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+[0;31mNameError[0m: name 'eggs' is not defined
 
