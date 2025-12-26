@@ -403,21 +403,21 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-into-the-jupyterhub-server">1.1.6.2. Logging into the JupyterHub Server</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-version-control">1.1.7. Git and Version Control</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-introduction-to-python">1.2. A Brief Introduction to Python</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python">1.2.1. What is Python?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aside-why-is-it-called-that">1.2.2. Aside: Why is it called that?!</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-notebooks-and-first-code">1.2.3. JupyterLab Notebooks and First Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-version-control">1.2.4. Git and Version Control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-python">1.2.5. Variables in Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-as-a-calculator">1.2.6. Python as a Calculator</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-strings">1.2.7. Manipulating Strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-in-python">1.2.8. Lists in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-python">1.2.4. Variables in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-as-a-calculator">1.2.5. Python as a Calculator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-strings">1.2.6. Manipulating Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-in-python">1.2.7. Lists in Python</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-flow-tools">1.3. Control Flow Tools</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">1.3.1. <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements-and-python-indentation">1.3.1. <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements and Python Indentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-and-while-statements">1.3.2. <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> Statements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-and-continue-statements-and-else-clauses-on-loops">1.3.3. <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> Statements, and <code class="docutils literal notranslate"><span class="pre">else</span></code> Clauses on Loops</a></li>
 </ul>
@@ -597,6 +597,48 @@ document.write(`
 <p>It is recommended that you create new files to write and test code.</p>
 </section>
 </section>
+<section id="git-and-version-control">
+<h3><span class="section-number">1.1.7. </span>Git and Version Control<a class="headerlink" href="#git-and-version-control" title="Link to this heading">#</a></h3>
+<p>We will make use of <code class="docutils literal notranslate"><span class="pre">git</span></code>, a version control system to keep track of changes to the course repository. I also recommend that you use <code class="docutils literal notranslate"><span class="pre">git</span></code> for your own projects. For a full description of <code class="docutils literal notranslate"><span class="pre">git</span></code> see the free “Pro Git” book at <a class="reference external" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>.</p>
+<p>Version control records changes to a file or set of files over time so that you can go back to specific versions later. Typically, there exists a single server (a server = a computer whose job is to provide a service that other devices ask for) that contains all the files of your project, also known as a repository, that you wish to “commit” changes to. The advantage of <code class="docutils literal notranslate"><span class="pre">git</span></code> and other “distributed” version control systems is that you can keep a local copy of the server, including the full history.</p>
+<p>There are several commercial platforms that can host your projects. One example is <a class="github reference external" href="https://github.com">github</a>, which we will be using in this course. This book, and its corresponding repository, is hosted entirely there!</p>
+<p>See <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a> on how to get <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on your system. Timur already has a git installation.</p>
+<p>If you wish to obtain a copy of an existing repository, you need to “clone” it. E.g. for this course, we are cloning the scientific computing repository via the terminal command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apapaefs</span><span class="o">/</span><span class="n">ScientificComputing</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>This will create the <code class="docutils literal notranslate"><span class="pre">ScientificComputing</span></code> directory on your filesystem, reflecting all the files of the repository.</p>
+<p>You can also create your own local repository (e.g. on Timur) as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">my_project</span>
+<span class="n">cd</span> <span class="n">my_project</span>
+<span class="n">git</span> <span class="n">init</span>
+</pre></div>
+</div>
+<p>The first line creates a new directory called <code class="docutils literal notranslate"><span class="pre">my_project</span></code>, then the second line changes your location into that directory, and the third line creates the repository. At this point nothing in your project is being tracked yet.</p>
+<p>Let’s say you have created a JupyterLab notebook in the <code class="docutils literal notranslate"><span class="pre">my_project</span></code> directory called <code class="docutils literal notranslate"><span class="pre">My_Project.ipynb</span></code> and you want to track changes. Then you need to add it to the repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">My_Project</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;Initial project version&#39;</span>
+</pre></div>
+</div>
+<p>If you wish to check which files have been changed in your local repository, you can use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> command.</p>
+<p>You can commit changes to <code class="docutils literal notranslate"><span class="pre">My_Project.ipynb</span></code> at any time by using the commit command, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;Minor change to code&#39;</span>
+</pre></div>
+</div>
+<p>If you have changes that you don’t want to keep instead, you can restore it to what it looked like when you last committed by using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">restore</span> <span class="n">My_Project</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">git</span></code> to collaborate on a project through remote repositories (such as on GitHub).</p>
+<p>While working with the course repository, you will inevitably change the files of the repository (e.g. when running or modifying the JupyterLab notebooks). I recommend you create copies of the notebooks while you are working with them. If at any point you wish to revert to the repository version, you may use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">origin</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> <span class="n">origin</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span> <span class="n">clean</span> <span class="o">-</span><span class="n">fd</span>
+</pre></div>
+</div>
+<p>Warning: this will overwrite <em>any</em> changes you may have made to the notebooks!</p>
+</section>
 </section>
 <section id="a-brief-introduction-to-python">
 <h2><span class="section-number">1.2. </span>A Brief Introduction to Python<a class="headerlink" href="#a-brief-introduction-to-python" title="Link to this heading">#</a></h2>
@@ -646,11 +688,8 @@ document.write(`
 <p>Anything that starts with <code class="docutils literal notranslate"><span class="pre">#</span></code> will not be read by Python. These are comments. Comments are a very important part of the code. They can provide notes on the structure of the code, caveats, warnings, things to be aware of, potential pitfalls, all for the purpose that a human (including the future you!) will be able to understand what the program is supposed to be doing. We will be discussing how to construct good comments for your code in the duration of the course. For a more advanced view, see <a class="reference external" href="https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/">https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/</a>.</p>
 <p><em>Warmup Exercise</em>: Figure out how to get the value of the Euler constant from NumPy! (See the NumPy manual on the web).</p>
 </section>
-<section id="git-and-version-control">
-<h3><span class="section-number">1.2.4. </span>Git and Version Control<a class="headerlink" href="#git-and-version-control" title="Link to this heading">#</a></h3>
-</section>
 <section id="variables-in-python">
-<h3><span class="section-number">1.2.5. </span>Variables in Python<a class="headerlink" href="#variables-in-python" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.2.4. </span>Variables in Python<a class="headerlink" href="#variables-in-python" title="Link to this heading">#</a></h3>
 <p>Variables in code are symbolic names that are stored on the computer’s memory. You can think of them in the same way as in a math problem, where e.g. you say <span class="math notranslate nohighlight">\(x = 3\)</span>.</p>
 <p>In Python you can define variables of any type using the <code class="docutils literal notranslate"><span class="pre">=</span></code> sign, e.g.:</p>
 <div class="cell docutils container">
@@ -666,7 +705,7 @@ document.write(`
 <p>Note that in Python, as opposed to e.g. C++, you do not need to specify the type of variable. It is automatically determined by the value that you assign it to. Python is said to be a “dynamically typed” language.</p>
 </section>
 <section id="python-as-a-calculator">
-<h3><span class="section-number">1.2.6. </span>Python as a Calculator<a class="headerlink" href="#python-as-a-calculator" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.2.5. </span>Python as a Calculator<a class="headerlink" href="#python-as-a-calculator" title="Link to this heading">#</a></h3>
 <p>We already saw how to calculate squares of numbers in Python. In fact, you can use Python as a fully-fledged calculator, e.g.:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -732,8 +771,9 @@ document.write(`
 </div>
 </section>
 <section id="manipulating-strings">
-<h3><span class="section-number">1.2.7. </span>Manipulating Strings<a class="headerlink" href="#manipulating-strings" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.2.6. </span>Manipulating Strings<a class="headerlink" href="#manipulating-strings" title="Link to this heading">#</a></h3>
 <p>It’s very easy to manipulate text in Python (i.e. strings). You can define strings as above, and you can use either double or single quotation marks: “” or ‘’.</p>
+<p>Let’s create a new string from the three available strings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">String3</span> <span class="o">=</span> <span class="n">String1</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">NumberOfEggs</span><span class="p">)</span> <span class="o">+</span>  <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">String2</span>
@@ -747,7 +787,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Strings can be indexed:</p>
+<p>Strings can be <em>indexed</em>, e.g. you can access the a certain “letter” in a string by using a number enclosed by <code class="docutils literal notranslate"><span class="pre">[]</span></code>. Note that in Python, numbering starts at <code class="docutils literal notranslate"><span class="pre">0</span></code>. This does not apply to all programming languages!</p>
+<p>Let’s access the first letter in the newly-created <code class="docutils literal notranslate"><span class="pre">String3</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">String3</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -760,6 +801,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>or the second letter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">String3</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -772,7 +814,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Negative integers start counting from the right:</p>
+<p>You can use negative integers to start <em>counting from the right</em>. E.g. the <em>last</em> letter in the string can be accessed via:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">String3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -785,6 +827,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>and then you can continue “moving” to the right by “going more negative”, e.g. the penultimate letter in the string can be accessed by:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">String3</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
@@ -797,7 +840,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>You can also “slice” strings:</p>
+<p>You can also “slice” strings to obtain a portion of them. E.g. for the first 2 letters”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">String3</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># characters from position 0 (included) to 2 (excluded)</span>
@@ -810,6 +853,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>or the 3rd to 5th letter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">String3</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># characters from position 2 (included) to 5 (excluded)</span>
@@ -822,6 +866,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>or the 5th letter to the end:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">String3</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>   <span class="c1"># characters from position 4 (included) to the end</span>
@@ -847,10 +892,12 @@ document.write(`
 </div>
 </div>
 </div>
+<p>So the valid “positions” within the string would be 0 (first element) to 15 (last element).</p>
 </section>
 <section id="lists-in-python">
-<h3><span class="section-number">1.2.8. </span>Lists in Python<a class="headerlink" href="#lists-in-python" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.2.7. </span>Lists in Python<a class="headerlink" href="#lists-in-python" title="Link to this heading">#</a></h3>
 <p>Lists are used to group together values. They are written as a list of comma-separated values (items) between square brackets. They may contain items of different types but usually the items all have the same type.</p>
+<p>For example, the list containing the squares of the first 5 integers is given by:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
@@ -979,25 +1026,18 @@ document.write(`
 </section>
 <section id="control-flow-tools">
 <h2><span class="section-number">1.3. </span>Control Flow Tools<a class="headerlink" href="#control-flow-tools" title="Link to this heading">#</a></h2>
-<section id="if-statements">
-<h3><span class="section-number">1.3.1. </span><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements<a class="headerlink" href="#if-statements" title="Link to this heading">#</a></h3>
+<section id="if-statements-and-python-indentation">
+<h3><span class="section-number">1.3.1. </span><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements and Python Indentation<a class="headerlink" href="#if-statements-and-python-indentation" title="Link to this heading">#</a></h3>
 <p>One of the most well-known statement type is the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. An example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#x = int(input(&quot;Please enter an integer: &quot;))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose a value for the integer x:</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># NOTE: a single equal sign ASSIGNS a value to x! </span>
 <span class="c1"># Then check various cases with an if ... elif ... else statement:</span>
 <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> 
     <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Negative integer detected, changed to zero!&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># NOTE: a double equal sign CHECKS the value! </span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zero&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One&quot;</span><span class="p">)</span>
@@ -1013,16 +1053,89 @@ document.write(`
 </div>
 </div>
 <p>‘elif’ is short for ‘else if’, there can be any number of such statements (including none). ‘else’ is optional and is ‘triggered’ if all other statements are not satisfied.</p>
+<p>It’s important to note that a single equal sign, e.g. <code class="docutils literal notranslate"><span class="pre">x=10</span></code>, asigns a value, whereas the double equal sign <code class="docutils literal notranslate"><span class="pre">==</span></code> check the equality. This is a common mistake when programming so be sure to remember to use the correct symbols.</p>
+<p>To check values, you can also use the standard mathematical symbols <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and for greater/less than or equal you can use <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> respectively.</p>
+<p>For the first time in the above code we also see the importance of indentation in Python. It’s very important to indent correctly to obtain the desired result. Consider the following example of an if statement:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mf">18.5</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can vote.&quot;</span><span class="p">)</span>   <span class="c1"># inside the if-block (runs only if condition is true)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">)</span>               <span class="c1"># outside the if-block (runs no matter what)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You can vote.
+Done.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first <code class="docutils literal notranslate"><span class="pre">print</span></code> statement is executed <em>inside</em> the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement and the second <em>outside</em> it.</p>
+<p>Now consider the <em>nested</em> statement, that first checks your age for an event that requires you to be over 18 and then whether you have a ticket for the event:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">has_ticket</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Over 18! You may enter the event.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">has_ticket</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;But you need a ticket to get in.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ticket verified. Welcome!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Over 18! You may enter the event.
+But you need a ticket to get in.
+Done.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The second <code class="docutils literal notranslate"><span class="pre">if</span></code> statement will only be considered if the first one is true!</p>
+<p>We have also introduced the value <code class="docutils literal notranslate"><span class="pre">False</span></code> or <code class="docutils literal notranslate"><span class="pre">True</span></code>, for a variable in Python above.</p>
+<p>But now let’s see what happens wen you don’t indent properly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">has_ticket</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Over 18! You may enter the event.&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">has_ticket</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;But you need a ticket to get in.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ticket verified. Welcome!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>But you need a ticket to get in.
+Done.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The age is checked independently of whether you have a ticket for the event, and we get a redundant printout (since you wouldn’t be able to enter regardless of whether you have a ticket or not, since you are underage).</p>
+<p>The morale of the story: make sure you indent properly in Python!</p>
 </section>
 <section id="for-and-while-statements">
 <h3><span class="section-number">1.3.2. </span><code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> Statements<a class="headerlink" href="#for-and-while-statements" title="Link to this heading">#</a></h3>
-<p>Python’s <code class="docutils literal notranslate"><span class="pre">for</span></code> statement iterates over the items of any sequence (e.g. a list or a string), in the order they appear in the sequence. E.g.:</p>
+<p>Python’s <code class="docutils literal notranslate"><span class="pre">for</span></code> statement iterates over the items of any sequence (e.g. a list or a string), in the order they appear in the sequence. In the example below, <code class="docutils literal notranslate"><span class="pre">w</span></code> becomes each word in the <code class="docutils literal notranslate"><span class="pre">words</span></code> list every time you “loop” through:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># measure the length of all the strings in a list:</span>
 <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Einstein&#39;</span><span class="p">,</span> <span class="s1">&#39;Galileo&#39;</span><span class="p">,</span> <span class="s1">&#39;Copernicus&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">))</span> <span class="c1"># print w and the length of w in each iteration</span>
 </pre></div>
 </div>
 </div>
@@ -1038,7 +1151,7 @@ Copernicus 10
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> 
 </pre></div>
 </div>
 </div>
@@ -1072,7 +1185,7 @@ Copernicus 10
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">words</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
-    <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># this line is ESSENTIAL: otherwise you end up with an INFINITE loop!</span>
 </pre></div>
 </div>
 </div>
@@ -1114,12 +1227,28 @@ Copernicus 10
 </section>
 <section id="break-and-continue-statements-and-else-clauses-on-loops">
 <h3><span class="section-number">1.3.3. </span><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> Statements, and <code class="docutils literal notranslate"><span class="pre">else</span></code> Clauses on Loops<a class="headerlink" href="#break-and-continue-statements-and-else-clauses-on-loops" title="Link to this heading">#</a></h3>
-<p>The break statement breaks out the innermost enclosing for or while loop. E.g.:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">break</span></code> statement breaks out the innermost enclosing for or while loop. E.g.:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">w</span> <span class="o">==</span> <span class="s1">&#39;Galileo&#39;</span><span class="p">:</span>
-        <span class="k">continue</span>
+    <span class="k">if</span> <span class="n">w</span> <span class="o">==</span> <span class="s1">&#39;Galileo&#39;</span><span class="p">:</span> 
+        <span class="k">break</span> <span class="c1"># once Galileo is found, break the loop!</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Einstein
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement skips the rest of the loop, e.g.:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">w</span> <span class="o">==</span> <span class="s1">&#39;Galileo&#39;</span><span class="p">:</span> 
+        <span class="k">continue</span> <span class="c1"># once Galileo is found, skip the rest of the loop (don&#39;t print in this case)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1183,10 +1312,79 @@ Found an odd number 9
 </div>
 </div>
 </div>
+<p><em>Warmup Exercises with <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops:</em></p>
+<p>Exercise 1:</p>
+<p>Predict the output of the following loop:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i is&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Exercise 2:</p>
+<p>Write code that prints this pattern exactly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span>
+<span class="o">**</span>
+<span class="o">***</span>
+<span class="o">****</span>
+<span class="o">*****</span>
+</pre></div>
+</div>
+<p>Exercise 3:</p>
+<p>We want to write code that performs a countdown to zero from a certain number. A student wrote some code that looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">while</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blastoff!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>What’s wrong with this code? Fix it so that the it counts down to zero and stops!</p>
+<p>Exercise 4:</p>
+<p>You have a list of item prices. Everyone pays the sum. Only members get a 10% discount, and only on items over $20. Using the code below, write a function that calculates how much a customer will pay:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="n">is_member</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">price</span> <span class="ow">in</span> <span class="n">prices</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">price</span>
+    <span class="c1"># TODO: Apply a 10% discount ONLY if:</span>
+    <span class="c1"># 1) is_member is True, AND</span>
+    <span class="c1"># 2) price &gt; 20</span>
+    <span class="c1"># (Discount means subtract 10% of that price from total.)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final total:&quot;</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="defining-functions">
 <h2><span class="section-number">1.4. </span>Defining Functions<a class="headerlink" href="#defining-functions" title="Link to this heading">#</a></h2>
+<p>In Python, a function is like a mathematical function: you give it an input (arguments), it applies a defined set of steps, and it returns an output (a result), so you can reuse the same “rule” whenever you need it. For example, let’s say you have the function <span class="math notranslate nohighlight">\(x sin(x)\)</span> and you want to avoid typing this over and over again:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> introduces a function definition. It must be followed by the function name and the parenthesized list of formal parameters. The statements that form the body of the function start at the next line, and must be indented. The first statement of the function body can optionally be a string literal; this string literal is the function’s documentation string.</p>
+<p>We can execute the function by calling it with a parameter, e.g.:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># we expect this to be π/2 * sin(π/2) = π/2:</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.5707963267948966)
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can create a function that writes the Fibonacci series to an arbitrary boundary:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1200,8 +1398,7 @@ Found an odd number 9
 </div>
 </div>
 </div>
-<p>The keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> introduces a function definition. It must be followed by the function name and the parenthesized list of formal parameters. The statements that form the body of the function start at the next line, and must be indented. The first statement of the function body can optionally be a string literal; this string literal is the function’s documentation string.</p>
-<p>We can execute the function by calling it with a parameter, e.g.:</p>
+<p>Let’s execute the function to calculate the Fiobonacci series up to n:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
@@ -1214,15 +1411,15 @@ Found an odd number 9
 </div>
 </div>
 </div>
-<p>Functions without <code class="docutils literal notranslate"><span class="pre">return</span></code> statements return <code class="docutils literal notranslate"><span class="pre">None</span></code>:</p>
+<p>Functions without <code class="docutils literal notranslate"><span class="pre">return</span></code> statements return <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="mi">2000</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 None
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 
 </pre></div>
 </div>
 </div>
@@ -1476,7 +1673,7 @@ Found an odd number 9
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tuples are immutable:</span>
 <span class="c1">#t[0] = 88888</span>
-<span class="c1"># Uncomment above line to execute!</span>
+<span class="c1"># Uncomment above line to execute and get an error!</span>
 </pre></div>
 </div>
 </div>
@@ -1901,7 +2098,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;apple&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;banana&#39;
 </pre></div>
 </div>
 </div>
@@ -1913,7 +2110,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[61, 67, 39, 6, 97, 23, 84, 0, 1, 48]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[34, 52, 51, 93, 39, 45, 40, 50, 64, 94]
 </pre></div>
 </div>
 </div>
@@ -1925,7 +2122,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9910138736947207
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.45509652721260907
 </pre></div>
 </div>
 </div>
@@ -1937,7 +2134,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
@@ -2105,7 +2302,7 @@ pear
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">98</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">103</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">scipy</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">constants</span><span class="p">,</span> <span class="n">special</span><span class="p">,</span> <span class="n">integrate</span>
 
@@ -2648,21 +2845,21 @@ built on top of the Python programming language.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-into-the-jupyterhub-server">1.1.6.2. Logging into the JupyterHub Server</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-version-control">1.1.7. Git and Version Control</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-introduction-to-python">1.2. A Brief Introduction to Python</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python">1.2.1. What is Python?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aside-why-is-it-called-that">1.2.2. Aside: Why is it called that?!</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-notebooks-and-first-code">1.2.3. JupyterLab Notebooks and First Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-version-control">1.2.4. Git and Version Control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-python">1.2.5. Variables in Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-as-a-calculator">1.2.6. Python as a Calculator</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-strings">1.2.7. Manipulating Strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-in-python">1.2.8. Lists in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-python">1.2.4. Variables in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-as-a-calculator">1.2.5. Python as a Calculator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-strings">1.2.6. Manipulating Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-in-python">1.2.7. Lists in Python</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-flow-tools">1.3. Control Flow Tools</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">1.3.1. <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements-and-python-indentation">1.3.1. <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements and Python Indentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-and-while-statements">1.3.2. <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> Statements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-and-continue-statements-and-else-clauses-on-loops">1.3.3. <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> Statements, and <code class="docutils literal notranslate"><span class="pre">else</span></code> Clauses on Loops</a></li>
 </ul>
