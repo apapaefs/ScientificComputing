@@ -18,14 +18,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-eggs * 2
+import fibo
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[6], line 1[0m
-[0;32m----> 1[0m [43meggs[49m [38;5;241m*[39m [38;5;241m2[39m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[73], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mfibo[39;00m
 
-[0;31mNameError[0m: name 'eggs' is not defined
+[0;31mModuleNotFoundError[0m: No module named 'fibo'
 
