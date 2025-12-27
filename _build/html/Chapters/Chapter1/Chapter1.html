@@ -407,10 +407,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python">1.3.1. What is Python?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aside-why-is-it-called-that">1.3.2. Aside: Why is it called that?!</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-notebooks-and-first-code">1.3.3. JupyterLab Notebooks and First Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-python">1.3.4. Variables in Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-as-a-calculator">1.3.5. Python as a Calculator</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-strings">1.3.6. Manipulating Strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-in-python">1.3.7. Lists in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-quickstart-reading-errors-and-fixing-them">1.3.4. Debugging Quickstart: Reading Errors and Fixing Them</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-python">1.3.5. Variables in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-as-a-calculator">1.3.6. Python as a Calculator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-strings">1.3.7. Manipulating Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-in-python">1.3.8. Lists in Python</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-flow-tools">1.4. Control Flow Tools</a><ul class="nav section-nav flex-column">
@@ -428,19 +429,26 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-techniques">1.6.5. Looping Techniques</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">1.7. Modules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-modules">1.7.1. User-Defined Modules</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-modules-and-the-standard-library">1.7.2. Standard Modules and the Standard Library</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">1.7.3. NumPy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">1.7.4. SciPy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-plotting">1.7.5. Matplotlib (Plotting)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-examples">1.7. Debugging Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nameerror-variable-not-defined">1.7.1. <code class="docutils literal notranslate"><span class="pre">NameError</span></code> (variable not defined)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaxerror-python-grammar-problem">1.7.2. <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> (Python grammar problem)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentationerror-block-structure-problem">1.7.3. <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> (block structure problem)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror-wrong-type-used-in-an-operation">1.7.4. <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> (wrong type used in an operation)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-modules">1.8. Other Useful Modules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">1.8.1. pandas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prettytable">1.8.2. PrettyTable</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tqdm">1.8.3. tqdm</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">1.8.4. SymPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">1.8. Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-modules">1.8.1. User-Defined Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-modules-and-the-standard-library">1.8.2. Standard Modules and the Standard Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">1.8.3. NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">1.8.4. SciPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-plotting">1.8.5. Matplotlib (Plotting)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-modules">1.9. Other Useful Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">1.9.1. pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prettytable">1.9.2. PrettyTable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tqdm">1.9.3. tqdm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">1.9.4. SymPy</a></li>
 </ul>
 </li>
 </ul>
@@ -591,7 +599,7 @@ document.write(`
 <p>Programming is a written art that blends the elements of science, math, and computer science into a set of instructions that permit a computer to accomplish a desired task.</p>
 <p>It is important that the source code of your program itself is available to others so that they can reproduce and extend your results.</p>
 <p>Reproducibility is an essential ingredient in science.</p>
-<p>In addition to the grammar of the computer language, a scientific program should include a number of essential elements to ensure the program’s validity and useability.</p>
+<p>In addition to the grammar of the computer language, a scientific program should include a number of essential elements to ensure the program’s validity and usability.</p>
 <p>As with other arts, it is recommended that until you know better, you should follow some simple rules:</p>
 <p>A good program should:</p>
 <ul class="simple">
@@ -600,8 +608,8 @@ document.write(`
 <li><p>document itself for the readers/programmer.</p></li>
 <li><p>be easy to use.</p></li>
 <li><p>be built out of small programs that can be independently verified.</p></li>
-<li><p>be easy to modify and robust enough to keep giving correct answers arfter modification and simple debugging.</p></li>
-<li><p>document the data fomats used.</p></li>
+<li><p>be easy to modify and robust enough to keep giving correct answers after modification and simple debugging.</p></li>
+<li><p>document the data formats used.</p></li>
 <li><p>use trusted libraries.</p></li>
 <li><p>be published or passed onto others to use and to develop further.</p></li>
 </ul>
@@ -610,50 +618,87 @@ document.write(`
 </section>
 <section id="git-and-version-control">
 <h3><span class="section-number">1.2.7. </span>Git and Version Control<a class="headerlink" href="#git-and-version-control" title="Link to this heading">#</a></h3>
-<p>We will make use of <code class="docutils literal notranslate"><span class="pre">git</span></code>, a version control system to keep track of changes to the course repository. I also recommend that you use <code class="docutils literal notranslate"><span class="pre">git</span></code> for your own projects. For a full description of <code class="docutils literal notranslate"><span class="pre">git</span></code> see the free “Pro Git” book at <a class="reference external" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>.</p>
-<p>Version control records changes to a file or set of files over time so that you can go back to specific versions later. Typically, there exists a single server (a server = a computer whose job is to provide a service that other devices ask for) that contains all the files of your project, also known as a repository, that you wish to “commit” changes to. The advantage of <code class="docutils literal notranslate"><span class="pre">git</span></code> and other “distributed” version control systems is that you can keep a local copy of the server, including the full history.</p>
-<p>There are several commercial platforms that can host your projects. One example is <a class="github reference external" href="https://github.com">github</a>, which we will be using in this course. This book, and its corresponding repository, is hosted entirely there!</p>
-<p>See <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a> on how to get <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on your system. Timur already has a git installation.</p>
-<p>If you wish to obtain a copy of an existing repository, you need to “clone” it. E.g. for this course, we are cloning the scientific computing repository via the terminal command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apapaefs</span><span class="o">/</span><span class="n">ScientificComputing</span><span class="o">.</span><span class="n">git</span>
+<p>We will make use of <code class="docutils literal notranslate"><span class="pre">git</span></code>, a version control system to keep track of changes to the course repository. I also recommend that you use <code class="docutils literal notranslate"><span class="pre">git</span></code> for your own projects. For a full description of <code class="docutils literal notranslate"><span class="pre">git</span></code>, see the free <em>Pro Git</em> book: <a class="reference external" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>.</p>
+<p>Version control records changes to a file or set of files over time so that you can go back to specific versions later. Typically, there exists a single server (a server = a computer whose job is to provide a service that other devices ask for) that contains all the files of your project, also known as a repository, that you wish to “commit” changes to. The advantage of <code class="docutils literal notranslate"><span class="pre">git</span></code> and other distributed version control systems is that you can keep a local copy of the repository, including the full history.</p>
+<p>There are several commercial platforms that can host your projects. One example is GitHub (<a class="github reference external" href="https://github.com">github</a>), which we will be using in this course. This book, and its corresponding repository, is hosted there.</p>
+<p>See <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a> for how to get <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on your system. Timur already has a git installation.</p>
+<p>If you wish to obtain a copy of an existing repository, you need to <em>clone</em> it. For this course:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/apapaefs/ScientificComputing.git
 </pre></div>
 </div>
-<p>This will create the <code class="docutils literal notranslate"><span class="pre">ScientificComputing</span></code> directory on your filesystem, reflecting all the files of the repository.</p>
-<p>You can also create your own local repository (e.g. on Timur) as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">my_project</span>
-<span class="n">cd</span> <span class="n">my_project</span>
-<span class="n">git</span> <span class="n">init</span>
+<p>This will create the <code class="docutils literal notranslate"><span class="pre">ScientificComputing/</span></code> directory on your filesystem, reflecting all the files of the repository.</p>
+<p>You can also create your own local repository (e.g., on Timur) as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>my_project
+<span class="nb">cd</span><span class="w"> </span>my_project
+git<span class="w"> </span>init
 </pre></div>
 </div>
 <p>The first line creates a new directory called <code class="docutils literal notranslate"><span class="pre">my_project</span></code>, then the second line changes your location into that directory, and the third line creates the repository. At this point nothing in your project is being tracked yet.</p>
-<p>Let’s say you have created a JupyterLab notebook in the <code class="docutils literal notranslate"><span class="pre">my_project</span></code> directory called <code class="docutils literal notranslate"><span class="pre">My_Project.ipynb</span></code> and you want to track changes. Then you need to add it to the repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">My_Project</span><span class="o">.</span><span class="n">ipynb</span>
-<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;Initial project version&#39;</span>
+<p>Let’s say you have created a JupyterLab notebook in the <code class="docutils literal notranslate"><span class="pre">my_project/</span></code> directory called <code class="docutils literal notranslate"><span class="pre">My_Project.ipynb</span></code> and you want to track changes. Then you need to add it to the repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>My_Project.ipynb
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial project version&quot;</span>
 </pre></div>
 </div>
-<p>If you wish to check which files have been changed in your local repository, you can use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> command.</p>
-<p>You can commit changes to <code class="docutils literal notranslate"><span class="pre">My_Project.ipynb</span></code> at any time by using the commit command, e.g.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;Minor change to code&#39;</span>
+<p>If you wish to check which files have been changed in your local repository, you can use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
 </pre></div>
 </div>
-<p>If you have changes that you don’t want to keep instead, you can restore it to what it looked like when you last committed by using:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">restore</span> <span class="n">My_Project</span><span class="o">.</span><span class="n">ipynb</span>
+<p>You can commit changes to <code class="docutils literal notranslate"><span class="pre">My_Project.ipynb</span></code> at any time, e.g.:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change to code&quot;</span>
+</pre></div>
+</div>
+<p>If you have changes that you don’t want to keep, you can restore the file to what it looked like when you last committed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>restore<span class="w"> </span>My_Project.ipynb
 </pre></div>
 </div>
 <p>You can also use <code class="docutils literal notranslate"><span class="pre">git</span></code> to collaborate on a project through remote repositories (such as on GitHub).</p>
-<p>While working with the course repository, you will inevitably change the files of the repository (e.g. when running or modifying the JupyterLab notebooks). I recommend you create copies of the notebooks while you are working with them. If at any point you wish to revert to the repository version, you may use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">origin</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
-<span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> <span class="n">origin</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span> <span class="n">clean</span> <span class="o">-</span><span class="n">fd</span>
+<p>While working with the course repository, you will inevitably change files (e.g., when running or modifying the JupyterLab notebooks). I recommend you create copies of notebooks while you are working with them.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<h3 class="rubric" id="safe-workflow-for-the-course-repository">Safe workflow for the course repository</h3>
+<p>You will inevitably modify notebooks while working. Best practice: make a personal copy and work on that copy.</p>
+<p>Example:</p>
+<ul class="simple">
+<li><p>Duplicate <code class="docutils literal notranslate"><span class="pre">SomeNotebook.ipynb</span></code> → <code class="docutils literal notranslate"><span class="pre">SomeNotebook_MyWork.ipynb</span></code></p></li>
+<li><p>Or create a <code class="docutils literal notranslate"><span class="pre">MyWork/</span></code> folder and keep your copies there</p></li>
+</ul>
+<h3 class="rubric" id="updating-the-course-repo-safe-first">Updating the course repo (safe first)</h3>
+<p>Run these inside the <code class="docutils literal notranslate"><span class="pre">ScientificComputing/</span></code> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+git<span class="w"> </span>pull
 </pre></div>
 </div>
-<p>Warning: this will overwrite <em>any</em> changes you may have made to the notebooks!</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> complains because you have local changes, do <strong>not</strong> use <code class="docutils literal notranslate"><span class="pre">reset</span> <span class="pre">--hard</span></code> yet. Use one of the safe options below.</p>
+<h3 class="rubric" id="undoing-changes-safe-options">Undoing changes (safe options)</h3>
+<p><strong>Option A: Discard changes in a single file (uncommitted):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>restore<span class="w"> </span>path/to/file.ipynb
+</pre></div>
+</div>
+<p><strong>Option B: Discard all uncommitted changes (tracked files):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>restore<span class="w"> </span>.
+</pre></div>
+</div>
+<p><strong>Option C: Save your changes temporarily, then update:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>stash<span class="w"> </span>-u
+git<span class="w"> </span>pull
+git<span class="w"> </span>stash<span class="w"> </span>pop
+</pre></div>
+</div>
+<h3 class="rubric" id="last-resort-restore-the-repository-exactly-to-the-remote-version-destructive">Last resort: restore the repository exactly to the remote version (DESTRUCTIVE)</h3>
+<p>This will overwrite local work and delete untracked files.</p>
+<p>Before doing this, make a backup copy of any notebook you care about.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>origin
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>origin/main
+git<span class="w"> </span>clean<span class="w"> </span>-fd
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 <section id="a-brief-introduction-to-python">
 <h2><span class="section-number">1.3. </span>A Brief Introduction to Python<a class="headerlink" href="#a-brief-introduction-to-python" title="Link to this heading">#</a></h2>
-<p>From the Python tutorial: <a class="reference external" href="https://docs.python.org/3.14/tutorial/index.html">https://docs.python.org/3.14/tutorial/index.html</a></p>
+<p>From the Python tutorial: <a class="reference external" href="https://docs.python.org/3/tutorial/index.html">https://docs.python.org/3/tutorial/index.html</a></p>
 <blockquote>
 <div><p>“Python is an easy to learn, powerful programming language.</p>
 <p>It has efficient high-level data structures and a simple but effective approach to object-oriented programming.</p>
@@ -699,8 +744,37 @@ document.write(`
 <p>Anything that starts with <code class="docutils literal notranslate"><span class="pre">#</span></code> will not be read by Python. These are comments. Comments are a very important part of the code. They can provide notes on the structure of the code, caveats, warnings, things to be aware of, potential pitfalls, all for the purpose that a human (including the future you!) will be able to understand what the program is supposed to be doing. We will be discussing how to construct good comments for your code in the duration of the course. For a more advanced view, see <a class="reference external" href="https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/">https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/</a>.</p>
 <p><em>Warmup Exercise</em>: Figure out how to get the value of the Euler constant from NumPy! (See the NumPy manual on the web).</p>
 </section>
+<section id="debugging-quickstart-reading-errors-and-fixing-them">
+<h3><span class="section-number">1.3.4. </span>Debugging Quickstart: Reading Errors and Fixing Them<a class="headerlink" href="#debugging-quickstart-reading-errors-and-fixing-them" title="Link to this heading">#</a></h3>
+<p>When you run code, errors are normal. Debugging is the process of reading what the computer tells you, making a small change, and trying again. In this course, you will see most errors in JupyterLab as a <em>traceback</em> (a stack of lines ending with an error type and message).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<h4 class="rubric" id="a-reliable-way-to-read-a-traceback-do-this-every-time">A reliable way to read a traceback (do this every time)</h4>
+<ol class="arabic simple">
+<li><p><strong>Read the last line first.</strong> It contains the error type (e.g., <code class="docutils literal notranslate"><span class="pre">NameError</span></code>) and a short message.</p></li>
+<li><p><strong>Find the first line that points to your code.</strong> In a notebook, it will reference the cell you ran.</p></li>
+<li><p><strong>Identify the exact “trigger.”</strong> A variable name, a missing <code class="docutils literal notranslate"><span class="pre">:</span></code>, mismatched parentheses, wrong indentation, etc.</p></li>
+<li><p><strong>Make one small change.</strong> Then run the cell again.</p></li>
+<li><p><strong>If results feel inconsistent:</strong> use <strong>Kernel → Restart Kernel and Run All</strong> to reset the state and run cells in order.</p></li>
+</ol>
+<h4 class="rubric" id="common-jupyterlab-specific-gotchas">Common JupyterLab-specific gotchas</h4>
+<ul class="simple">
+<li><p><strong>Execution order matters.</strong> If you define a variable in a cell but never ran that cell, the variable does not exist.</p></li>
+<li><p><strong>Restarting the kernel clears memory.</strong> After a restart, you must re-run cells that define variables/functions before using them again.</p></li>
+</ul>
+<h4 class="rubric" id="common-errors-and-the-first-thing-to-try">Common errors and the first thing to try</h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NameError</span></code></strong>: You used a name that does not exist (misspelling, not defined yet, or you did not run the defining cell).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code></strong>: Python cannot parse the code (missing <code class="docutils literal notranslate"><span class="pre">:</span></code>, mismatched quotes/parentheses, invalid characters).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code></strong>: The indentation does not form a valid block (misaligned code, mixing tabs/spaces, missing indent after <code class="docutils literal notranslate"><span class="pre">:</span></code>).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">TypeError</span></code></strong>: You applied an operation to the wrong type (e.g., adding a string and an integer).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code></strong>: The package is not installed in the current environment, or you are using the wrong kernel.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">IndexError</span></code> / <code class="docutils literal notranslate"><span class="pre">KeyError</span></code></strong>: You tried to access a list index that does not exist, or a dictionary key that is not present.</p></li>
+</ul>
+</div>
+</section>
 <section id="variables-in-python">
-<h3><span class="section-number">1.3.4. </span>Variables in Python<a class="headerlink" href="#variables-in-python" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.3.5. </span>Variables in Python<a class="headerlink" href="#variables-in-python" title="Link to this heading">#</a></h3>
 <p>Variables in code are symbolic names that are stored on the computer’s memory. You can think of them in the same way as in a math problem, where e.g. you say <span class="math notranslate nohighlight">\(x = 3\)</span>.</p>
 <p>In Python you can define variables of any type using the <code class="docutils literal notranslate"><span class="pre">=</span></code> sign, e.g.:</p>
 <div class="cell docutils container">
@@ -716,7 +790,7 @@ document.write(`
 <p>Note that in Python, as opposed to e.g. C++, you do not need to specify the type of variable. It is automatically determined by the value that you assign it to. Python is said to be a “dynamically typed” language.</p>
 </section>
 <section id="python-as-a-calculator">
-<h3><span class="section-number">1.3.5. </span>Python as a Calculator<a class="headerlink" href="#python-as-a-calculator" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.3.6. </span>Python as a Calculator<a class="headerlink" href="#python-as-a-calculator" title="Link to this heading">#</a></h3>
 <p>We already saw how to calculate squares of numbers in Python. In fact, you can use Python as a fully-fledged calculator, e.g.:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -782,7 +856,7 @@ document.write(`
 </div>
 </section>
 <section id="manipulating-strings">
-<h3><span class="section-number">1.3.6. </span>Manipulating Strings<a class="headerlink" href="#manipulating-strings" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.3.7. </span>Manipulating Strings<a class="headerlink" href="#manipulating-strings" title="Link to this heading">#</a></h3>
 <p>It’s very easy to manipulate text in Python (i.e. strings). You can define strings as above, and you can use either double or single quotation marks: “” or ‘’.</p>
 <p>Let’s create a new string from the three available strings:</p>
 <div class="cell docutils container">
@@ -906,7 +980,7 @@ document.write(`
 <p>So the valid “positions” within the string would be 0 (first element) to 15 (last element).</p>
 </section>
 <section id="lists-in-python">
-<h3><span class="section-number">1.3.7. </span>Lists in Python<a class="headerlink" href="#lists-in-python" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.3.8. </span>Lists in Python<a class="headerlink" href="#lists-in-python" title="Link to this heading">#</a></h3>
 <p>Lists are used to group together values. They are written as a list of comma-separated values (items) between square brackets. They may contain items of different types but usually the items all have the same type.</p>
 <p>For example, the list containing the squares of the first 5 integers is given by:</p>
 <div class="cell docutils container">
@@ -1917,10 +1991,120 @@ pear
 </div>
 </section>
 </section>
+<section id="debugging-examples">
+<h2><span class="section-number">1.7. </span>Debugging Examples<a class="headerlink" href="#debugging-examples" title="Link to this heading">#</a></h2>
+<p>Now that we have learned how to write a little bit of code, let’s look at examples of common errors and how to fix them.</p>
+<section id="nameerror-variable-not-defined">
+<h3><span class="section-number">1.7.1. </span><code class="docutils literal notranslate"><span class="pre">NameError</span></code> (variable not defined)<a class="headerlink" href="#nameerror-variable-not-defined" title="Link to this heading">#</a></h3>
+<p>Run this in a cell:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value is:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should see a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> because <code class="docutils literal notranslate"><span class="pre">x</span></code> does not exist yet.</p>
+<p>Fix it by defining <code class="docutils literal notranslate"><span class="pre">x</span></code> first:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value is:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="syntaxerror-python-grammar-problem">
+<h3><span class="section-number">1.7.2. </span><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> (Python grammar problem)<a class="headerlink" href="#syntaxerror-python-grammar-problem" title="Link to this heading">#</a></h3>
+<p>Run this cell:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Over 18&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should see a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>. In most cases, look for a missing : or mismatched parentheses/quotes.</p>
+<p>Fix it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Over 18&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now add an else clause that prints “Under 18”.</p>
+</section>
+<section id="indentationerror-block-structure-problem">
+<h3><span class="section-number">1.7.3. </span><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> (block structure problem)<a class="headerlink" href="#indentationerror-block-structure-problem" title="Link to this heading">#</a></h3>
+<p>Run this cell:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Over 18&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should see an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> because the <code class="docutils literal notranslate"><span class="pre">print</span></code> statement is not indented under the <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<p>Fix it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Over 18&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now change the indentation on purpose so that “Done” prints only when age &gt;= 18:</p>
+</section>
+<section id="typeerror-wrong-type-used-in-an-operation">
+<h3><span class="section-number">1.7.4. </span><code class="docutils literal notranslate"><span class="pre">TypeError</span></code> (wrong type used in an operation)<a class="headerlink" href="#typeerror-wrong-type-used-in-an-operation" title="Link to this heading">#</a></h3>
+<p>Run this cell:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="s2">&quot;20&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should see a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> because “20” is a string, not a number.</p>
+<p>There are two ways to fix this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="s2">&quot;20&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">### `IndexError` and `KeyError` (access problems)</span>
+
+<span class="n">Run</span> <span class="n">this</span> <span class="n">cell</span><span class="p">:</span> 
+
+<span class="err">```</span><span class="n">python</span>
+<span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>You should see an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> because valid indices are 0, 1, 2.</p>
+<p>Fix it by printing the last element:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Now run this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ada&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;major&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Fix it by printing existing keys:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ada&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<h3 class="rubric" id="when-something-feels-mysteriously-wrong">When something feels “mysteriously wrong”</h3>
+<p>If your output does not match what you expect and you are not sure why:</p>
+<ol class="arabic simple">
+<li><p>Save your work.</p></li>
+<li><p>Use <strong>Kernel → Restart Kernel and Run All</strong>.</p></li>
+<li><p>Re-run the cell that fails and read the traceback again from the last line upward.</p></li>
+</ol>
+<p>This solves a large fraction of “stale state” issues in notebooks.</p>
+</div>
+</section>
+</section>
 <section id="modules">
-<h2><span class="section-number">1.7. </span>Modules<a class="headerlink" href="#modules" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8. </span>Modules<a class="headerlink" href="#modules" title="Link to this heading">#</a></h2>
 <section id="user-defined-modules">
-<h3><span class="section-number">1.7.1. </span>User-Defined Modules<a class="headerlink" href="#user-defined-modules" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.8.1. </span>User-Defined Modules<a class="headerlink" href="#user-defined-modules" title="Link to this heading">#</a></h3>
 <p>If you quit from the Python interpreter and enter it again, the definitions you have made (functions and variables) are lost. The same happens when you open a new jupyter notebook. Therefore, if you want to write a somewhat longer program, you are better off using a text editor to prepare the input for the interpreter and running it with that file as input instead. This is known as creating a script. As your program gets longer, you may want to split it into several files for easier maintenance. You may also want to use a handy function that you’ve written in several programs without copying its definition into each program.</p>
 <p>To support this, Python has a way to put definitions in a file and use them in a script or in an interactive instance of the interpreter. Such a file is called a <em>module</em>; definitions from a module can be imported into other modules or into the main module (the collection of variables that you have access to in a script executed at the top level and in calculator mode).</p>
 <p>A module is a file containing Python definitions and statements. The file name is the module name with the suffix .py appended. Within a module, the module’s name (as a string) is available as the value of the global variable <code class="docutils literal notranslate"><span class="pre">__name__</span></code>. For instance, we have created a file called <code class="docutils literal notranslate"><span class="pre">fibo.py</span></code> in the current directory with the following contents:</p>
@@ -2049,7 +2233,7 @@ pear
 </div>
 </section>
 <section id="standard-modules-and-the-standard-library">
-<h3><span class="section-number">1.7.2. </span>Standard Modules and the Standard Library<a class="headerlink" href="#standard-modules-and-the-standard-library" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.8.2. </span>Standard Modules and the Standard Library<a class="headerlink" href="#standard-modules-and-the-standard-library" title="Link to this heading">#</a></h3>
 <p>Python comes with a library of standard modules, described in a separate document, the Python Library Reference (“Library Reference” hereafter). The built-in function dir() is used to find out which names a module defines. It returns a sorted list of strings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2109,7 +2293,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;apple&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;banana&#39;
 </pre></div>
 </div>
 </div>
@@ -2121,7 +2305,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[37, 42, 79, 85, 95, 0, 81, 65, 88, 39]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[55, 45, 0, 70, 6, 10, 23, 2, 65, 43]
 </pre></div>
 </div>
 </div>
@@ -2133,7 +2317,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5412170151122546
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8438186598483878
 </pre></div>
 </div>
 </div>
@@ -2145,7 +2329,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -2171,7 +2355,7 @@ pear
 </div>
 </section>
 <section id="numpy">
-<h3><span class="section-number">1.7.3. </span>NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.8.3. </span>NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h3>
 <p>NumPy is the fundamental package for scientific computing in Python. It is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation and much more.</p>
 <p>To access NumPy and its functions import it:</p>
 <div class="cell docutils container">
@@ -2288,7 +2472,7 @@ pear
 <p>With NumPy you can create and manipulate matrices, generate random numbers, and much more! We will discuss specific applications during the course, but see <a class="reference external" href="https://numpy.org/doc/stable/index.html">https://numpy.org/doc/stable/index.html</a> for detailed documentation.</p>
 </section>
 <section id="scipy">
-<h3><span class="section-number">1.7.4. </span>SciPy<a class="headerlink" href="#scipy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.8.4. </span>SciPy<a class="headerlink" href="#scipy" title="Link to this heading">#</a></h3>
 <p>SciPy provides algorithms for optimization, integration, interpolation, eigenvalue problems, algebraic equations, differential equations, statistics and many other classes of problems. It is built on NumPy . It adds significant power to Python by providing the user with high-level commands and classes for manipulating and visualizing data.</p>
 <p>Some subpackages of interest to physics are:</p>
 <ul class="simple">
@@ -2363,7 +2547,7 @@ pear
 </div>
 </section>
 <section id="matplotlib-plotting">
-<h3><span class="section-number">1.7.5. </span>Matplotlib (Plotting)<a class="headerlink" href="#matplotlib-plotting" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.8.5. </span>Matplotlib (Plotting)<a class="headerlink" href="#matplotlib-plotting" title="Link to this heading">#</a></h3>
 <p>“If I can’t picture it, I can’t understand it.” - Albert Einstein</p>
 <p>From the Matplotlib page: <a class="reference external" href="https://matplotlib.org">https://matplotlib.org</a>:</p>
 <blockquote>
@@ -2627,9 +2811,9 @@ pear
 </section>
 </section>
 <section id="other-useful-modules">
-<h2><span class="section-number">1.8. </span>Other Useful Modules<a class="headerlink" href="#other-useful-modules" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9. </span>Other Useful Modules<a class="headerlink" href="#other-useful-modules" title="Link to this heading">#</a></h2>
 <section id="pandas">
-<h3><span class="section-number">1.8.1. </span>pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.9.1. </span>pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h3>
 <p>According to the pandas webpage: <a class="reference external" href="https://pandas.pydata.org">https://pandas.pydata.org</a></p>
 <blockquote>
 <div><p>pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
@@ -2639,7 +2823,7 @@ built on top of the Python programming language.</p>
 <p>We will introduce some pandas functionality during the course.</p>
 </section>
 <section id="prettytable">
-<h3><span class="section-number">1.8.2. </span>PrettyTable<a class="headerlink" href="#prettytable" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.9.2. </span>PrettyTable<a class="headerlink" href="#prettytable" title="Link to this heading">#</a></h3>
 <p>PrettyTable is “a simple Python library for easily displaying tabular data in a visually appealing ASCII table format”. (<a class="reference external" href="https://pypi.org/project/prettytable/">https://pypi.org/project/prettytable/</a>).</p>
 <p>Here’s an example:</p>
 <div class="cell docutils container">
@@ -2673,7 +2857,7 @@ built on top of the Python programming language.</p>
 </div>
 </section>
 <section id="tqdm">
-<h3><span class="section-number">1.8.3. </span>tqdm<a class="headerlink" href="#tqdm" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.9.3. </span>tqdm<a class="headerlink" href="#tqdm" title="Link to this heading">#</a></h3>
 <p>With <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> you can instantly make your loops show a smart progress meter. e.g.:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2692,7 +2876,7 @@ built on top of the Python programming language.</p>
 </div>
 </section>
 <section id="sympy">
-<h3><span class="section-number">1.8.4. </span>SymPy<a class="headerlink" href="#sympy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.9.4. </span>SymPy<a class="headerlink" href="#sympy" title="Link to this heading">#</a></h3>
 <p>From the SymPy webpage (<a class="reference external" href="https://www.sympy.org/en/index.html">https://www.sympy.org/en/index.html</a>):</p>
 <blockquote>
 <div><p>SymPy is a Python library for symbolic mathematics. It aims to become a full-featured computer algebra system (CAS) while keeping the code as simple as possible in order to be comprehensible and easily extensible. SymPy is written entirely in Python.</p>
@@ -2860,10 +3044,11 @@ built on top of the Python programming language.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python">1.3.1. What is Python?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aside-why-is-it-called-that">1.3.2. Aside: Why is it called that?!</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-notebooks-and-first-code">1.3.3. JupyterLab Notebooks and First Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-python">1.3.4. Variables in Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-as-a-calculator">1.3.5. Python as a Calculator</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-strings">1.3.6. Manipulating Strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-in-python">1.3.7. Lists in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-quickstart-reading-errors-and-fixing-them">1.3.4. Debugging Quickstart: Reading Errors and Fixing Them</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-python">1.3.5. Variables in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-as-a-calculator">1.3.6. Python as a Calculator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-strings">1.3.7. Manipulating Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-in-python">1.3.8. Lists in Python</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-flow-tools">1.4. Control Flow Tools</a><ul class="nav section-nav flex-column">
@@ -2881,19 +3066,26 @@ built on top of the Python programming language.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-techniques">1.6.5. Looping Techniques</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">1.7. Modules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-modules">1.7.1. User-Defined Modules</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-modules-and-the-standard-library">1.7.2. Standard Modules and the Standard Library</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">1.7.3. NumPy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">1.7.4. SciPy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-plotting">1.7.5. Matplotlib (Plotting)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-examples">1.7. Debugging Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nameerror-variable-not-defined">1.7.1. <code class="docutils literal notranslate"><span class="pre">NameError</span></code> (variable not defined)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaxerror-python-grammar-problem">1.7.2. <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> (Python grammar problem)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentationerror-block-structure-problem">1.7.3. <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> (block structure problem)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror-wrong-type-used-in-an-operation">1.7.4. <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> (wrong type used in an operation)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-modules">1.8. Other Useful Modules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">1.8.1. pandas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prettytable">1.8.2. PrettyTable</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tqdm">1.8.3. tqdm</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">1.8.4. SymPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">1.8. Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-modules">1.8.1. User-Defined Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-modules-and-the-standard-library">1.8.2. Standard Modules and the Standard Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">1.8.3. NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">1.8.4. SciPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-plotting">1.8.5. Matplotlib (Plotting)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-modules">1.9. Other Useful Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">1.9.1. pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prettytable">1.9.2. PrettyTable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tqdm">1.9.3. tqdm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">1.9.4. SymPy</a></li>
 </ul>
 </li>
 </ul>
