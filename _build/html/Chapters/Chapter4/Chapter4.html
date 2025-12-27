@@ -177,12 +177,12 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    An Introduction to Scientific Computing (with Particle Physics Phenomenology)
+                    An Introduction to Scientific Computing
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Chapter1/Chapter1.html">1. Making Computers Obey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter1/Chapter1.html">1. Talking to Computers: Turning Ideas into Instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter2/Chapter2.html">2. Computer Number Representations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter3/Chapter3.html">3. Randomness and Random Walks</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Numerical Differentiation and Integration</a></li>
@@ -480,16 +480,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># creates a NumPy array for time</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
-</pre></div>
-</div>
+<img alt="../../_images/98d835cfe235b3bb0027348ea512f1be29c38498c6dbe27a04dd9d321247f76a.png" src="../../_images/98d835cfe235b3bb0027348ea512f1be29c38498c6dbe27a04dd9d321247f76a.png" />
 </div>
 </div>
 <p>Assuming we don’t know the analytic form of the function that generated the above, we would like to calculate the speed <span class="math notranslate nohighlight">\(v(t)\)</span> numerically.</p>
@@ -543,11 +534,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
-Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
-</pre></div>
-</div>
-<img alt="../../_images/cee22aca46e4bf095023ea5790a79553d0f0059de15aa4be60fcf42389040730.png" src="../../_images/cee22aca46e4bf095023ea5790a79553d0f0059de15aa4be60fcf42389040730.png" />
+<img alt="../../_images/4954e72c3557e2aecedfcf1458210a215086f73589d0bddeb4dd9775a2061d48.png" src="../../_images/4954e72c3557e2aecedfcf1458210a215086f73589d0bddeb4dd9775a2061d48.png" />
 </div>
 </div>
 <section id="example-4-1-calculate-the-forward-difference-derivative-for-the-above-data-points-and-plot-it-in-a-numpy-array-called-y">
@@ -576,7 +563,7 @@ Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) S
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fd0043ab139a43fa9466c8391ac61fbbb84340873081a7e23c058567e83a62a4.png" src="../../_images/fd0043ab139a43fa9466c8391ac61fbbb84340873081a7e23c058567e83a62a4.png" />
+<img alt="../../_images/514d6fe46ffc518ce48ef17370c750efafd2c5adeac4121ed367d61b8dc9545b.png" src="../../_images/514d6fe46ffc518ce48ef17370c750efafd2c5adeac4121ed367d61b8dc9545b.png" />
 </div>
 </div>
 </section>
@@ -836,7 +823,7 @@ d(exp(t))/dt at t= 100.0 = 2.6881171427769514e+43 vs analytic= 2.688117141816135
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3bcd6a157db8da24d2a9d08f0c1f1077d3fda136ce7333309b1ed608fdd541f8.png" src="../../_images/3bcd6a157db8da24d2a9d08f0c1f1077d3fda136ce7333309b1ed608fdd541f8.png" />
+<img alt="../../_images/8e8b820b6ce114487e9cf005a02e1eadfd076645bad14c63fc231f79f49adf71.png" src="../../_images/8e8b820b6ce114487e9cf005a02e1eadfd076645bad14c63fc231f79f49adf71.png" />
 </div>
 </div>
 <p>Now let’s do the same exercise in class, with <span class="math notranslate nohighlight">\(f(t) = \exp(t) \cos(t)\)</span>!</p>
@@ -905,7 +892,7 @@ d(exp(t))/dt at t= 100.0 = 2.6881171427769514e+43 vs analytic= 2.688117141816135
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f9b319ea945ae585fcbc65693b5720de2854f1742574518cdd044b6dbeba451e.png" src="../../_images/f9b319ea945ae585fcbc65693b5720de2854f1742574518cdd044b6dbeba451e.png" />
+<img alt="../../_images/248c5f58b83a07e8d6667462337356ec410c0fb656f60b1038f35125754a8a3d.png" src="../../_images/248c5f58b83a07e8d6667462337356ec410c0fb656f60b1038f35125754a8a3d.png" />
 </div>
 </div>
 <p>The numerical integral of a function <span class="math notranslate nohighlight">\(f(x)\)</span> is approximated as a finite sum over boxes of height <span class="math notranslate nohighlight">\(f(x_i)\)</span> and width <span class="math notranslate nohighlight">\(w_i\)</span>:</p>
@@ -991,7 +978,7 @@ Conversely, if your integrand has a very rapid variation in some region, you may
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/52b4d1401cfc858f04084e6073abe57a602881330c03576e656ebcc88855b87e.png" src="../../_images/52b4d1401cfc858f04084e6073abe57a602881330c03576e656ebcc88855b87e.png" />
+<img alt="../../_images/465f1d1f29aa85994d76c9ef2589b8827c3e89728d8a637365e568e5fdcf1151.png" src="../../_images/465f1d1f29aa85994d76c9ef2589b8827c3e89728d8a637365e568e5fdcf1151.png" />
 </div>
 </div>
 <p>In order to apply the trapezoid rule to the entire region <span class="math notranslate nohighlight">\([a,b]\)</span>, we add the contributions from each subinterval:</p>
@@ -1124,7 +1111,7 @@ Fractional error= 9.378892789826624e-14
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/367b09a3da8c90cde081629cf6a530ab9bdbe3f03408c4511b036198e70eafa3.png" src="../../_images/367b09a3da8c90cde081629cf6a530ab9bdbe3f03408c4511b036198e70eafa3.png" />
+<img alt="../../_images/3718479de7fb26a26415a1ba0fd16be47c4aa4cad41a82af48fafb9ad8f8a22c.png" src="../../_images/3718479de7fb26a26415a1ba0fd16be47c4aa4cad41a82af48fafb9ad8f8a22c.png" />
 </div>
 </div>
 <p>i.e.: <span class="math notranslate nohighlight">\(f(x) \simeq \alpha x^2 + \beta x + \gamma\)</span></p>
@@ -1376,7 +1363,7 @@ Fractional error= 1.7563469643870083e-16
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b4622c13e606c44b0b1ab6d92343d2dce59eda3daa3cfdb27c06925b01050ab1.png" src="../../_images/b4622c13e606c44b0b1ab6d92343d2dce59eda3daa3cfdb27c06925b01050ab1.png" />
+<img alt="../../_images/b9dca0001fb403c6370c40c0db47d1800886db9864e0bc4d73fb14bf79396eb1.png" src="../../_images/b9dca0001fb403c6370c40c0db47d1800886db9864e0bc4d73fb14bf79396eb1.png" />
 </div>
 </div>
 </section>
@@ -1418,11 +1405,11 @@ Fractional error= 1.7563469643870083e-16
 Integral of a*x+b in [0,1], for a= 0.1 b= 0.5 = 0.55
 Integral of a*x+b in [0,1], for a= 0.1 b= 0.6 = 0.65
 Integral of a*x+b in [0,1], for a= 0.2 b= 0.4 = 0.5
-Integral of a*x+b in [0,1], for a= 0.2 b= 0.5 = 0.6000000000000001
-Integral of a*x+b in [0,1], for a= 0.2 b= 0.6 = 0.7000000000000001
-Integral of a*x+b in [0,1], for a= 0.3 b= 0.4 = 0.55
-Integral of a*x+b in [0,1], for a= 0.3 b= 0.5 = 0.6499999999999999
-Integral of a*x+b in [0,1], for a= 0.3 b= 0.6 = 0.75
+Integral of a*x+b in [0,1], for a= 0.2 b= 0.5 = 0.6
+Integral of a*x+b in [0,1], for a= 0.2 b= 0.6 = 0.7
+Integral of a*x+b in [0,1], for a= 0.3 b= 0.4 = 0.5499999999999999
+Integral of a*x+b in [0,1], for a= 0.3 b= 0.5 = 0.65
+Integral of a*x+b in [0,1], for a= 0.3 b= 0.6 = 0.7499999999999999
 </pre></div>
 </div>
 </div>

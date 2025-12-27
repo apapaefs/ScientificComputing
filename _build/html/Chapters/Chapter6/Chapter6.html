@@ -177,12 +177,12 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    An Introduction to Scientific Computing (with Particle Physics Phenomenology)
+                    An Introduction to Scientific Computing
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Chapter1/Chapter1.html">1. Making Computers Obey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter1/Chapter1.html">1. Talking to Computers: Turning Ideas into Instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter2/Chapter2.html">2. Computer Number Representations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter3/Chapter3.html">3. Randomness and Random Walks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter4/Chapter4.html">4. Numerical Differentiation and Integration</a></li>
@@ -571,16 +571,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Now plot! Don&#39;t forget the different labels! </span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
-</pre></div>
-</div>
+<img alt="../../_images/46f289f9a2ff21cad17fbea2fca5a74196ff6ec11827868566fb423cf16dd8f2.png" src="../../_images/46f289f9a2ff21cad17fbea2fca5a74196ff6ec11827868566fb423cf16dd8f2.png" />
 </div>
 </div>
 <p>It’s clear that the Newton-Raphson algorithm requires the evaluation of the derivative of the function at the guess point <span class="math notranslate nohighlight">\(x_0\)</span>, i.e. <span class="math notranslate nohighlight">\(\left. \frac{ \mathrm{d} f}{\mathrm{d} x} \right|_{x=x_0}\)</span>.</p>
@@ -799,19 +790,7 @@ y_i  \\
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># On the other hand, tuples are not:</span>
 <span class="n">TupleB</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">TupleB</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># On the other hand, tuples are not:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">TupleB</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">TupleB</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-
-<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+<span class="c1"># TupleB[2] = 2 Uncomment to execute</span>
 </pre></div>
 </div>
 </div>
@@ -1002,7 +981,7 @@ x= [-1.4057971  -0.1884058   0.92753623]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ax-b= [ 0.00000000e+00 -2.66453526e-15 -5.32907052e-15]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ax-b= [4.4408921e-16 0.0000000e+00 0.0000000e+00]
 </pre></div>
 </div>
 </div>
@@ -1046,9 +1025,9 @@ b= [1 2 3]
 A^{-1}= [[-1.55072464  0.00724638  0.04347826]
  [-0.39855072  0.23550725 -0.08695652]
  [ 1.11594203 -0.15942029  0.04347826]]
-A.A^{-1}= [[1.00000000e+00 2.77555756e-17 6.93889390e-18]
- [7.54951657e-15 1.00000000e+00 3.74700271e-16]
- [1.86517468e-14 5.55111512e-16 1.00000000e+00]]
+A.A^{-1}= [[ 1.00000000e+00  0.00000000e+00  6.93889390e-18]
+ [ 7.10542736e-15  1.00000000e+00 -1.11022302e-16]
+ [ 2.13162821e-14  0.00000000e+00  1.00000000e+00]]
 x= [-1.4057971  -0.1884058   0.92753623]
 </pre></div>
 </div>
@@ -1077,10 +1056,10 @@ x= [-1.4057971  -0.1884058   0.92753623]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I= [[ 0.66666667 -0.25      ]
- [ 0.25        0.66666667]]
-Eigenvalues= [0.66666667+0.25j 0.66666667-0.25j]
-Eigenvectors= [[0.70710678+0.j         0.70710678-0.j        ]
- [0.        -0.70710678j 0.        +0.70710678j]]
+ [-0.25        0.66666667]]
+Eigenvalues= [0.91666667 0.41666667]
+Eigenvectors= [[ 0.70710678  0.70710678]
+ [-0.70710678  0.70710678]]
 </pre></div>
 </div>
 </div>
@@ -1107,9 +1086,9 @@ Eigenvectors= [[0.70710678+0.j         0.70710678-0.j        ]
 A^{-1}= [[ 0.19771863  0.06463878  0.00760456]
  [-0.121673    0.11406844  0.07224335]
  [-0.03422053 -0.03041825  0.11406844]]
-A.A^{-1}= [[ 1.00000000e+00  1.38777878e-17  0.00000000e+00]
- [-5.55111512e-17  1.00000000e+00  0.00000000e+00]
- [ 5.55111512e-17  0.00000000e+00  1.00000000e+00]]
+A.A^{-1}= [[ 1.00000000e+00  6.93889390e-18  0.00000000e+00]
+ [-5.55111512e-17  1.00000000e+00  1.00613962e-16]
+ [-1.38777878e-17 -4.16333634e-17  1.00000000e+00]]
 </pre></div>
 </div>
 </div>
@@ -1489,7 +1468,7 @@ f_{2}  \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fb3f9601891a566e14434d3a1a7f4295d36fd127660a8e4fd3afa409d4c5a354.png" src="../../_images/fb3f9601891a566e14434d3a1a7f4295d36fd127660a8e4fd3afa409d4c5a354.png" />
+<img alt="../../_images/e1eb243c11095f07bfbe1ae3636dea868dab735c3317dd3bbfb830f54873c838.png" src="../../_images/e1eb243c11095f07bfbe1ae3636dea868dab735c3317dd3bbfb830f54873c838.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1509,7 +1488,7 @@ f_{2}  \\
 
 <span class="c1"># Plot the derivatives: </span>
 <span class="c1"># cs(xinterp, nu=1) calculates the first derivative, etc.</span>
- <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xinterp</span><span class="p">,</span> <span class="n">cs</span><span class="p">(</span><span class="n">xinterp</span><span class="p">,</span><span class="n">nu</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2nd derivative&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xinterp</span><span class="p">,</span> <span class="n">cs</span><span class="p">(</span><span class="n">xinterp</span><span class="p">,</span><span class="n">nu</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2nd derivative&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xinterp</span><span class="p">,</span> <span class="n">cs</span><span class="p">(</span><span class="n">xinterp</span><span class="p">,</span><span class="n">nu</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;3rd derivative&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span> 
 
 <span class="c1"># construct the legend:</span>
@@ -1520,7 +1499,7 @@ f_{2}  \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e37172b445e0562a6423a2ec3af98104de2360a4de447ee7d7acf20b3fac2b58.png" src="../../_images/e37172b445e0562a6423a2ec3af98104de2360a4de447ee7d7acf20b3fac2b58.png" />
+<img alt="../../_images/e94d3f451fa179d73879adbe7c1e0acdabdb5d9e9b90e937628eecebc56b9b0b.png" src="../../_images/e94d3f451fa179d73879adbe7c1e0acdabdb5d9e9b90e937628eecebc56b9b0b.png" />
 </div>
 </div>
 </section>
@@ -1564,7 +1543,7 @@ f_{2}  \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c40b9b623fdb2576f48923f29b05aa5d89a402c2129c115bbf0db6d3065a07aa.png" src="../../_images/c40b9b623fdb2576f48923f29b05aa5d89a402c2129c115bbf0db6d3065a07aa.png" />
+<img alt="../../_images/1b4349aa1077ffc6dd3bfb313d7c12a7d1b1a6dc17871082b412df9cc041b4d4.png" src="../../_images/1b4349aa1077ffc6dd3bfb313d7c12a7d1b1a6dc17871082b412df9cc041b4d4.png" />
 </div>
 </div>
 <p>B-splines form an alternative (if formally equivalent) representation of piecewise polynomials. This basis is generally more computationally stable than the power basis and is useful for a variety of applications which include interpolation, regression and curve representation. Details are given in the SciPy piecewise polynomials section (<a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/interpolate/splines_and_polynomials.html#tutorial-interpolate-ppoly">https://docs.scipy.org/doc/scipy/tutorial/interpolate/splines_and_polynomials.html#tutorial-interpolate-ppoly</a>), and here we illustrate their usage:</p>
@@ -1605,7 +1584,7 @@ f_{2}  \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/402ca4c2844c94a9a2d316af0684d33dfe628d74b38c0f7c234bad9eb040c054.png" src="../../_images/402ca4c2844c94a9a2d316af0684d33dfe628d74b38c0f7c234bad9eb040c054.png" />
+<img alt="../../_images/2ad3f1bf18da225b445cab8c0ca4fa6dfbd8f54aa1838e2a0701794421cf6031.png" src="../../_images/2ad3f1bf18da225b445cab8c0ca4fa6dfbd8f54aa1838e2a0701794421cf6031.png" />
 </div>
 </div>
 <p>By default, the result of <code class="docutils literal notranslate"><span class="pre">make_interp_spline(x,</span> <span class="pre">y)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">CubicSpline(x,</span> <span class="pre">y)</span></code>. The difference is that the former allows several optional capabilities, e.g. it can construct splines of various degrees (via the optional argument <code class="docutils literal notranslate"><span class="pre">k</span></code>).</p>
@@ -1645,20 +1624,71 @@ f_{2}  \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Year  Temp
-0    1881 -0.08
-1    1882 -0.10
-2    1883 -0.16
-3    1884 -0.27
-4    1885 -0.33
-..    ...   ...
-138  2019  0.98
-139  2020  1.01
-140  2021  0.84
-141  2022  0.89
-142  2023  1.17
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># load the data:</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;graph.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># &#39;\t&#39; represents tabs</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># change the names to the expected ones</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="s2">&quot;Temp&quot;</span><span class="p">]</span>
 
-[143 rows x 2 columns]
+<span class="nn">File /usr/local/lib/python3.11/site-packages/pandas/io/parsers/readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1015</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1022</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1026</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/lib/python3.11/site-packages/pandas/io/parsers/readers.py:620,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">619</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File /usr/local/lib/python3.11/site-packages/pandas/io/parsers/readers.py:1620,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1620</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/lib/python3.11/site-packages/pandas/io/parsers/readers.py:1880,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1879</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1880</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1883</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1884</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1885</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1886</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1887</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1888</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1890</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1891</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File /usr/local/lib/python3.11/site-packages/pandas/io/common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;graph.txt&#39;
 </pre></div>
 </div>
 </div>

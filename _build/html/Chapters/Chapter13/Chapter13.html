@@ -177,12 +177,12 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    An Introduction to Scientific Computing (with Particle Physics Phenomenology)
+                    An Introduction to Scientific Computing
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Chapter1/Chapter1.html">1. Making Computers Obey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter1/Chapter1.html">1. Talking to Computers: Turning Ideas into Instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter2/Chapter2.html">2. Computer Number Representations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter3/Chapter3.html">3. Randomness and Random Walks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter4/Chapter4.html">4. Numerical Differentiation and Integration</a></li>
@@ -454,7 +454,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7afcdc0eed1e5bb68a5d2ec55226baaf1cc4d13629a0a24f8c0a99b5c467dd8e.png" src="../../_images/7afcdc0eed1e5bb68a5d2ec55226baaf1cc4d13629a0a24f8c0a99b5c467dd8e.png" />
+<img alt="../../_images/f1a2ed41e211dd9f2b7d78cbeb5602d822380249d9c884cd45849e9d73df0428.png" src="../../_images/f1a2ed41e211dd9f2b7d78cbeb5602d822380249d9c884cd45849e9d73df0428.png" />
 </div>
 </div>
 <p>First let’s write the Monte Carlo integration function:</p>
@@ -505,9 +505,9 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Analytic value of the integral= 1.5707963267948966
-The MC integral of f(x) = sqrt(1-x^2) in [-1,1] is 1.5716022694953475 +- 0.0014113796288543756
-The fractional uncertainty is 0.0008980514066752903
-The fractional difference from the analytical value is 0.0005130790585024161
+The MC integral of f(x) = sqrt(1-x^2) in [-1,1] is 1.5697695126720206 +- 0.001404616387178466
+The fractional uncertainty is 0.0008947914810675388
+The fractional difference from the analytical value is 0.0006536901731691204
 </pre></div>
 </div>
 </div>
@@ -551,7 +551,7 @@ The fractional difference from the analytical value is 0.0005130790585024161
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum weight found= 1.9999999999963183 at 1.9187789950247947e-06
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum weight found= 1.9999999998905296 at -1.0462805388078422e-05
 </pre></div>
 </div>
 </div>
@@ -638,7 +638,7 @@ The fractional difference from the analytical value is 0.0005130790585024161
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a8a836cc88589b1a4b398129afbe3f28fa9be61f950b80c3a82d2344db95b4c0.png" src="../../_images/a8a836cc88589b1a4b398129afbe3f28fa9be61f950b80c3a82d2344db95b4c0.png" />
+<img alt="../../_images/23fece71dfbc0ef7aaeb03141121c54a3e3b6065a1dfb22fcbfe772cf0629590.png" src="../../_images/23fece71dfbc0ef7aaeb03141121c54a3e3b6065a1dfb22fcbfe772cf0629590.png" />
 </div>
 </div>
 <p>We are now ready to proceed to the particle physics case!</p>
@@ -686,8 +686,8 @@ The fractional difference from the analytical value is 0.0005130790585024161
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cross section in pb is: 103.31947253376366 +- 0.0730306975317041
-Maximum weight found= 3.976034881699665e-07 at 0.9999780562147662
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cross section in pb is: 103.25211617047135 +- 0.07302471231608307
+Maximum weight found= 3.9761203695101254e-07 at -0.9999995567533675
 </pre></div>
 </div>
 </div>
@@ -763,7 +763,7 @@ Maximum weight found= 3.976034881699665e-07 at 0.9999780562147662
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6cfc020e0ce83fc55e845a75382294f927f0ef88627e38fb50ed4c417191cc33.png" src="../../_images/6cfc020e0ce83fc55e845a75382294f927f0ef88627e38fb50ed4c417191cc33.png" />
+<img alt="../../_images/8933328ab6945ebde2725d5d0dab69a9ae64a51496d7e09a80c6421f2f175537.png" src="../../_images/8933328ab6945ebde2725d5d0dab69a9ae64a51496d7e09a80c6421f2f175537.png" />
 </div>
 </div>
 <p>Therefore, our events have indeed the right distribution: they follow the differential cross section, as expected!</p>
@@ -814,8 +814,8 @@ Maximum weight found= 3.976034881699665e-07 at 0.9999780562147662
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p= [15.0, 0, 0, 15.0]
 p= [15.0, 0, 0, -15.0]
-p= [15.0, -12.687175893207707, -6.722861007969084, 4.340358017760533]
-p= [15.0, 12.687175893207707, 6.722861007969084, 4.340358017760533]
+p= [15.0, 7.534102975256285, -11.544917413194774, -5.912036390343557]
+p= [15.0, -7.534102975256285, 11.544917413194774, -5.912036390343557]
 </pre></div>
 </div>
 </div>
@@ -851,7 +851,7 @@ p= [15.0, 12.687175893207707, 6.722861007969084, 4.340358017760533]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dedccd107eb829935ccea3e6bdd5653fae5de745ed0764368e321798ce249d74.png" src="../../_images/dedccd107eb829935ccea3e6bdd5653fae5de745ed0764368e321798ce249d74.png" />
+<img alt="../../_images/b05106e1d76271d2c7b6cbf8b91df17123bfd9e213bf1442e4094bea020a48d8.png" src="../../_images/b05106e1d76271d2c7b6cbf8b91df17123bfd9e213bf1442e4094bea020a48d8.png" />
 </div>
 </div>
 <p>An interesting next step is to consider the full process for <span class="math notranslate nohighlight">\(e^+ e^- \rightarrow \mu^+ \mu^-\)</span>, which includes a contribution from the <span class="math notranslate nohighlight">\(Z\)</span> boson. The main difference in the way that the <span class="math notranslate nohighlight">\(Z\)</span> boson interacts with the leptons is that it couples with different strengths to the left- and right-handed fermions.</p>

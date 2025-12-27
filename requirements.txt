@@ -7,4 +7,3 @@ tqdm
 PrettyTable
 sympy
 torch
-numba
