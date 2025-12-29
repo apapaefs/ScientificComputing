@@ -1306,7 +1306,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f7bdb9e4795f2e49f78db23d8fcf15e52fe05a308af17bace9244a50c89d4aa2.png" src="../../_images/f7bdb9e4795f2e49f78db23d8fcf15e52fe05a308af17bace9244a50c89d4aa2.png" />
+<img alt="../../_images/60899c9aca4b8a8c20b755ecd399406c0143213f2b2ac22a5a328ac4b124e4a2.png" src="../../_images/60899c9aca4b8a8c20b755ecd399406c0143213f2b2ac22a5a328ac4b124e4a2.png" />
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">55</span>
@@ -1519,29 +1519,24 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="k">finally</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/lines.py:784,</span> in <span class="ni">Line2D.draw</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">782</span> <span class="n">renderer</span><span class="o">.</span><span class="n">open_group</span><span class="p">(</span><span class="s1">&#39;line2d&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_gid</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">783</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lineStyles</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_linestyle</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_draw_nothing&#39;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">784</span>     <span class="n">tpath</span><span class="p">,</span> <span class="n">affine</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_transformed_path</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">785</span>                      <span class="o">.</span><span class="n">get_transformed_path_and_affine</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">786</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tpath</span><span class="o">.</span><span class="n">vertices</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">787</span>         <span class="n">gc</span> <span class="o">=</span> <span class="n">renderer</span><span class="o">.</span><span class="n">new_gc</span><span class="p">()</span>
+<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/lines.py:821,</span> in <span class="ni">Line2D.draw</span><span class="nt">(self, renderer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">818</span>         <span class="n">gc</span><span class="o">.</span><span class="n">set_foreground</span><span class="p">(</span><span class="n">lc_rgba</span><span class="p">,</span> <span class="n">isRGBA</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">820</span>         <span class="n">gc</span><span class="o">.</span><span class="n">set_dashes</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_dash_pattern</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">821</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">draw_path</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="n">tpath</span><span class="p">,</span> <span class="n">affine</span><span class="o">.</span><span class="n">frozen</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">822</span>         <span class="n">gc</span><span class="o">.</span><span class="n">restore</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">824</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_marker</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_markersize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/lines.py:749,</span> in <span class="ni">Line2D._get_transformed_path</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">747</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Return this line&#39;s `~matplotlib.transforms.TransformedPath`.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">748</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transformed_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">749</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_transform_path</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">750</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transformed_path</span>
-
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/lines.py:744,</span> in <span class="ni">Line2D._transform_path</span><span class="nt">(self, subslice)</span>
-<span class="g g-Whitespace">    </span><span class="mi">742</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">743</span>     <span class="n">_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span>
-<span class="ne">--&gt; </span><span class="mi">744</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transformed_path</span> <span class="o">=</span> <span class="n">TransformedPath</span><span class="p">(</span><span class="n">_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_transform</span><span class="p">())</span>
+<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/backends/backend_agg.py:130,</span> in <span class="ni">RendererAgg.draw_path</span><span class="nt">(self, gc, path, transform, rgbFace)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">130</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="o">.</span><span class="n">draw_path</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">rgbFace</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span>     <span class="k">except</span> <span class="ne">OverflowError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span>         <span class="n">cant_chunk</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
-<img alt="../../_images/93f9acfdd427560b39b7a77dd85872e328dbff53da47c0b2cfb294f74f6f6f76.png" src="../../_images/93f9acfdd427560b39b7a77dd85872e328dbff53da47c0b2cfb294f74f6f6f76.png" />
+<img alt="../../_images/97fa259513cf174ee7da7d958cd293bd09586d3477c6abe8fc6faed96acfc4bc.png" src="../../_images/97fa259513cf174ee7da7d958cd293bd09586d3477c6abe8fc6faed96acfc4bc.png" />
 </div>
 </div>
 </section>
