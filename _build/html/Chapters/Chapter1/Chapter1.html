@@ -442,6 +442,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">1.8.3. NumPy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">1.8.4. SciPy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-plotting">1.8.5. Matplotlib (Plotting)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-make-good-plots-using-matplotlib">1.8.6. How to make good plots using matplotlib</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-modules">1.9. Other Useful Modules</a><ul class="nav section-nav flex-column">
@@ -451,6 +452,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">1.9.4. SymPy</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-elephant-in-the-room-using-generative-ai-and-llms">1.10. The Elephant in the room: Using Generative AI and LLMs</a></li>
 </ul>
             </nav>
         </div>
@@ -2305,7 +2307,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[72, 84, 13, 60, 57, 27, 3, 33, 91, 19]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[58, 20, 14, 35, 96, 70, 41, 0, 17, 46]
 </pre></div>
 </div>
 </div>
@@ -2317,7 +2319,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.43164159919213185
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33059853143792306
 </pre></div>
 </div>
 </div>
@@ -2329,7 +2331,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -2705,7 +2707,7 @@ pear
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0dbe072f1a24d3879334c71f3ec06da156ae8fd59e5c3fcb59315ee8ec06e1dc.png" src="../../_images/0dbe072f1a24d3879334c71f3ec06da156ae8fd59e5c3fcb59315ee8ec06e1dc.png" />
+<img alt="../../_images/c66e3c47e97ec2c56895d146fb7f419d57036e618130e87997eb0fed64680e26.png" src="../../_images/c66e3c47e97ec2c56895d146fb7f419d57036e618130e87997eb0fed64680e26.png" />
 </div>
 </div>
 <p>Matplotlib can also generate 2D plots, e.g. contours:</p>
@@ -2798,6 +2800,68 @@ pear
 </div>
 <p>There’s tons of functionality in Matplotlib! For examples, check out: <a class="reference external" href="https://matplotlib.org/stable/plot_types/index.html">https://matplotlib.org/stable/plot_types/index.html</a> and <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">https://matplotlib.org/stable/gallery/index.html</a>.</p>
 </section>
+<section id="how-to-make-good-plots-using-matplotlib">
+<h3><span class="section-number">1.8.6. </span>How to make good plots using matplotlib<a class="headerlink" href="#how-to-make-good-plots-using-matplotlib" title="Link to this heading">#</a></h3>
+<p>Make sure your plots contain all the necessary ingredients. Some essential elements of a good graph are as follows:</p>
+<ul class="simple">
+<li><p>Ensure that the axes are correctly labeled, along with the units. E.g. if we are measuring the “Energy” variable in Joules along one axis, the label string should be: “Energy [J]”.</p></li>
+<li><p>A title is always helpful: e.g. “Energy versus Temperature”.</p></li>
+<li><p>You should include a legend which correctly labels what you are plotting. All lines should be included in the legend. Place the legend where it does not cover important data.</p></li>
+<li><p>Do not rely on color alone to distinguish curves. Pair color with line style and/or markers so the plot remains readable in grayscale and for color-vision deficiencies.</p></li>
+<li><p>Keep line widths consistent and readable (too thin disappears when exported; too thick can obscure data).</p></li>
+<li><p>Use sensible font sizes for axis labels, tick labels, title, and legend.</p></li>
+<li><p>Show uncertainty when it exists: error bars, shaded confidence bands, or standard deviation regions can be more informative than a single curve.</p></li>
+<li><p>Use gridlines selectively: light gridlines can help read values, but heavy grids often dominate the figure.</p></li>
+</ul>
+<p>Use the following code as a template for your future graphs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>  <span class="c1"># creates a NumPy array from 0 to 2pi, 200 equally spaced points</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># sine evaluated on the array</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># cosine evaluated on the array</span>
+
+<span class="c1"># create the elements required for matplotlib. This creates a figure containing a single axes.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># set the labels and titles (include units where appropriate):</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$ [rad]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>     <span class="c1"># set the x label</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y(x)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>        <span class="c1"># set the y label</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Sine and Cosine Functions&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>  <span class="c1"># set the title</span>
+
+<span class="c1"># set the x and y limits:</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+
+<span class="c1"># make one-dimensional plots using the above arrays, add labels, line styles and colors:</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\sin(x)$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\cos(x)$&#39;</span><span class="p">)</span>
+
+<span class="c1"># optional: add a light grid to help read off values (without dominating the plot)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
+
+<span class="c1"># make tick labels readable</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># construct the legend (avoid covering important data)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># show the plot here</span>
+<span class="c1"># if you want to save the plot:</span>
+<span class="c1"># filename = &#39;myplot.pdf&#39;</span>
+<span class="c1"># fig.savefig(filename, dpi=dpi, bbox_inches=&quot;tight&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/57789abca9e00bd5b0667145fefd83d8fcf8b2000b0531afad1320fa0c377c47.png" src="../../_images/57789abca9e00bd5b0667145fefd83d8fcf8b2000b0531afad1320fa0c377c47.png" />
+</div>
+</div>
+</section>
 </section>
 <section id="other-useful-modules">
 <h2><span class="section-number">1.9. </span>Other Useful Modules<a class="headerlink" href="#other-useful-modules" title="Link to this heading">#</a></h2>
@@ -2861,67 +2925,67 @@ built on top of the Python programming language.</p>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                                                     | 0/20 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|█████▍                                                                                                       | 1/20 [00:00&lt;00:01,  9.84it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|█████▍                                                                                                       | 1/20 [00:00&lt;00:01,  9.52it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 10%|██████████▉                                                                                                  | 2/20 [00:00&lt;00:01,  9.60it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 10%|██████████▉                                                                                                  | 2/20 [00:00&lt;00:01,  9.49it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 15%|████████████████▎                                                                                            | 3/20 [00:00&lt;00:01,  9.53it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 15%|████████████████▎                                                                                            | 3/20 [00:00&lt;00:01,  9.47it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 20%|█████████████████████▊                                                                                       | 4/20 [00:00&lt;00:01,  9.48it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 20%|█████████████████████▊                                                                                       | 4/20 [00:00&lt;00:01,  9.42it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 25%|███████████████████████████▎                                                                                 | 5/20 [00:00&lt;00:01,  9.59it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 25%|███████████████████████████▎                                                                                 | 5/20 [00:00&lt;00:01,  9.52it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|████████████████████████████████▋                                                                            | 6/20 [00:00&lt;00:01,  9.52it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|████████████████████████████████▋                                                                            | 6/20 [00:00&lt;00:01,  9.60it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|██████████████████████████████████████▏                                                                      | 7/20 [00:00&lt;00:01,  9.47it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|██████████████████████████████████████▏                                                                      | 7/20 [00:00&lt;00:01,  9.50it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|███████████████████████████████████████████▌                                                                 | 8/20 [00:00&lt;00:01,  9.51it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|███████████████████████████████████████████▌                                                                 | 8/20 [00:00&lt;00:01,  9.43it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|█████████████████████████████████████████████████                                                            | 9/20 [00:00&lt;00:01,  9.59it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|█████████████████████████████████████████████████                                                            | 9/20 [00:00&lt;00:01,  9.40it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|██████████████████████████████████████████████████████                                                      | 10/20 [00:01&lt;00:01,  9.63it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|██████████████████████████████████████████████████████                                                      | 10/20 [00:01&lt;00:01,  9.36it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 55%|███████████████████████████████████████████████████████████▍                                                | 11/20 [00:01&lt;00:00,  9.60it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 55%|███████████████████████████████████████████████████████████▍                                                | 11/20 [00:01&lt;00:00,  9.38it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|████████████████████████████████████████████████████████████████▊                                           | 12/20 [00:01&lt;00:00,  9.63it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|████████████████████████████████████████████████████████████████▊                                           | 12/20 [00:01&lt;00:00,  9.36it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 65%|██████████████████████████████████████████████████████████████████████▏                                     | 13/20 [00:01&lt;00:00,  9.56it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 65%|██████████████████████████████████████████████████████████████████████▏                                     | 13/20 [00:01&lt;00:00,  9.34it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|███████████████████████████████████████████████████████████████████████████▌                                | 14/20 [00:01&lt;00:00,  9.64it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|███████████████████████████████████████████████████████████████████████████▌                                | 14/20 [00:01&lt;00:00,  9.34it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 75%|█████████████████████████████████████████████████████████████████████████████████                           | 15/20 [00:01&lt;00:00,  9.58it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 75%|█████████████████████████████████████████████████████████████████████████████████                           | 15/20 [00:01&lt;00:00,  9.34it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|██████████████████████████████████████████████████████████████████████████████████████▍                     | 16/20 [00:01&lt;00:00,  9.61it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|██████████████████████████████████████████████████████████████████████████████████████▍                     | 16/20 [00:01&lt;00:00,  9.36it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 85%|███████████████████████████████████████████████████████████████████████████████████████████▊                | 17/20 [00:01&lt;00:00,  9.60it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 85%|███████████████████████████████████████████████████████████████████████████████████████████▊                | 17/20 [00:01&lt;00:00,  9.38it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|█████████████████████████████████████████████████████████████████████████████████████████████████▏          | 18/20 [00:01&lt;00:00,  9.53it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|█████████████████████████████████████████████████████████████████████████████████████████████████▏          | 18/20 [00:01&lt;00:00,  9.48it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 95%|██████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 19/20 [00:01&lt;00:00,  9.56it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 95%|██████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 19/20 [00:02&lt;00:00,  9.45it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:02&lt;00:00,  9.63it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:02&lt;00:00,  9.55it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:02&lt;00:00,  9.57it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:02&lt;00:00,  9.43it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3017,6 +3081,42 @@ built on top of the Python programming language.</p>
 </div>
 </div>
 </section>
+</section>
+<section id="the-elephant-in-the-room-using-generative-ai-and-llms">
+<h2><span class="section-number">1.10. </span>The Elephant in the room: Using Generative AI and LLMs<a class="headerlink" href="#the-elephant-in-the-room-using-generative-ai-and-llms" title="Link to this heading">#</a></h2>
+<p>Generative Artificial Intelligence (AI) and Large Language Models (LLMs) are widely available and powerful tools. These tools can be used effectively in scientific research and learning.</p>
+<p>There are several challenges to be aware when using these tools (see e.g. <a class="reference external" href="https://grad.uw.edu/advice/effective-and-responsible-use-of-ai-in-research/">https://grad.uw.edu/advice/effective-and-responsible-use-of-ai-in-research/</a> for a more detailed overview):</p>
+<ul class="simple">
+<li><p>They can summarize material, but they are not always accurate or unbiased.</p></li>
+<li><p>The quality of the output depends on the algorithmic approach, the quality of the training data, and the user’s understanding of the tools’ limitations and biases as they write queries.  Though the content generated may sound very plausible, it may be inaccurate such as including non-existent publications or incorrect citations of publications.</p></li>
+<li><p>People are prone to biases in their work, and AI can pick up those biases from the training data and even amplify them or introduce its own.</p></li>
+</ul>
+<p>In research, AI can be a valuable tool for assistance but is not an accountable entity for the research outcomes since the ultimate responsibility of research lies with the human.</p>
+<p>In this course, and in learning how to code, you are <em>not</em> strictly forbidden to use AI. These tools will be useful to you in your future careers. Use is allowed for debugging explanations and conceptual review, and not allowed to generate full solution code.</p>
+<p>However, to facilitate your learning, you will have to use AI and LLMs as a tool, not as a substitute for thinking. Note that recent studies have shown that using LLMs can actually increase development time of code (see <a class="reference external" href="https://arxiv.org/pdf/2507.09089">https://arxiv.org/pdf/2507.09089</a>), but of course this is a subject of on-going research.</p>
+<p>So here’s some advice for using AI/LLMs in solving computational problems in this course:</p>
+<ul class="simple">
+<li><p>Do not use AI/LLMs to solve the assignments directly. As previously mentioned in this chapter, programming is an art, and you have to get your hands dirty to become proficient in it. In this course, I suggest that you use AI/LLMs as a sort of last resort.</p></li>
+<li><p>When you begin working on your assignment take the following route:</p>
+<ol class="arabic simple">
+<li><p>Think about the necessary steps to solve the problem. What is the algorithm that you need to use? Is there some code in the book that you can already rely on? If so, try and understand how it works and use it as a starting point.</p></li>
+<li><p>Write your reasoning in comments in the code directly (using <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p></li>
+<li><p>Let’s assume that you have most of your program written down, but now you want to add something new to it. Before using an LLM, use a search engine to find, e.g. a manual for the code. These contain descriptions of how to use the functionality, and very often they contain concrete examples. Copy an example that you understand, and use it as a basis.</p></li>
+<li><p>If the example does not work as intended, or there is an error, use a search engine to search for the error.</p></li>
+<li><p>If the above fails, ask an LLM to give you information on the error and how you may solve the particular issue.</p></li>
+<li><p>If AI suggested something, you must validate it via: reading official docs, writing a minimal reproducible example, adding 1-2 unit tests, and checking edge cases.</p></li>
+</ol>
+</li>
+</ul>
+<p>To ensure the above points, you will need to add a disclosure at the start of each assignment. Some examples are:</p>
+<ul class="simple">
+<li><p>AI use statement: I used the AI tool &lt;…&gt; to understand what <code class="docutils literal notranslate"><span class="pre">np.logspace</span></code> does.</p></li>
+<li><p>AI use statement: I used the AI tool &lt;…&gt; to debug a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that kept giving me an error.</p></li>
+</ul>
+<p>Even if you did not use AI, you will still need to add an AI statement:</p>
+<ul class="simple">
+<li><p>AI use statement: None</p></li>
+</ul>
 </section>
 </section>
 
@@ -3134,6 +3234,7 @@ built on top of the Python programming language.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">1.8.3. NumPy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">1.8.4. SciPy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-plotting">1.8.5. Matplotlib (Plotting)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-make-good-plots-using-matplotlib">1.8.6. How to make good plots using matplotlib</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-modules">1.9. Other Useful Modules</a><ul class="nav section-nav flex-column">
@@ -3143,6 +3244,7 @@ built on top of the Python programming language.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">1.9.4. SymPy</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-elephant-in-the-room-using-generative-ai-and-llms">1.10. The Elephant in the room: Using Generative AI and LLMs</a></li>
 </ul>
   </nav></div>
 
