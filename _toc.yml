@@ -17,7 +17,7 @@ chapters:
 - file: Chapters/Chapter9/Chapter9.ipynb
 - file: Chapters/Chapter10/Chapter10.ipynb
 - file: Chapters/Chapter11/Chapter11.ipynb
-- file: Chapters/Chapter12/Chapter12.ipynb
+#- file: Chapters/Chapter12/Chapter12.ipynb
 - file: Chapters/Chapter13/Chapter13.ipynb
-- file: Chapters/Chapter14/Chapter14.ipynb
+#- file: Chapters/Chapter14/Chapter14.ipynb
 - file: Chapters/Chapter15/Chapter15.ipynb
