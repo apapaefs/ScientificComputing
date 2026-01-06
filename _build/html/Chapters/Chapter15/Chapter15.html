@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>15. Artificial Intelligence and Machine Learning in Physics &#8212; An Introduction to Scientific Computing)</title>
+    <title>13. Artificial Intelligence and Machine Learning in Physics &#8212; An Introduction to Scientific Computing)</title>
   
   
   
@@ -57,10 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapters/Chapter15/Chapter15';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="14. Parton Shower Monte Carlos" href="../Chapter14/Chapter14.html" />
+    <link rel="prev" title="12. A Brief Introduction to Monte Carlo Event Generators in Particle Physics" href="../Chapter13/Chapter13.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -190,10 +192,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../Chapter9/Chapter9.html">9. Boundary Value and Eigenvalue Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter10/Chapter10.html">10. Partial Differential Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter11/Chapter11.html">11. More Monte Carlo: The Metropolis Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter12/Chapter12.html">12. An Introduction to Particle Physics Phenomenology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter13/Chapter13.html">13. A Brief Introduction to Monte Carlo Event Generators in Particle Physics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter14/Chapter14.html">14. Parton Shower Monte Carlos</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Artificial Intelligence and Machine Learning in Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter13/Chapter13.html">12. A Brief Introduction to Monte Carlo Event Generators in Particle Physics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Artificial Intelligence and Machine Learning in Physics</a></li>
 </ul>
 
     </div>
@@ -366,7 +366,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -382,6 +384,23 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">13.1. Machine Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks">13.2. Neural Networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-theory-of-neural-networks">13.2.1. The Theory of Neural Networks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptrons">13.2.2. Perceptrons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigmoid-neurons">13.2.3. Sigmoid Neurons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">13.2.4. Gradient Descent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-neural-network-with-backpropagation">13.2.5. Training a Neural Network with Backpropagation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-training-a-simple-neural-network">13.2.6. Example: Training a Simple Neural Network</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -392,7 +411,312 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="artificial-intelligence-and-machine-learning-in-physics">
-<h1><span class="section-number">15. </span>Artificial Intelligence and Machine Learning in Physics<a class="headerlink" href="#artificial-intelligence-and-machine-learning-in-physics" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">13. </span>Artificial Intelligence and Machine Learning in Physics<a class="headerlink" href="#artificial-intelligence-and-machine-learning-in-physics" title="Link to this heading">#</a></h1>
+<section id="machine-learning">
+<h2><span class="section-number">13.1. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h2>
+</section>
+<section id="neural-networks">
+<h2><span class="section-number">13.2. </span>Neural Networks<a class="headerlink" href="#neural-networks" title="Link to this heading">#</a></h2>
+<p>What follows has been adapted from <a class="reference external" href="https://neuralnetworksanddeeplearning.com/chap1.html">https://neuralnetworksanddeeplearning.com/chap1.html</a> by Michael Nielsen and the PyTorch examples found here: <a class="reference external" href="https://brsoff.github.io/tutorials/beginner/pytorch_with_examples.html">https://brsoff.github.io/tutorials/beginner/pytorch_with_examples.html</a>. Additional material has been taken from <a class="reference external" href="https://arxiv.org/pdf/2505.13042">https://arxiv.org/pdf/2505.13042</a>, by de Miranda, de Lima and de S. Farias.</p>
+<section id="the-theory-of-neural-networks">
+<h3><span class="section-number">13.2.1. </span>The Theory of Neural Networks<a class="headerlink" href="#the-theory-of-neural-networks" title="Link to this heading">#</a></h3>
+<p>You can think of a neural network as a nonlinear function of many variables that depends on many parameters. One way to represent neural networks looks like the diagram below, with each blob representing a neuron in the network. In the network shown below, each neuron in the network provides a weighted input into the next layer of neurons.</p>
+<div align="center">
+    <img src="NNexample.pdf" alt="An example of a neural network" style="width:50%;">
+    <br>
+    <em>Figure 1: An example of neural network: the input layer is shown, as well as several hidden layers, and the output layer.</em>
+</div>
+<p>Considering the simple example below, the output of the three neurons in the input layer <span class="math notranslate nohighlight">\(\ell=0\)</span> (taken to be identical as the input parameters), <span class="math notranslate nohighlight">\(a^0_k\)</span>, for <span class="math notranslate nohighlight">\(k=1,2,3\)</span>, provide a weighted input into the second layer <span class="math notranslate nohighlight">\(\ell=1\)</span>: <span class="math notranslate nohighlight">\(z^1_1 = \sum_k w_{1k}^1 a^0_k + b_1^1\)</span>. The output of the second layer is then <span class="math notranslate nohighlight">\(a^1_1 = \sigma(z^1_1)\)</span>, where <span class="math notranslate nohighlight">\(\sigma(z)\)</span> represents the activation function. We will understand how all of this works in this chapter.</p>
+<div align="center">
+    <img src="NNexample2.pdf" alt="An example of the input from one layer of neurons to the next." style="width:50%;">
+    <br>
+    <em>Figure 2: An example of a simple neural network: the input layer is shown, as well as a single neuron in the next layer.</em>
+</div>
+</section>
+<section id="perceptrons">
+<h3><span class="section-number">13.2.2. </span>Perceptrons<a class="headerlink" href="#perceptrons" title="Link to this heading">#</a></h3>
+<p>It is simpler to start by considering what are known as perceptrons. A perceptron takes as input binary inputs <span class="math notranslate nohighlight">\(x_1, x_2, \dots\)</span>, and produces a single binary output. As an example, consider three binary inputs <span class="math notranslate nohighlight">\(x_1, x_2, x_3\)</span>:</p>
+<div align="center">
+    <img src="perceptron1.pdf" alt="An example of a perceptron." style="width:50%;">
+    <br>
+    <em>Figure 3: An example of a perceptron with three inputs.</em>
+</div>
+<p>The weights <span class="math notranslate nohighlight">\(w_1, w_2, w_3\)</span> express the importance of respective inputs to the output. The output is binary: it can be either 0 or 1. This output is determined by whether the weighted sum, <span class="math notranslate nohighlight">\(\sum_j w_j x_j\)</span> is less than or greater than some threshold value <span class="math notranslate nohighlight">\(\theta\)</span>, a real number which is a parameter of the output neuron. We can express the output, <span class="math notranslate nohighlight">\(y\)</span> mathematically as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y =
+\begin{cases}
+0, &amp; \mathrm{if}~\sum_j w_j x_j \leq \theta,\\
+1, &amp; \mathrm{if}~\sum_j w_j x_j &gt; \theta~.
+\end{cases}
+\end{split}\]</div>
+<p>Let’s consider a specific example for simplicity. Suppose you are deciding whether to take an elective course in <a class="reference external" href="https://wiki.lspace.org/High_Energy_Magic_Building">High Energy Magic</a> (MAGIC 3500K). There are three factors that will help you decide:</p>
+<ol class="arabic simple">
+<li><p>Do you like the subject? (<span class="math notranslate nohighlight">\(x_1 = 1\)</span> if yes, <span class="math notranslate nohighlight">\(x_1=0\)</span> if not),</p></li>
+<li><p>Is the instructor highly rated on <a class="reference external" href="http://RateMyWizard.com">RateMyWizard.com</a>? (<span class="math notranslate nohighlight">\(x_2 = 1\)</span> if highly rated, <span class="math notranslate nohighlight">\(x_2 = 0\)</span> if not), and</p></li>
+<li><p>Are any of your friends also taking the course? (<span class="math notranslate nohighlight">\(x_3 = 1\)</span> if yes, <span class="math notranslate nohighlight">\(x_3 = 0\)</span> if not).</p></li>
+</ol>
+<p>Each factor weighs differently in your decision <span class="math notranslate nohighlight">\(y\)</span>. Let’s suppose you are very interested in learning the fundamentals of High Energy Magic, therefore you assign a weight <span class="math notranslate nohighlight">\(w_1 = 0.6\)</span> to the first factor. You weigh the instructor rating on <a class="reference external" href="http://RateMyWizard.com">RateMyWizard.com</a> as <span class="math notranslate nohighlight">\(w_2 = 0.2\)</span>, and whether any of your friends are also taking the course <span class="math notranslate nohighlight">\(w_3 = 0.2\)</span>. If you now choose a threshold of <span class="math notranslate nohighlight">\(\theta = 0.5\)</span>, say, you would end up only taking the course only if you like the subject, whereas the second and third factors would be irrelevant. If you choose the threshold to be <span class="math notranslate nohighlight">\(\theta=0.3\)</span>, however, you could take the course if the instructor is highly rated and some of your friends are taking the course, or if you just like the subject.</p>
+<p>We can simplify things by moving the threshold to the right-hand side of the equality and instead write, defining the bias, <span class="math notranslate nohighlight">\(b\equiv-\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y =
+\begin{cases}
+0, &amp; \mathrm{if}~\sum_j w_j x_j + b \leq 0,\\
+1, &amp; \mathrm{if}~\sum_j w_j x_j + b &gt; 0~.
+\end{cases}
+\end{split}\]</div>
+<p>The bias <span class="math notranslate nohighlight">\(b\)</span> represents how easy it is to get the perceptron to output 1. In biological terms, this would represent how easy it is to get the perceptron to “fire”.</p>
+<p>Suppose now that we have a network of perceptrons that we would like to train to learn how to solve a particular problem. For example, the inputs to the network could be identified photos of cats or dogs, converted into raw pixel data. We would like the network to learn the weights and biases so that the network correctly identifies an arbitrary photo as a cat or a dog. Suppose we make a small variation in some weight (or bias) in the network. We would like this small variation to cause only a small corresponding change in the output. If we write the weights and biases in terms of a vector <span class="math notranslate nohighlight">\(\bf{w} = (w_1, w_2, w_3)\)</span>, then we want small changes of the form <span class="math notranslate nohighlight">\(\bf{w} \to \bf w + \Delta w\)</span> to cause a small change in the output <span class="math notranslate nohighlight">\(y + \Delta y\)</span>. We could then use this to modify weights and biases to get our network to behave in the way that we want, e.g. via some optimization procedure (we will do this later).</p>
+<p>Unfortunately, small changes in weights and biases of a single perceptron in the network can sometimes cause the output of a perceptron to flip, e.g. from 0 to 1. This may cause the behavior of the rest of the network to change completely in some complicated way.</p>
+<p>We can overcome this problem by introducing a new type of artificial neuron, which we call sigmoid neuron, which we turn to next.</p>
+</section>
+<section id="sigmoid-neurons">
+<h3><span class="section-number">13.2.3. </span>Sigmoid Neurons<a class="headerlink" href="#sigmoid-neurons" title="Link to this heading">#</a></h3>
+<p>A sigmoid neuron is very similar to a perceptron, with the difference being that its output is not constrained to be 0 or 1; instead it is <span class="math notranslate nohighlight">\(\sigma(\mathbf{w} \cdot \mathbf{x} + b)\)</span>. In this case, <span class="math notranslate nohighlight">\(\sigma\)</span> is a continuous function that interpolates between 0 and 1. Two frequently used examples are the sigmoid function:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma(z) = \frac{1}{1 + \exp{-z}}\;,
+\]</div>
+<p>or the Rectified Linear Unit (ReLU) function:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathrm{ReLU}(z)
+\begin{cases}
+0, &amp; \mathrm{if}~z\leq 0,\\
+z, &amp; \mathrm{if}~z&gt; 0~.
+\end{cases}
+\end{split}\]</div>
+<p>which can also be written as <span class="math notranslate nohighlight">\(\mathrm{ReLU}(z) = \max(0,z)\)</span>.</p>
+<p>In this case we get for the change in the output:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta y \simeq \sum_j \frac{ \partial y } {\partial w_j} \Delta w_j  + \frac{ \partial y } {\partial b} \Delta b\;.
+\]</div>
+<p>The architecture of neural networks was shown in Figure 1. There is generally an input layer, several hidden layers and an output layer. Sometimes such networks are known as “multilayer perceptrons” (MLPs). The design of the neural network is a form of art, that requires heuristic arguments.</p>
+</section>
+<section id="gradient-descent">
+<h3><span class="section-number">13.2.4. </span>Gradient Descent<a class="headerlink" href="#gradient-descent" title="Link to this heading">#</a></h3>
+<p>Suppose we have a training input <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> of dimension <span class="math notranslate nohighlight">\(D_\mathrm{in}\)</span> that generates an output <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> of dimension <span class="math notranslate nohighlight">\(D_\mathrm{out}\)</span>. For example <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> could represent each of the pixels in a photo of a dog or a cat, and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> could be appropriately chosen to tell us whether the particular photo is that of a dog or a cat. In this case, e.g. <span class="math notranslate nohighlight">\(\mathbf{y} = (y_1, y_2)\)</span> is the output, and we could choose <span class="math notranslate nohighlight">\(\mathbf{y} = (1,0)\)</span> to represent a dog and <span class="math notranslate nohighlight">\(\mathbf{y} = (0,1)\)</span> to represent a cat.</p>
+<p>Our goal is to find the appropriate weights and biases of the network, <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, respectively, such that the network yields the correct <span class="math notranslate nohighlight">\(\mathbf{y}(\mathbf{x})\)</span> for a given (known) set of <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>. E.g. if we input a picture of a dog, then we want the <em>predicted</em> value, i.e. the output of the network, <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> to be <span class="math notranslate nohighlight">\(\mathbf{a}=(1,0)\)</span>.</p>
+<p>How well we are achieving this can be quantified by the “loss” or “cost” function, <span class="math notranslate nohighlight">\(C(\mathbf{w}, \mathbf{b})\)</span>. If we have several inputs <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, each represented by a vector <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span>, then an appropriate function could the the <em>quadratic loss</em>:</p>
+<div class="math notranslate nohighlight">
+\[
+C(\mathbf{w}, \mathbf{b}) = \sum_i \sum_j (y_j(\mathbf{x}_i) - a_{i,j})^2\;,
+\]</div>
+<p>where the sum over <span class="math notranslate nohighlight">\(i\)</span> is over the (vector) of inputs and <span class="math notranslate nohighlight">\(j\)</span> is over the length of the output. E.g. if we have 100 photos of cats or dogs as input, then <span class="math notranslate nohighlight">\(i = 1, 2,\dots, 100\)</span> and <span class="math notranslate nohighlight">\(j=1,2\)</span>.</p>
+<p>This is a non-negative function that becomes small when the <span class="math notranslate nohighlight">\(y_j(\mathbf{x}_i)\)</span> approximately equal the outputs <span class="math notranslate nohighlight">\(a_{i,j}\)</span> for all training inputs <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span>.</p>
+<p>The aim of the training algorithm is to dtermine the weights <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> and biases <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> that minimize <span class="math notranslate nohighlight">\(C(\mathbf{w}, \mathbf{b})\)</span>.</p>
+<p>To achieve this, we use the gradient descent algorithm, <a class="reference external" href="https://web.archive.org/web/20181229073335/https://www.math.uni-bielefeld.de/documenta/vol-ismp/40_lemarechal-claude.pdf">originally attributed to Cauchy in 1847</a> (!).</p>
+<p>The algorithm proceeds as follows: consider the minimization of <span class="math notranslate nohighlight">\(C(\mathbf{v})\)</span> over a two-dimensional vector <span class="math notranslate nohighlight">\(\mathbf{v} = (v_1, v_2)\)</span>. Then we can write:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta C \approx \frac{ \partial C} { \partial v_1 } \Delta v_1 + \frac{ \partial C} { \partial v_2 } \Delta v_2\;,
+\]</div>
+<p>with equality in the limit of infinitesimals. This can be written as:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta C \approx \nabla C \cdot \Delta \mathbf{v}\;,
+\]</div>
+<p>with the gradient of <span class="math notranslate nohighlight">\(C\)</span> defined as usual: <span class="math notranslate nohighlight">\(\nabla C = \left(  \frac{ \partial C} { \partial v_1 }, \frac{ \partial C} { \partial v_2 } \right)\)</span>.</p>
+<p>The goal is then to find, at a particular <span class="math notranslate nohighlight">\((v_1, v_2)\)</span>, the direction in which to move, such that <span class="math notranslate nohighlight">\(\Delta C\)</span> is negative, such that <span class="math notranslate nohighlight">\(C \to C + \Delta C\)</span> causes a decrease. It’s easy to see that at any point <span class="math notranslate nohighlight">\((v_1, v_2)\)</span>, this is given by <span class="math notranslate nohighlight">\(-\nabla C\)</span>:</p>
+<p>Consider moving in arbitrary direction represented by a unit vector <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> from that point. Then <span class="math notranslate nohighlight">\(\Delta C = \nabla C \cdot \mathbf{u} = |\nabla C| |\mathbf{u}| \cos \theta\)</span>, where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between the two vectors <span class="math notranslate nohighlight">\(\nabla C\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>. Then <span class="math notranslate nohighlight">\(\Delta C\)</span> is clearly maximized when <span class="math notranslate nohighlight">\(\mathbf{u}||\nabla C\)</span> (i.e. <span class="math notranslate nohighlight">\(\cos \theta = 1\)</span>), and therefore <span class="math notranslate nohighlight">\(\nabla C\)</span> represents the direction of maximum increase, and <span class="math notranslate nohighlight">\(-\nabla C\)</span> the direction of maximum <em>decrease</em>.</p>
+<p>So to move in the direction of decreasing loss function <span class="math notranslate nohighlight">\(C\)</span>, we choose <span class="math notranslate nohighlight">\(\Delta \mathbf{v} = - \eta \nabla C\)</span>, where <span class="math notranslate nohighlight">\(\eta\)</span> is a small positive parameter. In the context of neural network optimization, the parameter <span class="math notranslate nohighlight">\(\eta\)</span> is known as the learning rate.</p>
+<p>In the case of neural networks, the algorithm applies verbatim: what we need to find is the gradient of the loss function <span class="math notranslate nohighlight">\(C\)</span> with respect to the weights <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> and biases <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>. We then update the weights and biases proportional to minus the learning rate:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\mathbf{w} \to \mathbf{w}' &amp;= \mathbf{w} - \eta \frac{ \partial C } { \partial \mathbf{w} }\\
+\mathbf{b} \to \mathbf{b}' &amp;= \mathbf{b} - \eta \frac{ \partial C } { \partial \mathbf{b} }\;.
+\end{aligned}
+\end{split}\]</div>
+<p>We will apply this algorithm concretely in the next section, first in the general case, and then in a simple network, for which we will present our first code.</p>
+</section>
+<section id="training-a-neural-network-with-backpropagation">
+<h3><span class="section-number">13.2.5. </span>Training a Neural Network with Backpropagation<a class="headerlink" href="#training-a-neural-network-with-backpropagation" title="Link to this heading">#</a></h3>
+<p>Consider layers labeled by <span class="math notranslate nohighlight">\(\ell\)</span>, each with neurons labeled by <span class="math notranslate nohighlight">\(j\)</span>. The weight from neuron <span class="math notranslate nohighlight">\(k\)</span> in layer <span class="math notranslate nohighlight">\(\ell-1\)</span> to neuron <span class="math notranslate nohighlight">\(j\)</span> in layer <span class="math notranslate nohighlight">\(\ell\)</span> is <span class="math notranslate nohighlight">\(w^\ell_{jk}\)</span>. Each <span class="math notranslate nohighlight">\(j\)</span>-th neuron in the <span class="math notranslate nohighlight">\(\ell\)</span>-th layer has an associated bias <span class="math notranslate nohighlight">\(b^\ell_j\)</span>.</p>
+<p>Then the total input (pre-activation) to neuron <span class="math notranslate nohighlight">\(j\)</span> in the <span class="math notranslate nohighlight">\(\ell\)</span>-th layer is:</p>
+<div class="math notranslate nohighlight">
+\[
+z^\ell_j = \sum_k w^\ell_{jk} a^{\ell-1}_k + b^\ell_j\;,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(a^\ell_j = \sigma(z^\ell_j)\)</span> is the activation and <span class="math notranslate nohighlight">\(\sigma\)</span> is the activation function.</p>
+<p>The inputs to layer <span class="math notranslate nohighlight">\(\ell=1\)</span> are just the input features associated with the training examples, which we will call <span class="math notranslate nohighlight">\(x\)</span>. If there are <span class="math notranslate nohighlight">\(N\)</span> training examples, each represented by <span class="math notranslate nohighlight">\(D_\mathrm{in}\)</span> input features, then <span class="math notranslate nohighlight">\(x\)</span> is an <span class="math notranslate nohighlight">\(N \times D_\mathrm{in}\)</span> matrix. We also know the associated output values for each of these examples, <span class="math notranslate nohighlight">\(y\)</span>. If the expected output for a single example has dimension <span class="math notranslate nohighlight">\(D_\mathrm{out}\)</span>, then <span class="math notranslate nohighlight">\(y\)</span> is an <span class="math notranslate nohighlight">\(N \times D_\mathrm{out}\)</span> matrix.</p>
+<p>We want to optimize a “loss” (or “cost”) function <span class="math notranslate nohighlight">\(C\)</span> using the gradient descent algorithm. For the sake of simplicity, let’s pick <span class="math notranslate nohighlight">\(C\)</span> to be the sum of squared errors of the prediction:</p>
+<div class="math notranslate nohighlight">
+\[
+C = \sum_{i=1}^N \sum_{j=1}^{D_\mathrm{out}} (y_{\mathrm{pred},ij} - y_{ij})^2 = \sum_{i=1}^N C^i \;,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(y_{\mathrm{pred},ij}\)</span> is the output of the neural network for the <span class="math notranslate nohighlight">\(i\)</span>-th training example, and <span class="math notranslate nohighlight">\(C^i =  \sum_{j=1}^{D_\mathrm{out}} (y_{\mathrm{pred},ij} - y_{ij})^2\)</span> corresponds to a single training example. To apply gradient descent, we need to find:</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla C^i = \left\{\frac{ \partial C^i}{ \partial w^\ell_{jk} }, \frac{ \partial C^i}{ \partial b^\ell_{j} } \right\}^L_{\ell=2}\;,
+\]</div>
+<p>for all layers <span class="math notranslate nohighlight">\(\ell = 2, 3,..., L\)</span> and for all <span class="math notranslate nohighlight">\(i, j,k\)</span>.</p>
+<p>Next we assume a network with hidden layers <span class="math notranslate nohighlight">\(\ell=2,\dots,L-1\)</span> of widths <span class="math notranslate nohighlight">\(H_1,H_2,\dots\)</span>.</p>
+<p>We now concentrate on a single training example <span class="math notranslate nohighlight">\(i\)</span> and suppress the index <span class="math notranslate nohighlight">\(i\)</span> on all quantities so that <span class="math notranslate nohighlight">\(C^i\to C\)</span>, <span class="math notranslate nohighlight">\(a^{\ell,i}_j\to a^\ell_j\)</span>, <span class="math notranslate nohighlight">\(z^{\ell,i}_j\to z^\ell_j\)</span>, <span class="math notranslate nohighlight">\(y_{ij}\to y_j\)</span>.
+Consider then the following quantity:
+$<span class="math notranslate nohighlight">\(
+\begin{aligned}
+\Delta C_j^\ell &amp;= \frac{ \partial C}{ \partial z^\ell_{j}} \\
+                    &amp;= \sum_k \frac{ \partial C}{ \partial a^\ell_k} \frac{ \partial a^\ell_k}{ \partial z^\ell_j}\;,
+\end{aligned}
+\)</span>$</p>
+<p>where we have used the chain rule to generate the sum over the <span class="math notranslate nohighlight">\(k\)</span> neurons in the layer. But since <span class="math notranslate nohighlight">\(a^\ell_k = \sigma(z^\ell_k)\)</span>, the only terms in the sum that contribute are those with <span class="math notranslate nohighlight">\(k=j\)</span> and therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta C_j^\ell = \frac{ \partial C}{ \partial a^\ell_j} \frac{ \partial a^\ell_j}{ \partial z^\ell_j}
+\]</div>
+<p>or:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta C_j^\ell = \frac{ \partial C}{ \partial a^\ell_j} \frac{ \partial \sigma}{ \partial z^\ell_j}\;.
+\]</div>
+<p>Then the components of the gradient with respect to the weights are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\frac{ \partial C}{ \partial w^\ell_{jk}} &amp;= \frac{ \partial C}{ \partial z^\ell_j} \frac{ \partial z^\ell_j}{ \partial w^\ell_{jk}} \\
+&amp;= \Delta C^\ell_j\; a^{\ell-1}_k\;,
+\end{aligned}
+\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\frac{ \partial C}{ \partial b^\ell_{j}} &amp;= \frac{ \partial C}{ \partial z^\ell_j} \frac{ \partial z^\ell_j}{ \partial b^\ell_{j}} \\
+&amp;= \Delta C^\ell_j\;.
+\end{aligned}
+\end{split}\]</div>
+<p>To obtain the components of the gradient at all layers, we need to relate <span class="math notranslate nohighlight">\(\Delta C^\ell_j\)</span> to the one in the next layer, <span class="math notranslate nohighlight">\(\Delta C^{\ell+1}_k\)</span>. We do this by noting that:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\Delta C^\ell_j &amp;= \frac{ \partial C } { \partial z^\ell _j } \\
+&amp;=\sum_k \frac{ \partial C }{\partial z^{\ell+1}_k } \frac{\partial   z^{\ell+1}_k } { \partial z^\ell_j}\\
+&amp;= \sum_k \Delta C^{\ell+1}_k \frac{\partial z^{\ell+1}_k } {\partial z^\ell_j}\;,
+\end{aligned}
+\end{split}\]</div>
+<p>and since</p>
+<div class="math notranslate nohighlight">
+\[
+z^{\ell + 1}_k = \sum_j w^{\ell+1}_{kj} a^\ell _j + b^{\ell+1}_k = \sum_j w^{\ell+1}_{kj} \sigma(z^\ell _j) + b^{\ell+1}_k\;,
+\]</div>
+<p>we obtain:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial z^{\ell+1}_k } {\partial z^\ell_j} = w^{\ell+1}_{kj} \frac{\partial \sigma}{\partial z^\ell_j}\;.
+\]</div>
+<p>Putting the expressions together, we obtain the desired backpropagation expression, for <span class="math notranslate nohighlight">\(\Delta C^\ell_j\)</span> in the previous layer, to the one in the next, <span class="math notranslate nohighlight">\(\Delta C^{\ell+1}_k\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta C^\ell_j = \sum_k w^{\ell+1}_{kj} \Delta C^{\ell+1}_k  \frac{\partial \sigma}{\partial z^\ell_j}\;.
+\]</div>
+<p>To start off the backpropagation, we need the value <span class="math notranslate nohighlight">\(\Delta C^L_j\)</span> in the last layer. This is easily obtained as:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta C^L_j = \frac{ \partial C } { \partial a^L_j } \frac{ \partial \sigma } { \partial z_j^L}\;.
+\]</div>
+<p>In many regression settings the output activation is the identity, so <span class="math notranslate nohighlight">\(\frac{ \partial \sigma } { \partial z_j^L} = 1\)</span>.</p>
+<p>For the choice of loss function <span class="math notranslate nohighlight">\(C =  \sum_{j=1}^{D_\mathrm{out}} (y_{\mathrm{pred},j} - y_j)^2\)</span>, and identity activation for the last layer then:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta C^L_j = 2 (a^L_j - y_j)\;,
+\]</div>
+<p>since <span class="math notranslate nohighlight">\(y_{\mathrm{pred},j} = a^L_j\)</span>.</p>
+</section>
+<section id="example-training-a-simple-neural-network">
+<h3><span class="section-number">13.2.6. </span>Example: Training a Simple Neural Network<a class="headerlink" href="#example-training-a-simple-neural-network" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># set the seed for reproducibility:</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="c1"># N is batch size -&gt; the number of training examples</span>
+<span class="c1"># D_in is input dimension of the training examples: </span>
+<span class="c1"># each one has 1000 numbers as input in this example</span>
+<span class="c1"># H is hidden dimension: dimension of the second layer</span>
+<span class="c1"># D_out is output dimension: the output consists of 10 numbers</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
+
+<span class="c1"># Create random input and output data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">)</span> <span class="c1"># dimension is N x D_in, i.e. 64 examples x of size 1000 each</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span> <span class="c1"># these are the EXPECTED outputs of each training example, </span>
+<span class="c1"># i.e. dimension is 64 examples x size 10 each</span>
+
+<span class="c1"># Start with random initial weights</span>
+<span class="c1"># Randomly initialize weights: </span>
+<span class="n">w2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span> <span class="c1"># weight matrix 2 is 1000 x 100 </span>
+<span class="n">w3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span> <span class="c1"># weight matrix 3 is 100 x 10</span>
+<span class="c1"># randomly initialize biases:</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="c1"># one bias for each neuron in layer 2</span>
+<span class="n">b3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">D_out</span><span class="p">)</span> <span class="c1"># one bias for each neuron in layer 3</span>
+
+<span class="c1"># the learning rate η: </span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<span class="c1"># the number of epochs </span>
+<span class="c1"># i.e. how many times to go through the forward propagation and backpropagation to perform gradient descent</span>
+<span class="n">nepochs</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="c1"># define the activation function:</span>
+<span class="k">def</span> <span class="nf">sigma</span><span class="p">(</span><span class="n">zin</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">zin</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># derivative of the activation function:</span>
+<span class="k">def</span> <span class="nf">dsigmadz</span><span class="p">(</span><span class="n">zin</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">zin</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nepochs</span><span class="p">):</span>
+    <span class="c1"># Forward propagation: compute predicted y</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">x</span> <span class="c1"># activation of layer 1, x is input to NN</span>
+    <span class="n">z2</span> <span class="o">=</span> <span class="n">a1</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b2</span> <span class="c1"># output of layer 1/input to layer 2</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span> <span class="c1"># activation of layer 2</span>
+    <span class="n">z3</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w3</span><span class="p">)</span> <span class="o">+</span> <span class="n">b3</span> <span class="c1"># output of layer 2/input to layer 3</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">z3</span> <span class="c1"># layer 3 generates the prediction</span>
+
+    <span class="c1"># Compute loss</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+    
+    <span class="c1"># Backpropagation</span>
+    <span class="n">DeltaC3</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">DeltaC2</span> <span class="o">=</span> <span class="n">DeltaC3</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w3</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">dsigmadz</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
+    <span class="c1"># get the gradients for the weights:</span>
+    <span class="n">grad_w2</span> <span class="o">=</span> <span class="n">a1</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">DeltaC2</span><span class="p">)</span>
+    <span class="n">grad_w3</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">DeltaC3</span><span class="p">)</span>
+    <span class="c1"># get the gradients for the biases</span>
+    <span class="n">grad_b2</span> <span class="o">=</span> <span class="n">DeltaC2</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># sum over batch (N) -&gt; one gradient per hidden unit (N, H) -&gt; (H,)</span>
+    <span class="n">grad_b3</span> <span class="o">=</span> <span class="n">DeltaC3</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># sum over batch (N) -&gt; one gradient per hidden unit (N, D_out) -&gt; (D_out,)</span>
+
+    <span class="c1"># Update weights</span>
+    <span class="n">w2</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_w2</span>
+    <span class="n">w3</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_w3</span>
+    <span class="c1"># Update biases</span>
+    <span class="n">b2</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_b2</span>
+    <span class="n">b3</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_b3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 28672414.3466621
+50 10855.267298784325
+100 567.6511664170878
+150 58.571666330066876
+200 7.447383884910002
+250 1.0250919839768011
+300 0.1463988240971842
+350 0.021346160908850102
+400 0.0031559975186639913
+450 0.0004716318886403881
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -426,12 +750,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Chapter14/Chapter14.html"
+       href="../Chapter13/Chapter13.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Parton Shower Monte Carlos</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>A Brief Introduction to Monte Carlo Event Generators in Particle Physics</p>
       </div>
     </a>
 </div>
@@ -440,6 +764,30 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">13.1. Machine Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks">13.2. Neural Networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-theory-of-neural-networks">13.2.1. The Theory of Neural Networks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptrons">13.2.2. Perceptrons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigmoid-neurons">13.2.3. Sigmoid Neurons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">13.2.4. Gradient Descent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-neural-network-with-backpropagation">13.2.5. Training a Neural Network with Backpropagation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-training-a-simple-neural-network">13.2.6. Example: Training a Simple Neural Network</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
