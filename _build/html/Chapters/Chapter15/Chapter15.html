@@ -422,13 +422,13 @@ document.write(`
 <h3><span class="section-number">13.2.1. </span>The Theory of Neural Networks<a class="headerlink" href="#the-theory-of-neural-networks" title="Link to this heading">#</a></h3>
 <p>You can think of a neural network as a nonlinear function of many variables that depends on many parameters. One way to represent neural networks looks like the diagram below, with each blob representing a neuron in the network. In the network shown below, each neuron in the network provides a weighted input into the next layer of neurons.</p>
 <div align="center">
-    <img src="./NNexample.pdf" alt="An example of a neural network" style="width:50%;">
+    <img src="./NNexample.png" alt="An example of a neural network" style="width:50%;">
     <br>
     <em>Figure 1: An example of neural network: the input layer is shown, as well as several hidden layers, and the output layer.</em>
 </div>
 <p>Considering the simple example below, the output of the three neurons in the input layer <span class="math notranslate nohighlight">\(\ell=0\)</span> (taken to be identical as the input parameters), <span class="math notranslate nohighlight">\(a^0_k\)</span>, for <span class="math notranslate nohighlight">\(k=1,2,3\)</span>, provide a weighted input into the second layer <span class="math notranslate nohighlight">\(\ell=1\)</span>: <span class="math notranslate nohighlight">\(z^1_1 = \sum_k w_{1k}^1 a^0_k + b_1^1\)</span>. The output of the second layer is then <span class="math notranslate nohighlight">\(a^1_1 = \sigma(z^1_1)\)</span>, where <span class="math notranslate nohighlight">\(\sigma(z)\)</span> represents the activation function. We will understand how all of this works in this chapter.</p>
 <div align="center">
-    <img src="./NNexample2.pdf" alt="An example of the input from one layer of neurons to the next." style="width:50%;">
+    <img src="./NNexample2.png" alt="An example of the input from one layer of neurons to the next." style="width:50%;">
     <br>
     <em>Figure 2: An example of a simple neural network: the input layer is shown, as well as a single neuron in the next layer.</em>
 </div>
@@ -437,7 +437,7 @@ document.write(`
 <h3><span class="section-number">13.2.2. </span>Perceptrons<a class="headerlink" href="#perceptrons" title="Link to this heading">#</a></h3>
 <p>It is simpler to start by considering what are known as perceptrons. A perceptron takes as input binary inputs <span class="math notranslate nohighlight">\(x_1, x_2, \dots\)</span>, and produces a single binary output. As an example, consider three binary inputs <span class="math notranslate nohighlight">\(x_1, x_2, x_3\)</span>:</p>
 <div align="center">
-    <img src="./perceptron1.pdf" alt="An example of a perceptron." style="width:50%;">
+    <img src="./perceptron1.png" alt="An example of a perceptron." style="width:50%;">
     <br>
     <em>Figure 3: An example of a perceptron with three inputs.</em>
 </div>
