@@ -396,7 +396,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigmoid-neurons">13.2.3. Sigmoid Neurons</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">13.2.4. Gradient Descent</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-neural-network-with-backpropagation">13.2.5. Training a Neural Network with Backpropagation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-training-a-simple-neural-network">13.2.6. Example: Training a Simple Neural Network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-simple-neural-network-using-numpy">13.2.6. Training a Simple Neural Network using NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-simple-neural-network-using-pytorch">13.2.7. Training a Simple Neural Network using PyTorch</a></li>
 </ul>
 </li>
 </ul>
@@ -540,13 +541,18 @@ C(\mathbf{w}, \mathbf{b}) = \sum_i \sum_j (y_j(\mathbf{x}_i) - a_{i,j})^2\;,
 </section>
 <section id="training-a-neural-network-with-backpropagation">
 <h3><span class="section-number">13.2.5. </span>Training a Neural Network with Backpropagation<a class="headerlink" href="#training-a-neural-network-with-backpropagation" title="Link to this heading">#</a></h3>
-<p>Consider layers labeled by <span class="math notranslate nohighlight">\(\ell\)</span>, each with neurons labeled by <span class="math notranslate nohighlight">\(j\)</span>. The weight from neuron <span class="math notranslate nohighlight">\(k\)</span> in layer <span class="math notranslate nohighlight">\(\ell-1\)</span> to neuron <span class="math notranslate nohighlight">\(j\)</span> in layer <span class="math notranslate nohighlight">\(\ell\)</span> is <span class="math notranslate nohighlight">\(w^\ell_{jk}\)</span>. Each <span class="math notranslate nohighlight">\(j\)</span>-th neuron in the <span class="math notranslate nohighlight">\(\ell\)</span>-th layer has an associated bias <span class="math notranslate nohighlight">\(b^\ell_j\)</span>.</p>
+<p>Consider layers labeled by <span class="math notranslate nohighlight">\(\ell\)</span>, each with neurons labeled by <span class="math notranslate nohighlight">\(j\)</span>. The weight from neuron <span class="math notranslate nohighlight">\(k\)</span> in layer <span class="math notranslate nohighlight">\(\ell-1\)</span> to neuron <span class="math notranslate nohighlight">\(j\)</span> in layer <span class="math notranslate nohighlight">\(\ell\)</span> is <span class="math notranslate nohighlight">\(w^\ell_{kj}\)</span>. Each <span class="math notranslate nohighlight">\(j\)</span>-th neuron in the <span class="math notranslate nohighlight">\(\ell\)</span>-th layer has an associated bias <span class="math notranslate nohighlight">\(b^\ell_j\)</span>.</p>
 <p>Then the total input (pre-activation) to neuron <span class="math notranslate nohighlight">\(j\)</span> in the <span class="math notranslate nohighlight">\(\ell\)</span>-th layer is:</p>
 <div class="math notranslate nohighlight">
 \[
-z^\ell_j = \sum_k w^\ell_{jk} a^{\ell-1}_k + b^\ell_j\;,
+z^\ell_j = \sum_k  a^{\ell-1}_k w^\ell_{kj} + b^\ell_j\;,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(a^\ell_j = \sigma(z^\ell_j)\)</span> is the activation and <span class="math notranslate nohighlight">\(\sigma\)</span> is the activation function.</p>
+<p>where <span class="math notranslate nohighlight">\(a^\ell_j = \sigma(z^\ell_j)\)</span> is the activation and <span class="math notranslate nohighlight">\(\sigma\)</span> is the activation function. In vector form, useful for code implementation, this would look like:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{z}^\ell = \mathbf{a}^{\ell-1} \cdot \mathbf{w}^\ell + \mathbf{b}\;,
+\]</div>
+<p>where we note that the dot product in this case is non-commutative since <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> are matrices in general.</p>
 <p>The inputs to layer <span class="math notranslate nohighlight">\(\ell=1\)</span> are just the input features associated with the training examples, which we will call <span class="math notranslate nohighlight">\(x\)</span>. If there are <span class="math notranslate nohighlight">\(N\)</span> training examples, each represented by <span class="math notranslate nohighlight">\(D_\mathrm{in}\)</span> input features, then <span class="math notranslate nohighlight">\(x\)</span> is an <span class="math notranslate nohighlight">\(N \times D_\mathrm{in}\)</span> matrix. We also know the associated output values for each of these examples, <span class="math notranslate nohighlight">\(y\)</span>. If the expected output for a single example has dimension <span class="math notranslate nohighlight">\(D_\mathrm{out}\)</span>, then <span class="math notranslate nohighlight">\(y\)</span> is an <span class="math notranslate nohighlight">\(N \times D_\mathrm{out}\)</span> matrix.</p>
 <p>We want to optimize a “loss” (or “cost”) function <span class="math notranslate nohighlight">\(C\)</span> using the gradient descent algorithm. For the sake of simplicity, let’s pick <span class="math notranslate nohighlight">\(C\)</span> to be the sum of squared errors of the prediction:</p>
 <div class="math notranslate nohighlight">
@@ -556,7 +562,7 @@ C = \sum_{i=1}^N \sum_{j=1}^{D_\mathrm{out}} (y_{\mathrm{pred},ij} - y_{ij})^2 =
 <p>where <span class="math notranslate nohighlight">\(y_{\mathrm{pred},ij}\)</span> is the output of the neural network for the <span class="math notranslate nohighlight">\(i\)</span>-th training example, and <span class="math notranslate nohighlight">\(C^i =  \sum_{j=1}^{D_\mathrm{out}} (y_{\mathrm{pred},ij} - y_{ij})^2\)</span> corresponds to a single training example. To apply gradient descent, we need to find:</p>
 <div class="math notranslate nohighlight">
 \[
-\nabla C^i = \left\{\frac{ \partial C^i}{ \partial w^\ell_{jk} }, \frac{ \partial C^i}{ \partial b^\ell_{j} } \right\}^L_{\ell=2}\;,
+\nabla C^i = \left\{\frac{ \partial C^i}{ \partial w^\ell_{kj} }, \frac{ \partial C^i}{ \partial b^\ell_{j} } \right\}^L_{\ell=2}\;,
 \]</div>
 <p>for all layers <span class="math notranslate nohighlight">\(\ell = 2, 3,..., L\)</span> and for all <span class="math notranslate nohighlight">\(i, j,k\)</span>.</p>
 <p>Next we assume a network with hidden layers <span class="math notranslate nohighlight">\(\ell=2,\dots,L-1\)</span> of widths <span class="math notranslate nohighlight">\(H_1,H_2,\dots\)</span>.</p>
@@ -582,8 +588,8 @@ $<span class="math notranslate nohighlight">\(
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-\frac{ \partial C}{ \partial w^\ell_{jk}} &amp;= \frac{ \partial C}{ \partial z^\ell_j} \frac{ \partial z^\ell_j}{ \partial w^\ell_{jk}} \\
-&amp;= \Delta C^\ell_j\; a^{\ell-1}_k\;,
+\frac{ \partial C}{ \partial w^\ell_{kj}} &amp;= \frac{ \partial C}{ \partial z^\ell_j} \frac{ \partial z^\ell_j}{ \partial w^\ell_{kj}} \\
+&amp;= a^{\ell-1}_k\;\Delta C^\ell_j \;,
 \end{aligned}
 \end{split}\]</div>
 <p>and</p>
@@ -606,18 +612,24 @@ $<span class="math notranslate nohighlight">\(
 <p>and since</p>
 <div class="math notranslate nohighlight">
 \[
-z^{\ell + 1}_k = \sum_j w^{\ell+1}_{kj} a^\ell _j + b^{\ell+1}_k = \sum_j w^{\ell+1}_{kj} \sigma(z^\ell _j) + b^{\ell+1}_k\;,
+z^{\ell + 1}_k = \sum_j  a^\ell _j w^{\ell+1}_{jk} + b^{\ell+1}_k = \sum_j  \sigma(z^\ell _j) w^{\ell+1}_{jk}+ b^{\ell+1}_k\;,
 \]</div>
 <p>we obtain:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial z^{\ell+1}_k } {\partial z^\ell_j} = w^{\ell+1}_{kj} \frac{\partial \sigma}{\partial z^\ell_j}\;.
+\frac{\partial z^{\ell+1}_k } {\partial z^\ell_j} = w^{\ell+1}_{jk} \frac{\partial \sigma}{\partial z^\ell_j}\;.
 \]</div>
 <p>Putting the expressions together, we obtain the desired backpropagation expression, for <span class="math notranslate nohighlight">\(\Delta C^\ell_j\)</span> in the previous layer, to the one in the next, <span class="math notranslate nohighlight">\(\Delta C^{\ell+1}_k\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
-\Delta C^\ell_j = \sum_k w^{\ell+1}_{kj} \Delta C^{\ell+1}_k  \frac{\partial \sigma}{\partial z^\ell_j}\;.
+\Delta C^\ell_j = \sum_k  \Delta C^{\ell+1}_k w^{\ell+1}_{jk} \frac{\partial \sigma}{\partial z^\ell_j}\;.
 \]</div>
+<p>In vector form:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{\Delta C}^\ell = \mathbf{\Delta C}^{\ell+1} \cdot (\mathbf{w}^{\ell+1})^T \odot \frac{\partial \sigma}{\partial z^\ell_j}\;,
+\]</div>
+<p>where the <span class="math notranslate nohighlight">\(\odot\)</span> represents the so-called Hadamard or Schur product. Note that in python the matrix product is simply obtained by using <code class="docutils literal notranslate"><span class="pre">a.dot(b)</span></code>, whereas the Schur product by using the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator: <code class="docutils literal notranslate"><span class="pre">a*b</span></code>.</p>
 <p>To start off the backpropagation, we need the value <span class="math notranslate nohighlight">\(\Delta C^L_j\)</span> in the last layer. This is easily obtained as:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -630,9 +642,42 @@ z^{\ell + 1}_k = \sum_j w^{\ell+1}_{kj} a^\ell _j + b^{\ell+1}_k = \sum_j w^{\el
 \Delta C^L_j = 2 (a^L_j - y_j)\;,
 \]</div>
 <p>since <span class="math notranslate nohighlight">\(y_{\mathrm{pred},j} = a^L_j\)</span>.</p>
+<p>Since the loss function is a sum over all the training samples, we need to reinstate the sample index <span class="math notranslate nohighlight">\(i\)</span> to get:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{ \partial C}{ \partial w^\ell_{kj}} = \sum_i \frac{ \partial C^i}{ \partial w^\ell_{kj}} = \sum_i a^{i,\ell-1}_k\;\Delta C^{i,\ell}_{j} \;,
+\]</div>
+<p>and:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{ \partial C}{ \partial b^\ell_{j}} = \frac{ \partial C^i}{ \partial b^\ell_{j}} = \sum_i \Delta C^{i,\ell}_j\;.
+\]</div>
+<p>where the sum is over the trainng samples <span class="math notranslate nohighlight">\(i\)</span>. The first equation is easily written in vector form:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{\nabla C}_{\mathbf{w}^\ell} =  (\mathbf{a}^{\ell-1})^T\cdot \mathbf{\Delta C}^{\ell} \;.
+\]</div>
 </section>
-<section id="example-training-a-simple-neural-network">
-<h3><span class="section-number">13.2.6. </span>Example: Training a Simple Neural Network<a class="headerlink" href="#example-training-a-simple-neural-network" title="Link to this heading">#</a></h3>
+<section id="training-a-simple-neural-network-using-numpy">
+<h3><span class="section-number">13.2.6. </span>Training a Simple Neural Network using NumPy<a class="headerlink" href="#training-a-simple-neural-network-using-numpy" title="Link to this heading">#</a></h3>
+<p>Let’s write down the necessary equations and outline the procedure for training a simple neural network, with one hidden layer. We will create <span class="math notranslate nohighlight">\(N=64\)</span> training samples <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> of dimension <span class="math notranslate nohighlight">\(D_\mathrm{in}=1000\)</span> each, and with outputs <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, with dimension <span class="math notranslate nohighlight">\(D_\mathrm{out}=10\)</span>. Therefore, the matrix <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> will have dimension <span class="math notranslate nohighlight">\(N\times D_\mathrm{in} = 64 \times 1000\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> will have dimensions <span class="math notranslate nohighlight">\(N \times D_\mathrm{out}=64 \times 10\)</span>.</p>
+<p>The hidden layer will have dimension <span class="math notranslate nohighlight">\(H=100\)</span>. Therefore the weights <span class="math notranslate nohighlight">\(\mathbf{w}^2\)</span> (from the input layer to the hidden layer) will have dimensions <span class="math notranslate nohighlight">\(D_\mathrm{in} \times H = 1000 \times 100\)</span> and the weights <span class="math notranslate nohighlight">\(\mathbf{w}^3\)</span> will have dimensions <span class="math notranslate nohighlight">\(H \times D_\mathrm{out} = 100 \times 10\)</span>. The bias of the hidden layer, <span class="math notranslate nohighlight">\(\mathbf{b}^2\)</span> will be a vector of dimension <span class="math notranslate nohighlight">\(H\)</span>. There will be no activation function applied to the output layer (or, rather, the identity activation is used), although this varies according to what we are trying to achieve.</p>
+<p>The forward propagation (pass) is achieved by the following:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{a}^1 = \mathbf{x}\)</span>, i.e. the activation of the input layer is simply the input training examples.</p></li>
+<li><p>Then the input to the hidden layer is <span class="math notranslate nohighlight">\(\mathbf{z}^2 =  \mathbf{a}^1 \cdot \mathbf{w}^2+ \mathbf{b}^2\)</span>. Note that since <span class="math notranslate nohighlight">\(\mathbf{a}^1\)</span> is <span class="math notranslate nohighlight">\(N \times D_\mathrm{in}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{w}^2\)</span> is <span class="math notranslate nohighlight">\(D_\mathrm{in} \times H\)</span>, the resulting product <span class="math notranslate nohighlight">\(\mathbf{a}^1 \cdot \mathbf{w}^2\)</span> is correctly <span class="math notranslate nohighlight">\(N \times H\)</span>. When <span class="math notranslate nohighlight">\(\mathbf{b}^2\)</span> is added, NumPy treats <span class="math notranslate nohighlight">\(\mathbf{b}^2\)</span> as a <span class="math notranslate nohighlight">\(1 \times H\)</span> array and broadcasts (repeats) it <span class="math notranslate nohighlight">\(N\)</span> times across the first dimension to match <span class="math notranslate nohighlight">\(N \times H\)</span>.</p></li>
+<li><p>The function <span class="math notranslate nohighlight">\(\mathbf{a}^2 = \sigma(\mathbf{z}^2)\)</span> is computed elementwise and has the same shape <span class="math notranslate nohighlight">\(N \times H\)</span>.</p></li>
+<li><p>The input to the output layer is provided as <span class="math notranslate nohighlight">\(\mathbf{y}_\mathrm{pred} =\mathbf{a}^2 \cdot \mathbf{w}^3\)</span>, resulting in a <span class="math notranslate nohighlight">\(N \times D_\mathrm{out}\)</span> array as required.</p></li>
+</ul>
+<p>The backpropagation and application of the gradient descent algorithm proceed as follows:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{\Delta C}^3 = 2 (\mathbf{y}_\mathrm{pred} - \mathbf{y})\)</span> is calculated. Note that since there’s no activation function applied to the output layer, <span class="math notranslate nohighlight">\(\frac{ \partial \sigma } { \partial z_j^3} = 1\)</span> in this case.</p></li>
+<li><p>Then the array <span class="math notranslate nohighlight">\(\mathbf{\Delta C}^2 = (\mathbf{\Delta C}^{3} \cdot (\mathbf{w}^{3})^T) \odot \frac{\partial \sigma}{\partial \mathbf{z}^2}\)</span> is calculated. Note that the Schur product, <span class="math notranslate nohighlight">\(\odot\)</span>, is simply implemented by the <code class="docutils literal notranslate"><span class="pre">*</span></code> symbol in this case.</p></li>
+<li><p>Then it’s simple to obtain the gradients: <span class="math notranslate nohighlight">\(\mathbf{\nabla C}_{\mathbf{w}^2} = (\mathbf{a}^1)^T \cdot \mathbf{\Delta C}^2\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\nabla C}_{\mathbf{w}^3} = (\mathbf{a}^2)^T \cdot \mathbf{\Delta C}^3\)</span> and for the case of <span class="math notranslate nohighlight">\(\mathbf{\nabla C}_{\mathbf{b}^2}\)</span> we need to perform a sum over the <span class="math notranslate nohighlight">\(N\)</span> rows of the <span class="math notranslate nohighlight">\(\mathbf{\Delta C}^2\)</span> matrix using <code class="docutils literal notranslate"><span class="pre">DeltaC2.sum(axis=0)</span></code>:
+<span class="math notranslate nohighlight">\(\mathbf{\nabla C}_{\mathbf{b}^2} = \sum_{i=1}^N \mathbf{\Delta C}^2_{i,:}\)</span>.</p></li>
+<li><p>The gradients are then used to update the weights and bias.</p></li>
+</ul>
+<p>In the code that follows below, the above procedure is applied a certain number of times, or “epochs”. We will run for 1000 epochs to obtain the optimal results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -657,13 +702,12 @@ z^{\ell + 1}_k = \sum_j w^{\ell+1}_{kj} a^\ell _j + b^{\ell+1}_k = \sum_j w^{\el
 <span class="n">w3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span> <span class="c1"># weight matrix 3 is 100 x 10</span>
 <span class="c1"># randomly initialize biases:</span>
 <span class="n">b2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="c1"># one bias for each neuron in layer 2</span>
-<span class="n">b3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">D_out</span><span class="p">)</span> <span class="c1"># one bias for each neuron in layer 3</span>
 
 <span class="c1"># the learning rate η: </span>
 <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-6</span>
 <span class="c1"># the number of epochs </span>
 <span class="c1"># i.e. how many times to go through the forward propagation and backpropagation to perform gradient descent</span>
-<span class="n">nepochs</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">nepochs</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="c1"># define the activation function:</span>
 <span class="k">def</span> <span class="nf">sigma</span><span class="p">(</span><span class="n">zin</span><span class="p">):</span>
@@ -678,13 +722,13 @@ z^{\ell + 1}_k = \sum_j w^{\ell+1}_{kj} a^\ell _j + b^{\ell+1}_k = \sum_j w^{\el
     <span class="n">a1</span> <span class="o">=</span> <span class="n">x</span> <span class="c1"># activation of layer 1, x is input to NN</span>
     <span class="n">z2</span> <span class="o">=</span> <span class="n">a1</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b2</span> <span class="c1"># output of layer 1/input to layer 2</span>
     <span class="n">a2</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span> <span class="c1"># activation of layer 2</span>
-    <span class="n">z3</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w3</span><span class="p">)</span> <span class="o">+</span> <span class="n">b3</span> <span class="c1"># output of layer 2/input to layer 3</span>
+    <span class="n">z3</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w3</span><span class="p">)</span> <span class="c1"># output of layer 2/input to layer 3</span>
     <span class="n">y_pred</span> <span class="o">=</span> <span class="n">z3</span> <span class="c1"># layer 3 generates the prediction</span>
 
     <span class="c1"># Compute loss</span>
     <span class="n">loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-    <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
     
     <span class="c1"># Backpropagation</span>
@@ -695,28 +739,570 @@ z^{\ell + 1}_k = \sum_j w^{\ell+1}_{kj} a^\ell _j + b^{\ell+1}_k = \sum_j w^{\el
     <span class="n">grad_w3</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">DeltaC3</span><span class="p">)</span>
     <span class="c1"># get the gradients for the biases</span>
     <span class="n">grad_b2</span> <span class="o">=</span> <span class="n">DeltaC2</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># sum over batch (N) -&gt; one gradient per hidden unit (N, H) -&gt; (H,)</span>
-    <span class="n">grad_b3</span> <span class="o">=</span> <span class="n">DeltaC3</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># sum over batch (N) -&gt; one gradient per hidden unit (N, D_out) -&gt; (D_out,)</span>
 
     <span class="c1"># Update weights</span>
     <span class="n">w2</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_w2</span>
     <span class="n">w3</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_w3</span>
     <span class="c1"># Update biases</span>
     <span class="n">b2</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_b2</span>
-    <span class="n">b3</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_b3</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 28672414.3466621
-50 10855.267298784325
-100 567.6511664170878
-150 58.571666330066876
-200 7.447383884910002
-250 1.0250919839768011
-300 0.1463988240971842
-350 0.021346160908850102
-400 0.0031559975186639913
-450 0.0004716318886403881
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 28589687.97416398
+100 567.2569695746623
+200 7.441494795910216
+300 0.14628460693814943
+400 0.003153882834020574
+500 7.107587941047582e-05
+600 1.6520575692823402e-06
+700 3.9314469471516174e-08
+800 9.526930960641019e-10
+900 2.3407734632347264e-11
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="training-a-simple-neural-network-using-pytorch">
+<h3><span class="section-number">13.2.7. </span>Training a Simple Neural Network using PyTorch<a class="headerlink" href="#training-a-simple-neural-network-using-pytorch" title="Link to this heading">#</a></h3>
+<p>To be able to use Graphics Processing Units (GPUs) to accelerate numerical computations, one has to use a module such as PyTorch in Python. GPUs are designed with many more cores, albeit running at slower speeds, that are optimized for parallel processing. GPUs can break down complex problems into thousands of smaller tasks to be processed simultaneously instead of serially on CPUs.</p>
+<p>In PyTorch, the fundamental object is a <em>tensor</em>. Conceptually, a <em>tensor</em> is identical to a NumPy array, but PyTorch provides optimized functions for operating on them, such as fast calculation of the gradients necessary for the backpropagation.</p>
+<p>Let’s see how the simple network we trained above is translated from NumPy into PyTorch.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">double</span> <span class="c1"># .float is float32, double is float64 -&gt; Note that float will be much faster on GPUs</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="c1"># device = torch.device(&quot;cuda:0&quot;) # Uncomment this to run on GPU with cuda</span>
+
+<span class="c1"># Uncomment next two lines to run on Metal Performance Shaders (MPS) rather than CUDA. You have to use float!</span>
+<span class="c1">#dtype = torch.float</span>
+<span class="c1">#device = torch.device(&quot;mps&quot;) </span>
+
+
+<span class="c1"># device = torch.device(&quot;cuda:0&quot;) # Uncomment this to run on GPU</span>
+<span class="c1"># N is batch size -&gt; the number of training examples</span>
+<span class="c1"># D_in is input dimension of the training examples: </span>
+<span class="c1"># each one has 1000 numbers as input in this example</span>
+<span class="c1"># H is hidden dimension: dimension of the second layer</span>
+<span class="c1"># D_out is output dimension: the output consists of 10 numbers</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
+
+<span class="c1"># Create random input and output data -&gt; this functions like the NumPy equivalent</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># dimension is N x D_in, i.e. 64 examples x of size 1000 each</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># these are the EXPECTED outputs of each training example, </span>
+<span class="c1"># i.e. dimension is 64 examples x size 10 each</span>
+
+<span class="c1"># Start with random initial weights</span>
+<span class="c1"># Randomly initialize weights: </span>
+<span class="n">w2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># weight matrix 2 is 1000 x 100 </span>
+<span class="n">w3</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># weight matrix 3 is 100 x 10</span>
+<span class="c1"># randomly initialize biases:</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># one bias for each neuron in layer 2</span>
+
+<span class="c1"># the learning rate η: </span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<span class="c1"># the number of epochs </span>
+<span class="c1"># i.e. how many times to go through the forward propagation and backpropagation to perform gradient descent</span>
+<span class="n">nepochs</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c1"># the activation function is already built into torch, so no need to define it here</span>
+
+<span class="c1"># derivative of the activation function:</span>
+<span class="k">def</span> <span class="nf">dsigmadz</span><span class="p">(</span><span class="n">zin</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">zin</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nepochs</span><span class="p">):</span>
+    <span class="c1"># Forward propagation: compute predicted y</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">x</span> <span class="c1"># activation of layer 1, x is input to NN</span>
+    <span class="n">z2</span> <span class="o">=</span> <span class="n">a1</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">w2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b2</span> <span class="c1"># output of layer 1/input to layer 2: .mm is matrix multiplication of PyTorch tensors</span>
+    <span class="c1">#a2 = sigma(z2) # activation of layer 2</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">z2</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Clamps all elements in input into the range [ min, max ], see: https://docs.pytorch.org/docs/stable/generated/torch.clamp.html</span>
+    <span class="n">z3</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">w3</span><span class="p">)</span> <span class="c1"># output of layer 2/input to layer 3</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">z3</span> <span class="c1"># layer 3 generates the prediction</span>
+
+    <span class="c1"># Compute loss</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="c1"># use .pow(2) in torch</span>
+
+    <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+    
+    <span class="c1"># Backpropagation</span>
+    <span class="n">DeltaC3</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">DeltaC2</span> <span class="o">=</span> <span class="n">DeltaC3</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">w3</span><span class="o">.</span><span class="n">t</span><span class="p">())</span> <span class="o">*</span> <span class="n">dsigmadz</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
+    <span class="c1"># get the gradients for the weights:</span>
+    <span class="n">grad_w2</span> <span class="o">=</span> <span class="n">a1</span><span class="o">.</span><span class="n">t</span><span class="p">()</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">DeltaC2</span><span class="p">)</span>
+    <span class="n">grad_w3</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">t</span><span class="p">()</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">DeltaC3</span><span class="p">)</span>
+    <span class="c1"># get the gradients for the biases</span>
+    <span class="n">grad_b2</span> <span class="o">=</span> <span class="n">DeltaC2</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># sum over batch (N) -&gt; one gradient per hidden unit (N, H) -&gt; (H,). torch uses dim=0 instead of axis=0</span>
+
+    <span class="c1"># Update weights</span>
+    <span class="n">w2</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_w2</span>
+    <span class="n">w3</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_w3</span>
+    <span class="c1"># Update biases</span>
+    <span class="n">b2</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_b2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 39554596.48648974
+100 342.8098329935121
+200 1.1705533375661885
+300 0.005760886822914624
+400 3.1107584100949715e-05
+500 1.7445544102365072e-07
+600 9.955294518481312e-10
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>700 5.72956030848998e-12
+800 3.311754243713818e-14
+900 1.9186514838857483e-16
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above manually implements the forward and backward passes of the neural network. In this case, this is relatively easy, but it can get complicated for large complex network. One of the advantages of using PyTorch is the availability of automatic differentiation (autodiff). This is provided by the autograd package in PyTorch.</p>
+<p>Each Tensor represents a node in a computational graph. If <code class="docutils literal notranslate"><span class="pre">x</span></code> is a tensor that has <code class="docutils literal notranslate"><span class="pre">x.requires_grad=True</span></code> then <code class="docutils literal notranslate"><span class="pre">x.grad</span></code> is another tensor holding the gradient of <code class="docutils literal notranslate"><span class="pre">x</span></code> with respect to some scalar value. Let’s apply this to our simple network.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">double</span> <span class="c1"># .float is float32, double is float64 -&gt; Note that float will be much faster on GPUs</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="c1"># device = torch.device(&quot;cuda:0&quot;) # Uncomment this to run on GPU with cuda</span>
+
+<span class="c1"># Uncomment next two lines to run on Metal Performance Shaders (MPS) rather than CUDA. You have to use float!</span>
+<span class="c1">#dtype = torch.float</span>
+<span class="c1">#device = torch.device(&quot;mps&quot;) </span>
+
+<span class="c1"># set the seed</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="c1"># device = torch.device(&quot;cuda:0&quot;) # Uncomment this to run on GPU</span>
+<span class="c1"># N is batch size -&gt; the number of training examples</span>
+<span class="c1"># D_in is input dimension of the training examples: </span>
+<span class="c1"># each one has 1000 numbers as input in this example</span>
+<span class="c1"># H is hidden dimension: dimension of the second layer</span>
+<span class="c1"># D_out is output dimension: the output consists of 10 numbers</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
+
+<span class="c1"># Create random input and output data -&gt; this functions like the NumPy equivalent</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># dimension is N x D_in, i.e. 64 examples x of size 1000 each</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># these are the EXPECTED outputs of each training example, </span>
+<span class="c1"># i.e. dimension is 64 examples x size 10 each</span>
+
+<span class="c1"># Start with random initial weights</span>
+<span class="c1"># Randomly initialize weights: </span>
+<span class="c1"># Note that we have now set requires_grad=True</span>
+<span class="n">w2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># weight matrix 2 is 1000 x 100 </span>
+<span class="n">w3</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># weight matrix 3 is 100 x 10</span>
+<span class="c1"># randomly initialize biases:</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># one bias for each neuron in layer 2</span>
+
+<span class="c1"># the learning rate η: </span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<span class="c1"># the number of epochs </span>
+<span class="c1"># i.e. how many times to go through the forward propagation and backpropagation to perform gradient descent</span>
+<span class="n">nepochs</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c1"># the activation function is already built into torch, so no need to define it here</span>
+<span class="c1"># the derivative of the activation function is also not required!</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nepochs</span><span class="p">):</span>
+    <span class="c1"># Forward propagation: compute predicted y. </span>
+    <span class="c1"># this is much simpler with tensors, but essentially the same operations as before</span>
+    <span class="c1"># we don&#39;t need to keep the intermediate values as the backpropagattion is automated</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">w2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b2</span><span class="p">)</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">w3</span><span class="p">)</span>
+    
+    <span class="c1"># Compute loss</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># use .pow(2) in torch</span>
+
+    <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+    <span class="c1"># Backpropagtion is now implemented via autograd!</span>
+    <span class="c1"># this is extremely simple: </span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    
+    <span class="c1"># Update weights</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span> <span class="c1"># IMPORTANT: Update the parameters numerically, but don’t let autograd record these updates! </span>
+        <span class="n">w2</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">w2</span><span class="o">.</span><span class="n">grad</span>
+        <span class="n">w3</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">w3</span><span class="o">.</span><span class="n">grad</span>
+        <span class="c1"># Update biases</span>
+        <span class="n">b2</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">b2</span><span class="o">.</span><span class="n">grad</span>
+
+        <span class="c1"># After loss.backward(), the gradients are stored in w1.grad and w2.grad. </span>
+        <span class="c1"># PyTorch accumulates gradients by default, so you clear them each step:</span>
+        <span class="c1"># Manually zero the gradients after updating weights</span>
+        <span class="n">w2</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+        <span class="n">w3</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+        <span class="n">b2</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 44434918.92856194
+100 474.236756398862
+200 2.1945747078727202
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>300 0.019992321866109136
+400 0.0002488998305229553
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500 3.6395634211154595e-06
+600 5.782657401607775e-08
+700 9.596370475285877e-10
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>800 1.6308350082414402e-11
+900 2.8091380180711517e-13
+</pre></div>
+</div>
+</div>
+</div>
+<p>When building neural networks, we arrange the computation into layers with learnable parameters, which we want to optimize during learning. Machine learning packages provide high-level abstractions that make building neural networks easier.</p>
+<p>In PyTorch, this functionality is provided by the <code class="docutils literal notranslate"><span class="pre">nn</span></code> package, which contains a set of modules, roughly equivalent to neural network layers. A module receives input tensors and computes output tensors, but may also hold internal state such as tensors containing learnable parameters. The <code class="docutils literal notranslate"><span class="pre">nn</span></code> package also defines a set of useful loss functions that are commonly used when training neural networks.</p>
+<p>Let’s rewrite our simple two-layer network using the <code class="docutils literal notranslate"><span class="pre">nn</span></code> package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span> <span class="c1"># use float here </span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="c1"># device = torch.device(&quot;cuda:0&quot;) # Uncomment this to run on GPU with cuda</span>
+
+<span class="c1"># Uncomment line to run on Metal Performance Shaders (MPS) rather than CUDA</span>
+<span class="c1">#device = torch.device(&quot;mps&quot;) </span>
+
+<span class="c1"># set the seed</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="c1"># device = torch.device(&quot;cuda:0&quot;) # Uncomment this to run on GPU</span>
+<span class="c1"># N is batch size -&gt; the number of training examples</span>
+<span class="c1"># D_in is input dimension of the training examples: </span>
+<span class="c1"># each one has 1000 numbers as input in this example</span>
+<span class="c1"># H is hidden dimension: dimension of the second layer</span>
+<span class="c1"># D_out is output dimension: the output consists of 10 numbers</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
+
+<span class="c1"># Create random input and output data -&gt; this functions like the NumPy equivalent</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># dimension is N x D_in, i.e. 64 examples x of size 1000 each</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># these are the EXPECTED outputs of each training example, </span>
+<span class="c1"># i.e. dimension is 64 examples x size 10 each</span>
+
+<span class="c1"># Use the nn package to define our model as a sequence of layers. nn.Sequential</span>
+<span class="c1"># is a Module which contains other Modules, and applies them in sequence to</span>
+<span class="c1"># produce its output. Each Linear Module computes output from input using a</span>
+<span class="c1"># linear function, and holds internal Tensors for its weight and bias.</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="c1"># enabled bias (b2)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="c1"># disabled bias to match our network</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+
+
+<span class="c1"># The nn package also contains definitions of popular loss functions; in this</span>
+<span class="c1"># case we will use Mean Squared Error (MSE) as our loss function.</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+
+<span class="c1"># the learning rate η: </span>
+<span class="c1"># torch.nn.Linear uses a built-in initialization scheme (scaled based on fan-in/out). </span>
+<span class="c1"># That typically produces smaller initial activations/gradients, often allowing a larger learning rate.</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-4</span>
+
+<span class="c1"># the number of epochs </span>
+<span class="c1"># i.e. how many times to go through the forward propagation and backpropagation to perform gradient descent</span>
+<span class="n">nepochs</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nepochs</span><span class="p">):</span>
+    <span class="c1"># Forward pass: compute predicted y by passing x to the model. Module objects</span>
+    <span class="c1"># override the __call__ operator so you can call them like functions. When</span>
+    <span class="c1"># doing so you pass a Tensor of input data to the Module and it produces</span>
+    <span class="c1"># a Tensor of output data.</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Compute and print loss. We pass Tensors containing the predicted and true</span>
+    <span class="c1"># values of y, and the loss function returns a Tensor containing the</span>
+    <span class="c1"># loss.</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+    <span class="c1"># Zero the gradients before running the backward pass.</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    
+    <span class="c1"># Backward pass: compute gradient of the loss with respect to all the learnable</span>
+    <span class="c1"># parameters of the model. Internally, the parameters of each Module are stored</span>
+    <span class="c1"># in Tensors with requires_grad=True, so this call will compute gradients for</span>
+    <span class="c1"># all learnable parameters in the model.</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    
+    <span class="c1"># Update weights</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span> <span class="c1"># IMPORTANT: Update the parameters numerically, but don’t let autograd record these updates! </span>
+    <span class="c1"># Update the weights using gradient descent. Each parameter is a Tensor, so</span>
+    <span class="c1"># we can access its gradients like we did before.</span>
+        <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
+            <span class="n">param</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">param</span><span class="o">.</span><span class="n">grad</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 653.7217407226562
+100 2.47605037689209
+200 0.044257692992687225
+300 0.0015212814323604107
+400 0.00013224745634943247
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500 2.130211578332819e-05
+600 3.970460056734737e-06
+700 7.587874506498338e-07
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>800 1.4766659717224684e-07
+900 3.121574820852402e-08
+</pre></div>
+</div>
+</div>
+</div>
+<p>In practice, neural networks are trained using more sophisticated optimizers compared to gradient descent. These are AdaGrad, RMSProp, Adam, etc.. See <a class="reference external" href="https://docs.pytorch.org/docs/stable/optim.html">https://docs.pytorch.org/docs/stable/optim.html</a> for a full list of available algorithms.</p>
+<p>Let’s update our example to optimize the model using Adam algorithm (see <a class="reference external" href="https://arxiv.org/abs/1412.6980">https://arxiv.org/abs/1412.6980</a> for details).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span> <span class="c1"># use float here </span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="c1"># device = torch.device(&quot;cuda:0&quot;) # Uncomment this to run on GPU with cuda</span>
+
+<span class="c1"># Uncomment line to run on Metal Performance Shaders (MPS) rather than CUDA</span>
+<span class="c1">#device = torch.device(&quot;mps&quot;) </span>
+
+<span class="c1"># set the seed</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="c1"># device = torch.device(&quot;cuda:0&quot;) # Uncomment this to run on GPU</span>
+<span class="c1"># N is batch size -&gt; the number of training examples</span>
+<span class="c1"># D_in is input dimension of the training examples: </span>
+<span class="c1"># each one has 1000 numbers as input in this example</span>
+<span class="c1"># H is hidden dimension: dimension of the second layer</span>
+<span class="c1"># D_out is output dimension: the output consists of 10 numbers</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
+
+<span class="c1"># Create random input and output data -&gt; this functions like the NumPy equivalent</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># dimension is N x D_in, i.e. 64 examples x of size 1000 each</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># these are the EXPECTED outputs of each training example, </span>
+<span class="c1"># i.e. dimension is 64 examples x size 10 each</span>
+
+<span class="c1"># Use the nn package to define our model as a sequence of layers. nn.Sequential</span>
+<span class="c1"># is a Module which contains other Modules, and applies them in sequence to</span>
+<span class="c1"># produce its output. Each Linear Module computes output from input using a</span>
+<span class="c1"># linear function, and holds internal Tensors for its weight and bias.</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="c1"># enabled bias (b2)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="c1"># disabled bias to match our network</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># this is not essential, but make sure x, y and model are defined on the same device and with the same dtype</span>
+
+
+<span class="c1"># The nn package also contains definitions of popular loss functions; in this</span>
+<span class="c1"># case we will use Mean Squared Error (MSE) as our loss function.</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+
+<span class="c1"># the learning rate η: </span>
+<span class="c1"># torch.nn.Linear uses a built-in initialization scheme (scaled based on fan-in/out). </span>
+<span class="c1"># That typically produces smaller initial activations/gradients, often allowing a larger learning rate.</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-4</span>
+
+
+<span class="c1"># Use the optim package to define an Optimizer that will update the weights of</span>
+<span class="c1"># the model for us. Here we will use Adam; the optim package contains many other</span>
+<span class="c1"># optimization algoriths. The first argument to the Adam constructor tells the</span>
+<span class="c1"># optimizer which Tensors it should update.</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+
+<span class="c1"># the number of epochs </span>
+<span class="c1"># i.e. how many times to go through the forward propagation and backpropagation to perform gradient descent</span>
+<span class="n">nepochs</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nepochs</span><span class="p">):</span>
+    <span class="c1"># Forward pass: compute predicted y by passing x to the model. Module objects</span>
+    <span class="c1"># override the __call__ operator so you can call them like functions. When</span>
+    <span class="c1"># doing so you pass a Tensor of input data to the Module and it produces</span>
+    <span class="c1"># a Tensor of output data.</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Compute and print loss. We pass Tensors containing the predicted and true</span>
+    <span class="c1"># values of y, and the loss function returns a Tensor containing the</span>
+    <span class="c1"># loss.</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+    <span class="c1"># Zero the gradients before running the backward pass.</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    
+    <span class="c1"># Backward pass: compute gradient of the loss with respect to all the learnable</span>
+    <span class="c1"># parameters of the model. Internally, the parameters of each Module are stored</span>
+    <span class="c1"># in Tensors with requires_grad=True, so this call will compute gradients for</span>
+    <span class="c1"># all learnable parameters in the model.</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    
+    <span class="c1"># Calling the step function on an Optimizer makes an update to its</span>
+    <span class="c1"># parameters</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 653.7217407226562
+100 44.71114730834961
+200 0.4790476858615875
+300 0.001661655493080616
+400 3.7960874124109978e-06
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500 7.3301693603866624e-09
+600 1.419264428204059e-10
+700 2.8818223848925406e-11
+800 1.2270679264347883e-11
+900 7.262191716039812e-12
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also save a trained model for later use. Essentially, what we need to save are the learnable parameters (i.e. the weights and biases) of the <code class="docutils literal notranslate"><span class="pre">torch.nn.Module</span></code>. A <code class="docutils literal notranslate"><span class="pre">state_dict</span></code> is a Python dictionary that maps each layer to the parameter tensor.</p>
+<p>Repeating the code above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span> <span class="c1"># use float here </span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="c1"># device = torch.device(&quot;cuda:0&quot;) # Uncomment this to run on GPU with cuda</span>
+
+<span class="c1"># Uncomment line to run on Metal Performance Shaders (MPS) rather than CUDA</span>
+<span class="c1">#device = torch.device(&quot;mps&quot;) </span>
+
+<span class="c1"># set the seed</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="c1"># device = torch.device(&quot;cuda:0&quot;) # Uncomment this to run on GPU</span>
+<span class="c1"># N is batch size -&gt; the number of training examples</span>
+<span class="c1"># D_in is input dimension of the training examples: </span>
+<span class="c1"># each one has 1000 numbers as input in this example</span>
+<span class="c1"># H is hidden dimension: dimension of the second layer</span>
+<span class="c1"># D_out is output dimension: the output consists of 10 numbers</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
+
+<span class="c1"># Create random input and output data -&gt; this functions like the NumPy equivalent</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># dimension is N x D_in, i.e. 64 examples x of size 1000 each</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># these are the EXPECTED outputs of each training example, </span>
+<span class="c1"># i.e. dimension is 64 examples x size 10 each</span>
+
+<span class="c1"># Use the nn package to define our model as a sequence of layers. nn.Sequential</span>
+<span class="c1"># is a Module which contains other Modules, and applies them in sequence to</span>
+<span class="c1"># produce its output. Each Linear Module computes output from input using a</span>
+<span class="c1"># linear function, and holds internal Tensors for its weight and bias.</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="c1"># enabled bias (b2)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="c1"># disabled bias to match our network</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># this is not essential, but make sure x, y and model are defined on the same device and with the same dtype</span>
+
+
+<span class="c1"># The nn package also contains definitions of popular loss functions; in this</span>
+<span class="c1"># case we will use Mean Squared Error (MSE) as our loss function.</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+
+<span class="c1"># the learning rate η: </span>
+<span class="c1"># torch.nn.Linear uses a built-in initialization scheme (scaled based on fan-in/out). </span>
+<span class="c1"># That typically produces smaller initial activations/gradients, often allowing a larger learning rate.</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-4</span>
+
+
+<span class="c1"># Use the optim package to define an Optimizer that will update the weights of</span>
+<span class="c1"># the model for us. Here we will use Adam; the optim package contains many other</span>
+<span class="c1"># optimization algoriths. The first argument to the Adam constructor tells the</span>
+<span class="c1"># optimizer which Tensors it should update.</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+
+<span class="c1"># the number of epochs </span>
+<span class="c1"># i.e. how many times to go through the forward propagation and backpropagation to perform gradient descent</span>
+<span class="n">nepochs</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nepochs</span><span class="p">):</span>
+    <span class="c1"># Forward pass: compute predicted y by passing x to the model. Module objects</span>
+    <span class="c1"># override the __call__ operator so you can call them like functions. When</span>
+    <span class="c1"># doing so you pass a Tensor of input data to the Module and it produces</span>
+    <span class="c1"># a Tensor of output data.</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Compute and print loss. We pass Tensors containing the predicted and true</span>
+    <span class="c1"># values of y, and the loss function returns a Tensor containing the</span>
+    <span class="c1"># loss.</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+    <span class="c1"># Zero the gradients before running the backward pass.</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    
+    <span class="c1"># Backward pass: compute gradient of the loss with respect to all the learnable</span>
+    <span class="c1"># parameters of the model. Internally, the parameters of each Module are stored</span>
+    <span class="c1"># in Tensors with requires_grad=True, so this call will compute gradients for</span>
+    <span class="c1"># all learnable parameters in the model.</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    
+    <span class="c1"># Calling the step function on an Optimizer makes an update to its</span>
+    <span class="c1"># parameters</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+<span class="c1"># A common PyTorch convention is to save models using either a .pt or .pth file extension.</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s1">&#39;pytorch_example.pt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 653.7217407226562
+100 44.71114730834961
+200 0.4790476858615875
+300 0.001661655493080616
+400 3.7960874124109978e-06
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500 7.3301693603866624e-09
+600 1.419264428204059e-10
+700 2.8818223848925406e-11
+800 1.2270679264347883e-11
+900 7.262191716039812e-12
+</pre></div>
+</div>
+</div>
+</div>
+<p>And then we can load the model by:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;pytorch_example.pt&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+<span class="c1"># get the prediction of the model on the training sample </span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>    
+
+<span class="c1"># and calculate/print the final loss</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The loss for the loaded model is&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The loss for the loaded model is 4.452629237539085e-12
 </pre></div>
 </div>
 </div>
@@ -787,7 +1373,8 @@ z^{\ell + 1}_k = \sum_j w^{\ell+1}_{kj} a^\ell _j + b^{\ell+1}_k = \sum_j w^{\el
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigmoid-neurons">13.2.3. Sigmoid Neurons</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">13.2.4. Gradient Descent</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-neural-network-with-backpropagation">13.2.5. Training a Neural Network with Backpropagation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-training-a-simple-neural-network">13.2.6. Example: Training a Simple Neural Network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-simple-neural-network-using-numpy">13.2.6. Training a Simple Neural Network using NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-simple-neural-network-using-pytorch">13.2.7. Training a Simple Neural Network using PyTorch</a></li>
 </ul>
 </li>
 </ul>
