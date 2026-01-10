@@ -400,6 +400,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-simple-neural-network-using-pytorch">13.2.7. Training a Simple Neural Network using PyTorch</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-neural-networks">13.3. Convolutional Neural Networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fully-connected-mlp-layer-global-dot-products">13.3.1. Fully-connected (MLP) layer: global dot products</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-layer-local-dot-products-reused-across-the-image">13.3.2. Convolution layer: local dot products reused across the image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-interface">13.3.3. PyTorch interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classifying-cat-and-dog-images">13.3.4. Classifying Cat and Dog Images</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -847,18 +854,18 @@ z^{\ell + 1}_k = \sum_j  a^\ell _j w^{\ell+1}_{jk} + b^{\ell+1}_k = \sum_j  \sig
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 39554596.48648974
-100 342.8098329935121
-200 1.1705533375661885
-300 0.005760886822914624
-400 3.1107584100949715e-05
-500 1.7445544102365072e-07
-600 9.955294518481312e-10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 29092825.679309838
+100 1126.7000961311628
+200 12.867323996087936
+300 0.22177134783094388
+400 0.004286896638470362
+500 8.662844954353518e-05
+600 1.7819408024517646e-06
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>700 5.72956030848998e-12
-800 3.311754243713818e-14
-900 1.9186514838857483e-16
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>700 3.696225980013141e-08
+800 7.702396883498234e-10
+900 1.6095215862247414e-11
 </pre></div>
 </div>
 </div>
@@ -945,10 +952,10 @@ z^{\ell + 1}_k = \sum_j  a^\ell _j w^{\ell+1}_{jk} + b^{\ell+1}_k = \sum_j  \sig
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 44434918.92856194
 100 474.236756398862
-200 2.1945747078727202
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>300 0.019992321866109136
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 2.1945747078727202
+300 0.019992321866109136
 400 0.0002488998305229553
 </pre></div>
 </div>
@@ -1055,10 +1062,10 @@ z^{\ell + 1}_k = \sum_j  a^\ell _j w^{\ell+1}_{jk} + b^{\ell+1}_k = \sum_j  \sig
 100 2.47605037689209
 200 0.044257692992687225
 300 0.0015212814323604107
-400 0.00013224745634943247
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500 2.130211578332819e-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>400 0.00013224745634943247
+500 2.130211578332819e-05
 600 3.970460056734737e-06
 700 7.587874506498338e-07
 </pre></div>
@@ -1274,13 +1281,15 @@ z^{\ell + 1}_k = \sum_j  a^\ell _j w^{\ell+1}_{jk} + b^{\ell+1}_k = \sum_j  \sig
 100 44.71114730834961
 200 0.4790476858615875
 300 0.001661655493080616
-400 3.7960874124109978e-06
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500 7.3301693603866624e-09
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>400 3.7960874124109978e-06
+500 7.3301693603866624e-09
 600 1.419264428204059e-10
 700 2.8818223848925406e-11
-800 1.2270679264347883e-11
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>800 1.2270679264347883e-11
 900 7.262191716039812e-12
 </pre></div>
 </div>
@@ -1303,6 +1312,512 @@ z^{\ell + 1}_k = \sum_j  a^\ell _j w^{\ell+1}_{jk} + b^{\ell+1}_k = \sum_j  \sig
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The loss for the loaded model is 4.452629237539085e-12
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="convolutional-neural-networks">
+<h2><span class="section-number">13.3. </span>Convolutional Neural Networks<a class="headerlink" href="#convolutional-neural-networks" title="Link to this heading">#</a></h2>
+<p>Fully-connected networks (MLPs) such as the ones we have been discussing thus far can, in principle, learn to classify images. In practice, they are usually a poor default because images are not “generic vectors”: they have spatial structure. Convolutional neural networks (CNNs) are designed to exploit that structure.</p>
+<p>A batch of RGB (Red-Green-Blue) images is naturally represented as a 4D tensor:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{x}\in\mathbb{R}^{N\times C\times H\times W},
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span> is the batch size (number of images, i.e. training examples),</p></li>
+<li><p><span class="math notranslate nohighlight">\(C\)</span> is the number of channels (for RGB, <span class="math notranslate nohighlight">\(C=3\)</span>),</p></li>
+<li><p><span class="math notranslate nohighlight">\(H\)</span> is the image height in pixels,</p></li>
+<li><p><span class="math notranslate nohighlight">\(W\)</span> is the image width in pixels.</p></li>
+</ul>
+<p>PyTorch uses this “NCHW” convention by default.</p>
+<p>CNNs build in two assumptions that are usually true for images:</p>
+<ol class="arabic simple">
+<li><p>Locality: nearby pixels are more correlated than distant pixels (edges, corners, textures are local).</p></li>
+<li><p>Translation structure: the same visual pattern can appear anywhere in the image (an edge is an edge whether it is at the top-left or bottom-right).</p></li>
+</ol>
+<p>CNNs encode these assumptions via:</p>
+<ol class="arabic simple">
+<li><p>Local connectivity: a unit (neuron) in a convolution layer only “sees” a small neighborhood of the input (its receptive field).</p></li>
+<li><p>Weight sharing: the same filter (kernel) is applied across all spatial locations.</p></li>
+</ol>
+<p>These choices drastically reduce the number of trainable parameters and often improve generalization.</p>
+<p>A good way to understand CNNs is to compare a convolution layer to a fully-connected (“normal”) layer. Both are linear transformations followed by a nonlinearity; the difference is how the weights are structured and applied.</p>
+<section id="fully-connected-mlp-layer-global-dot-products">
+<h3><span class="section-number">13.3.1. </span>Fully-connected (MLP) layer: global dot products<a class="headerlink" href="#fully-connected-mlp-layer-global-dot-products" title="Link to this heading">#</a></h3>
+<p>Consider a single image, flattened into a vector <span class="math notranslate nohighlight">\(\mathbf{x}_\text{flat}\in\mathbb{R}^{D}\)</span> with <span class="math notranslate nohighlight">\(D = 3HW\)</span>. A fully-connected neuron takes a dot product between a weight vector and the entire input vector, then applies an activation:</p>
+<div class="math notranslate nohighlight">
+\[
+z^\ell_j = \mathbf{w}^\ell_j\cdot \mathbf{a}^{\ell-1} + b^\ell_j,
+\qquad
+a^\ell_j = \sigma(z^\ell_j),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{a}^{\ell-1}\in\mathbb{R}^{D}\)</span> is the input to layer <span class="math notranslate nohighlight">\(\ell\)</span> (for the first layer, <span class="math notranslate nohighlight">\(\mathbf{a}^1 \equiv \mathbf{x}_\text{flat}\)</span>). For an MLP layer with <span class="math notranslate nohighlight">\(M\)</span> neurons, the output is a length-<span class="math notranslate nohighlight">\(M\)</span> vector <span class="math notranslate nohighlight">\(\mathbf{a}^\ell\)</span>.</p>
+<p>Each neuron is a global template over the whole image. If you shift the object in the image, the neuron’s response can change drastically, because it has learned weights tied to specific pixel indices.</p>
+</section>
+<section id="convolution-layer-local-dot-products-reused-across-the-image">
+<h3><span class="section-number">13.3.2. </span>Convolution layer: local dot products reused across the image<a class="headerlink" href="#convolution-layer-local-dot-products-reused-across-the-image" title="Link to this heading">#</a></h3>
+<p>Now let the input be an image-like tensor (for simplicity, one image) <span class="math notranslate nohighlight">\(x_{c,u,v}\)</span>, where <span class="math notranslate nohighlight">\(c\)</span> labels the channel (e.g. RGB), and <span class="math notranslate nohighlight">\((u,v)\)</span> labels the pixel location.</p>
+<p>Pick a kernel (filter) size <span class="math notranslate nohighlight">\(K\times K\)</span>. At each location <span class="math notranslate nohighlight">\((u,v)\)</span>, define the local patch vector by unrolling the <span class="math notranslate nohighlight">\(K\times K\)</span> neighborhood across all channels into one vector:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{x}_{u,v}\in \mathbb{R}^{C\,K^2}.
+\]</div>
+<p>A single CNN filter <span class="math notranslate nohighlight">\(m\)</span> is exactly like a neuron’s weight vector, except its dimension is <span class="math notranslate nohighlight">\(C\,K^2\)</span> (local) rather than <span class="math notranslate nohighlight">\(D\)</span> (global):</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{w}^{(m)}\in \mathbb{R}^{C\,K^2}, \qquad b^{(m)}\in\mathbb{R}.
+\]</div>
+<p>Here <span class="math notranslate nohighlight">\(C\)</span> is the number of input channels in the image (or, more generally, in the feature maps coming into the convolution layer).</p>
+<ul class="simple">
+<li><p>For a color (RGB) image, <span class="math notranslate nohighlight">\(C=3\)</span>.</p></li>
+<li><p>For a grayscale image, <span class="math notranslate nohighlight">\(C=1\)</span>.</p></li>
+<li><p>For deeper layers in a CNN, <span class="math notranslate nohighlight">\(C\)</span> is the number of feature maps produced by the previous convolution layer (e.g., after a <code class="docutils literal notranslate"><span class="pre">Conv2d(3,16,...)</span></code>, the next layer sees <span class="math notranslate nohighlight">\(C=16\)</span> input channels).</p></li>
+</ul>
+<p>At that location <span class="math notranslate nohighlight">\((u,v)\)</span>, the convolution output is computed in the same “dot product + bias + activation” form:</p>
+<div class="math notranslate nohighlight">
+\[
+z^{(m)}_{u,v} = \mathbf{w}^{(m)}\cdot \mathbf{x}_{u,v} + b^{(m)},
+\qquad
+a^{(m)}_{u,v} = \sigma\!\big(z^{(m)}_{u,v}\big).
+\]</div>
+<p>The key difference from the MLP is that the same <span class="math notranslate nohighlight">\(\mathbf{w}^{(m)}\)</span> is used for every <span class="math notranslate nohighlight">\((u,v)\)</span>. Therefore, for one filter <span class="math notranslate nohighlight">\(m\)</span>, the outputs <span class="math notranslate nohighlight">\(a^{(m)}_{u,v}\)</span> over all <span class="math notranslate nohighlight">\((u,v)\)</span> form a 2D grid (a feature map). With <span class="math notranslate nohighlight">\(C_\text{out}\)</span> filters, you get <span class="math notranslate nohighlight">\(C_\text{out}\)</span> feature maps stacked as channels.</p>
+<p>So:</p>
+<ul class="simple">
+<li><p>MLP neuron <span class="math notranslate nohighlight">\(j\)</span>: one dot product with the whole input <span class="math notranslate nohighlight">\(\rightarrow\)</span> one number <span class="math notranslate nohighlight">\(a^\ell_j\)</span>.</p></li>
+<li><p>CNN filter <span class="math notranslate nohighlight">\(m\)</span>: many dot products with local patches (one per location) <span class="math notranslate nohighlight">\(\rightarrow\)</span> many numbers <span class="math notranslate nohighlight">\(a^{(m)}_{u,v}\)</span>, i.e. a feature map.</p></li>
+</ul>
+</section>
+<section id="pytorch-interface">
+<h3><span class="section-number">13.3.3. </span>PyTorch interface<a class="headerlink" href="#pytorch-interface" title="Link to this heading">#</a></h3>
+<p>A 2D convolution layer in PyTorch is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">out_channels</span></code> is the number of learned filters.</p></li>
+<li><p>each filter is a small tensor of shape <span class="math notranslate nohighlight">\((C_\text{in}, K, K)\)</span> (for a <span class="math notranslate nohighlight">\(K\times K\)</span> kernel).</p></li>
+<li><p>the layer produces <code class="docutils literal notranslate"><span class="pre">out_channels</span></code> feature maps, each responding to a learned pattern.</p></li>
+<li><p>padding is adding a border of (usually zero) pixels around an image/feature map before convolution, so the filter can be applied at the edges and the output spatial size can be controlled (often kept the same).</p></li>
+</ul>
+<p>If you input an RGB image (<span class="math notranslate nohighlight">\(C_{\text{in}}=3\)</span>) and your conv layer is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>then it has <span class="math notranslate nohighlight">\(C_{\text{out}}=16\)</span> filters, and it outputs 16 feature maps. Each map is <span class="math notranslate nohighlight">\(H\times W\)</span> (often the same spatial size as the input if padding/stride are chosen accordingly). The output shape per image is <span class="math notranslate nohighlight">\((16, H, W)\)</span>. You can think of it as: “instead of 3 color channels, I now have 16 learned channels,” where each channel corresponds to one learned detector.</p>
+</section>
+<section id="classifying-cat-and-dog-images">
+<h3><span class="section-number">13.3.4. </span>Classifying Cat and Dog Images<a class="headerlink" href="#classifying-cat-and-dog-images" title="Link to this heading">#</a></h3>
+<p>Our goal here is to train a CNN to classify pictures of cats and dogs. We will use <code class="docutils literal notranslate"><span class="pre">torchvision</span></code>, that has data loaders for common datasets such as ImageNet, CIFAR10, MNIST, etc. and data transformers for images, viz., torchvision.datasets and torch.utils.data.DataLoader. See <a class="reference external" href="https://docs.pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">https://docs.pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html</a>.</p>
+<p>We will use the CIFAR10 dataset following the above tutoial. It has the classes: ‘airplane’, ‘automobile’, ‘bird’, ‘cat’, ‘deer’, ‘dog’, ‘frog’, ‘horse’, ‘ship’, ‘truck’. The images in CIFAR-10 are of size 3x32x32, i.e. 3-channel color images of 32x32 pixels in size.</p>
+<p>Let’s load the CIFAR-10 dataset. The output of torchvision datasets are <code class="docutils literal notranslate"><span class="pre">PILImage</span></code> images. A PILImage is an image object from the “Python Imaging Library ecosystem”, now maintained as Pillow (the modern fork of PIL. In practice, it is an instance of <code class="docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code> that stores pixel data plus metadata (mode, size, etc.) and supports common image operations (resize, crop, rotate, convert color modes).</p>
+<p>We will transform them to Tensors of normalized range <span class="math notranslate nohighlight">\([-1, 1]\)</span>. In what follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">transforms.Compose([...])</span></code> means: apply the listed transforms in order.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transforms.ToTensor()</span></code>: Takes a PIL image (or NumPy array) with shape <span class="math notranslate nohighlight">\((H, W, C)\)</span> and converts it to a PyTorch tensor with shape <span class="math notranslate nohighlight">\((C, H, W)\)</span> and <code class="docutils literal notranslate"><span class="pre">dtype</span></code> <code class="docutils literal notranslate"><span class="pre">float32</span></code>. It also rescales pixel values from integers in <span class="math notranslate nohighlight">\([0, 255]\)</span> to floats in <span class="math notranslate nohighlight">\([0.0, 1.0]\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transforms.Normalize(mean,</span> <span class="pre">std)</span></code> with <code class="docutils literal notranslate"><span class="pre">mean</span> <span class="pre">=</span> <span class="pre">(0.5,0.5,0.5)</span></code> and <code class="docutils literal notranslate"><span class="pre">std</span> <span class="pre">=</span> <span class="pre">(0.5,0.5,0.5)</span></code>: Normalizes each channel independently via:
+<span class="math notranslate nohighlight">\(x_{\text{norm}} = \frac{x - \mu}{\sigma}\)</span>. Here, since <span class="math notranslate nohighlight">\(\mu=0.5\)</span> and <span class="math notranslate nohighlight">\(\sigma=0.5\)</span>, this maps:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(x=0.0 \mapsto -1.0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x=0.5 \mapsto 0.0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x=1.0 \mapsto 1.0\)</span>
+So after normalization, each channel is roughly in the range <span class="math notranslate nohighlight">\([-1, 1]\)</span>, which often helps optimization behave more stably.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torchvision</span>
+<span class="kn">import</span> <span class="nn">torchvision.transforms</span> <span class="k">as</span> <span class="nn">transforms</span>
+
+<span class="c1"># transform into a PyTorch tensor and rescale the values to [0.0,1.0]</span>
+<span class="c1"># then map into range [-1.0, 1.0].</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+     <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))])</span>
+
+<span class="c1"># load 4 images</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="c1"># root=&#39;./data&#39;: where the dataset files are stored (or will be downloaded).</span>
+<span class="c1"># train=True: use the training split (50,000 images for CIFAR-10).</span>
+<span class="c1"># download=True: download if it’s not already present.</span>
+<span class="c1"># transform=transform: apply your preprocessing pipeline to each image when it is accessed.</span>
+<span class="n">trainset</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                        <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+
+<span class="c1"># train=False loads the test split (10,000 images).</span>
+<span class="n">testset</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                       <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+
+
+<span class="c1"># A DataLoader iterates over the dataset, builds mini-batches, </span>
+<span class="c1"># and (optionally) shuffles and loads data in parallel.</span>
+<span class="c1"># shuffle=True: randomizes order each epoch (important for SGD training).</span>
+<span class="c1"># num_workers=2: uses 2 subprocesses to load data in parallel (speed; on some systems you may set this to 0 if you see issues).</span>
+<span class="n">trainloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">trainset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                                          <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">testloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">testset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                                         <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># labels for the classes in the CIFAR-10 dataset: </span>
+<span class="n">classes</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;plane&#39;</span><span class="p">,</span> <span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;bird&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;deer&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;frog&#39;</span><span class="p">,</span> <span class="s1">&#39;horse&#39;</span><span class="p">,</span> <span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="s1">&#39;truck&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/lib/python3.11/site-packages/torchvision/datasets/cifar.py:83: VisibleDeprecationWarning: dtype(): align should be passed as Python or NumPy boolean but got `align=0`. Did you mean to pass a tuple to create a subarray type? (Deprecated NumPy 2.4)
+  entry = pickle.load(f, encoding=&quot;latin1&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now show some images of cats and dogs for fun:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># function to show an image</span>
+<span class="k">def</span> <span class="nf">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="c1"># unnormalize</span>
+    <span class="n">npimg</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="c1"># convert to numpy</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">npimg</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># get some random training images (cats and dogs only)</span>
+<span class="n">want</span> <span class="o">=</span> <span class="n">batch_size</span>  <span class="c1"># how many cat/dog images you want to display</span>
+
+<span class="c1"># the classes indices for cats and dogs f</span>
+<span class="n">cat_idx</span> <span class="o">=</span> <span class="n">classes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">)</span>
+<span class="n">dog_idx</span> <span class="o">=</span> <span class="n">classes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;dog&#39;</span><span class="p">)</span>
+
+<span class="c1"># lists to collect the selected images</span>
+<span class="n">selected_images</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">selected_labels</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="c1"># get some training images</span>
+<span class="c1"># trainloader is an iterable: it knows how to produce batches one after another.</span>
+<span class="c1"># iter(trainloader) creates an iterator object, </span>
+<span class="c1"># which is essentially &quot;a cursor&quot; over the sequence of batches.</span>
+<span class="c1"># You can think of it as: “prepare to walk through the DataLoader, batch by batch.”</span>
+<span class="n">dataiter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">trainloader</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected_images</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">want</span><span class="p">:</span>
+    <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">dataiter</span><span class="p">)</span>  <span class="c1"># pull the next batch from the loader</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">cat_idx</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">dog_idx</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">mask</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">selected_images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+        <span class="n">selected_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+
+<span class="c1"># concatenate what we collected and trim to exactly &quot;want&quot;</span>
+<span class="n">images</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">selected_images</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)[:</span><span class="n">want</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">selected_labels</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)[:</span><span class="n">want</span><span class="p">]</span>
+
+<span class="c1"># show images</span>
+<span class="n">imshow</span><span class="p">(</span><span class="n">torchvision</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">images</span><span class="p">))</span>
+<span class="c1"># print labels</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">classes</span><span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span><span class="si">:</span><span class="s1">5s</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d1268993e1ca4a6557a1d6c9d86ac8487291bd3a929c43b810cc62642ea1a9b9.png" src="../../_images/d1268993e1ca4a6557a1d6c9d86ac8487291bd3a929c43b810cc62642ea1a9b9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cat   cat   cat   cat  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span> <span class="c1"># gives you stateless functions (no stored parameters) such as F.relu, F.softmax, etc. </span>
+<span class="c1"># You can apply these in forward without defining them as layers.</span>
+
+
+<span class="c1"># You define a new model class Net that inherits from nn.Module.</span>
+<span class="c1"># In PyTorch, any trainable model is typically a subclass of nn.Module.</span>
+<span class="k">class</span> <span class="nc">Net</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># __init__ is called when you create Net().</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span> <span class="c1">#  initializes the base nn.Module machinery: parameter registration, submodule tracking, etc. Without this, PyTorch won’t properly find your layers/parameters.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># Creates a 2D convolution layer with in_channels=3, out_channels=6, kernel_size=5. learns 6 filters, each looking at 5x5 patches across the 3 channels.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># Defines max pooling with kernel_size=2 and stride=2. Pooling halves height and width (for even sizes).</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># Another convolution: in_channels=6, out_channels=16, kernel_size=5. It expects 6 input channels (because conv1 outputs 6 channels).</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span> <span class="c1"># A linear layer mapping from 400 features to 120.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">84</span><span class="p">)</span> <span class="c1"># Linear layer mapping 120 → 84.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">84</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># self.fc3 = nn.Linear(84, 2)</span>
+    <span class="c1"># forward defines the computation performed when you call net(x).</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="c1"># 	self.conv1(x): (N, 3, 32, 32) → (N, 6, 28, 28), F.relu(...): applies ReLU elementwise, same shape (N, 6, 28, 28) and then self.pool(...): max pool 2×2 stride 2, (N, 6, 28, 28) → (N, 6, 14, 14) </span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="c1"># 	self.conv2(x): (N, 6, 14, 14) → (N, 16, 10, 10) and then self.pool(...): (N, 16, 10, 10) → (N, 16, 5, 5)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># flatten all dimensions except batch, converts (N, 16, 5, 5) into (N, 400).</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1"># self.fc1: (N, 400) → (N, 120)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1"># self.fc3: (N, 84) → (N, 2)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># No activation is applied at the end. The output is a batch of 2-dimensional logits.</span>
+        <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use the cross-entropy loss and “stochastic” gradient descent (SDG) with momentum.</p>
+<p>Let’s train the network! First let’s make sure we are only using cats and dogs in our samples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torchvision</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">Subset</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+
+<span class="c1"># optionally use mps if on a mac</span>
+<span class="c1">#device = torch.device(&#39;mps&#39; if torch.mps.is_available() else &#39;cpu&#39;)</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;running on&#39;</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># create the network from the class:</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">Net</span><span class="p">()</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># use the cross-entropy loss and &quot;stochastic&quot; gradient descent (SDG) with momentum.</span>
+<span class="c1"># make sure this is created AFTER creation of the net</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+
+
+<span class="c1"># CIFAR-10 labels</span>
+<span class="n">CAT</span><span class="p">,</span> <span class="n">DOG</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span>
+
+<span class="c1"># Load full CIFAR-10 again</span>
+<span class="n">train_full</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                          <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+<span class="n">test_full</span>  <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                          <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+
+<span class="c1"># Keep only cats and dogs (Subset)</span>
+<span class="n">train_idx</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_full</span><span class="o">.</span><span class="n">targets</span><span class="p">)</span> <span class="k">if</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">(</span><span class="n">CAT</span><span class="p">,</span> <span class="n">DOG</span><span class="p">)]</span>
+<span class="n">test_idx</span>  <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">test_full</span><span class="o">.</span><span class="n">targets</span><span class="p">)</span> <span class="k">if</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">(</span><span class="n">CAT</span><span class="p">,</span> <span class="n">DOG</span><span class="p">)]</span>
+
+<span class="n">trainset</span> <span class="o">=</span> <span class="n">Subset</span><span class="p">(</span><span class="n">train_full</span><span class="p">,</span> <span class="n">train_idx</span><span class="p">)</span>
+<span class="n">testset</span>  <span class="o">=</span> <span class="n">Subset</span><span class="p">(</span><span class="n">test_full</span><span class="p">,</span>  <span class="n">test_idx</span><span class="p">)</span>
+
+<span class="c1"># DataLoaders</span>
+<span class="n">trainloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">trainset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">testloader</span>  <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">testset</span><span class="p">,</span>  <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># class names for printing</span>
+<span class="n">binary_classes</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">)</span>
+
+<span class="n">nepochs</span><span class="o">=</span><span class="mi">20</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nepochs</span><span class="p">):</span>  <span class="c1"># loop over the dataset multiple times</span>
+
+    <span class="n">running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">trainloader</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="c1"># get the inputs; data is a list of [inputs, labels]</span>
+        <span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="c1"># convert labels to 1 (dog) or 0 (cat)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">DOG</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+        
+        <span class="c1"># zero the parameter gradients</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+        <span class="c1"># forward + backward + optimize</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="c1"># print statistics</span>
+        <span class="n">running_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2000</span> <span class="o">==</span> <span class="mi">1999</span><span class="p">:</span>    <span class="c1"># print every 2000 mini-batches</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">epoch</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">:</span><span class="s1">5d</span><span class="si">}</span><span class="s1">] loss: </span><span class="si">{</span><span class="n">running_loss</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2000</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Finished Training&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>running on cpu
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/lib/python3.11/site-packages/torchvision/datasets/cifar.py:83: VisibleDeprecationWarning: dtype(): align should be passed as Python or NumPy boolean but got `align=0`. Did you mean to pass a tuple to create a subarray type? (Deprecated NumPy 2.4)
+  entry = pickle.load(f, encoding=&quot;latin1&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1,  2000] loss: 0.689
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2,  2000] loss: 0.655
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">48</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nepochs</span><span class="p">):</span>  <span class="c1"># loop over the dataset multiple times</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="n">running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="ne">---&gt; </span><span class="mi">48</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">trainloader</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>         <span class="c1"># get the inputs; data is a list of [inputs, labels]</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span>         <span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/lib/python3.11/site-packages/torch/utils/data/dataloader.py:732,</span> in <span class="ni">_BaseDataLoaderIter.__next__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampler_iter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="c1"># TODO(https://github.com/pytorch/pytorch/issues/76750)</span>
+<span class="g g-Whitespace">    </span><span class="mi">731</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_reset</span><span class="p">()</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="ne">--&gt; </span><span class="mi">732</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_data</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">733</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_yielded</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">734</span> <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">735</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_kind</span> <span class="o">==</span> <span class="n">_DatasetKind</span><span class="o">.</span><span class="n">Iterable</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span>     <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_IterableDataset_len_called</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span>     <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_yielded</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_IterableDataset_len_called</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span> <span class="p">):</span>
+
+<span class="nn">File /opt/homebrew/lib/python3.11/site-packages/torch/utils/data/dataloader.py:1470,</span> in <span class="ni">_MultiProcessingDataLoaderIter._next_data</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1467</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1468</span>     <span class="c1"># no valid `self._rcvd_idx` is found (i.e., didn&#39;t break)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1469</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_persistent_workers</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1470</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_shutdown_workers</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1471</span>     <span class="k">raise</span> <span class="ne">StopIteration</span>
+<span class="g g-Whitespace">   </span><span class="mi">1473</span> <span class="c1"># Now `self._rcvd_idx` is the batch index we want to fetch</span>
+<span class="g g-Whitespace">   </span><span class="mi">1474</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1475</span> <span class="c1"># Check if the next sample has already been generated</span>
+
+<span class="nn">File /opt/homebrew/lib/python3.11/site-packages/torch/utils/data/dataloader.py:1618,</span> in <span class="ni">_MultiProcessingDataLoaderIter._shutdown_workers</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1613</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_mark_worker_as_unavailable</span><span class="p">(</span><span class="n">worker_id</span><span class="p">,</span> <span class="n">shutdown</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1614</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_workers</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1615</span>     <span class="c1"># We should be able to join here, but in case anything went</span>
+<span class="g g-Whitespace">   </span><span class="mi">1616</span>     <span class="c1"># wrong, we set a timeout and if the workers fail to join,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="c1"># they are killed in the `finally` block.</span>
+<span class="ne">-&gt; </span><span class="mi">1618</span>     <span class="n">w</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">_utils</span><span class="o">.</span><span class="n">MP_STATUS_CHECK_INTERVAL</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index_queues</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1620</span>     <span class="n">q</span><span class="o">.</span><span class="n">cancel_join_thread</span><span class="p">()</span>
+
+<span class="nn">File /opt/homebrew/Cellar/python@3.11/3.11.14_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/multiprocessing/process.py:149,</span> in <span class="ni">BaseProcess.join</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent_pid</span> <span class="o">==</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="s1">&#39;can only join a child process&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_popen</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;can only join a started process&#39;</span>
+<span class="ne">--&gt; </span><span class="mi">149</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_popen</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span> <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>     <span class="n">_children</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Cellar/python@3.11/3.11.14_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/multiprocessing/popen_fork.py:40,</span> in <span class="ni">Popen.wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="kn">from</span> <span class="nn">multiprocessing.connection</span> <span class="kn">import</span> <span class="n">wait</span>
+<span class="ne">---&gt; </span><span class="mi">40</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">wait</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">sentinel</span><span class="p">],</span> <span class="n">timeout</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>         <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="c1"># This shouldn&#39;t block if wait() returned successfully.</span>
+
+<span class="nn">File /opt/homebrew/Cellar/python@3.11/3.11.14_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/multiprocessing/connection.py:948,</span> in <span class="ni">wait</span><span class="nt">(object_list, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span>     <span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">+</span> <span class="n">timeout</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">948</span>     <span class="n">ready</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">949</span>     <span class="k">if</span> <span class="n">ready</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">950</span>         <span class="k">return</span> <span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">fileobj</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">events</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ready</span><span class="p">]</span>
+
+<span class="nn">File /opt/homebrew/Cellar/python@3.11/3.11.14_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/selectors.py:415,</span> in <span class="ni">_PollLikeSelector.select</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">413</span> <span class="n">ready</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">414</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">415</span>     <span class="n">fd_event_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selector</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="k">except</span> <span class="ne">InterruptedError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">417</span>     <span class="k">return</span> <span class="n">ready</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s save the network:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span><span class="s1">&#39;./cifar_net.pth&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s test how well the network has learned!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display some images</span>
+<span class="n">dataiter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">testloader</span><span class="p">)</span>
+<span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">dataiter</span><span class="p">)</span>
+
+<span class="c1"># print images</span>
+<span class="n">imshow</span><span class="p">(</span><span class="n">torchvision</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">images</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;GroundTruth: &#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">classes</span><span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span><span class="si">:</span><span class="s1">5s</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)))</span>
+
+<span class="c1"># and load the network:</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">Net</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./cifar_net.pth&#39;</span><span class="p">,</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/916965127e72b7a8dedca6837c0f5a7a978f4eb8d82e753ccbd4bbdc40039b92.png" src="../../_images/916965127e72b7a8dedca6837c0f5a7a978f4eb8d82e753ccbd4bbdc40039b92.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GroundTruth:  cat   cat   dog   dog  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;All keys matched successfully&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see what the neural network thinks these examples above are.</p>
+<p>The outputs are energies for the two classes. The higher the energy for a class, the more the network thinks that the image is of the particular class. So, let’s get the index of the highest energy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CAT</span><span class="p">,</span> <span class="n">DOG</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">binary_classes</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">)</span>
+
+<span class="c1"># apply the CNN:</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+<span class="n">predicted</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># if labels are still 3/5, map to 0/1 for display:</span>
+<span class="n">labels01</span> <span class="o">=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">DOG</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Predicted: &#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">binary_classes</span><span class="p">[</span><span class="n">predicted</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()]</span>
+                              <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">predicted</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Actual:    &#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">binary_classes</span><span class="p">[</span><span class="n">labels01</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()]</span>
+                              <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">labels01</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicted:  cat cat dog dog
+Actual:     cat cat dog dog
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CAT</span><span class="p">,</span> <span class="n">DOG</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">testloader</span><span class="p">:</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">DOG</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>       <span class="c1"># cat-&gt;0, dog-&gt;1</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>                 <span class="c1"># (B, 2)</span>
+        <span class="n">predicted</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># (B,) in {0,1}</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">labels</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">correct</span> <span class="o">+=</span> <span class="p">(</span><span class="n">predicted</span> <span class="o">==</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Accuracy on the cat/dog test set: </span><span class="si">{</span><span class="mf">100.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">total</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on the cat/dog test set: 72.85%
 </pre></div>
 </div>
 </div>
@@ -1375,6 +1890,13 @@ z^{\ell + 1}_k = \sum_j  a^\ell _j w^{\ell+1}_{jk} + b^{\ell+1}_k = \sum_j  \sig
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-neural-network-with-backpropagation">13.2.5. Training a Neural Network with Backpropagation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-simple-neural-network-using-numpy">13.2.6. Training a Simple Neural Network using NumPy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-simple-neural-network-using-pytorch">13.2.7. Training a Simple Neural Network using PyTorch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-neural-networks">13.3. Convolutional Neural Networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fully-connected-mlp-layer-global-dot-products">13.3.1. Fully-connected (MLP) layer: global dot products</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-layer-local-dot-products-reused-across-the-image">13.3.2. Convolution layer: local dot products reused across the image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-interface">13.3.3. PyTorch interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classifying-cat-and-dog-images">13.3.4. Classifying Cat and Dog Images</a></li>
 </ul>
 </li>
 </ul>
