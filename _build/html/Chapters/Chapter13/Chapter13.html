@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -428,9 +428,9 @@ document.write(`
 <p>Let’s do this for <span class="math notranslate nohighlight">\(f(x) = \sqrt{1-x^2}\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">pi</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span> <span class="c1"># creates a NumPy array from -1 to 1, 200 equallys-paced points  </span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># take the NumPy array and create another one, where each term is now the sine of each of the elements of the above NumPy array</span>
@@ -458,12 +458,12 @@ document.write(`
 <p>First let’s write the Monte Carlo integration function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 <span class="c1"># Let&#39;s define a function that performs one-dimensional MC integration of an arbitrary for N points</span>
 <span class="c1"># We&#39;ll also make it capable of performing the integration in an interval a,b</span>
-<span class="k">def</span> <span class="nf">mcint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mcint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the one-dimensional Monte Carlo integral of func in [a,b] for N points&quot;&quot;&quot;</span>
     <span class="n">sumw</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># we will use this variable for the sum of f(x_i)</span>
     <span class="n">sumwsq</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># and this one for the sum of f(x_i)^2, used in the error calculation</span>
@@ -486,7 +486,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now let&#39;s also define the function that we wish to integrate:</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># and use our mcint() function to integrate it in [0,1]:</span>
@@ -503,9 +503,9 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Analytic value of the integral= 1.5707963267948966
-The MC integral of f(x) = sqrt(1-x^2) in [-1,1] is 1.5683844240323654 +- 0.0014155195873134698
-The fractional uncertainty is 0.0009025335661483584
-The fractional difference from the analytical value is 0.0015354649876552992
+The MC integral of f(x) = sqrt(1-x^2) in [-1,1] is 1.5708900385656759 +- 0.0014143215445247706
+The fractional uncertainty is 0.0009003313470726045
+The fractional difference from the analytical value is 5.965876618169721e-05
 </pre></div>
 </div>
 </div>
@@ -514,7 +514,7 @@ The fractional difference from the analytical value is 0.0015354649876552992
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s define a function that performs one-dimensional MC integration of an arbitrary for N points</span>
 <span class="c1"># We&#39;ll also make it capable of performing the integration in an interval a,b</span>
-<span class="k">def</span> <span class="nf">mcint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mcint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the one-dimensional Monte Carlo integral of func in [a,b] for N points&quot;&quot;&quot;</span>
     <span class="n">sumw</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># we will use this variable for the sum of f(x_i)</span>
     <span class="n">sumwsq</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># and this one for the sum of f(x_i)^2, used in the error calculation</span>
@@ -549,7 +549,7 @@ The fractional difference from the analytical value is 0.0015354649876552992
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum weight found= 1.9999999994460045 at -2.3537107118887235e-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum weight found= 1.9999999999986673 at -1.1543924984813714e-06
 </pre></div>
 </div>
 </div>
@@ -561,7 +561,7 @@ The fractional difference from the analytical value is 0.0015354649876552992
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># event generation function according to func, given the number of events to be generated Ngen in the interval a, b,</span>
 <span class="c1"># and number of integration events Nint</span>
-<span class="k">def</span> <span class="nf">evtgen</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">Ngen</span><span class="p">,</span> <span class="n">Nint</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">evtgen</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">Ngen</span><span class="p">,</span> <span class="n">Nint</span><span class="p">):</span>
     <span class="c1"># first find the integral using the integration function: </span>
     <span class="n">Int</span><span class="p">,</span> <span class="n">Err</span><span class="p">,</span> <span class="n">wmax</span><span class="p">,</span> <span class="n">xwmax</span> <span class="o">=</span> <span class="n">mcint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">Nint</span><span class="p">)</span> 
     <span class="c1"># define a counter to check when to terminate the event generation:</span>
@@ -609,8 +609,8 @@ The fractional difference from the analytical value is 0.0015354649876552992
 <p>And now let’s compare the generated <span class="math notranslate nohighlight">\(x\)</span>’s to the normalized distribution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># create the elements required for matplotlib. This creates a figure containing a single axes.</span>
 
@@ -636,7 +636,7 @@ The fractional difference from the analytical value is 0.0015354649876552992
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c9c66432b14152b587701934cb840454cda3d09c5012538b8c211c906312d0d4.png" src="../../_images/c9c66432b14152b587701934cb840454cda3d09c5012538b8c211c906312d0d4.png" />
+<img alt="../../_images/c985fd7c5fbfe62f01e27db2255c3f882728e53dcd4d3bb9e9e0e028ff6252b5.png" src="../../_images/c985fd7c5fbfe62f01e27db2255c3f882728e53dcd4d3bb9e9e0e028ff6252b5.png" />
 </div>
 </div>
 <p>We are now ready to proceed to the particle physics case!</p>
@@ -662,7 +662,7 @@ The fractional difference from the analytical value is 0.0015354649876552992
 <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">132.507</span> 
 
 <span class="c1"># Now let&#39;s also define the function that we wish to integrate:</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="o">**</span><span class="mi">2</span><span class="p">):</span> <span class="c1"># x = costheta, and set the COM energy to 90 GeV</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="o">**</span><span class="mi">2</span><span class="p">):</span> <span class="c1"># x = costheta, and set the COM energy to 90 GeV</span>
     <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">((</span><span class="n">alpha</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">s</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -684,8 +684,8 @@ The fractional difference from the analytical value is 0.0015354649876552992
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cross section in pb is: 103.14517545668797 +- 0.072949681910616
-Maximum weight found= 3.976073065493219e-07 at -0.9999876596542099
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cross section in pb is: 103.13880659480016 +- 0.07286174226549491
+Maximum weight found= 3.976103282374357e-07 at 0.999995259304876
 </pre></div>
 </div>
 </div>
@@ -694,7 +694,7 @@ Maximum weight found= 3.976073065493219e-07 at -0.9999876596542099
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># analytical expression for the cross section for e+e- -&gt; gamma -&gt; mu+mu-</span>
-<span class="k">def</span> <span class="nf">sigma_analytical</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sigma_analytical</span><span class="p">():</span>
     <span class="k">return</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">alpha</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">/</span> <span class="n">s</span> 
 
 <span class="n">sigma_analyt</span> <span class="o">=</span> <span class="n">sigma_analytical</span><span class="p">()</span> 
@@ -734,8 +734,8 @@ Maximum weight found= 3.976073065493219e-07 at -0.9999876596542099
 <p>Let’s check whether it corresponds to what we expect! In this case we actually can also plot the analytical form, as we did earlier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># create the elements required for matplotlib. This creates a figure containing a single axes.</span>
 
@@ -761,7 +761,7 @@ Maximum weight found= 3.976073065493219e-07 at -0.9999876596542099
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b938460efd049849362736d47864925fa5632cbdcb50ed6fcae202d76507a03d.png" src="../../_images/b938460efd049849362736d47864925fa5632cbdcb50ed6fcae202d76507a03d.png" />
+<img alt="../../_images/85b384280308ec2b3eb44c48b36f09ec0f839d6c1ed5a3ef0f620c600bde9091.png" src="../../_images/85b384280308ec2b3eb44c48b36f09ec0f839d6c1ed5a3ef0f620c600bde9091.png" />
 </div>
 </div>
 <p>Therefore, our events have indeed the right distribution: they follow the differential cross section, as expected!</p>
@@ -779,7 +779,7 @@ Maximum weight found= 3.976073065493219e-07 at -0.9999876596542099
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># takes a list of cos thetas and reconstructs the four-momenta</span>
 <span class="c1"># for the process e- e+ -&gt; mu- mu+ in the COM</span>
 <span class="c1"># returns a list of four-vectors, where a four-vector is a list of four numbers</span>
-<span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="n">costhetas</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">reconstruct</span><span class="p">(</span><span class="n">costhetas</span><span class="p">):</span>
     <span class="n">recoevents</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">sqrtso2</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># appears often so no need to recalc.</span>
     <span class="k">for</span> <span class="n">costh</span> <span class="ow">in</span> <span class="n">costhetas</span><span class="p">:</span>
@@ -812,8 +812,8 @@ Maximum weight found= 3.976073065493219e-07 at -0.9999876596542099
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p= [15.0, 0, 0, 15.0]
 p= [15.0, 0, 0, -15.0]
-p= [15.0, 7.289545406370155, 12.913156891451791, 2.2611737804111587]
-p= [15.0, -7.289545406370155, -12.913156891451791, 2.2611737804111587]
+p= [15.0, -5.125191400046722, 2.16245774949478, -13.930405220040697]
+p= [15.0, 5.125191400046722, -2.16245774949478, -13.930405220040697]
 </pre></div>
 </div>
 </div>
@@ -849,7 +849,7 @@ p= [15.0, -7.289545406370155, -12.913156891451791, 2.2611737804111587]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/081211c79f5b1bf6d0dea422d3fe84b3c909b93e99355a1473d7d5a499b8f9af.png" src="../../_images/081211c79f5b1bf6d0dea422d3fe84b3c909b93e99355a1473d7d5a499b8f9af.png" />
+<img alt="../../_images/91dfbf5269a86e3e6b1af1634fe74497927eb62c4458944343eb67d5c7c23799.png" src="../../_images/91dfbf5269a86e3e6b1af1634fe74497927eb62c4458944343eb67d5c7c23799.png" />
 </div>
 </div>
 <p>An interesting next step is to consider the full process for <span class="math notranslate nohighlight">\(e^+ e^- \rightarrow \mu^+ \mu^-\)</span>, which includes a contribution from the <span class="math notranslate nohighlight">\(Z\)</span> boson. The main difference in the way that the <span class="math notranslate nohighlight">\(Z\)</span> boson interacts with the leptons is that it couples with different strengths to the left- and right-handed fermions.</p>

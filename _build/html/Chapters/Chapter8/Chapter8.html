@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -470,8 +470,8 @@ document.write(`
 <p>Arrows would point to the right when <span class="math notranslate nohighlight">\(\dot{x} &gt; 0\)</span> and to the left when <span class="math notranslate nohighlight">\(\dot{x} &lt; 0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">+</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span> <span class="c1"># </span>
 <span class="n">xdot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
@@ -525,7 +525,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/401772b1eced7e3bdbf28b936c6fcb1f7a9c73d84e842445ae6a6ed95e4ad967.png" src="../../_images/401772b1eced7e3bdbf28b936c6fcb1f7a9c73d84e842445ae6a6ed95e4ad967.png" />
+<img alt="../../_images/ac513d52ec2ead7e6009edbb1125b5995a841dcf4bb2fe6ada5cccd3645fc05b.png" src="../../_images/ac513d52ec2ead7e6009edbb1125b5995a841dcf4bb2fe6ada5cccd3645fc05b.png" />
 </div>
 </div>
 <p>A more physical way to think of the vector field: imagine that a fluid is flowing steadily along the <span class="math notranslate nohighlight">\(x\)</span>-axis with a velocity that varies from place to place, according to <span class="math notranslate nohighlight">\(\dot{x} = \sin x\)</span>. The flow is to the right when <span class="math notranslate nohighlight">\(\dot{x} &gt; 0\)</span> and to the left when <span class="math notranslate nohighlight">\(\dot{x} &lt; 0\)</span>.</p>
@@ -535,8 +535,8 @@ document.write(`
 <p>We start an imaginary particle at <span class="math notranslate nohighlight">\(x_0\)</span> and watch how it is carried along by the flow. E.g. a particle starting at <span class="math notranslate nohighlight">\(x_0 = \pi/4\)</span> moves to the right faster and faster until it crosses <span class="math notranslate nohighlight">\(\pi/2\)</span>, where <span class="math notranslate nohighlight">\(\sin x\)</span> reaches its maximum, and eventually approaches the stable fixed point <span class="math notranslate nohighlight">\(x=\pi\)</span> from the left:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="o">+</span><span class="mf">0.00000001</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">-</span><span class="mf">0.000001</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span> 
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="p">)</span> <span class="p">)</span>
@@ -565,15 +565,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b226426e7471f27c77d7e312615f4664e575a30d2e0f414c3fc7e46ead2718f7.png" src="../../_images/b226426e7471f27c77d7e312615f4664e575a30d2e0f414c3fc7e46ead2718f7.png" />
+<img alt="../../_images/0f8904fe49d7c1c886972c5d09bf946f5ce31b1ea5ac20c44fce1622581c639a.png" src="../../_images/0f8904fe49d7c1c886972c5d09bf946f5ce31b1ea5ac20c44fce1622581c639a.png" />
 </div>
 </div>
 <p>A picture cannot tell us certain quantitative things, but can still give us a good understanding of the physical situation. We can then use numerical methods to understand the solutions quantitatively.</p>
 <p>The ideas can be extended to any one-dimensional system of the form <span class="math notranslate nohighlight">\(\dot{x} = f(x)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span> <span class="c1"># </span>
 <span class="n">xdot</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
@@ -627,13 +627,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e4fb95c94ae04643dfdb541f9f12a8d30d0ddecfa98d6703c067c6de047958c9.png" src="../../_images/e4fb95c94ae04643dfdb541f9f12a8d30d0ddecfa98d6703c067c6de047958c9.png" />
+<img alt="../../_images/8dcd10b1dfd346aff908dd97d4de77438df21874b812290e400869ebc6fee4b2.png" src="../../_images/8dcd10b1dfd346aff908dd97d4de77438df21874b812290e400869ebc6fee4b2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span> <span class="c1"># </span>
 <span class="n">xdot</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
@@ -687,7 +687,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e4fb95c94ae04643dfdb541f9f12a8d30d0ddecfa98d6703c067c6de047958c9.png" src="../../_images/e4fb95c94ae04643dfdb541f9f12a8d30d0ddecfa98d6703c067c6de047958c9.png" />
+<img alt="../../_images/8dcd10b1dfd346aff908dd97d4de77438df21874b812290e400869ebc6fee4b2.png" src="../../_images/8dcd10b1dfd346aff908dd97d4de77438df21874b812290e400869ebc6fee4b2.png" />
 </div>
 </div>
 <p>This imaginary fluid is called the <em>phase fluid</em>, and the real line is the <em>phase space</em>.</p>
@@ -752,8 +752,8 @@ document.write(`
 <p>The phase portraits are shown below for different values of the parameter <span class="math notranslate nohighlight">\(a\)</span>. In each case, <span class="math notranslate nohighlight">\(y(t)\)</span> decays exponentially. When <span class="math notranslate nohighlight">\(a&lt;0\)</span>, <span class="math notranslate nohighlight">\(x(t)\)</span> also decays exponentially, and so all trajectories approach the origin as <span class="math notranslate nohighlight">\(t\rightarrow \infty\)</span>. However, the direction of approach depends on the size of <span class="math notranslate nohighlight">\(a\)</span> compared to -1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># the parameter a:</span>
 <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
@@ -822,14 +822,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2de4dca7307f53fb6d2ed308edc971d47c0e1b84216a70e56da8ff7ead84462d.png" src="../../_images/2de4dca7307f53fb6d2ed308edc971d47c0e1b84216a70e56da8ff7ead84462d.png" />
+<img alt="../../_images/4d3b0e809c993287c037dc0e418756b1d39e4aba6d6ab570faf4dd306e4445d7.png" src="../../_images/4d3b0e809c993287c037dc0e418756b1d39e4aba6d6ab570faf4dd306e4445d7.png" />
 </div>
 </div>
 <p>For <span class="math notranslate nohighlight">\(a&lt;-1\)</span>, <span class="math notranslate nohighlight">\(x(t)\)</span> decays more rapidly than <span class="math notranslate nohighlight">\(y(t)\)</span>. The trajectories approach the origin tangent to the slower direction. <span class="math notranslate nohighlight">\(\mathbf{x}^* = \mathbf{0}\)</span> is a <em>stable node</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># the parameter a:</span>
 <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -889,14 +889,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/124713714dc0d046bf8652c8845fea9521663253da184b27e028d849e23d9bd4.png" src="../../_images/124713714dc0d046bf8652c8845fea9521663253da184b27e028d849e23d9bd4.png" />
+<img alt="../../_images/398dd48dfa043beae00b4eadc7a13e067bdf6314dd2769dbb2ebf1eee6df581b.png" src="../../_images/398dd48dfa043beae00b4eadc7a13e067bdf6314dd2769dbb2ebf1eee6df581b.png" />
 </div>
 </div>
 <p>When <span class="math notranslate nohighlight">\(a=-1\)</span>, all trajectories are straight lines through the origin. This occurs because the decay rates in the two directions are precisely equal. In this case <span class="math notranslate nohighlight">\(\mathbf{x}^*\)</span> is called a symmetrical node or a <em>star</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># the parameter a:</span>
 <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.8</span>
@@ -964,14 +964,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d9db85fca94d2d5eb518a160a50a877a616336fe834c88073b7339ffa171af3e.png" src="../../_images/d9db85fca94d2d5eb518a160a50a877a616336fe834c88073b7339ffa171af3e.png" />
+<img alt="../../_images/7e2bf8091571a0ad438bec98822e3c9d82f5d9c5c4c99288abece80b700e2d2e.png" src="../../_images/7e2bf8091571a0ad438bec98822e3c9d82f5d9c5c4c99288abece80b700e2d2e.png" />
 </div>
 </div>
 <p>When <span class="math notranslate nohighlight">\(-1 &lt; a &lt; 0\)</span>, we again have a stable node, but now the trajectories approach <span class="math notranslate nohighlight">\(\mathbf{x}^*\)</span> along the <span class="math notranslate nohighlight">\(x\)</span>-direction, which is the more slowly decaying direction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># the parameter a:</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1035,14 +1035,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0295f122a3c4ae439b18b1e20ab2bb59bedb346596bad71722a0ba6c212a9be4.png" src="../../_images/0295f122a3c4ae439b18b1e20ab2bb59bedb346596bad71722a0ba6c212a9be4.png" />
+<img alt="../../_images/11e13fd2a720ba0b910ce2bfe16b44f2ce46285f74916d0ad302988876f15017.png" src="../../_images/11e13fd2a720ba0b910ce2bfe16b44f2ce46285f74916d0ad302988876f15017.png" />
 </div>
 </div>
 <p>Something dramatic happens when <span class="math notranslate nohighlight">\(a=0\)</span>: there’s an <em>entire line</em> of fixed points along the <span class="math notranslate nohighlight">\(x\)</span>-axis. All trajectories approach these fixed points along vertical lines.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># import matplotlib, a conventional module name is plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># the parameter a:</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mf">1.5</span>
@@ -1104,7 +1104,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7ce9784c65a7c72abb3106d88de337ac80a13d36d363f104e882d833725bd780.png" src="../../_images/7ce9784c65a7c72abb3106d88de337ac80a13d36d363f104e882d833725bd780.png" />
+<img alt="../../_images/cc4d483c5fdf521da1d3a14f9412b7d20922fbc6765941f0489c55f4dcfcd12a.png" src="../../_images/cc4d483c5fdf521da1d3a14f9412b7d20922fbc6765941f0489c55f4dcfcd12a.png" />
 </div>
 </div>
 <p>Finally, when <span class="math notranslate nohighlight">\(a&gt;0\)</span>, <span class="math notranslate nohighlight">\(\mathbf{x}^*=\mathbf{0}\)</span> becomes unstable, due to the exponential growth in the <span class="math notranslate nohighlight">\(x\)</span>-direction. Most trajectories veer away from <span class="math notranslate nohighlight">\(\mathbf{x}^*\)</span> and head out to infinity, with the exception of those that start on the <span class="math notranslate nohighlight">\(y\)</span>-axis. Here <span class="math notranslate nohighlight">\(\mathbf{x}^*\)</span> is called a <em>saddle point</em>.</p>
@@ -1245,10 +1245,10 @@ document.write(`
 <p>We end this chapter with an animation of the Lorenz Attractor, demonstrating the exponential deviation of two trajectories with similar initial conditions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">IPython</span> <span class="kn">import</span> <span class="n">display</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># the name of the function is: </span>
 <span class="c1"># scipy.integrate.solve_ivp, which by default uses the Runge-Kutta &quot;45&quot; method,</span>
@@ -1261,7 +1261,7 @@ document.write(`
 
 <span class="c1"># first define the function vector</span>
 <span class="c1"># y is a 3D vector here! t is necessary as well, but our function does not depend on time here</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the function vector&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">sigma</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> 
             <span class="n">r</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
@@ -1304,7 +1304,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aa7eefeac237e82d33cddc8eef759689cd33048d020688d20e3514d9445df930.png" src="../../_images/aa7eefeac237e82d33cddc8eef759689cd33048d020688d20e3514d9445df930.png" />
+<img alt="../../_images/dd42cbea1980a21f5ee887f679ce75f0c1b8ae1acbfa2bc9fa05d762770a79f7.png" src="../../_images/dd42cbea1980a21f5ee887f679ce75f0c1b8ae1acbfa2bc9fa05d762770a79f7.png" />
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">55</span>
@@ -1312,70 +1312,68 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="n">i</span><span class="p">],</span> <span class="n">sol2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="n">i</span><span class="p">],</span> <span class="n">sol2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">][:</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">55</span> <span class="n">dynamicdisplay</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/IPython/core/display_functions.py:374,</span> in <span class="ni">DisplayHandle.update</span><span class="nt">(self, obj, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">364</span> <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">365</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Update existing displays with my id</span>
-<span class="g g-Whitespace">    </span><span class="mi">366</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">367</span><span class="sd">     Parameters</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">372</span><span class="sd">         additional keyword arguments passed to update_display</span>
-<span class="g g-Whitespace">    </span><span class="mi">373</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">374</span>     <span class="n">update_display</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">display_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">display_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/IPython/core/display_functions.py:354,</span> in <span class="ni">DisplayHandle.update</span><span class="nt">(self, obj, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span> <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">345</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Update existing displays with my id</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span><span class="sd">     Parameters</span>
+<span class="sd">   (...)    352         additional keyword arguments passed to update_display</span>
+<span class="g g-Whitespace">    </span><span class="mi">353</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">354</span>     <span class="n">update_display</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">display_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">display_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/IPython/core/display_functions.py:326,</span> in <span class="ni">update_display</span><span class="nt">(obj, display_id, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Update an existing display by id</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">314</span><span class="sd"> Parameters</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">323</span><span class="sd"> :func:`display`</span>
-<span class="g g-Whitespace">    </span><span class="mi">324</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">325</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;update&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="ne">--&gt; </span><span class="mi">326</span> <span class="n">display</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">display_id</span><span class="o">=</span><span class="n">display_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/IPython/core/display_functions.py:306,</span> in <span class="ni">update_display</span><span class="nt">(obj, display_id, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Update an existing display by id</span>
+<span class="g g-Whitespace">    </span><span class="mi">293</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span><span class="sd"> Parameters</span>
+<span class="sd">   (...)    303 :func:`display`</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;update&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">--&gt; </span><span class="mi">306</span> <span class="n">display</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">display_id</span><span class="o">=</span><span class="n">display_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/IPython/core/display_functions.py:298,</span> in <span class="ni">display</span><span class="nt">(include, exclude, metadata, transient, display_id, raw, clear, *objs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">296</span>     <span class="n">publish_display_data</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">297</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">298</span>     <span class="n">format_dict</span><span class="p">,</span> <span class="n">md_dict</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">299</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">format_dict</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">300</span>         <span class="c1"># nothing to display (e.g. _ipython_display_ took over)</span>
-<span class="g g-Whitespace">    </span><span class="mi">301</span>         <span class="k">continue</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/IPython/core/display_functions.py:278,</span> in <span class="ni">display</span><span class="nt">(include, exclude, metadata, transient, display_id, raw, clear, *objs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span>     <span class="n">publish_display_data</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">278</span>     <span class="n">format_dict</span><span class="p">,</span> <span class="n">md_dict</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">format_dict</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span>         <span class="c1"># nothing to display (e.g. _ipython_display_ took over)</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span>         <span class="k">continue</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/IPython/core/formatters.py:182,</span> in <span class="ni">DisplayFormatter.format</span><span class="nt">(self, obj, include, exclude)</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span> <span class="n">md</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">182</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">formatter</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">183</span> <span class="k">except</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">184</span>     <span class="c1"># FIXME: log the exception</span>
-<span class="g g-Whitespace">    </span><span class="mi">185</span>     <span class="k">raise</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/IPython/core/formatters.py:238,</span> in <span class="ni">DisplayFormatter.format</span><span class="nt">(self, obj, include, exclude)</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span> <span class="n">md</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">237</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">238</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">formatter</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">239</span> <span class="k">except</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">240</span>     <span class="c1"># FIXME: log the exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">241</span>     <span class="k">raise</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/decorator.py:232,</span> in <span class="ni">decorate.&lt;locals&gt;.fun</span><span class="nt">(*args, **kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">kwsyntax</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">231</span>     <span class="n">args</span><span class="p">,</span> <span class="n">kw</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kw</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">232</span> <span class="k">return</span> <span class="n">caller</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">extras</span> <span class="o">+</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/decorator.py:235,</span> in <span class="ni">decorate.&lt;locals&gt;.fun</span><span class="nt">(*args, **kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">kwsyntax</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span>     <span class="n">args</span><span class="p">,</span> <span class="n">kw</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kw</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">235</span> <span class="k">return</span> <span class="n">caller</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">extras</span> <span class="o">+</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/IPython/core/formatters.py:226,</span> in <span class="ni">catch_format_error</span><span class="nt">(method, self, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;show traceback on failed format call&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">226</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>     <span class="c1"># don&#39;t warn on NotImplementedErrors</span>
-<span class="g g-Whitespace">    </span><span class="mi">229</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_return</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/IPython/core/formatters.py:282,</span> in <span class="ni">catch_format_error</span><span class="nt">(method, self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;show traceback on failed format call&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">282</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">283</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span>     <span class="c1"># don&#39;t warn on NotImplementedErrors</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_return</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/IPython/core/formatters.py:343,</span> in <span class="ni">BaseFormatter.__call__</span><span class="nt">(self, obj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">341</span>     <span class="k">pass</span>
-<span class="g g-Whitespace">    </span><span class="mi">342</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">343</span>     <span class="k">return</span> <span class="n">printer</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">344</span> <span class="c1"># Finally look for special method names</span>
-<span class="g g-Whitespace">    </span><span class="mi">345</span> <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/IPython/core/formatters.py:402,</span> in <span class="ni">BaseFormatter.__call__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span>     <span class="k">pass</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">402</span>     <span class="k">return</span> <span class="n">printer</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="c1"># Finally look for special method names</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/IPython/core/pylabtools.py:170,</span> in <span class="ni">print_figure</span><span class="nt">(fig, fmt, bbox_inches, base64, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">167</span>     <span class="kn">from</span> <span class="nn">matplotlib.backend_bases</span> <span class="kn">import</span> <span class="n">FigureCanvasBase</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/IPython/core/pylabtools.py:170,</span> in <span class="ni">print_figure</span><span class="nt">(fig, fmt, bbox_inches, base64, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">167</span>     <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.backend_bases</span><span class="w"> </span><span class="kn">import</span> <span class="n">FigureCanvasBase</span>
 <span class="g g-Whitespace">    </span><span class="mi">168</span>     <span class="n">FigureCanvasBase</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">170</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">print_figure</span><span class="p">(</span><span class="n">bytes_io</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">171</span> <span class="n">data</span> <span class="o">=</span> <span class="n">bytes_io</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">172</span> <span class="k">if</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s1">&#39;svg&#39;</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/backend_bases.py:2157,</span> in <span class="ni">FigureCanvasBase.print_figure</span><span class="nt">(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/backend_bases.py:2157,</span> in <span class="ni">FigureCanvasBase.print_figure</span><span class="nt">(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2154</span>     <span class="c1"># we do this instead of `self.figure.draw_without_rendering`</span>
 <span class="g g-Whitespace">   </span><span class="mi">2155</span>     <span class="c1"># so that we can inject the orientation</span>
 <span class="g g-Whitespace">   </span><span class="mi">2156</span>     <span class="k">with</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="s2">&quot;_draw_disabled&quot;</span><span class="p">,</span> <span class="n">nullcontext</span><span class="p">)():</span>
@@ -1383,21 +1381,21 @@ document.write(`
 <span class="g g-Whitespace">   </span><span class="mi">2158</span> <span class="k">if</span> <span class="n">bbox_inches</span><span class="p">:</span>
 <span class="g g-Whitespace">   </span><span class="mi">2159</span>     <span class="k">if</span> <span class="n">bbox_inches</span> <span class="o">==</span> <span class="s2">&quot;tight&quot;</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/artist.py:94,</span> in <span class="ni">_finalize_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer, *args, **kwargs)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/artist.py:94,</span> in <span class="ni">_finalize_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer, *args, **kwargs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">draw</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="k">def</span> <span class="nf">draw_wrapper</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="k">def</span><span class="w"> </span><span class="nf">draw_wrapper</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="ne">---&gt; </span><span class="mi">94</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">if</span> <span class="n">renderer</span><span class="o">.</span><span class="n">_rasterizing</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">96</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">stop_rasterizing</span><span class="p">()</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/artist.py:71,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/artist.py:71,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
 <span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
 <span class="ne">---&gt; </span><span class="mi">71</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="k">finally</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/figure.py:3257,</span> in <span class="ni">Figure.draw</span><span class="nt">(self, renderer)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/figure.py:3257,</span> in <span class="ni">Figure.draw</span><span class="nt">(self, renderer)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3254</span>             <span class="c1"># ValueError can occur when resizing a window.</span>
 <span class="g g-Whitespace">   </span><span class="mi">3256</span>     <span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
 <span class="ne">-&gt; </span><span class="mi">3257</span>     <span class="n">mimage</span><span class="o">.</span><span class="n">_draw_list_compositing_images</span><span class="p">(</span>
@@ -1405,7 +1403,7 @@ document.write(`
 <span class="g g-Whitespace">   </span><span class="mi">3260</span>     <span class="n">renderer</span><span class="o">.</span><span class="n">close_group</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3261</span> <span class="k">finally</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/image.py:134,</span> in <span class="ni">_draw_list_compositing_images</span><span class="nt">(renderer, parent, artists, suppress_composite)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/image.py:134,</span> in <span class="ni">_draw_list_compositing_images</span><span class="nt">(renderer, parent, artists, suppress_composite)</span>
 <span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">if</span> <span class="n">not_composite</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">has_images</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artists</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">134</span>         <span class="n">a</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
@@ -1413,26 +1411,26 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">136</span>     <span class="c1"># Composite any adjacent images together</span>
 <span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="n">image_group</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/artist.py:71,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/artist.py:71,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
 <span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
 <span class="ne">---&gt; </span><span class="mi">71</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="k">finally</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/mpl_toolkits/mplot3d/axes3d.py:470,</span> in <span class="ni">Axes3D.draw</span><span class="nt">(self, renderer)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/mpl_toolkits/mplot3d/axes3d.py:470,</span> in <span class="ni">Axes3D.draw</span><span class="nt">(self, renderer)</span>
 <span class="g g-Whitespace">    </span><span class="mi">467</span>         <span class="n">axis</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">469</span> <span class="c1"># Then rest</span>
 <span class="ne">--&gt; </span><span class="mi">470</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/artist.py:71,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/artist.py:71,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
 <span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
 <span class="ne">---&gt; </span><span class="mi">71</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="k">finally</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/axes/_base.py:3226,</span> in <span class="ni">_AxesBase.draw</span><span class="nt">(self, renderer)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/axes/_base.py:3226,</span> in <span class="ni">_AxesBase.draw</span><span class="nt">(self, renderer)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3223</span> <span class="k">if</span> <span class="n">artists_rasterized</span><span class="p">:</span>
 <span class="g g-Whitespace">   </span><span class="mi">3224</span>     <span class="n">_draw_rasterized</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_figure</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">artists_rasterized</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
 <span class="ne">-&gt; </span><span class="mi">3226</span> <span class="n">mimage</span><span class="o">.</span><span class="n">_draw_list_compositing_images</span><span class="p">(</span>
@@ -1440,7 +1438,7 @@ document.write(`
 <span class="g g-Whitespace">   </span><span class="mi">3229</span> <span class="n">renderer</span><span class="o">.</span><span class="n">close_group</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3230</span> <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/image.py:134,</span> in <span class="ni">_draw_list_compositing_images</span><span class="nt">(renderer, parent, artists, suppress_composite)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/image.py:134,</span> in <span class="ni">_draw_list_compositing_images</span><span class="nt">(renderer, parent, artists, suppress_composite)</span>
 <span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">if</span> <span class="n">not_composite</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">has_images</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artists</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">134</span>         <span class="n">a</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
@@ -1448,72 +1446,75 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">136</span>     <span class="c1"># Composite any adjacent images together</span>
 <span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="n">image_group</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/artist.py:71,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/artist.py:71,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
 <span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
 <span class="ne">---&gt; </span><span class="mi">71</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="k">finally</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/mpl_toolkits/mplot3d/art3d.py:322,</span> in <span class="ni">Line3D.draw</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span>     <span class="n">xs3d</span><span class="p">,</span> <span class="n">ys3d</span><span class="p">,</span> <span class="n">zs3d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verts3d</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/mpl_toolkits/mplot3d/art3d.py:323,</span> in <span class="ni">Line3D.draw</span><span class="nt">(self, renderer)</span>
 <span class="g g-Whitespace">    </span><span class="mi">319</span> <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span><span class="p">,</span> <span class="n">tis</span> <span class="o">=</span> <span class="n">proj3d</span><span class="o">.</span><span class="n">_proj_transform_clip</span><span class="p">(</span><span class="n">xs3d</span><span class="p">,</span> <span class="n">ys3d</span><span class="p">,</span> <span class="n">zs3d</span><span class="p">,</span>
 <span class="g g-Whitespace">    </span><span class="mi">320</span>                                               <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">M</span><span class="p">,</span>
 <span class="g g-Whitespace">    </span><span class="mi">321</span>                                               <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_focal_length</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">322</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">323</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">324</span> <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/lines.py:680,</span> in <span class="ni">Line2D.set_data</span><span class="nt">(self, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">677</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">678</span>     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">args</span>
-<span class="ne">--&gt; </span><span class="mi">680</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">681</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/artist.py:71,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">71</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/matplotlib/lines.py:1305,</span> in <span class="ni">Line2D.set_xdata</span><span class="nt">(self, x)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1303</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">iterable</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1304</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;x must be a sequence&#39;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1305</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xorig</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1306</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invalidx</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">   </span><span class="mi">1307</span> <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/lines.py:784,</span> in <span class="ni">Line2D.draw</span><span class="nt">(self, renderer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">782</span> <span class="n">renderer</span><span class="o">.</span><span class="n">open_group</span><span class="p">(</span><span class="s1">&#39;line2d&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_gid</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">783</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lineStyles</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_linestyle</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_draw_nothing&#39;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">784</span>     <span class="n">tpath</span><span class="p">,</span> <span class="n">affine</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_transformed_path</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">785</span>                      <span class="o">.</span><span class="n">get_transformed_path_and_affine</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tpath</span><span class="o">.</span><span class="n">vertices</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">787</span>         <span class="n">gc</span> <span class="o">=</span> <span class="n">renderer</span><span class="o">.</span><span class="n">new_gc</span><span class="p">()</span>
 
-<span class="nn">File /usr/local/Cellar/python@3.11/3.11.10/Frameworks/Python.framework/Versions/3.11/lib/python3.11/copy.py:84,</span> in <span class="ni">copy</span><span class="nt">(x)</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span> <span class="n">copier</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;__copy__&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span> <span class="k">if</span> <span class="n">copier</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">84</span>     <span class="k">return</span> <span class="n">copier</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span> <span class="n">reductor</span> <span class="o">=</span> <span class="n">dispatch_table</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span> <span class="k">if</span> <span class="n">reductor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/lines.py:749,</span> in <span class="ni">Line2D._get_transformed_path</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Return this line&#39;s `~matplotlib.transforms.TransformedPath`.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">748</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transformed_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">749</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_transform_path</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">750</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transformed_path</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/numpy/ma/core.py:3107,</span> in <span class="ni">MaskedArray.__array_finalize__</span><span class="nt">(self, obj)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3093</span> <span class="c1"># If self and obj point to exactly the same data, then probably</span>
-<span class="g g-Whitespace">   </span><span class="mi">3094</span> <span class="c1"># self is a simple view of obj (e.g., self = obj[...]), so they</span>
-<span class="g g-Whitespace">   </span><span class="mi">3095</span> <span class="c1"># should share the same mask. (This isn&#39;t 100% reliable, e.g. self</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3098</span> <span class="c1"># the mask, so that future modifications to &#39;self&#39; do not end up</span>
-<span class="g g-Whitespace">   </span><span class="mi">3099</span> <span class="c1"># side-effecting &#39;obj&#39; as well.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3100</span> <span class="k">if</span> <span class="p">(</span><span class="n">_mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">nomask</span> <span class="ow">and</span> <span class="n">obj</span><span class="o">.</span><span class="n">__array_interface__</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">3101</span>         <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__array_interface__</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3102</span>     <span class="c1"># We should make a copy. But we could get here via astype,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3105</span>     <span class="c1"># order could have changed. So, change the mask type if</span>
-<span class="g g-Whitespace">   </span><span class="mi">3106</span>     <span class="c1"># needed and use astype instead of copy.</span>
-<span class="ne">-&gt; </span><span class="mi">3107</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">obj</span><span class="o">.</span><span class="n">dtype</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3108</span>         <span class="n">_mask_dtype</span> <span class="o">=</span> <span class="n">_mask</span><span class="o">.</span><span class="n">dtype</span>
-<span class="g g-Whitespace">   </span><span class="mi">3109</span>     <span class="k">else</span><span class="p">:</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/lines.py:744,</span> in <span class="ni">Line2D._transform_path</span><span class="nt">(self, subslice)</span>
+<span class="g g-Whitespace">    </span><span class="mi">742</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">743</span>     <span class="n">_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span>
+<span class="ne">--&gt; </span><span class="mi">744</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transformed_path</span> <span class="o">=</span> <span class="n">TransformedPath</span><span class="p">(</span><span class="n">_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_transform</span><span class="p">())</span>
 
-<span class="nn">File /usr/local/lib/python3.11/site-packages/numpy/ma/core.py:3493,</span> in <span class="ni">MaskedArray.dtype</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3490</span>     <span class="k">return</span>
-<span class="g g-Whitespace">   </span><span class="mi">3492</span> <span class="c1"># Define so that we can overwrite the setter.</span>
-<span class="ne">-&gt; </span><span class="mi">3493</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">   </span><span class="mi">3494</span> <span class="k">def</span> <span class="nf">dtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3495</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">dtype</span>
-<span class="g g-Whitespace">   </span><span class="mi">3497</span> <span class="nd">@dtype</span><span class="o">.</span><span class="n">setter</span>
-<span class="g g-Whitespace">   </span><span class="mi">3498</span> <span class="k">def</span> <span class="nf">dtype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/transforms.py:2759,</span> in <span class="ni">TransformedPath.__init__</span><span class="nt">(self, path, transform)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2752</span> <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">transform</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2753</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2754</span><span class="sd">     Parameters</span>
+<span class="g g-Whitespace">   </span><span class="mi">2755</span><span class="sd">     ----------</span>
+<span class="g g-Whitespace">   </span><span class="mi">2756</span><span class="sd">     path : `~.path.Path`</span>
+<span class="g g-Whitespace">   </span><span class="mi">2757</span><span class="sd">     transform : `Transform`</span>
+<span class="g g-Whitespace">   </span><span class="mi">2758</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">2759</span>     <span class="n">_api</span><span class="o">.</span><span class="n">check_isinstance</span><span class="p">(</span><span class="n">Transform</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2760</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2761</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_path</span> <span class="o">=</span> <span class="n">path</span>
+
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/_api/__init__.py:65,</span> in <span class="ni">check_isinstance</span><span class="nt">(types, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fget</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="c1"># In the following check_foo() functions, the first parameter is positional-only to make</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="c1"># e.g. `_api.check_isinstance([...], types=foo)` work.</span>
+<span class="ne">---&gt; </span><span class="mi">65</span> <span class="k">def</span><span class="w"> </span><span class="nf">check_isinstance</span><span class="p">(</span><span class="n">types</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span><span class="sd">     For each *key, value* pair in *kwargs*, check that *value* is an instance</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span><span class="sd">     of one of *types*; if not, raise an appropriate TypeError.</span>
+<span class="sd">   (...)     74     &gt;&gt;&gt; _api.check_isinstance((SomeClass, None), arg=arg)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>     <span class="n">none_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
-<img alt="../../_images/d9670f1b10b927c89ed710d2651008aa8602ecca9cf1e13d8bf87f16a43839fd.png" src="../../_images/d9670f1b10b927c89ed710d2651008aa8602ecca9cf1e13d8bf87f16a43839fd.png" />
+<img alt="../../_images/e4a1f48b9da962510096638048109c26db11ba4d51b1345c43d3f3fa0ddeb52c.png" src="../../_images/e4a1f48b9da962510096638048109c26db11ba4d51b1345c43d3f3fa0ddeb52c.png" />
 </div>
 </div>
 </section>
