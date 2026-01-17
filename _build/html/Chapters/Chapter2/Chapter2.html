@@ -395,7 +395,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers">2.3. Floating-Point Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-and-uncertainties-in-computations">2.4. Errors and Uncertainties in Computations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-errors">2.4.1. Types of Errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subtractive-cancelation">2.4.2. Subtractive Cancelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subtractive-cancellation">2.4.2. Subtractive Cancellation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-errors">2.4.3. Round-off Errors</a></li>
 </ul>
 </li>
@@ -430,24 +430,24 @@ document.write(`
 <p>A problem in computer design is how to represent an arbitrary number using a finite amount of memory space, and then how to deal with the limitations arising from this representation.</p>
 <p>Computer memories are based on magnetic or electronic realizations of a spin pointing up or down. Therefore, the most elementary units of computer memory are two binary integers (bits) 0 and 1.</p>
 <p>All numbers are stored in computer memory in the binary form, i.e. as long strings of 0s and 1s.</p>
-<p><span class="math notranslate nohighlight">\(N\)</span> bits can store integers in the range <span class="math notranslate nohighlight">\([0, 2^{N-1}]\)</span>. <span class="math notranslate nohighlight">\(N-1\)</span> since the first bit represents the sign: e.g. 0 for positive numbers.</p>
+<p><span class="math notranslate nohighlight">\(N\)</span> bits can store integers in the range <span class="math notranslate nohighlight">\([0, 2^{N}]\)</span>. These are known as unsigned integers (i.e. zero or positive). If the sign is included, then we can use one bit to represent the sign, and therefore with <span class="math notranslate nohighlight">\(N\)</span> bits we can represent positive or negative integers in the range <span class="math notranslate nohighlight">\([-2^{N-1}, 2^{N-1} - 1]\)</span>. The power <span class="math notranslate nohighlight">\(N-1\)</span> is due to the fact that we are using one bit to represent the sign. These are known as signed integers.</p>
 <p>The description of a particular computer’s system or language states the “word length”, i.e. the number of bits used to store a number.</p>
 <p>The length is often expressed in bytes (i.e. a <em>mouthful of bits!</em>), where:</p>
 <p>1 byte = 1 B = 8 bits</p>
 <p>Memory sizes are measured in bytes, kilobytes, megabytes, gigabytes, terabytes, petabytes.</p>
 <p>1 K = 1 kB = <span class="math notranslate nohighlight">\(2^{10}\)</span> bytes = 1024 bytes.</p>
 <p>1 byte is also the amount of memory needed to store a single letter like “a”. This adds up to a typical printed page requiring ~3 kB.</p>
-<p>Memory in older personal computers (PCs): uses 8-bit words, and therefore for these systems, the maximum integer was <span class="math notranslate nohighlight">\(2^7 = 128\)</span>.</p>
-<p>With 64-bit (modern PCs): <span class="math notranslate nohighlight">\(1 - 2^{63} \simeq 1-10^{19}\)</span>.</p>
+<p>Memory in older personal computers (PCs): uses 8-bit words, and therefore for these systems, the maximum unsigned integer was <span class="math notranslate nohighlight">\(2^8 - 1 = 255\)</span>, and the signed 8-bit minimum and maximum are <span class="math notranslate nohighlight">\(-2^7 = -128\)</span> and <span class="math notranslate nohighlight">\(2^7 - 1 = 127\)</span>, respectively.</p>
+<p>With 64-bit (modern PCs), the signed 64-bit range is <span class="math notranslate nohighlight">\(-2^{63}, 2^63-1] \approx [-9.22 \times 10^18, 9.22 \times 10^18]\)</span>.</p>
 <p>Trying to store a number larger than the hardware/software was designed for (overflow) was common in older machines!</p>
 </section>
 <section id="floating-point-numbers">
 <h2><span class="section-number">2.3. </span>Floating-Point Numbers<a class="headerlink" href="#floating-point-numbers" title="Link to this heading">#</a></h2>
 <p>Real numbers are represented on computers in either fixed-point or floating-point notations.</p>
-<p>In fixed-point notation, numbers are represented with a fixed number of places beyond the decimal point (e.g. integers).</p>
+<p>In fixed-point notation, numbers are represented with a fixed number of fractional bits/decimal places (integers are a special case with zero fractional places).</p>
 <p>Most scientific computations use double-precision floating-point numbers with 64 bits = 8 B. (Note that in particle physics, and other fields of physics, quadruple precision is necessary for some calculations! There are specialized libraries for this purpose).</p>
 <p>64-bit double precision floating-point numbers are called <code class="docutils literal notranslate"><span class="pre">float</span></code> in Python.</p>
-<p>In 1987 the Institute of Electrical &amp; Electronics Engineers (IEEE) and the American National Standards Institute (ANSI) adopted the IEEE754 standard for floating point arithmetics.</p>
+<p>In 1987 the Institute of Electrical &amp; Electronics Engineers (IEEE) and the American National Standards Institute (ANSI) adopted the IEEE754 standard for floating-point arithmetic.</p>
 <p>Bit allocation (IEEE754 standard):</p>
 <ul class="simple">
 <li><p>1 bit is allocated to the sign indicator, <span class="math notranslate nohighlight">\(s\)</span>.</p></li>
@@ -530,9 +530,9 @@ document.write(`
 <h3><span class="section-number">2.4.1. </span>Types of Errors<a class="headerlink" href="#types-of-errors" title="Link to this heading">#</a></h3>
 <p>Four general types of errors exist to plague your computations:</p>
 <ol class="arabic simple">
-<li><p><strong>Blunders or bad theory</strong>: typos in program or data, fault in reasoning (i.e. in the theoretical description), using the wrong data files, etc..</p></li>
-<li><p><strong>Random errors</strong>: imprecision caused by events such as fluctuations in electronics, cosmic rays, etc..</p></li>
-<li><p><strong>Approximation errors</strong>: Imprecision arising from simplifying the math so that a problem can be solved on a computer. e.g. replacement of infinite series by a finite sums, of infinitesimal intervals by finite ones, by variable functions by constants, e.g.:</p></li>
+<li><p><strong>Blunders or bad theory</strong>: typos in program or data, fault in reasoning (i.e. in the theoretical description), using the wrong data files, etc.</p></li>
+<li><p><strong>Random errors</strong>: imprecision caused by events such as fluctuations in electronics, cosmic rays, etc.</p></li>
+<li><p><strong>Approximation errors</strong>: Imprecision arising from simplifying the math so that a problem can be solved on a computer. e.g. replacement of infinite series by a finite sum, of infinitesimal intervals by finite ones, by variable functions by constants, e.g.:</p></li>
 </ol>
 <p><span class="math notranslate nohighlight">\(\sin(x) = \sum_{n=1}^{\infty} \frac{ (-1)^{n-1} x^{2n-1} } { (2n-1)! }\)</span> (exact)</p>
 <p>vs.</p>
@@ -540,16 +540,36 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(\epsilon(x,N)\)</span>  is the approximation (or algorithmic) error = the series from <span class="math notranslate nohighlight">\(N+1\)</span> to <span class="math notranslate nohighlight">\(\infty\)</span>.</p>
 <p>For any reasonable approximation, this error should decrease as <span class="math notranslate nohighlight">\(N\)</span> increases and should vanish in the limit <span class="math notranslate nohighlight">\(N\rightarrow \infty\)</span>.</p>
 <ol class="arabic simple" start="4">
-<li><p><strong>Round-off errors</strong>: Imprecision arising arising from the finite number of digits used to store floating-point numbers. This is analogous to the uncertainty in the measurement of a physical quantity in an elementary physics lab. Round-off errors accumulate as the computer handles more numbers, i.e. as the number of steps in a computation increases. This may cause some algorithms to become unstable with a rapid increase in error. In some cases the round-off error may become a major component in your answer, leading to “garbage”.</p></li>
+<li><p><strong>Round-off errors</strong>: Imprecision arising from the finite number of digits used to store floating-point numbers. This is analogous to the uncertainty in the measurement of a physical quantity in an elementary physics lab. Round-off errors accumulate as the computer handles more numbers, i.e. as the number of steps in a computation increases. This may cause some algorithms to become unstable with a rapid increase in error. In some cases the round-off error may become a major component in your answer, leading to “garbage”.</p></li>
 </ol>
 <p>e.g. if a computer stores 1/3 as 0.3333 and 2/3 as 0.6667, if we ask the computer to do 2*(1/3) - 2/3 = 0.6666 - 0.6667 = -0.0001. Although small, this error is non-zero. If this is repeated millions of times, the final answer might not even be small!</p>
 </section>
-<section id="subtractive-cancelation">
-<h3><span class="section-number">2.4.2. </span>Subtractive Cancelation<a class="headerlink" href="#subtractive-cancelation" title="Link to this heading">#</a></h3>
+<section id="subtractive-cancellation">
+<h3><span class="section-number">2.4.2. </span>Subtractive Cancellation<a class="headerlink" href="#subtractive-cancellation" title="Link to this heading">#</a></h3>
 <p>Calculations employing numbers that are stored only approximately on the computer can only be expected to yield approximate answers.</p>
 <p>We model the computer representation, <span class="math notranslate nohighlight">\(x_c\)</span>, of the exact number <span class="math notranslate nohighlight">\(x\)</span>, as:</p>
 <p><span class="math notranslate nohighlight">\(x_c \simeq x ( 1 + \epsilon_x )\)</span>,</p>
 <p>where <span class="math notranslate nohighlight">\(\epsilon_x\)</span> is the relative error in <span class="math notranslate nohighlight">\(x_c\)</span>. We expect this to be of the same order as the “machine precision”. In particular, we expect double-precision numbers to have an error in the 15th decimal place.</p>
+<p>A concrete way to quantify this is <em>machine epsilon</em> <code class="docutils literal notranslate"><span class="pre">eps</span></code>, defined as the smallest number such that <code class="docutils literal notranslate"><span class="pre">1.0</span> <span class="pre">+</span> <span class="pre">eps</span> <span class="pre">!=</span> <span class="pre">1.0</span></code>.
+For IEEE-754 double precision, <code class="docutils literal notranslate"><span class="pre">eps</span></code> is <span class="math notranslate nohighlight">\(2.22×10^{-16}\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="c1"># gives floating point info</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eps =&quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;is 1 + eps == 1 ?&quot;</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">f</span><span class="o">.</span><span class="n">eps</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;is 1 + eps/2 == 1 ?&quot;</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">f</span><span class="o">.</span><span class="n">eps</span><span class="o">/</span><span class="mi">2</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eps = 2.220446049250313e-16
+is 1 + eps == 1 ? False
+is 1 + eps/2 == 1 ? True
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can apply this notation to simple subtraction: <span class="math notranslate nohighlight">\(a = b - c\)</span>.</p>
 <p>On a computer, this would be: <span class="math notranslate nohighlight">\(a_c \simeq b_c - c_c \simeq b(1+\epsilon_b) - c( 1 + \epsilon_c)\)</span>.</p>
 <p>So:</p>
@@ -561,8 +581,8 @@ document.write(`
 <p>Even if the relative errors somewhat cancel, they are still multiplied by a large number, <span class="math notranslate nohighlight">\(b/a\)</span>. This can significantly magnify the error. But since we cannot assume a sign for the errors, we can assume the worst, i.e. that they add up.</p>
 <p>As a more explicit mathematical example, consider the constructing the expansion of <span class="math notranslate nohighlight">\(e^{-x}\)</span> for <strong>large values of <span class="math notranslate nohighlight">\(x\)</span></strong>:</p>
 <p><span class="math notranslate nohighlight">\(e^{-x} = 1 - x + \frac{x^2}{2!} - \frac{x^3}{3!} + ... \)</span></p>
-<p>The first few terms are large, but of alternating sign, leading to an almost total cancelation in order to yield the final small result.</p>
-<p>This subtractive cancelation can be eliminated by considering <span class="math notranslate nohighlight">\(e^{-x} = 1/e^x\)</span> instead, but round-off errors still remain, which we examine next.</p>
+<p>The first few terms are large, but of alternating sign, leading to an almost total cancellation in order to yield the final small result.</p>
+<p>This subtractive cancellation can be eliminated by considering <span class="math notranslate nohighlight">\(e^{-x} = 1/e^x\)</span> instead, but round-off errors still remain, which we will examine in a bit.</p>
 </section>
 <section id="round-off-errors">
 <h3><span class="section-number">2.4.3. </span>Round-off Errors<a class="headerlink" href="#round-off-errors" title="Link to this heading">#</a></h3>
@@ -588,7 +608,7 @@ document.write(`
 <p>By analogy, the total relative error after <span class="math notranslate nohighlight">\(N\)</span> calculational steps, each with machine precision, <span class="math notranslate nohighlight">\(\epsilon_m\)</span>, is on average:</p>
 <p><span class="math notranslate nohighlight">\(\epsilon_\mathrm{ro} = \sqrt{N} \epsilon_m\)</span></p>
 <p>If the round-off error does not accumulate in a random manner: a more detailed analysis is needed.</p>
-<p>In some cases there may be no cancelation, and the error may increase as <span class="math notranslate nohighlight">\(N \epsilon_m\)</span> instead. Even worse, in some recursive algorithms, error generation can be coherent, leading to a <span class="math notranslate nohighlight">\(N!\)</span> increase in error.</p>
+<p>In some cases there may be no cancellation, and the error may increase as <span class="math notranslate nohighlight">\(N \epsilon_m\)</span> instead. Even worse, in some recursive algorithms, error generation can be coherent, leading to a <span class="math notranslate nohighlight">\(N!\)</span> increase in error.</p>
 </section>
 </section>
 
@@ -661,7 +681,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers">2.3. Floating-Point Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-and-uncertainties-in-computations">2.4. Errors and Uncertainties in Computations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-errors">2.4.1. Types of Errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subtractive-cancelation">2.4.2. Subtractive Cancelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subtractive-cancellation">2.4.2. Subtractive Cancellation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-errors">2.4.3. Round-off Errors</a></li>
 </ul>
 </li>
