@@ -390,15 +390,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-computer-number-representations">2.1. Introduction to Computer Number Representations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers">2.2. Floating-Point Numbers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-and-uncertainties-in-computations">2.3. Errors and Uncertainties in Computations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-errors">2.3.1. Types of Errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subtractive-cancelation">2.3.2. Subtractive Cancelation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-errors">2.3.3. Round-off Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">2.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-computer-number-representations">2.2. Introduction to Computer Number Representations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers">2.3. Floating-Point Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-and-uncertainties-in-computations">2.4. Errors and Uncertainties in Computations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-errors">2.4.1. Types of Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subtractive-cancelation">2.4.2. Subtractive Cancelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-errors">2.4.3. Round-off Errors</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error-accumulation">2.4. Round-off Error Accumulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error-accumulation">2.5. Round-off Error Accumulation</a></li>
 </ul>
             </nav>
         </div>
@@ -412,8 +413,19 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="computer-number-representations">
 <h1><span class="section-number">2. </span>Computer Number Representations<a class="headerlink" href="#computer-number-representations" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">2.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ol class="arabic simple">
+<li><p>Explain how numbers are stored using bits/bytes and estimate integer ranges.</p></li>
+<li><p>Describe the IEEE-754 double-precision layout (sign, exponent, fraction).</p></li>
+<li><p>Convert simple numbers between IEEE-754 binary and base-10 (and interpret neighboring floats).</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">np.spacing</span></code> and <code class="docutils literal notranslate"><span class="pre">sys.float_info</span></code> to quantify floating-point resolution and limits.</p></li>
+<li><p>Identify major computational error sources, and recognize subtractive cancellation and round-off error accumulation.</p></li>
+</ol>
+</section>
 <section id="introduction-to-computer-number-representations">
-<h2><span class="section-number">2.1. </span>Introduction to Computer Number Representations<a class="headerlink" href="#introduction-to-computer-number-representations" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.2. </span>Introduction to Computer Number Representations<a class="headerlink" href="#introduction-to-computer-number-representations" title="Link to this heading">#</a></h2>
 <p>Computers are powerful, but they are <em>finite</em>.</p>
 <p>A problem in computer design is how to represent an arbitrary number using a finite amount of memory space, and then how to deal with the limitations arising from this representation.</p>
 <p>Computer memories are based on magnetic or electronic realizations of a spin pointing up or down. Therefore, the most elementary units of computer memory are two binary integers (bits) 0 and 1.</p>
@@ -430,11 +442,11 @@ document.write(`
 <p>Trying to store a number larger than the hardware/software was designed for (overflow) was common in older machines!</p>
 </section>
 <section id="floating-point-numbers">
-<h2><span class="section-number">2.2. </span>Floating-Point Numbers<a class="headerlink" href="#floating-point-numbers" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>Floating-Point Numbers<a class="headerlink" href="#floating-point-numbers" title="Link to this heading">#</a></h2>
 <p>Real numbers are represented on computers in either fixed-point or floating-point notations.</p>
 <p>In fixed-point notation, numbers are represented with a fixed number of places beyond the decimal point (e.g. integers).</p>
 <p>Most scientific computations use double-precision floating-point numbers with 64 bits = 8 B. (Note that in particle physics, and other fields of physics, quadruple precision is necessary for some calculations! There are specialized libraries for this purpose).</p>
-<p>64 bit double precision floating-point numbers are called <code class="docutils literal notranslate"><span class="pre">float</span></code> in Python.</p>
+<p>64-bit double precision floating-point numbers are called <code class="docutils literal notranslate"><span class="pre">float</span></code> in Python.</p>
 <p>In 1987 the Institute of Electrical &amp; Electronics Engineers (IEEE) and the American National Standards Institute (ANSI) adopted the IEEE754 standard for floating point arithmetics.</p>
 <p>Bit allocation (IEEE754 standard):</p>
 <ul class="simple">
@@ -513,9 +525,9 @@ document.write(`
 </div>
 </section>
 <section id="errors-and-uncertainties-in-computations">
-<h2><span class="section-number">2.3. </span>Errors and Uncertainties in Computations<a class="headerlink" href="#errors-and-uncertainties-in-computations" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.4. </span>Errors and Uncertainties in Computations<a class="headerlink" href="#errors-and-uncertainties-in-computations" title="Link to this heading">#</a></h2>
 <section id="types-of-errors">
-<h3><span class="section-number">2.3.1. </span>Types of Errors<a class="headerlink" href="#types-of-errors" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.4.1. </span>Types of Errors<a class="headerlink" href="#types-of-errors" title="Link to this heading">#</a></h3>
 <p>Four general types of errors exist to plague your computations:</p>
 <ol class="arabic simple">
 <li><p><strong>Blunders or bad theory</strong>: typos in program or data, fault in reasoning (i.e. in the theoretical description), using the wrong data files, etc..</p></li>
@@ -533,7 +545,7 @@ document.write(`
 <p>e.g. if a computer stores 1/3 as 0.3333 and 2/3 as 0.6667, if we ask the computer to do 2*(1/3) - 2/3 = 0.6666 - 0.6667 = -0.0001. Although small, this error is non-zero. If this is repeated millions of times, the final answer might not even be small!</p>
 </section>
 <section id="subtractive-cancelation">
-<h3><span class="section-number">2.3.2. </span>Subtractive Cancelation<a class="headerlink" href="#subtractive-cancelation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.4.2. </span>Subtractive Cancelation<a class="headerlink" href="#subtractive-cancelation" title="Link to this heading">#</a></h3>
 <p>Calculations employing numbers that are stored only approximately on the computer can only be expected to yield approximate answers.</p>
 <p>We model the computer representation, <span class="math notranslate nohighlight">\(x_c\)</span>, of the exact number <span class="math notranslate nohighlight">\(x\)</span>, as:</p>
 <p><span class="math notranslate nohighlight">\(x_c \simeq x ( 1 + \epsilon_x )\)</span>,</p>
@@ -553,7 +565,7 @@ document.write(`
 <p>This subtractive cancelation can be eliminated by considering <span class="math notranslate nohighlight">\(e^{-x} = 1/e^x\)</span> instead, but round-off errors still remain, which we examine next.</p>
 </section>
 <section id="round-off-errors">
-<h3><span class="section-number">2.3.3. </span>Round-off Errors<a class="headerlink" href="#round-off-errors" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.4.3. </span>Round-off Errors<a class="headerlink" href="#round-off-errors" title="Link to this heading">#</a></h3>
 <p>Error arises from a single division of the computer representations of two numbers:</p>
 <p><span class="math notranslate nohighlight">\(a = \frac{b}{c} \rightarrow a_c = \frac{b_c}{c_c} = \frac{b}{c} \left( \frac{1+\epsilon_b}{1+\epsilon_c} \right)\)</span>,</p>
 <p>so:</p>
@@ -565,11 +577,11 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(\epsilon = \frac{ f(x) - f(x_c) } { f(x) } \simeq \frac{\mathrm{d} f(x) / \mathrm{d}x}{f(x)} (x-x_c)\)</span>.</p>
 <p>E.g. for <span class="math notranslate nohighlight">\(f(x) = \sqrt{1+x}\)</span>: <span class="math notranslate nohighlight">\(\frac{ \mathrm{d} f}{\mathrm{d}x} = \frac{1}{2} \frac{1}{\sqrt{1+x}}\;.\)</span></p>
 <p><span class="math notranslate nohighlight">\(\epsilon =  \frac{x - x_c}{2 (1+x) }\;.\)</span></p>
-<p>e.g. Evaluate at <span class="math notranslate nohighlight">\(x=\pi/4\)</span> and assume an error in the 4th decimal place of <span class="math notranslate nohighlight">\(x\)</span>, then we obtain a similar error of <span class="math notranslate nohighlight">\(1.5\times 10^{-4}\)</span> on <span class="math notranslate nohighlight">\(f(x) = \sqrt{1+x}\)</span>.</p>
+<p>e.g. Evaluating at <span class="math notranslate nohighlight">\(x=\pi/4\)</span> and assuming an error in the 4th decimal place of <span class="math notranslate nohighlight">\(x\)</span>, then we obtain a similar error of <span class="math notranslate nohighlight">\(1.5\times 10^{-4}\)</span> on <span class="math notranslate nohighlight">\(f(x) = \sqrt{1+x}\)</span>.</p>
 </section>
 </section>
 <section id="round-off-error-accumulation">
-<h2><span class="section-number">2.4. </span>Round-off Error Accumulation<a class="headerlink" href="#round-off-error-accumulation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5. </span>Round-off Error Accumulation<a class="headerlink" href="#round-off-error-accumulation" title="Link to this heading">#</a></h2>
 <p>If a calculation has a large number of steps, we can view the error as a step in a random walk.</p>
 <p>For a random walk (see later), the total distance <span class="math notranslate nohighlight">\(R\)</span>, covered in <span class="math notranslate nohighlight">\(N\)</span> steps of length <span class="math notranslate nohighlight">\(r\)</span> is:</p>
 <p><span class="math notranslate nohighlight">\(R = \sqrt{N} r\)</span></p>
@@ -644,15 +656,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-computer-number-representations">2.1. Introduction to Computer Number Representations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers">2.2. Floating-Point Numbers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-and-uncertainties-in-computations">2.3. Errors and Uncertainties in Computations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-errors">2.3.1. Types of Errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subtractive-cancelation">2.3.2. Subtractive Cancelation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-errors">2.3.3. Round-off Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">2.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-computer-number-representations">2.2. Introduction to Computer Number Representations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers">2.3. Floating-Point Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-and-uncertainties-in-computations">2.4. Errors and Uncertainties in Computations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-errors">2.4.1. Types of Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subtractive-cancelation">2.4.2. Subtractive Cancelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-errors">2.4.3. Round-off Errors</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error-accumulation">2.4. Round-off Error Accumulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error-accumulation">2.5. Round-off Error Accumulation</a></li>
 </ul>
   </nav></div>
 
