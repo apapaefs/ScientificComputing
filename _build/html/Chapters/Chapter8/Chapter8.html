@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>8. An Introduction to Nonlinear Dynamics and Chaos &#8212; An Introduction to Scientific Computing)</title>
+    <title>8. An Introduction to Nonlinear Dynamics and Chaos &#8212; An Introduction to Scientific Computing</title>
   
   
   
@@ -32,9 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d948cb1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -60,6 +61,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapters/Chapter8/Chapter8';</script>
+    <script src="../../_static/fix-search-submit.js?v=00a5986e"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="9. Boundary Value and Eigenvalue Problems" href="../Chapter9/Chapter9.html" />
@@ -155,8 +157,8 @@
       
     
     
-    <img src="../../_static/newlogo2.png" class="logo__image only-light" alt="An Introduction to Scientific Computing) - Home"/>
-    <script>document.write(`<img src="../../_static/newlogo2.png" class="logo__image only-dark" alt="An Introduction to Scientific Computing) - Home"/>`);</script>
+    <img src="../../_static/newlogo2.png" class="logo__image only-light" alt="An Introduction to Scientific Computing - Home"/>
+    <script>document.write(`<img src="../../_static/newlogo2.png" class="logo__image only-dark" alt="An Introduction to Scientific Computing - Home"/>`);</script>
   
   
 </a></div>
@@ -249,7 +251,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/apapaefs//ScientificComputing" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -266,7 +268,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FChapters/Chapter8/Chapter8.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/apapaefs//ScientificComputing/issues/new?title=Issue%20on%20page%20%2FChapters/Chapter8/Chapter8.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -1304,7 +1306,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6604010d169b161c52c50fb4ae6c4b314e916ac78332647b47c5b94df751147b.png" src="../../_images/6604010d169b161c52c50fb4ae6c4b314e916ac78332647b47c5b94df751147b.png" />
+<img alt="../../_images/43dc61680d7149872b60df49cedcdabbd1e59af06234dac0a829388d9e31597a.png" src="../../_images/43dc61680d7149872b60df49cedcdabbd1e59af06234dac0a829388d9e31597a.png" />
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">55</span>
@@ -1514,50 +1516,24 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="k">finally</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/lines.py:766,</span> in <span class="ni">Line2D.draw</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">763</span>     <span class="k">return</span>
-<span class="g g-Whitespace">    </span><span class="mi">765</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invalidy</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invalidx</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">766</span>     <span class="bp">self</span><span class="o">.</span><span class="n">recache</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">767</span> <span class="bp">self</span><span class="o">.</span><span class="n">ind_offset</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Needed for contains() method.</span>
-<span class="g g-Whitespace">    </span><span class="mi">768</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subslice</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">:</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/lines.py:821,</span> in <span class="ni">Line2D.draw</span><span class="nt">(self, renderer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">818</span>         <span class="n">gc</span><span class="o">.</span><span class="n">set_foreground</span><span class="p">(</span><span class="n">lc_rgba</span><span class="p">,</span> <span class="n">isRGBA</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">820</span>         <span class="n">gc</span><span class="o">.</span><span class="n">set_dashes</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_dash_pattern</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">821</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">draw_path</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="n">tpath</span><span class="p">,</span> <span class="n">affine</span><span class="o">.</span><span class="n">frozen</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">822</span>         <span class="n">gc</span><span class="o">.</span><span class="n">restore</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">824</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_marker</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_markersize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 
-<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/lines.py:689,</span> in <span class="ni">Line2D.recache</span><span class="nt">(self, always)</span>
-<span class="g g-Whitespace">    </span><span class="mi">687</span> <span class="k">if</span> <span class="n">always</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invalidx</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="n">xconv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xorig</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">689</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">_to_unmasked_float_array</span><span class="p">(</span><span class="n">xconv</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">690</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">691</span>     <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
-
-<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/cbook.py:1353,</span> in <span class="ni">_to_unmasked_float_array</span><span class="nt">(x)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1348</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1349</span><span class="sd"> Convert a sequence to a float array; if input was a masked array, masked</span>
-<span class="g g-Whitespace">   </span><span class="mi">1350</span><span class="sd"> values are converted to nans.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1351</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1352</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;mask&#39;</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1353</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1354</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1355</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
-
-<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/numpy/ma/core.py:3917,</span> in <span class="ni">MaskedArray.filled</span><span class="nt">(self, fill_value)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3915</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3916</span>     <span class="n">_recursive_filled</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mask</span><span class="p">,</span> <span class="n">fill_value</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3917</span> <span class="k">elif</span> <span class="ow">not</span> <span class="n">m</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-<span class="g g-Whitespace">   </span><span class="mi">3918</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
-<span class="g g-Whitespace">   </span><span class="mi">3919</span> <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/numpy/_core/_methods.py:55,</span> in <span class="ni">_any</span><span class="nt">(a, axis, dtype, out, keepdims, where)</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="k">def</span><span class="w"> </span><span class="nf">_prod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span>           <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="k">return</span> <span class="n">umr_prod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">55</span> <span class="k">def</span><span class="w"> </span><span class="nf">_any</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="c1"># By default, return a boolean for any and all</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span>         <span class="n">dtype</span> <span class="o">=</span> <span class="n">bool_dt</span>
+<span class="nn">File ~/Projects/ScientificComputing/.venv-jb1/lib/python3.11/site-packages/matplotlib/backends/backend_agg.py:130,</span> in <span class="ni">RendererAgg.draw_path</span><span class="nt">(self, gc, path, transform, rgbFace)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">130</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="o">.</span><span class="n">draw_path</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">rgbFace</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span>     <span class="k">except</span> <span class="ne">OverflowError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span>         <span class="n">cant_chunk</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
-<img alt="../../_images/e8983d3a6cdb9a80df529dcfce66106a6c62cdb24457f5f3c50855f5d2c54470.png" src="../../_images/e8983d3a6cdb9a80df529dcfce66106a6c62cdb24457f5f3c50855f5d2c54470.png" />
+<img alt="../../_images/7cdd2af2a8daa937549f83f97ae372279b70e5e9be2f86b37590cfffadcda0e8.png" src="../../_images/7cdd2af2a8daa937549f83f97ae372279b70e5e9be2f86b37590cfffadcda0e8.png" />
 </div>
 </div>
 </section>

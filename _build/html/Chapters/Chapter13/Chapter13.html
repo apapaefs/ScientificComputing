@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12. A Brief Introduction to Monte Carlo Event Generators in Particle Physics &#8212; An Introduction to Scientific Computing)</title>
+    <title>12. A Brief Introduction to Monte Carlo Event Generators in Particle Physics &#8212; An Introduction to Scientific Computing</title>
   
   
   
@@ -32,9 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d948cb1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -60,6 +61,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapters/Chapter13/Chapter13';</script>
+    <script src="../../_static/fix-search-submit.js?v=00a5986e"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="13. Artificial Intelligence and Machine Learning in Physics" href="../Chapter15/Chapter15.html" />
@@ -155,8 +157,8 @@
       
     
     
-    <img src="../../_static/newlogo2.png" class="logo__image only-light" alt="An Introduction to Scientific Computing) - Home"/>
-    <script>document.write(`<img src="../../_static/newlogo2.png" class="logo__image only-dark" alt="An Introduction to Scientific Computing) - Home"/>`);</script>
+    <img src="../../_static/newlogo2.png" class="logo__image only-light" alt="An Introduction to Scientific Computing - Home"/>
+    <script>document.write(`<img src="../../_static/newlogo2.png" class="logo__image only-dark" alt="An Introduction to Scientific Computing - Home"/>`);</script>
   
   
 </a></div>
@@ -249,7 +251,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/apapaefs//ScientificComputing" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -266,7 +268,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FChapters/Chapter13/Chapter13.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/apapaefs//ScientificComputing/issues/new?title=Issue%20on%20page%20%2FChapters/Chapter13/Chapter13.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -503,9 +505,9 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Analytic value of the integral= 1.5707963267948966
-The MC integral of f(x) = sqrt(1-x^2) in [-1,1] is 1.5695595187342288 +- 0.001411871131706799
-The fractional uncertainty is 0.0008995333498696516
-The fractional difference from the analytical value is 0.000787376466044678
+The MC integral of f(x) = sqrt(1-x^2) in [-1,1] is 1.5695482370825504 +- 0.0014196312463356535
+The fractional uncertainty is 0.0009044839864077322
+The fractional difference from the analytical value is 0.0007945585885681161
 </pre></div>
 </div>
 </div>
@@ -549,7 +551,7 @@ The fractional difference from the analytical value is 0.000787376466044678
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum weight found= 1.9999999997048958 at -1.7178591919631003e-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum weight found= 1.9999999999966156 at 1.839663463121255e-06
 </pre></div>
 </div>
 </div>
@@ -636,7 +638,7 @@ The fractional difference from the analytical value is 0.000787376466044678
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c984c1d4502d308f39707c12b6bc77a38807c2b46d79529c954ba5f7d14f871e.png" src="../../_images/c984c1d4502d308f39707c12b6bc77a38807c2b46d79529c954ba5f7d14f871e.png" />
+<img alt="../../_images/088dc119f0bef036ade5b9bc2bb76ddfd1d1543e02dd5da8c2f465f350210c18.png" src="../../_images/088dc119f0bef036ade5b9bc2bb76ddfd1d1543e02dd5da8c2f465f350210c18.png" />
 </div>
 </div>
 <p>We are now ready to proceed to the particle physics case!</p>
@@ -684,8 +686,8 @@ The fractional difference from the analytical value is 0.000787376466044678
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cross section in pb is: 103.39612129139685 +- 0.0732260453752514
-Maximum weight found= 3.976084974310816e-07 at 0.9999906547701365
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cross section in pb is: 103.2383497840287 +- 0.07302053789742564
+Maximum weight found= 3.97609761220182e-07 at -0.9999938332411704
 </pre></div>
 </div>
 </div>
@@ -761,7 +763,7 @@ Maximum weight found= 3.976084974310816e-07 at 0.9999906547701365
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d93ec0ab380251c8ea9783da2b9c41c8828c9ac8f8b5fa24df529afe6011b022.png" src="../../_images/d93ec0ab380251c8ea9783da2b9c41c8828c9ac8f8b5fa24df529afe6011b022.png" />
+<img alt="../../_images/79e7ab6b1844cba5221dc2a1d9c094795492385a7f1d21ff406ef773121175cc.png" src="../../_images/79e7ab6b1844cba5221dc2a1d9c094795492385a7f1d21ff406ef773121175cc.png" />
 </div>
 </div>
 <p>Therefore, our events have indeed the right distribution: they follow the differential cross section, as expected!</p>
@@ -812,8 +814,8 @@ Maximum weight found= 3.976084974310816e-07 at 0.9999906547701365
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p= [15.0, 0, 0, 15.0]
 p= [15.0, 0, 0, -15.0]
-p= [15.0, -14.830931285937975, 1.4935905702465682, 1.677099997095196]
-p= [15.0, 14.830931285937975, -1.4935905702465682, 1.677099997095196]
+p= [15.0, 4.232305983434062, 13.984876113796258, 3.3927608439675048]
+p= [15.0, -4.232305983434062, -13.984876113796258, 3.3927608439675048]
 </pre></div>
 </div>
 </div>
@@ -849,7 +851,7 @@ p= [15.0, 14.830931285937975, -1.4935905702465682, 1.677099997095196]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e7f958f6d629ccb5bc5902c1f496f2965ac18e0e5e8fbbd95251c4934d228b57.png" src="../../_images/e7f958f6d629ccb5bc5902c1f496f2965ac18e0e5e8fbbd95251c4934d228b57.png" />
+<img alt="../../_images/b59ad5a4d387f4953eb9cbadaf386a08222ec291bcdef9cb064cb406592c7a5d.png" src="../../_images/b59ad5a4d387f4953eb9cbadaf386a08222ec291bcdef9cb064cb406592c7a5d.png" />
 </div>
 </div>
 <p>An interesting next step is to consider the full process for <span class="math notranslate nohighlight">\(e^+ e^- \rightarrow \mu^+ \mu^-\)</span>, which includes a contribution from the <span class="math notranslate nohighlight">\(Z\)</span> boson. The main difference in the way that the <span class="math notranslate nohighlight">\(Z\)</span> boson interacts with the leptons is that it couples with different strengths to the left- and right-handed fermions.</p>
