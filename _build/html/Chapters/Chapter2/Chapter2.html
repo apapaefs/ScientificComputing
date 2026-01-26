@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d948cb1" />
@@ -432,7 +432,7 @@ document.write(`
 <p>A problem in computer design is how to represent an arbitrary number using a finite amount of memory space, and then how to deal with the limitations arising from this representation.</p>
 <p>Computer memories are based on magnetic or electronic realizations of a spin pointing up or down. Therefore, the most elementary units of computer memory are two binary integers (bits) 0 and 1.</p>
 <p>All numbers are stored in computer memory in the binary form, i.e. as long strings of 0s and 1s.</p>
-<p><span class="math notranslate nohighlight">\(N\)</span> bits can store integers in the range <span class="math notranslate nohighlight">\([0, 2^{N}]\)</span>. These are known as unsigned integers (i.e. zero or positive). If the sign is included, then we can use one bit to represent the sign, and therefore with <span class="math notranslate nohighlight">\(N\)</span> bits we can represent positive or negative integers in the range <span class="math notranslate nohighlight">\([-2^{N-1}, 2^{N-1} - 1]\)</span>. The power <span class="math notranslate nohighlight">\(N-1\)</span> is due to the fact that we are using one bit to represent the sign. These are known as signed integers.</p>
+<p><span class="math notranslate nohighlight">\(N\)</span> bits can store integers in the range <span class="math notranslate nohighlight">\([0, 2^{N}-1]\)</span>. These are known as unsigned integers (i.e. zero or positive). If the sign is included, then we can use one bit to represent the sign, and therefore with <span class="math notranslate nohighlight">\(N\)</span> bits we can represent positive or negative integers in the range <span class="math notranslate nohighlight">\([-2^{N-1}, 2^{N-1} - 1]\)</span>. The power <span class="math notranslate nohighlight">\(N-1\)</span> is due to the fact that we are using one bit to represent the sign. These are known as signed integers.</p>
 <p>The description of a particular computer’s system or language states the “word length”, i.e. the number of bits used to store a number.</p>
 <p>The length is often expressed in bytes (i.e. a <em>mouthful of bits!</em>), where:</p>
 <p>1 byte = 1 B = 8 bits</p>
@@ -440,7 +440,7 @@ document.write(`
 <p>1 K = 1 kB = <span class="math notranslate nohighlight">\(2^{10}\)</span> bytes = 1024 bytes.</p>
 <p>1 byte is also the amount of memory needed to store a single letter like “a”. This adds up to a typical printed page requiring ~3 kB.</p>
 <p>Memory in older personal computers (PCs): uses 8-bit words, and therefore for these systems, the maximum unsigned integer was <span class="math notranslate nohighlight">\(2^8 - 1 = 255\)</span>, and the signed 8-bit minimum and maximum are <span class="math notranslate nohighlight">\(-2^7 = -128\)</span> and <span class="math notranslate nohighlight">\(2^7 - 1 = 127\)</span>, respectively.</p>
-<p>With 64-bit (modern PCs), the signed 64-bit range is <span class="math notranslate nohighlight">\(-2^{63}, 2^63-1] \approx [-9.22 \times 10^18, 9.22 \times 10^18]\)</span>.</p>
+<p>With 64-bit (modern PCs), the signed 64-bit range is <span class="math notranslate nohighlight">\([-2^{63}, 2^{63}-1] \approx [-9.22 \times 10^{18}, 9.22 \times 10^{18}]\)</span>.</p>
 <p>Trying to store a number larger than the hardware/software was designed for (overflow) was common in older machines!</p>
 </section>
 <section id="floating-point-numbers">
@@ -528,9 +528,16 @@ document.write(`
 </section>
 <section id="errors-and-uncertainties-in-computations">
 <h2><span class="section-number">2.4. </span>Errors and Uncertainties in Computations<a class="headerlink" href="#errors-and-uncertainties-in-computations" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id1">
+<a class="dark-light reference internal image-reference" href="../../_images/4errors.png"><img alt="A photo depicting the four horsemen of errors in computations." class="dark-light" src="../../_images/4errors.png" style="width: 60%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">The four horsemen of errors in computations.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <section id="types-of-errors">
 <h3><span class="section-number">2.4.1. </span>Types of Errors<a class="headerlink" href="#types-of-errors" title="Link to this heading">#</a></h3>
-<p>Four general types of errors exist to plague your computations:</p>
+<p>Four general types of errors exist to plague your computations.</p>
 <ol class="arabic simple">
 <li><p><strong>Blunders or bad theory</strong>: typos in program or data, fault in reasoning (i.e. in the theoretical description), using the wrong data files, etc.</p></li>
 <li><p><strong>Random errors</strong>: imprecision caused by events such as fluctuations in electronics, cosmic rays, etc.</p></li>
