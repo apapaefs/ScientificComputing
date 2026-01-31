@@ -392,18 +392,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deterministic-randomness">3.1. Deterministic Randomness</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-sequences">3.2. Random Sequences</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number-generation">3.2.1. Random Number Generation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-random-numbers-of-arbitrary-distributions">3.2.2. Generating Random Numbers of Arbitrary Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deterministic-randomness">3.2. Deterministic Randomness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-sequences">3.3. Random Sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number-generation">3.3.1. Random Number Generation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-random-numbers-of-arbitrary-distributions">3.3.2. Generating Random Numbers of Arbitrary Distributions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walks">3.3. Random Walks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walks-theoretical-description">3.3.1. Random Walks: Theoretical Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walks">3.4. Random Walks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walks-theoretical-description">3.4.1. Random Walks: Theoretical Description</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digression-object-oriented-programming-in-python">3.4. Digression: Object-Oriented Programming in Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walk-simulation">3.5. Random-Walk Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digression-object-oriented-programming-in-python">3.5. Digression: Object-Oriented Programming in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walk-simulation">3.6. Random-Walk Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-random-numbers">3.7. NumPy Random Numbers</a></li>
 </ul>
             </nav>
         </div>
@@ -417,14 +419,25 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="randomness-and-random-walks">
 <h1><span class="section-number">3. </span>Randomness and Random Walks<a class="headerlink" href="#randomness-and-random-walks" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">3.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this chapter, you will be able to:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Understand what pseudorandom numbers are and why seeding/reproducibility matters.
+2. Generate uniform random variates and map them to arbitrary intervals.
+3. Use inverse-transform sampling to draw from a specified 1D distribution and validate with a histogram.
+4. Explain and test random-walk scaling ($R_\mathrm{rms}\propto \sqrt{N}).
+5. yImplement a simple Python class and use it to run/analyze a random-walk simulation.
+</pre></div>
+</div>
+</section>
 <section id="deterministic-randomness">
-<h2><span class="section-number">3.1. </span>Deterministic Randomness<a class="headerlink" href="#deterministic-randomness" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Deterministic Randomness<a class="headerlink" href="#deterministic-randomness" title="Link to this heading">#</a></h2>
 <p>Some people are attracted to computing because of its deterministic nature. Nevertheless, many computer cycles are used for <strong>Monte Carlo calculations</strong>.</p>
 <p>Monte Carlo calculations include elements of chance at their very core (hence the name). They involve <em>random-like</em> numbers generated by a computer to simulate naturally-random processes, such as thermal motion or radioactive decay.</p>
 <p>Monte Carlo techniques are able to solve very challenging problems!</p>
 </section>
 <section id="random-sequences">
-<h2><span class="section-number">3.2. </span>Random Sequences<a class="headerlink" href="#random-sequences" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Random Sequences<a class="headerlink" href="#random-sequences" title="Link to this heading">#</a></h2>
 <p>We define a sequence <span class="math notranslate nohighlight">\(r_1, r_2,...\)</span> as random if there are no correlations between the coefficients.</p>
 <p>But: being random does not mean all numbers in the sequence are equally likely to occur!</p>
 <p>If all numbers in a sequence are equally likely to occur: the sequence is called <strong>uniform</strong>.</p>
@@ -434,7 +447,7 @@ document.write(`
 <p>By their nature: computers are deterministic devices, and therefore cannot create a random sequence. Computed random number sequences must contain correlations, and therefore cannot be truly random. This implies that if we know <span class="math notranslate nohighlight">\(r_m\)</span> and its preceding elements, then it is always possible to figure out <span class="math notranslate nohighlight">\(r_{m+1}\)</span>. For this reason, computers are said to generate <strong>pseudorandom numbers</strong>.</p>
 <p>A primitive alternative to this is to read off a table of truly random numbers, determined by  naturally-random process, such as radioactive decay, or to connect the computer to an experimental device that measures random events.</p>
 <section id="random-number-generation">
-<h3><span class="section-number">3.2.1. </span>Random Number Generation<a class="headerlink" href="#random-number-generation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.3.1. </span>Random Number Generation<a class="headerlink" href="#random-number-generation" title="Link to this heading">#</a></h3>
 <p>Sequences of pseudorandom numbers can be generated on a computer via the “linear congruent” or “power residue” method:</p>
 <p>To generate a pseudorandom sequence of numbers <span class="math notranslate nohighlight">\(0 \leq r_i \leq M-1\)</span> over the interval <span class="math notranslate nohighlight">\([0, M-1]\)</span>, starting with <span class="math notranslate nohighlight">\(r_1\)</span>, to obtain the next random number <span class="math notranslate nohighlight">\(r_2\)</span>, multiply <span class="math notranslate nohighlight">\(r_1\)</span> by a constant <span class="math notranslate nohighlight">\(a\)</span>, add another constant <span class="math notranslate nohighlight">\(c\)</span> and keep the <em>remainder</em>. Repeat this with <span class="math notranslate nohighlight">\(r_2\)</span> to get <span class="math notranslate nohighlight">\(r_3\)</span> and so on. So to get <span class="math notranslate nohighlight">\(r_{i+1}\)</span>, given <span class="math notranslate nohighlight">\(r_i\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(r_{i+1} = \mathrm{remainder} \left( \frac{a r_i + c}{M} \right)\)</span></p>
@@ -449,7 +462,7 @@ document.write(`
 <p>See Wikipedia entry for more details, <a class="reference external" href="https://en.wikipedia.org/wiki/Mersenne_Twister">https://en.wikipedia.org/wiki/Mersenne_Twister</a>, as well as original paper: <a class="reference external" href="https://dl.acm.org/doi/pdf/10.1145/272991.272995">https://dl.acm.org/doi/pdf/10.1145/272991.272995</a>.</p>
 </section>
 <section id="generating-random-numbers-of-arbitrary-distributions">
-<h3><span class="section-number">3.2.2. </span>Generating Random Numbers of Arbitrary Distributions<a class="headerlink" href="#generating-random-numbers-of-arbitrary-distributions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.3.2. </span>Generating Random Numbers of Arbitrary Distributions<a class="headerlink" href="#generating-random-numbers-of-arbitrary-distributions" title="Link to this heading">#</a></h3>
 <p>Supose we possess a random number generator that yields uniform random numbers in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>. We can use it to generate random numbers according to any distribution using the <em>inversion method</em>.</p>
 <p>The method proceeds as follows:</p>
 <ol class="arabic simple">
@@ -500,18 +513,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ba70c96f2db7ec9ae5e8b92764caa607ddc950ce04ff3cbf55f97b864fd68152.png" src="../../_images/ba70c96f2db7ec9ae5e8b92764caa607ddc950ce04ff3cbf55f97b864fd68152.png" />
+<img alt="../../_images/64b61716479768d8dd4352b024785aef2018b6bca9d7f710eb13fe59555ffa9d.png" src="../../_images/64b61716479768d8dd4352b024785aef2018b6bca9d7f710eb13fe59555ffa9d.png" />
 </div>
 </div>
 <p>This method predicates on the existence of an analytical expression for the CDF and its inverse, and therefore is not always useful! (see later)</p>
 </section>
 </section>
 <section id="random-walks">
-<h2><span class="section-number">3.3. </span>Random Walks<a class="headerlink" href="#random-walks" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Random Walks<a class="headerlink" href="#random-walks" title="Link to this heading">#</a></h2>
 <p>Consider a pizza brought into this room. The molecules from its smell collide randomly with other molecules in the air and eventually reach your nose.</p>
 <p>The problem is to determine how many collisions, on average, a scent molecule makes in traveling a distance <span class="math notranslate nohighlight">\(R\)</span>, given that it travels an average (root-mean-square) distance <span class="math notranslate nohighlight">\(r_\mathrm{rms}\)</span> between collisions.</p>
 <section id="random-walks-theoretical-description">
-<h3><span class="section-number">3.3.1. </span>Random Walks: Theoretical Description<a class="headerlink" href="#random-walks-theoretical-description" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.4.1. </span>Random Walks: Theoretical Description<a class="headerlink" href="#random-walks-theoretical-description" title="Link to this heading">#</a></h3>
 <p>A “walker” takes sequential steps with the direction of each step independent of the direction of the previous step.</p>
 <p>Let’s consider a two-dimensional model. Start at the origin and take <span class="math notranslate nohighlight">\(N\)</span> steps in the <span class="math notranslate nohighlight">\(xy\)</span>-plane of lengths:</p>
 <p><span class="math notranslate nohighlight">\((\Delta x_1, \Delta y_1), (\Delta x_2, \Delta y_2), ..., (\Delta x_N, \Delta y_N)\)</span></p>
@@ -528,7 +541,7 @@ document.write(`
 </section>
 </section>
 <section id="digression-object-oriented-programming-in-python">
-<h2><span class="section-number">3.4. </span>Digression: Object-Oriented Programming in Python<a class="headerlink" href="#digression-object-oriented-programming-in-python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.5. </span>Digression: Object-Oriented Programming in Python<a class="headerlink" href="#digression-object-oriented-programming-in-python" title="Link to this heading">#</a></h2>
 <p>Classes provide a means of bundling data and functionality together. Creating a new class creates a new type of object, allowing new instances of that type to be made.</p>
 <p>The simplest form of a class definition looks like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ClassName</span><span class="p">:</span>
@@ -597,12 +610,10 @@ I have created a new complex variable with r,i= 1.0 -1.5
 
     <span class="c1"># the argument </span>
     <span class="k">def</span><span class="w"> </span><span class="nf">arg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="o">!=</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-            <span class="n">arg</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">atan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">mod</span><span class="p">()))</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">&lt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-            <span class="n">arg</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
             <span class="n">arg</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="n">arg</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span> <span class="c1"># this handles all cases correctly</span>
         <span class="k">return</span> <span class="n">arg</span> 
 
     <span class="c1"># the complex conjugate, return a Complex object with - the imaginary part</span>
@@ -649,7 +660,7 @@ imaginary part= 4.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9827937232473289
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.982793723247329
 </pre></div>
 </div>
 </div>
@@ -690,12 +701,10 @@ imaginary part= 4.5
 
     <span class="c1"># the argument </span>
     <span class="k">def</span><span class="w"> </span><span class="nf">arg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="o">!=</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-            <span class="n">arg</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">atan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">mod</span><span class="p">()))</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">&lt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-            <span class="n">arg</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
             <span class="n">arg</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="n">arg</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span> <span class="c1"># this handles all cases correctly</span>
         <span class="k">return</span> <span class="n">arg</span> 
 
     <span class="c1"># the complex conjugate, return a Complex object with - the imaginary part</span>
@@ -753,9 +762,10 @@ imaginary part= 4.5
 </div>
 </div>
 </div>
+<p><em>Note that</em>: Python already has built-in complex numbers; we’re doing this as an exercise in object-oriented programming!</p>
 </section>
 <section id="random-walk-simulation">
-<h2><span class="section-number">3.5. </span>Random-Walk Simulation<a class="headerlink" href="#random-walk-simulation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.6. </span>Random-Walk Simulation<a class="headerlink" href="#random-walk-simulation" title="Link to this heading">#</a></h2>
 <p>We can now proceed with a simulation of random walks. We will define a class called “walker”, which will allow us to define multiple walkers and make them walk around.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -786,6 +796,9 @@ imaginary part= 4.5
         <span class="n">L</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">deltax</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">deltay</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">deltax</span> <span class="o">=</span> <span class="n">deltax</span><span class="o">/</span><span class="n">L</span>
         <span class="n">deltay</span> <span class="o">=</span> <span class="n">deltay</span><span class="o">/</span><span class="n">L</span>
+        <span class="c1"># now adjust the length</span>
+        <span class="n">deltax</span> <span class="o">*=</span> <span class="n">stepsize</span>
+        <span class="n">deltay</span> <span class="o">*=</span> <span class="n">stepsize</span>
         <span class="c1"># add these to the current position</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">deltax</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">deltay</span>
@@ -815,7 +828,7 @@ imaginary part= 4.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.855057629079628
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.2530657556252134
 </pre></div>
 </div>
 </div>
@@ -826,6 +839,7 @@ imaginary part= 4.5
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span> <span class="c1"># various time functions</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span> <span class="c1"># progress bar</span>
@@ -879,7 +893,8 @@ imaginary part= 4.5
     <span class="n">WalkerColor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="n">w</span><span class="o">-</span><span class="mi">8</span><span class="o">*</span><span class="n">j</span><span class="p">])</span>
 
 <span class="c1"># now go through all the n walkers and get them to perform N steps</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)):</span>
+<span class="c1">#for i in tqdm(range(N)): # uncomment for tqdm</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="c1"># go through all the walkers in the WalkerList</span>
     <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">walker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">WalkerList</span><span class="p">):</span>
         <span class="c1"># move them one step in a random direction</span>
@@ -901,316 +916,7 @@ imaginary part= 4.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4469043aa6471578592f752dc9eaa6297ba03b68a3bf3628b77ef400b5acb4de.png" src="../../_images/4469043aa6471578592f752dc9eaa6297ba03b68a3bf3628b77ef400b5acb4de.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                           | 0/100 [00:00&lt;?, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1%|▋                                                                  | 1/100 [00:00&lt;00:12,  7.64it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2%|█▎                                                                 | 2/100 [00:00&lt;00:12,  7.84it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3%|██                                                                 | 3/100 [00:00&lt;00:12,  7.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4%|██▋                                                                | 4/100 [00:00&lt;00:13,  7.23it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|███▎                                                               | 5/100 [00:00&lt;00:13,  6.99it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6%|████                                                               | 6/100 [00:00&lt;00:13,  6.97it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  7%|████▋                                                              | 7/100 [00:01&lt;00:14,  6.32it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8%|█████▎                                                             | 8/100 [00:01&lt;00:13,  6.65it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|██████                                                             | 9/100 [00:01&lt;00:13,  6.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 10%|██████▌                                                           | 10/100 [00:01&lt;00:13,  6.71it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|███████▎                                                          | 11/100 [00:01&lt;00:13,  6.80it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 12%|███████▉                                                          | 12/100 [00:01&lt;00:13,  6.76it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 13%|████████▌                                                         | 13/100 [00:01&lt;00:12,  6.71it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|█████████▏                                                        | 14/100 [00:02&lt;00:12,  6.74it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 15%|█████████▉                                                        | 15/100 [00:02&lt;00:12,  6.75it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16%|██████████▌                                                       | 16/100 [00:02&lt;00:12,  6.75it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|███████████▏                                                      | 17/100 [00:02&lt;00:12,  6.73it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18%|███████████▉                                                      | 18/100 [00:02&lt;00:12,  6.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|████████████▌                                                     | 19/100 [00:02&lt;00:12,  6.71it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 20%|█████████████▏                                                    | 20/100 [00:02&lt;00:11,  6.82it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|█████████████▊                                                    | 21/100 [00:03&lt;00:11,  6.84it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 22%|██████████████▌                                                   | 22/100 [00:03&lt;00:11,  6.78it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 23%|███████████████▏                                                  | 23/100 [00:03&lt;00:11,  6.77it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 24%|███████████████▊                                                  | 24/100 [00:03&lt;00:11,  6.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 25%|████████████████▌                                                 | 25/100 [00:03&lt;00:11,  6.79it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 26%|█████████████████▏                                                | 26/100 [00:03&lt;00:10,  6.79it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 27%|█████████████████▊                                                | 27/100 [00:03&lt;00:10,  6.81it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 28%|██████████████████▍                                               | 28/100 [00:04&lt;00:10,  6.67it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 29%|███████████████████▏                                              | 29/100 [00:04&lt;00:10,  6.67it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|███████████████████▊                                              | 30/100 [00:04&lt;00:10,  6.68it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|████████████████████▍                                             | 31/100 [00:04&lt;00:10,  6.65it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 32%|█████████████████████                                             | 32/100 [00:04&lt;00:10,  6.64it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|█████████████████████▊                                            | 33/100 [00:04&lt;00:10,  6.68it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 34%|██████████████████████▍                                           | 34/100 [00:05&lt;00:09,  6.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|███████████████████████                                           | 35/100 [00:05&lt;00:09,  6.61it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 36%|███████████████████████▊                                          | 36/100 [00:05&lt;00:09,  6.54it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 37%|████████████████████████▍                                         | 37/100 [00:05&lt;00:09,  6.52it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 38%|█████████████████████████                                         | 38/100 [00:05&lt;00:09,  6.47it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 39%|█████████████████████████▋                                        | 39/100 [00:05&lt;00:09,  6.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|██████████████████████████▍                                       | 40/100 [00:05&lt;00:09,  6.58it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 41%|███████████████████████████                                       | 41/100 [00:06&lt;00:08,  6.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 42%|███████████████████████████▋                                      | 42/100 [00:06&lt;00:08,  6.67it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|████████████████████████████▍                                     | 43/100 [00:06&lt;00:08,  6.64it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 44%|█████████████████████████████                                     | 44/100 [00:06&lt;00:08,  6.70it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|█████████████████████████████▋                                    | 45/100 [00:06&lt;00:08,  6.73it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 46%|██████████████████████████████▎                                   | 46/100 [00:06&lt;00:08,  6.71it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 47%|███████████████████████████████                                   | 47/100 [00:06&lt;00:07,  6.65it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 48%|███████████████████████████████▋                                  | 48/100 [00:07&lt;00:07,  6.60it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|████████████████████████████████▎                                 | 49/100 [00:07&lt;00:07,  6.54it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|█████████████████████████████████                                 | 50/100 [00:07&lt;00:07,  6.52it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 51%|█████████████████████████████████▋                                | 51/100 [00:07&lt;00:07,  6.44it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 52%|██████████████████████████████████▎                               | 52/100 [00:07&lt;00:07,  6.45it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 53%|██████████████████████████████████▉                               | 53/100 [00:07&lt;00:07,  6.49it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 54%|███████████████████████████████████▋                              | 54/100 [00:08&lt;00:07,  6.54it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 55%|████████████████████████████████████▎                             | 55/100 [00:08&lt;00:06,  6.49it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 56%|████████████████████████████████████▉                             | 56/100 [00:08&lt;00:06,  6.59it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|█████████████████████████████████████▌                            | 57/100 [00:08&lt;00:06,  6.62it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 58%|██████████████████████████████████████▎                           | 58/100 [00:08&lt;00:06,  6.58it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 59%|██████████████████████████████████████▉                           | 59/100 [00:08&lt;00:06,  6.47it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|███████████████████████████████████████▌                          | 60/100 [00:08&lt;00:06,  6.47it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 61%|████████████████████████████████████████▎                         | 61/100 [00:09&lt;00:06,  6.47it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62%|████████████████████████████████████████▉                         | 62/100 [00:09&lt;00:05,  6.50it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 63%|█████████████████████████████████████████▌                        | 63/100 [00:09&lt;00:05,  6.54it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 64%|██████████████████████████████████████████▏                       | 64/100 [00:09&lt;00:05,  6.59it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 65%|██████████████████████████████████████████▉                       | 65/100 [00:09&lt;00:05,  6.48it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 66%|███████████████████████████████████████████▌                      | 66/100 [00:09&lt;00:05,  6.53it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|████████████████████████████████████████████▏                     | 67/100 [00:10&lt;00:05,  6.47it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 68%|████████████████████████████████████████████▉                     | 68/100 [00:10&lt;00:04,  6.58it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 69%|█████████████████████████████████████████████▌                    | 69/100 [00:10&lt;00:04,  6.65it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|██████████████████████████████████████████████▏                   | 70/100 [00:10&lt;00:04,  6.66it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 71%|██████████████████████████████████████████████▊                   | 71/100 [00:10&lt;00:04,  6.74it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 72%|███████████████████████████████████████████████▌                  | 72/100 [00:10&lt;00:04,  6.77it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 73%|████████████████████████████████████████████████▏                 | 73/100 [00:10&lt;00:04,  6.70it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 74%|████████████████████████████████████████████████▊                 | 74/100 [00:11&lt;00:03,  6.61it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 75%|█████████████████████████████████████████████████▌                | 75/100 [00:11&lt;00:03,  6.58it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|██████████████████████████████████████████████████▏               | 76/100 [00:11&lt;00:03,  6.58it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 77%|██████████████████████████████████████████████████▊               | 77/100 [00:11&lt;00:03,  6.52it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 78%|███████████████████████████████████████████████████▍              | 78/100 [00:11&lt;00:03,  6.58it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 79%|████████████████████████████████████████████████████▏             | 79/100 [00:11&lt;00:03,  6.58it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|████████████████████████████████████████████████████▊             | 80/100 [00:12&lt;00:03,  6.63it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 81%|█████████████████████████████████████████████████████▍            | 81/100 [00:12&lt;00:02,  6.67it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 82%|██████████████████████████████████████████████████████            | 82/100 [00:12&lt;00:02,  6.62it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|██████████████████████████████████████████████████████▊           | 83/100 [00:12&lt;00:02,  6.62it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 84%|███████████████████████████████████████████████████████▍          | 84/100 [00:12&lt;00:02,  6.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 85%|████████████████████████████████████████████████████████          | 85/100 [00:12&lt;00:02,  6.60it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|████████████████████████████████████████████████████████▊         | 86/100 [00:12&lt;00:02,  6.40it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 87%|█████████████████████████████████████████████████████████▍        | 87/100 [00:13&lt;00:01,  6.57it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 88%|██████████████████████████████████████████████████████████        | 88/100 [00:13&lt;00:01,  6.77it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 89%|██████████████████████████████████████████████████████████▋       | 89/100 [00:13&lt;00:01,  6.68it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|███████████████████████████████████████████████████████████▍      | 90/100 [00:13&lt;00:01,  6.73it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 91%|████████████████████████████████████████████████████████████      | 91/100 [00:13&lt;00:01,  6.64it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 92%|████████████████████████████████████████████████████████████▋     | 92/100 [00:13&lt;00:01,  6.64it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 93%|█████████████████████████████████████████████████████████████▍    | 93/100 [00:13&lt;00:01,  6.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 94%|██████████████████████████████████████████████████████████████    | 94/100 [00:14&lt;00:00,  6.61it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 95%|██████████████████████████████████████████████████████████████▋   | 95/100 [00:14&lt;00:00,  6.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 96%|███████████████████████████████████████████████████████████████▎  | 96/100 [00:14&lt;00:00,  6.58it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 97%|████████████████████████████████████████████████████████████████  | 97/100 [00:14&lt;00:00,  6.57it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 98%|████████████████████████████████████████████████████████████████▋ | 98/100 [00:14&lt;00:00,  6.61it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 99%|█████████████████████████████████████████████████████████████████▎| 99/100 [00:14&lt;00:00,  6.63it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████| 100/100 [00:15&lt;00:00,  6.54it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████| 100/100 [00:15&lt;00:00,  6.65it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
+<img alt="../../_images/b56f385b56b7beda77383892aa6e8561f95dbe1924d2bf5227849c74346f5e8f.png" src="../../_images/b56f385b56b7beda77383892aa6e8561f95dbe1924d2bf5227849c74346f5e8f.png" />
 <img alt="../../_images/799f3ac82605714debfe7ed5bee2ea6df7cbfc31c2a7f15bf62345048b2f95a0.png" src="../../_images/799f3ac82605714debfe7ed5bee2ea6df7cbfc31c2a7f15bf62345048b2f95a0.png" />
 </div>
 </div>
@@ -1234,7 +940,8 @@ imaginary part= 4.5
 <span class="c1"># list to store R squared average (i.e. the rms) *over all the walkers* after N steps:</span>
 <span class="n">R_rms_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="c1"># now go through all the n walkers and get them to perform N steps</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)):</span>
+<span class="c1">#for i in tqdm(range(N)): # uncomment for tqdm</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="n">Rsq_av</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># variable used to calculate the square average</span>
     <span class="c1"># go through all the walkers in the WalkerList</span>
     <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">walker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">WalkerList</span><span class="p">):</span>
@@ -1244,185 +951,6 @@ imaginary part= 4.5
         <span class="n">Rsq_av</span> <span class="o">=</span> <span class="n">Rsq_av</span> <span class="o">+</span> <span class="n">walker</span><span class="o">.</span><span class="n">distance</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span>
     <span class="c1"># get the average and push it into the list:</span>
     <span class="n">R_rms_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Rsq_av</span><span class="o">/</span><span class="n">n</span><span class="p">))</span> <span class="c1"># divide by the number of walkers to get the average</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                         | 0/10000 [00:00&lt;?, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2%|▉                                                            | 160/10000 [00:00&lt;00:06, 1594.78it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3%|██                                                           | 339/10000 [00:00&lt;00:05, 1707.32it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|███▏                                                         | 516/10000 [00:00&lt;00:05, 1734.23it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  7%|████▏                                                        | 691/10000 [00:00&lt;00:05, 1739.21it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|█████▎                                                       | 867/10000 [00:00&lt;00:05, 1745.65it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 10%|██████▎                                                     | 1043/10000 [00:00&lt;00:05, 1750.15it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 12%|███████▎                                                    | 1219/10000 [00:00&lt;00:05, 1745.52it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|████████▎                                                   | 1395/10000 [00:00&lt;00:04, 1747.15it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16%|█████████▍                                                  | 1570/10000 [00:00&lt;00:04, 1745.75it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|██████████▍                                                 | 1745/10000 [00:01&lt;00:04, 1744.78it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|███████████▌                                                | 1920/10000 [00:01&lt;00:04, 1737.53it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|████████████▌                                               | 2094/10000 [00:01&lt;00:04, 1736.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 23%|█████████████▋                                              | 2272/10000 [00:01&lt;00:04, 1721.85it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 24%|██████████████▋                                             | 2449/10000 [00:01&lt;00:04, 1733.40it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 26%|███████████████▋                                            | 2623/10000 [00:01&lt;00:04, 1707.48it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 28%|████████████████▊                                           | 2801/10000 [00:01&lt;00:04, 1727.96it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|█████████████████▊                                          | 2974/10000 [00:01&lt;00:04, 1685.42it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 32%|██████████████████▉                                         | 3153/10000 [00:01&lt;00:03, 1713.83it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|███████████████████▉                                        | 3325/10000 [00:01&lt;00:04, 1668.46it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|█████████████████████                                       | 3504/10000 [00:02&lt;00:03, 1702.20it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 37%|██████████████████████                                      | 3675/10000 [00:02&lt;00:03, 1675.02it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 39%|███████████████████████                                     | 3854/10000 [00:02&lt;00:03, 1706.11it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|████████████████████████▏                                   | 4032/10000 [00:02&lt;00:03, 1726.93it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 42%|█████████████████████████▏                                  | 4207/10000 [00:02&lt;00:03, 1731.92it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 44%|██████████████████████████▎                                 | 4386/10000 [00:02&lt;00:03, 1748.82it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 46%|███████████████████████████▍                                | 4566/10000 [00:02&lt;00:03, 1762.64it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 47%|████████████████████████████▍                               | 4746/10000 [00:02&lt;00:02, 1771.53it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|█████████████████████████████▌                              | 4926/10000 [00:02&lt;00:02, 1778.00it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 51%|██████████████████████████████▌                             | 5104/10000 [00:02&lt;00:02, 1777.33it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 53%|███████████████████████████████▋                            | 5282/10000 [00:03&lt;00:02, 1775.76it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 55%|████████████████████████████████▊                           | 5462/10000 [00:03&lt;00:02, 1781.42it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 56%|█████████████████████████████████▊                          | 5641/10000 [00:03&lt;00:02, 1780.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 58%|██████████████████████████████████▉                         | 5820/10000 [00:03&lt;00:02, 1780.95it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|███████████████████████████████████▉                        | 5999/10000 [00:03&lt;00:02, 1763.05it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62%|█████████████████████████████████████                       | 6176/10000 [00:03&lt;00:02, 1748.76it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 64%|██████████████████████████████████████                      | 6354/10000 [00:03&lt;00:02, 1757.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 65%|███████████████████████████████████████▏                    | 6530/10000 [00:03&lt;00:01, 1756.02it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|████████████████████████████████████████▏                   | 6706/10000 [00:03&lt;00:01, 1751.34it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 69%|█████████████████████████████████████████▎                  | 6882/10000 [00:03&lt;00:01, 1752.40it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 71%|██████████████████████████████████████████▎                 | 7060/10000 [00:04&lt;00:01, 1759.02it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 72%|███████████████████████████████████████████▍                | 7237/10000 [00:04&lt;00:01, 1761.79it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 74%|████████████████████████████████████████████▍               | 7414/10000 [00:04&lt;00:01, 1760.91it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|█████████████████████████████████████████████▌              | 7591/10000 [00:04&lt;00:01, 1687.65it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 78%|██████████████████████████████████████████████▌             | 7769/10000 [00:04&lt;00:01, 1713.54it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 79%|███████████████████████████████████████████████▋            | 7949/10000 [00:04&lt;00:01, 1736.78it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 81%|████████████████████████████████████████████████▋           | 8124/10000 [00:04&lt;00:01, 1718.12it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|█████████████████████████████████████████████████▊          | 8297/10000 [00:04&lt;00:00, 1707.63it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 85%|██████████████████████████████████████████████████▊         | 8468/10000 [00:04&lt;00:00, 1701.86it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|███████████████████████████████████████████████████▊        | 8641/10000 [00:04&lt;00:00, 1709.44it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 88%|████████████████████████████████████████████████████▉       | 8815/10000 [00:05&lt;00:00, 1718.29it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|█████████████████████████████████████████████████████▉      | 8991/10000 [00:05&lt;00:00, 1729.17it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 92%|███████████████████████████████████████████████████████     | 9168/10000 [00:05&lt;00:00, 1738.97it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 93%|████████████████████████████████████████████████████████    | 9346/10000 [00:05&lt;00:00, 1750.87it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 95%|█████████████████████████████████████████████████████████▏  | 9524/10000 [00:05&lt;00:00, 1758.94it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 97%|██████████████████████████████████████████████████████████▏ | 9704/10000 [00:05&lt;00:00, 1769.34it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 99%|███████████████████████████████████████████████████████████▎| 9881/10000 [00:05&lt;00:00, 1765.93it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████████████████████████| 10000/10000 [00:05&lt;00:00, 1738.66it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1460,10 +988,41 @@ imaginary part= 4.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/68313efe6109a976a55b53367ca64194a9e8eb5d2270d6f4f6874b13c62d1c60.png" src="../../_images/68313efe6109a976a55b53367ca64194a9e8eb5d2270d6f4f6874b13c62d1c60.png" />
+<img alt="../../_images/6591d5234197d89bf738ae9b7788152f9ba7b85358e99866051c07e60304fa62.png" src="../../_images/6591d5234197d89bf738ae9b7788152f9ba7b85358e99866051c07e60304fa62.png" />
 </div>
 </div>
 <p>E.g. for <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1000</span></code> walkers and <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">10000</span></code> steps, the agreement is excellent!</p>
+</section>
+<section id="numpy-random-numbers">
+<h2><span class="section-number">3.7. </span>NumPy Random Numbers<a class="headerlink" href="#numpy-random-numbers" title="Link to this heading">#</a></h2>
+<p>In scientific computing, it’s good practice to use NumPy’s modern random-number interface, <code class="docutils literal notranslate"><span class="pre">numpy.random.default_rng(seed)</span></code>. It creates a random number generator object that you explicitly pass around and call for draws (uniforms, normals, integers, etc.), which makes your code reproducible (via the seed), more modular (no hidden global state), and often faster when generating large arrays. A typical pattern is: create <code class="docutils literal notranslate"><span class="pre">rng</span> <span class="pre">=</span> <span class="pre">np.random.default_rng(12345)</span></code> once at the top of your simulation, then use methods like <code class="docutils literal notranslate"><span class="pre">rng.random(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">rng.normal(...)</span></code>, or <code class="docutils literal notranslate"><span class="pre">rng.integers(...)</span></code> whenever you need randomness.</p>
+<p>Here is an example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># set the seed</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+
+<span class="n">u</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>                  <span class="c1"># one uniform in [0, 1)</span>
+<span class="n">u_vec</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>             <span class="c1"># 5 uniforms</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>   <span class="c1"># 1000 Gaussians with mu=0 and sigma=1.0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>       <span class="c1"># 20 ints in {0,...,9}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">u_vec</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.22733602246716966
+[0.31675834 0.79736546 0.67625467 0.39110955 0.33281393]
+[2 5 9 3 9 5 2 0 4 3]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1531,18 +1090,20 @@ imaginary part= 4.5
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deterministic-randomness">3.1. Deterministic Randomness</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-sequences">3.2. Random Sequences</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number-generation">3.2.1. Random Number Generation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-random-numbers-of-arbitrary-distributions">3.2.2. Generating Random Numbers of Arbitrary Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deterministic-randomness">3.2. Deterministic Randomness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-sequences">3.3. Random Sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number-generation">3.3.1. Random Number Generation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-random-numbers-of-arbitrary-distributions">3.3.2. Generating Random Numbers of Arbitrary Distributions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walks">3.3. Random Walks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walks-theoretical-description">3.3.1. Random Walks: Theoretical Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walks">3.4. Random Walks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walks-theoretical-description">3.4.1. Random Walks: Theoretical Description</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digression-object-oriented-programming-in-python">3.4. Digression: Object-Oriented Programming in Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walk-simulation">3.5. Random-Walk Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digression-object-oriented-programming-in-python">3.5. Digression: Object-Oriented Programming in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walk-simulation">3.6. Random-Walk Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-random-numbers">3.7. NumPy Random Numbers</a></li>
 </ul>
   </nav></div>
 
