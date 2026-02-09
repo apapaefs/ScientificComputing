@@ -611,6 +611,7 @@ is 1 + eps/2 == 1 ? True
 </section>
 <section id="round-off-error-accumulation">
 <h2><span class="section-number">2.5. </span>Round-off Error Accumulation<a class="headerlink" href="#round-off-error-accumulation" title="Link to this heading">#</a></h2>
+<p>Round-off error is caused by finite precision and affects all arithmetic; division is one common source, but accumulation is most often seen in long sequences of additions and iterative updates.</p>
 <p>If a calculation has a large number of steps, we can view the error as a step in a random walk.</p>
 <p>For a random walk (see later), the total distance <span class="math notranslate nohighlight">\(R\)</span>, covered in <span class="math notranslate nohighlight">\(N\)</span> steps of length <span class="math notranslate nohighlight">\(r\)</span> is:</p>
 <p><span class="math notranslate nohighlight">\(R = \sqrt{N} r\)</span></p>
