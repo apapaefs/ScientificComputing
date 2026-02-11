@@ -392,49 +392,50 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-differentiation">4.1. Numerical Differentiation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">4.1.1. Introduction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-forward-difference-derivative">4.1.2. The Forward-Difference Derivative</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-1-calculate-the-forward-difference-derivative-for-the-above-data-points-and-plot-it-in-a-numpy-array-called-y">4.1.2.1. Example 4.1: Calculate the forward-difference derivative for the above data points and plot it (in a NumPy array called <code class="docutils literal notranslate"><span class="pre">y</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">4.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-differentiation">4.2. Numerical Differentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">4.2.1. Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-forward-difference-derivative">4.2.2. The Forward-Difference Derivative</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-1-calculate-the-forward-difference-derivative-for-the-above-data-points-and-plot-it-in-a-numpy-array-called-dydt-fd">4.2.2.1. Example 4.1: Calculate the forward-difference derivative for the above data points and plot it (in a NumPy array called <code class="docutils literal notranslate"><span class="pre">dydt_FD</span></code>)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-2-calculate-the-forward-difference-derivatives-for-f-t-cos-t-and-g-t-exp-t-at-t-0-1-1-100-for-h-10-6-compare-to-the-analytic-results">4.1.3. Example 4.2: Calculate the forward-difference derivatives for f(t) = \cos t and g(t) = \exp(t) at t=0.1, 1., 100, for h=10^{-6}. Compare to the analytic results.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-central-difference-derivative">4.1.4. The Central-Difference Derivative</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-3-calculate-as-in-example-4-2-but-with-the-central-difference-derivative">4.1.4.1. Example 4.3: Calculate as in Example 4.2, but with the central-difference derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-2-calculate-the-forward-difference-derivatives-for-f-t-cos-t-and-g-t-exp-t-at-t-0-1-1-100-for-h-10-6-compare-to-the-analytic-results">4.2.3. Example 4.2: Calculate the forward-difference derivatives for <span class="math notranslate nohighlight">\(f(t) = \cos t\)</span> and <span class="math notranslate nohighlight">\(g(t) = \exp(t)\)</span> at t=0.1, 1., 100, for <span class="math notranslate nohighlight">\(h=10^{-6}\)</span>. Compare to the analytic results.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-central-difference-derivative">4.2.4. The Central-Difference Derivative</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-3-calculate-as-in-example-4-2-but-with-the-central-difference-derivative">4.2.4.1. Example 4.3: Calculate as in Example 4.2, but with the central-difference derivative</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolated-difference-derivative">4.1.5. Extrapolated-Difference Derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolated-difference-derivative">4.2.5. Extrapolated-Difference Derivative</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-assessment-in-numerical-differentiation">4.2. Error Assessment in Numerical Differentiation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.2.1. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-4-use-the-sweet-spot-values-of-the-step-size-to-calculate-the-derivatives-of-cos-t-and-exp-t-at-the-same-points-as-the-previous-examples">4.2.1.1. Example 4.4: Use the sweet-spot values of the step size to calculate the derivatives of \cos (t) and \exp(t) at the same points as the previous examples.</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-5-using-the-known-analytical-results-calculate-the-relative-error-varepsilon-obtained-by-both-methods-for-the-cos-t-and-exp-t-functions-at-t-0-1-for-varying-step-size-h-down-to-h-simeq-epsilon-m-simeq-10-15-and-plot-log-10-varepsilon-vs-log-10-h-comment-on-the-behavior-at-small-and-large-h">4.2.1.2. Example 4.5: Using the known analytical results calculate the <em>relative error</em>, \varepsilon, obtained by both methods for the \cos(t) and \exp(t) functions at t=0.1, for varying step size h down to h\simeq \epsilon_m \simeq 10^{-15} and plot \log_{10}|\varepsilon| vs. \log_{10} h. Comment on the behavior at small and large h</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-6-take-the-numerical-derivative-of-the-function-f-t-exp-t-cos-t-at-t-0-1-and-following-example-4-5-perform-an-error-assessment">4.2.1.3. Example 4.6: Take the numerical derivative of the function f(t) = \exp(t) \cos(t) at t=0.1, and following Example 4.5, perform an error assessment.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-assessment-in-numerical-differentiation">4.3. Error Assessment in Numerical Differentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.3.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-4-use-the-sweet-spot-values-of-the-step-size-to-calculate-the-derivatives-of-cos-t-and-exp-t-at-the-same-points-as-the-previous-examples">4.3.1.1. Example 4.4: Use the sweet-spot values of the step size to calculate the derivatives of \cos (t) and \exp(t) at the same points as the previous examples.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-5-using-the-known-analytical-results-calculate-the-relative-error-varepsilon-obtained-by-both-methods-for-the-cos-t-and-exp-t-functions-at-t-0-1-for-varying-step-size-h-down-to-h-simeq-epsilon-m-simeq-10-15-and-plot-log-10-varepsilon-vs-log-10-h-comment-on-the-behavior-at-small-and-large-h">4.3.1.2. Example 4.5: Using the known analytical results calculate the <em>relative error</em>, \varepsilon, obtained by both methods for the \cos(t) and \exp(t) functions at t=0.1, for varying step size h down to h\simeq \epsilon_m \simeq 10^{-15} and plot \log_{10}|\varepsilon| vs. \log_{10} h. Comment on the behavior at small and large h</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-6-take-the-numerical-derivative-of-the-function-f-t-exp-t-cos-t-at-t-0-1-and-following-example-4-5-perform-an-error-assessment">4.3.1.3. Example 4.6: Take the numerical derivative of the function f(t) = \exp(t) \cos(t) at t=0.1, and following Example 4.5, perform an error assessment.</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-integration">4.3. Numerical Integration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.3.1. Introduction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-trapezoid-rule">4.3.2. The Trapezoid Rule</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-7-construct-a-function-that-implements-the-trapezoid-rule-on-an-interval-a-b-using-n-points-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-compare-to-the-analytic-value-for-n-10-6-intervals">4.3.2.1. Example 4.7: Construct a function that implements the trapezoid rule on an interval [a,b] using N points, and use to integrate f(x) = \exp(-x) in the interval [0,1]. Compare to the analytic value for N=10^6 intervals.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-integration">4.4. Numerical Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.4.1. Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-trapezoid-rule">4.4.2. The Trapezoid Rule</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-7-construct-a-function-that-implements-the-trapezoid-rule-on-an-interval-a-b-using-n-intervals-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-compare-to-the-analytic-value-for-n-10-6-intervals">4.4.2.1. Example 4.7: Construct a function that implements the trapezoid rule on an interval <span class="math notranslate nohighlight">\([a,b]\)</span> using <span class="math notranslate nohighlight">\(N\)</span> intervals, and use to integrate <span class="math notranslate nohighlight">\(f(x) = \exp(-x)\)</span> in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>. Compare to the analytic value for <span class="math notranslate nohighlight">\(N=10^6\)</span> intervals.</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-s-rule">4.3.3. Simpson’s Rule</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-8-construct-a-function-that-implements-simpson-s-rule-on-an-interval-a-b-using-n-points-n-is-odd-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1">4.3.3.1. Example 4.8: Construct a function that implements Simpson’s rule on an interval [a,b] using N points (N is odd!), and use to integrate f(x) = \exp(-x) in the interval [0,1].</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-s-rule">4.4.3. Simpson’s Rule</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-8-construct-a-function-that-implements-simpson-s-rule-on-an-interval-a-b-using-n-points-n-is-odd-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1">4.4.3.1. Example 4.8: Construct a function that implements Simpson’s rule on an interval <span class="math notranslate nohighlight">\([a,b]\)</span> using <span class="math notranslate nohighlight">\(N\)</span> points (<span class="math notranslate nohighlight">\(N\)</span> is odd!), and use to integrate <span class="math notranslate nohighlight">\(f(x) = \exp(-x)\)</span> in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>.</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature">4.3.4. Gaussian Quadrature</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-9-use-special-functions-to-get-the-gauss-legendre-points-and-weights-for-n-2-to-n-8-points">4.3.4.1. Example 4.9: Use special functions to get the Gauss-Legendre points and weights for N=2 to N=8 points.</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8">4.3.4.2. Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval [a,b], and use to integrate f(x) = \exp(-x) in the interval [0,1] for N=8.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature">4.4.4. Gaussian Quadrature</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-9-use-special-functions-to-get-the-gauss-legendre-points-and-weights-for-n-2-to-n-8-points">4.4.4.1. Example 4.9: Use special functions to get the Gauss-Legendre points and weights for N=2 to N=8 points.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8">4.4.4.2. Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval [a,b], and use to integrate f(x) = \exp(-x) in the interval [0,1] for N=8.</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-rules-3-8-and-milne-rules">4.3.5. Higher Order Rules (3/8 and Milne Rules)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-error-assessment">4.3.6. Integration Error Assessment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-rules-3-8-and-milne-rules">4.4.5. Higher Order Rules (3/8 and Milne Rules)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-error-assessment">4.4.6. Integration Error Assessment</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minor-digression-python-functools-and-partial-functions">4.4. Minor Digression: Python functools and partial functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minor-digression-python-functools-and-partial-functions">4.5. Minor Digression: Python functools and partial functions</a></li>
 </ul>
             </nav>
         </div>
@@ -448,10 +449,23 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="numerical-differentiation-and-integration">
 <h1><span class="section-number">4. </span>Numerical Differentiation and Integration<a class="headerlink" href="#numerical-differentiation-and-integration" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">4.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, students should be able to:</p>
+<ul class="simple">
+<li><p>Implement <strong>finite-difference derivatives</strong> (forward and central) and understand their truncation errors via Taylor expansion.</p></li>
+<li><p>Use <strong>extrapolation</strong> to improve derivative accuracy.</p></li>
+<li><p>Analyze <strong>numerical differentiation error</strong>, including the tradeoff between truncation error (large (h)) and floating-point/cancellation effects (small (h)), and choose a reasonable step size (h).</p></li>
+<li><p>Implement <strong>numerical integration</strong> methods (trapezoid rule and Simpson’s rule) and compare results to analytic benchmarks.</p></li>
+<li><p>Apply <strong>Gaussian quadrature</strong> using Gauss–Legendre points/weights, including mapping an (N)-point rule to a general interval ([a,b]).</p></li>
+<li><p>Assess <strong>integration error</strong> and compare convergence behavior across methods (basic rules vs higher-order rules/quadrature).</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">functools</span></code> and <strong>partial functions</strong> to write cleaner numerical code when passing functions with fixed parameters.</p></li>
+</ul>
+</section>
 <section id="numerical-differentiation">
-<h2><span class="section-number">4.1. </span>Numerical Differentiation<a class="headerlink" href="#numerical-differentiation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Numerical Differentiation<a class="headerlink" href="#numerical-differentiation" title="Link to this heading">#</a></h2>
 <section id="introduction">
-<h3><span class="section-number">4.1.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h3>
 <p>Suppose we have the trajectory of a projectile moving in the vertical direction as a function of time, <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
 <p>If we wish to determine its speed, we would need to take the derivative of the position with respect to time, i.e. <span class="math notranslate nohighlight">\(v(t) = \mathrm{d}y/\mathrm{d}t\)</span>.</p>
 <p>e.g. suppose the trajectory, <em>measured experimentally</em>, looks like the following plot:</p>
@@ -493,7 +507,7 @@ document.write(`
 </ul>
 </section>
 <section id="the-forward-difference-derivative">
-<h3><span class="section-number">4.1.2. </span>The Forward-Difference Derivative<a class="headerlink" href="#the-forward-difference-derivative" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.2. </span>The Forward-Difference Derivative<a class="headerlink" href="#the-forward-difference-derivative" title="Link to this heading">#</a></h3>
 <p>The simplest algorithm for numerical differentiation is called the forward-difference derivative, and it is obtained by simply removing the limit, still taking <span class="math notranslate nohighlight">\(h\)</span> reasonably small, i.e.:</p>
 <p><span class="math notranslate nohighlight">\( \left.\frac{ \mathrm{d} y(t) } {\mathrm{d} t } \right|_\mathrm{fd} \equiv \frac{ y(t+h) - y(t) } { h} \)</span>.</p>
 <p>What is the algorithmic (or approximation) error induced by this procedure?</p>
@@ -537,8 +551,8 @@ document.write(`
 <img alt="../../_images/f2652e989e48ee20bf63a289da25c97433273321248481c21aa0051013fbb5be.png" src="../../_images/f2652e989e48ee20bf63a289da25c97433273321248481c21aa0051013fbb5be.png" />
 </div>
 </div>
-<section id="example-4-1-calculate-the-forward-difference-derivative-for-the-above-data-points-and-plot-it-in-a-numpy-array-called-y">
-<h4><span class="section-number">4.1.2.1. </span>Example 4.1: Calculate the forward-difference derivative for the above data points and plot it (in a NumPy array called <code class="docutils literal notranslate"><span class="pre">y</span></code>)<a class="headerlink" href="#example-4-1-calculate-the-forward-difference-derivative-for-the-above-data-points-and-plot-it-in-a-numpy-array-called-y" title="Link to this heading">#</a></h4>
+<section id="example-4-1-calculate-the-forward-difference-derivative-for-the-above-data-points-and-plot-it-in-a-numpy-array-called-dydt-fd">
+<h4><span class="section-number">4.2.2.1. </span>Example 4.1: Calculate the forward-difference derivative for the above data points and plot it (in a NumPy array called <code class="docutils literal notranslate"><span class="pre">dydt_FD</span></code>)<a class="headerlink" href="#example-4-1-calculate-the-forward-difference-derivative-for-the-above-data-points-and-plot-it-in-a-numpy-array-called-dydt-fd" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The forward difference for the points &quot;measured&quot; in our pseudo-experiment:</span>
@@ -569,7 +583,7 @@ document.write(`
 </section>
 </section>
 <section id="example-4-2-calculate-the-forward-difference-derivatives-for-f-t-cos-t-and-g-t-exp-t-at-t-0-1-1-100-for-h-10-6-compare-to-the-analytic-results">
-<h3><span class="section-number">4.1.3. </span>Example 4.2: Calculate the forward-difference derivatives for f(t) = \cos t and g(t) = \exp(t) at t=0.1, 1., 100, for h=10^{-6}. Compare to the analytic results.<a class="headerlink" href="#example-4-2-calculate-the-forward-difference-derivatives-for-f-t-cos-t-and-g-t-exp-t-at-t-0-1-1-100-for-h-10-6-compare-to-the-analytic-results" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.3. </span>Example 4.2: Calculate the forward-difference derivatives for <span class="math notranslate nohighlight">\(f(t) = \cos t\)</span> and <span class="math notranslate nohighlight">\(g(t) = \exp(t)\)</span> at t=0.1, 1., 100, for <span class="math notranslate nohighlight">\(h=10^{-6}\)</span>. Compare to the analytic results.<a class="headerlink" href="#example-4-2-calculate-the-forward-difference-derivatives-for-f-t-cos-t-and-g-t-exp-t-at-t-0-1-1-100-for-h-10-6-compare-to-the-analytic-results" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
@@ -612,7 +626,7 @@ d(exp(t))/dt at t= 100.0 = 2.6881184788443713e+43 vs analytic= 2.688117141816135
 <p>We will discuss errors in a bit! First let’s consider more algorithms for differentiation!</p>
 </section>
 <section id="the-central-difference-derivative">
-<h3><span class="section-number">4.1.4. </span>The Central-Difference Derivative<a class="headerlink" href="#the-central-difference-derivative" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.4. </span>The Central-Difference Derivative<a class="headerlink" href="#the-central-difference-derivative" title="Link to this heading">#</a></h3>
 <p>Rather than making a single step <span class="math notranslate nohighlight">\(h\)</span> forward, we can make half a step forward and half a step backward to get the central-difference derivative:</p>
 <p><span class="math notranslate nohighlight">\( \left.\frac{ \mathrm{d} y(t) } {\mathrm{d} t } \right|_\mathrm{cd} \equiv \frac{ y(t+h/2) - y(t-h/2) } { h} \)</span>.</p>
 <p>To get an estimate of the algorithmic error, we first write down the Taylor series for <span class="math notranslate nohighlight">\(y(t+h/2)\)</span> and <span class="math notranslate nohighlight">\(y(t-h/2)\)</span>:</p>
@@ -627,7 +641,7 @@ d(exp(t))/dt at t= 100.0 = 2.6881184788443713e+43 vs analytic= 2.688117141816135
 <p>Therefore, if the function is smooth, then one would expect <span class="math notranslate nohighlight">\(y''' h^2 / 24 \ll y'' h / 2\)</span>, and we would expect the central-difference error to be much smaller than that with the forward-difference.</p>
 <p>Let’s compare the results of Example 4.2, calculated with the forward-difference algorithm, now with the central-difference algorithm:</p>
 <section id="example-4-3-calculate-as-in-example-4-2-but-with-the-central-difference-derivative">
-<h4><span class="section-number">4.1.4.1. </span>Example 4.3: Calculate as in Example 4.2, but with the central-difference derivative<a class="headerlink" href="#example-4-3-calculate-as-in-example-4-2-but-with-the-central-difference-derivative" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.2.4.1. </span>Example 4.3: Calculate as in Example 4.2, but with the central-difference derivative<a class="headerlink" href="#example-4-3-calculate-as-in-example-4-2-but-with-the-central-difference-derivative" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function for the central-difference derivative.</span>
@@ -666,7 +680,7 @@ d(exp(t))/dt at t= 100.0 = 2.6881171349366646e+43 vs analytic= 2.688117141816135
 </section>
 </section>
 <section id="extrapolated-difference-derivative">
-<h3><span class="section-number">4.1.5. </span>Extrapolated-Difference Derivative<a class="headerlink" href="#extrapolated-difference-derivative" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.5. </span>Extrapolated-Difference Derivative<a class="headerlink" href="#extrapolated-difference-derivative" title="Link to this heading">#</a></h3>
 <p>We can extend the central-difference approximation to use quarter steps instead of half steps, i.e., calculate:</p>
 <p><span class="math notranslate nohighlight">\( \left.\frac{ \mathrm{d} y(t,h/2) } {\mathrm{d} t } \right|_\mathrm{cd} \equiv \frac{ y(t+h/4) - y(t-h/4) } { h/2 } \)</span>.</p>
 <p>As before, expanding via Taylor series <span class="math notranslate nohighlight">\(y(t+h/4)\)</span> and <span class="math notranslate nohighlight">\(y(t-h/4)\)</span> yields an estimate of the approximation error:</p>
@@ -679,9 +693,9 @@ d(exp(t))/dt at t= 100.0 = 2.6881171349366646e+43 vs analytic= 2.688117141816135
 </section>
 </section>
 <section id="error-assessment-in-numerical-differentiation">
-<h2><span class="section-number">4.2. </span>Error Assessment in Numerical Differentiation<a class="headerlink" href="#error-assessment-in-numerical-differentiation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>Error Assessment in Numerical Differentiation<a class="headerlink" href="#error-assessment-in-numerical-differentiation" title="Link to this heading">#</a></h2>
 <section id="id1">
-<h3><span class="section-number">4.2.1. </span>Introduction<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.3.1. </span>Introduction<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Numerical algorithms play a vital role in computational physics. When you encounter/invent and implement an algorithm, you must assess the following:</p>
 <ol class="arabic simple">
 <li><p>Does it converge?</p></li>
@@ -697,19 +711,19 @@ d(exp(t))/dt at t= 100.0 = 2.6881171349366646e+43 vs analytic= 2.688117141816135
 <p><span class="math notranslate nohighlight">\(\epsilon_\mathrm{tot} = \epsilon_\mathrm{alg} + \epsilon_\mathrm{ro}\)</span>.</p>
 <p>This “sweet spot” occurs when both errors are of the same order, i.e.:</p>
 <p><span class="math notranslate nohighlight">\(\epsilon_\mathrm{alg} \simeq \epsilon_\mathrm{ro}\)</span>.</p>
-<p>In the case of numerical differentiation, e.g. via the forward-difference algorithm, <span class="math notranslate nohighlight">\(\left. \frac{ \mathrm{d} y(t) } {\mathrm{d} t }\right|_\mathrm{fd} =  \frac{ y(t+h) - y(t) } { h} \)</span>, as <span class="math notranslate nohighlight">\(h\)</span> is made continually smaller, we will eventually reach the worst-case round-off error where <span class="math notranslate nohighlight">\(y(t+h)\)</span> and <span class="math notranslate nohighlight">\(y(t)\)</span> differ by the machine precision <span class="math notranslate nohighlight">\(\epsilon_m\)</span>. In that worst-case scenarion, the round-off error is:</p>
+<p>In the case of numerical differentiation, e.g. via the forward-difference algorithm, <span class="math notranslate nohighlight">\(\left. \frac{ \mathrm{d} y(t) } {\mathrm{d} t }\right|_\mathrm{fd} =  \frac{ y(t+h) - y(t) } { h} \)</span>, as <span class="math notranslate nohighlight">\(h\)</span> is made continually smaller, we will eventually reach the worst-case round-off error where <span class="math notranslate nohighlight">\(y(t+h)\)</span> and <span class="math notranslate nohighlight">\(y(t)\)</span> differ by the machine precision <span class="math notranslate nohighlight">\(\epsilon_m\)</span>. In that worst-case scenario, the round-off error is:</p>
 <p><span class="math notranslate nohighlight">\(\epsilon_\mathrm{ro} \simeq \frac{\epsilon_m}{h}\)</span>.</p>
 <p>Therefore, for the forward-difference algorithm, the sweet-spot <span class="math notranslate nohighlight">\(h\)</span> occurs when:</p>
 <p><span class="math notranslate nohighlight">\(\frac{\epsilon_m}{h} \simeq \epsilon_\mathrm{alg}^\mathrm{fd} = \frac{h y''}{2}\)</span> or <span class="math notranslate nohighlight">\(h_\mathrm{fd} = \sqrt{ \frac{2 \epsilon_m}{y''}}\)</span>.</p>
 <p>For the central-difference algorithm:</p>
 <p><span class="math notranslate nohighlight">\(\frac{\epsilon_m}{h} \simeq \epsilon_\mathrm{alg}^\mathrm{cd} = \frac{h^2 y'''}{24}\)</span> or <span class="math notranslate nohighlight">\(h_\mathrm{cd} = \sqrt[3]{ \frac{24 \epsilon_m}{y'''}}\)</span>.</p>
-<p>Let’s assume that we have a function for which <span class="math notranslate nohighlight">\(y' \simeq y'' \simeq y'''\)</span> at the point of interest <span class="math notranslate nohighlight">\(t\)</span>, which may be crude in general, but works reasonably for <span class="math notranslate nohighlight">\(\cos t\)</span> and <span class="math notranslate nohighlight">\(\exp(t)\)</span>. For double precision floats, <span class="math notranslate nohighlight">\(\epsilon_m \simeq 10^{-15}\)</span>, and then:</p>
+<p>Let’s assume that we have a function for which <span class="math notranslate nohighlight">\(y \simeq y' \simeq y'' \simeq y''' \simeq \mathcal{O}(1)\)</span> at the point of interest <span class="math notranslate nohighlight">\(t\)</span>, which may be crude in general, but works reasonably for <span class="math notranslate nohighlight">\(\cos (t)\)</span> and <span class="math notranslate nohighlight">\(\exp(t)\)</span> (for small <span class="math notranslate nohighlight">\(t\)</span>). For double precision floats, <span class="math notranslate nohighlight">\(\epsilon_m \simeq 10^{-15}\)</span>, and then:</p>
 <p><span class="math notranslate nohighlight">\(h_\mathrm{fd} \simeq 4 \times 10^{-8}\)</span> which leads to <span class="math notranslate nohighlight">\(\epsilon_\mathrm{fd} \simeq \frac{\epsilon_m}{h_\mathrm{fd}} \simeq 3\times 10^{-8}\)</span>,</p>
 <p>and:</p>
 <p><span class="math notranslate nohighlight">\(h_\mathrm{cd} \simeq 3 \times 10^{-5}\)</span> which leads to <span class="math notranslate nohighlight">\(\epsilon_\mathrm{cd} \simeq \frac{\epsilon_m}{h_\mathrm{cd}}\simeq 3\times 10^{-11}\)</span>,</p>
 <p>One can observe that in this case, the central-difference algorithm achieves smaller error for a larger <span class="math notranslate nohighlight">\(h\)</span> value! Let’s now re-calculate the values of the derivatives of <span class="math notranslate nohighlight">\(\cos t\)</span> and <span class="math notranslate nohighlight">\(\exp(t)\)</span> using the “sweet-spot” step sizes in the next example.</p>
 <section id="example-4-4-use-the-sweet-spot-values-of-the-step-size-to-calculate-the-derivatives-of-cos-t-and-exp-t-at-the-same-points-as-the-previous-examples">
-<h4><span class="section-number">4.2.1.1. </span>Example 4.4: Use the sweet-spot values of the step size to calculate the derivatives of \cos (t) and \exp(t) at the same points as the previous examples.<a class="headerlink" href="#example-4-4-use-the-sweet-spot-values-of-the-step-size-to-calculate-the-derivatives-of-cos-t-and-exp-t-at-the-same-points-as-the-previous-examples" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.3.1.1. </span>Example 4.4: Use the sweet-spot values of the step size to calculate the derivatives of \cos (t) and \exp(t) at the same points as the previous examples.<a class="headerlink" href="#example-4-4-use-the-sweet-spot-values-of-the-step-size-to-calculate-the-derivatives-of-cos-t-and-exp-t-at-the-same-points-as-the-previous-examples" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can use the functions already defined in this notebook for the forward difference and central difference. </span>
@@ -766,7 +780,7 @@ d(exp(t))/dt at t= 100.0 = 2.6881171427769514e+43 vs analytic= 2.688117141816135
 <p>Let’s now dig deeper into the errors to get a visual representation of what’s happening.</p>
 </section>
 <section id="example-4-5-using-the-known-analytical-results-calculate-the-relative-error-varepsilon-obtained-by-both-methods-for-the-cos-t-and-exp-t-functions-at-t-0-1-for-varying-step-size-h-down-to-h-simeq-epsilon-m-simeq-10-15-and-plot-log-10-varepsilon-vs-log-10-h-comment-on-the-behavior-at-small-and-large-h">
-<h4><span class="section-number">4.2.1.2. </span>Example 4.5: Using the known analytical results calculate the <em>relative error</em>, \varepsilon, obtained by both methods for the \cos(t) and \exp(t) functions at t=0.1, for varying step size h down to h\simeq \epsilon_m \simeq 10^{-15} and plot \log_{10}|\varepsilon| vs. \log_{10} h. Comment on the behavior at small and large h<a class="headerlink" href="#example-4-5-using-the-known-analytical-results-calculate-the-relative-error-varepsilon-obtained-by-both-methods-for-the-cos-t-and-exp-t-functions-at-t-0-1-for-varying-step-size-h-down-to-h-simeq-epsilon-m-simeq-10-15-and-plot-log-10-varepsilon-vs-log-10-h-comment-on-the-behavior-at-small-and-large-h" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.3.1.2. </span>Example 4.5: Using the known analytical results calculate the <em>relative error</em>, \varepsilon, obtained by both methods for the \cos(t) and \exp(t) functions at t=0.1, for varying step size h down to h\simeq \epsilon_m \simeq 10^{-15} and plot \log_{10}|\varepsilon| vs. \log_{10} h. Comment on the behavior at small and large h<a class="headerlink" href="#example-4-5-using-the-known-analytical-results-calculate-the-relative-error-varepsilon-obtained-by-both-methods-for-the-cos-t-and-exp-t-functions-at-t-0-1-for-varying-step-size-h-down-to-h-simeq-epsilon-m-simeq-10-15-and-plot-log-10-varepsilon-vs-log-10-h-comment-on-the-behavior-at-small-and-large-h" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -829,15 +843,15 @@ d(exp(t))/dt at t= 100.0 = 2.6881171427769514e+43 vs analytic= 2.688117141816135
 <p>Now let’s do the same exercise in class, with <span class="math notranslate nohighlight">\(f(t) = \exp(t) \cos(t)\)</span>!</p>
 </section>
 <section id="example-4-6-take-the-numerical-derivative-of-the-function-f-t-exp-t-cos-t-at-t-0-1-and-following-example-4-5-perform-an-error-assessment">
-<h4><span class="section-number">4.2.1.3. </span>Example 4.6: Take the numerical derivative of the function f(t) = \exp(t) \cos(t) at t=0.1, and following Example 4.5, perform an error assessment.<a class="headerlink" href="#example-4-6-take-the-numerical-derivative-of-the-function-f-t-exp-t-cos-t-at-t-0-1-and-following-example-4-5-perform-an-error-assessment" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.3.1.3. </span>Example 4.6: Take the numerical derivative of the function f(t) = \exp(t) \cos(t) at t=0.1, and following Example 4.5, perform an error assessment.<a class="headerlink" href="#example-4-6-take-the-numerical-derivative-of-the-function-f-t-exp-t-cos-t-at-t-0-1-and-following-example-4-5-perform-an-error-assessment" title="Link to this heading">#</a></h4>
 <p>(Solution in a separate notebook, Example4.6)</p>
 </section>
 </section>
 </section>
 <section id="numerical-integration">
-<h2><span class="section-number">4.3. </span>Numerical Integration<a class="headerlink" href="#numerical-integration" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>Numerical Integration<a class="headerlink" href="#numerical-integration" title="Link to this heading">#</a></h2>
 <section id="id2">
-<h3><span class="section-number">4.3.1. </span>Introduction<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.4.1. </span>Introduction<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>A traditional way to perform integration by hand is to take a piece of graph paper and count the number of boxes, or <em>quadrilaterals</em> lying below the curve.</p>
 <p>This is why numerical integration is also known as numerical <em>quadrature</em>, even when the method employed is much more sophisticated than simple box counting.</p>
 <p>We start of our discussion of numerical integration with the Riemann definition of an integral, as the limit of the sum over boxes under a curve, as the box width <span class="math notranslate nohighlight">\(h\)</span> approaches zero:</p>
@@ -900,18 +914,17 @@ d(exp(t))/dt at t= 100.0 = 2.6881171427769514e+43 vs analytic= 2.688117141816135
 <p>In this case the box width is finite. The above formula represents the standard form for all integration algorithms: the function <span class="math notranslate nohighlight">\(f(x)\)</span> is evaluated at <span class="math notranslate nohighlight">\(N\)</span> points in the interval <span class="math notranslate nohighlight">\([a,b]\)</span>, and the function values <span class="math notranslate nohighlight">\(f_i \equiv f(x_i)\)</span> are summed with each term in the sum weighted by <span class="math notranslate nohighlight">\(w_i\)</span>.</p>
 <p>Generally, the precision increases as the number of points <span class="math notranslate nohighlight">\(N\)</span> gets larger, with the round-off error eventually limiting the increase. This is similar to what we observed in the case of differentiation.</p>
 <p>A word of warning: in general, you should not attempt a numerical integration of an integrand that contains a singularity, without first removing the singularity by hand. You may be able to do this very simply by breaking the intervals down into several subintervals so that the singularity is at an endpoint where an integration point is not placed, or by change of variable.</p>
-<p>Also, if the integrand has a very slow variation in some region, you can speed up the integration by changing to a variable that compresses that region and places fewer points there, or divides up the integral and performs several integrations.
-|
-Conversely, if your integrand has a very rapid variation in some region, you may want to change to variables that expand that region, to ensure that no oscillations (e.g.) are missed.</p>
+<p>Also, if the integrand has a very slow variation in some region, you can speed up the integration by changing to a variable that compresses that region and places fewer points there, or divides up the integral and performs several integrations.</p>
+<p>Conversely, if your integrand has a very rapid variation in some region, you may want to change to variables that expand that region, to ensure that no oscillations (e.g.) are missed.</p>
 </section>
 <section id="the-trapezoid-rule">
-<h3><span class="section-number">4.3.2. </span>The Trapezoid Rule<a class="headerlink" href="#the-trapezoid-rule" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.4.2. </span>The Trapezoid Rule<a class="headerlink" href="#the-trapezoid-rule" title="Link to this heading">#</a></h3>
 <p>The trapezoid (British: trapezium) rule uses <em>evenly-spaced values</em> of <span class="math notranslate nohighlight">\(x\)</span>, i.e. <span class="math notranslate nohighlight">\(N\)</span> points <span class="math notranslate nohighlight">\(x_i\)</span> (<span class="math notranslate nohighlight">\(i=1,...N\)</span>), spaced at a distance <span class="math notranslate nohighlight">\(h\)</span> apart throughout the integration region <span class="math notranslate nohighlight">\([a,b]\)</span> and includes the endpoints of the integration region.</p>
 <p>This means that there are <span class="math notranslate nohighlight">\((N-1)\)</span> intervals of length <span class="math notranslate nohighlight">\(h\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(h = \frac{b-a}{N-1}\)</span>, <span class="math notranslate nohighlight">\(x_i = a + (i-1) h\)</span>, <span class="math notranslate nohighlight">\(i=1,...,N\)</span>,</p>
 <p>where we note that counting starts at <span class="math notranslate nohighlight">\(i=1\)</span> in the above formulae.</p>
 <p>The trapezoid rule takes each integration interval <span class="math notranslate nohighlight">\(i\)</span> and constructs a trapezoid of width <span class="math notranslate nohighlight">\(h\)</span> in it. This approximates <span class="math notranslate nohighlight">\(f(x)\)</span> by a straight line in each interval <span class="math notranslate nohighlight">\(i\)</span> and uses the average height of the function at the edges of the straight line as the value for <span class="math notranslate nohighlight">\(f\)</span>, i.e. <span class="math notranslate nohighlight">\((f_i + f_{i+1})/2\)</span>.</p>
-<p>The area of each such trapzoid is then:</p>
+<p>The area of each such trapezoid is then:</p>
 <p><span class="math notranslate nohighlight">\(\int_{x_i}^{x_i + h} f(x) \mathrm{d}x \simeq h \frac{ (f_i + f_{i+1}) } {2}  = \frac{1}{2} h f_i + \frac{1}{2}  hf_{i+1}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -987,8 +1000,8 @@ Conversely, if your integrand has a very rapid variation in some region, you may
 <p>The trapezoid rule can be written in terms of the “weight” formula as follows:</p>
 <p><span class="math notranslate nohighlight">\(\int_a^b f(x) \mathrm{d} x \simeq \sum_{i=1}^N f(x_i) w_i\)</span>, <span class="math notranslate nohighlight">\(w_i = \left\{ \frac{h}{2}, h, ..., h, \frac{h}{2} \right\}\)</span>.</p>
 <p>Let’s write a function that implements the trapezoid rule!</p>
-<section id="example-4-7-construct-a-function-that-implements-the-trapezoid-rule-on-an-interval-a-b-using-n-points-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-compare-to-the-analytic-value-for-n-10-6-intervals">
-<h4><span class="section-number">4.3.2.1. </span>Example 4.7: Construct a function that implements the trapezoid rule on an interval [a,b] using N points, and use to integrate f(x) = \exp(-x) in the interval [0,1]. Compare to the analytic value for N=10^6 intervals.<a class="headerlink" href="#example-4-7-construct-a-function-that-implements-the-trapezoid-rule-on-an-interval-a-b-using-n-points-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-compare-to-the-analytic-value-for-n-10-6-intervals" title="Link to this heading">#</a></h4>
+<section id="example-4-7-construct-a-function-that-implements-the-trapezoid-rule-on-an-interval-a-b-using-n-intervals-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-compare-to-the-analytic-value-for-n-10-6-intervals">
+<h4><span class="section-number">4.4.2.1. </span>Example 4.7: Construct a function that implements the trapezoid rule on an interval <span class="math notranslate nohighlight">\([a,b]\)</span> using <span class="math notranslate nohighlight">\(N\)</span> intervals, and use to integrate <span class="math notranslate nohighlight">\(f(x) = \exp(-x)\)</span> in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>. Compare to the analytic value for <span class="math notranslate nohighlight">\(N=10^6\)</span> intervals.<a class="headerlink" href="#example-4-7-construct-a-function-that-implements-the-trapezoid-rule-on-an-interval-a-b-using-n-intervals-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-compare-to-the-analytic-value-for-n-10-6-intervals" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
@@ -1035,7 +1048,7 @@ Fractional error= 9.378892789826624e-14
 </section>
 </section>
 <section id="simpson-s-rule">
-<h3><span class="section-number">4.3.3. </span>Simpson’s Rule<a class="headerlink" href="#simpson-s-rule" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.4.3. </span>Simpson’s Rule<a class="headerlink" href="#simpson-s-rule" title="Link to this heading">#</a></h3>
 <p>Simpson’s rule approximates the integrand, <span class="math notranslate nohighlight">\(f(x)\)</span>, by a parabola for each interval:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1132,7 +1145,7 @@ Fractional error= 9.378892789826624e-14
 <p><span class="math notranslate nohighlight">\(\int_{x_i-h}^{x_i + h } f(x) \mathrm{d} x = \int_{x_i-h}^{x_i} f(x) \mathrm{d} x + \int_{x_i}^{x_i + h } f(x) \mathrm{d} x \simeq \frac{h}{3} f_{i-1} + \frac{ 4 h } {3} f_i + \frac{h}{3} f_{i+1}\)</span>.</p>
 <p>Therefore, Simpson’s rule requires integration to be over pairs of intervals (i.e. separated by the grey lines in the figure above).</p>
 <p>This implies that the total number of intervals must be even, and the total number of points must be odd!</p>
-<p>In order to apply Simpson’s rule to the entire interval, we add up the contributions from each <em>pair of subintervals</em>, counting all all but the first and last endpoints twice, i.e.:</p>
+<p>In order to apply Simpson’s rule to the entire interval, we add up the contributions from each <em>pair of subintervals</em>, counting all but the first and last endpoints twice, i.e.:</p>
 <p><span class="math notranslate nohighlight">\(\int_{a}^{b} f(x) \mathrm{d} x \simeq \frac{h}{3} f_1 + \frac{4h}{3} f_2 + \frac{2h}{3} f_3 + \frac{4h}{3} f_4 + ... + \frac{4h}{3} f_{N-1} + \frac{h}{3} f_N\)</span>.</p>
 <p>In terms of the standard integration rule with weights:</p>
 <p><span class="math notranslate nohighlight">\(\int_a^b f(x) \mathrm{d} x \simeq \sum_{i=1}^N f(x_i) w_i\)</span>, <span class="math notranslate nohighlight">\(w_i = \left\{ \frac{h}{3}, \frac{4h}{3}, \frac{2h}{3}, \frac{4h}{3}, ..., \frac{4h}{3}, \frac{h}{3} \right\}\)</span>.</p>
@@ -1140,7 +1153,7 @@ Fractional error= 9.378892789826624e-14
 <p><span class="math notranslate nohighlight">\(\sum_{i=1}^N w_i = (N-1)h\)</span>.</p>
 <p>And remember that the number of points <span class="math notranslate nohighlight">\(N\)</span> must be odd for Simpson’s rule!</p>
 <section id="example-4-8-construct-a-function-that-implements-simpson-s-rule-on-an-interval-a-b-using-n-points-n-is-odd-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1">
-<h4><span class="section-number">4.3.3.1. </span>Example 4.8: Construct a function that implements Simpson’s rule on an interval [a,b] using N points (N is odd!), and use to integrate f(x) = \exp(-x) in the interval [0,1].<a class="headerlink" href="#example-4-8-construct-a-function-that-implements-simpson-s-rule-on-an-interval-a-b-using-n-points-n-is-odd-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.4.3.1. </span>Example 4.8: Construct a function that implements Simpson’s rule on an interval <span class="math notranslate nohighlight">\([a,b]\)</span> using <span class="math notranslate nohighlight">\(N\)</span> points (<span class="math notranslate nohighlight">\(N\)</span> is odd!), and use to integrate <span class="math notranslate nohighlight">\(f(x) = \exp(-x)\)</span> in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>.<a class="headerlink" href="#example-4-8-construct-a-function-that-implements-simpson-s-rule-on-an-interval-a-b-using-n-points-n-is-odd-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Check that your sum of weights agrees with <span class="math notranslate nohighlight">\(\sum_{i=1}^N w_i = (N-1)h\)</span>.</p></li>
 <li><p>Compare to the analytic value for <span class="math notranslate nohighlight">\(N=2001\)</span> points.</p></li>
@@ -1150,7 +1163,7 @@ Fractional error= 9.378892789826624e-14
 </section>
 </section>
 <section id="gaussian-quadrature">
-<h3><span class="section-number">4.3.4. </span>Gaussian Quadrature<a class="headerlink" href="#gaussian-quadrature" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.4.4. </span>Gaussian Quadrature<a class="headerlink" href="#gaussian-quadrature" title="Link to this heading">#</a></h3>
 <p>In a similar manner as we did before, let’s rewrite the basic integration formula as follows:</p>
 <p><span class="math notranslate nohighlight">\(\int_{-1}^1 f(x) \mathrm{d} x \simeq \sum_{i=1}^N f(x_i) w_i\)</span>.</p>
 <p>Gaussian quadrature consists of <span class="math notranslate nohighlight">\(N\)</span> points and weights that are chosen to make the integration <em>exact</em> if <span class="math notranslate nohighlight">\(f(x)\)</span> is a <span class="math notranslate nohighlight">\((2N-1)\)</span>-degree polynomial!</p>
@@ -1162,7 +1175,7 @@ Fractional error= 9.378892789826624e-14
 <p><span class="math notranslate nohighlight">\(\int_{a}^b f(x) \mathrm{d} x = \frac{b-a}{2} \int_{-1}^1 f\left( \frac{(b-a)x + a + b}{2} \right) \mathrm{d}x\)</span>.</p>
 <p>Let’s use Python special functions to calculate the first few Gauss-Legendre “nodes” and weights.</p>
 <section id="example-4-9-use-special-functions-to-get-the-gauss-legendre-points-and-weights-for-n-2-to-n-8-points">
-<h4><span class="section-number">4.3.4.1. </span>Example 4.9: Use special functions to get the Gauss-Legendre points and weights for N=2 to N=8 points.<a class="headerlink" href="#example-4-9-use-special-functions-to-get-the-gauss-legendre-points-and-weights-for-n-2-to-n-8-points" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.4.4.1. </span>Example 4.9: Use special functions to get the Gauss-Legendre points and weights for N=2 to N=8 points.<a class="headerlink" href="#example-4-9-use-special-functions-to-get-the-gauss-legendre-points-and-weights-for-n-2-to-n-8-points" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
@@ -1219,7 +1232,7 @@ with weights [0.10122854 0.22238103 0.31370665 0.36268378 0.36268378 0.31370665
 <p>Let’s now use this to evaluate an integral!</p>
 </section>
 <section id="example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8">
-<h4><span class="section-number">4.3.4.2. </span>Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval [a,b], and use to integrate f(x) = \exp(-x) in the interval [0,1] for N=8.<a class="headerlink" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.4.4.2. </span>Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval [a,b], and use to integrate f(x) = \exp(-x) in the interval [0,1] for N=8.<a class="headerlink" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8" title="Link to this heading">#</a></h4>
 <p>Compare to the results obtained through the trapezoid rule with <span class="math notranslate nohighlight">\(N=10^6\)</span> points, and Simpson’s rule with <span class="math notranslate nohighlight">\(N=2001\)</span> points.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1266,12 +1279,12 @@ Fractional error= 1.7563469643870083e-16
 </div>
 </div>
 <p>We have reached extraordinary precision (essentially machine precision) with just 8 points!</p>
-<p>We couldn’t reach this precision with <span class="math notranslate nohighlight">\(N=10^6\)</span> points and the trapezoid rule, and we needed <span class="math notranslate nohighlight">\(N=2001\)</span> points to reach this preecision with Simpson’s rule!</p>
+<p>We couldn’t reach this precision with <span class="math notranslate nohighlight">\(N=10^6\)</span> points and the trapezoid rule, and we needed <span class="math notranslate nohighlight">\(N=2001\)</span> points to reach this precision with Simpson’s rule!</p>
 </section>
 </section>
 <section id="higher-order-rules-3-8-and-milne-rules">
-<h3><span class="section-number">4.3.5. </span>Higher Order Rules (3/8 and Milne Rules)<a class="headerlink" href="#higher-order-rules-3-8-and-milne-rules" title="Link to this heading">#</a></h3>
-<p>There exist other interesting “equal intrerval” rules that use higher-order approximations, such as the “3/8” rule and the Milne rule.</p>
+<h3><span class="section-number">4.4.5. </span>Higher Order Rules (3/8 and Milne Rules)<a class="headerlink" href="#higher-order-rules-3-8-and-milne-rules" title="Link to this heading">#</a></h3>
+<p>There exist other interesting “equal interval” rules that use higher-order approximations, such as the “3/8” rule and the Milne rule.</p>
 <p>In terms of the formula: <span class="math notranslate nohighlight">\(\int_a^b f(x) \mathrm{d} x \simeq \sum_{i=1}^N f(x_i) w_i\)</span>, the weights for the 3/8 rule (third-degree approximation) are:</p>
 <p><span class="math notranslate nohighlight">\(w_i = (1,3,3,1)\frac{3}{8} h\)</span>.</p>
 <p>and for the Milne rule (fourth-degree approximation):</p>
@@ -1280,7 +1293,7 @@ Fractional error= 1.7563469643870083e-16
 <p><span class="math notranslate nohighlight">\(\sum_{i=1}^N w_i = b -a\)</span>.</p>
 </section>
 <section id="integration-error-assessment">
-<h3><span class="section-number">4.3.6. </span>Integration Error Assessment<a class="headerlink" href="#integration-error-assessment" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.4.6. </span>Integration Error Assessment<a class="headerlink" href="#integration-error-assessment" title="Link to this heading">#</a></h3>
 <p>Let’s now use the functions for the trapezoid rule, Simpson’s rule, and N-th order Gaussian integration to evaluate the behavior of the relative error in each case, for the same function as before, <span class="math notranslate nohighlight">\(f(x) = \exp(-x)\)</span>, integrated over the interval <span class="math notranslate nohighlight">\([0,1]\)</span>, for which we know the analytic form.</p>
 <p>As before, we will make a plot of the <span class="math notranslate nohighlight">\(\log_{10}\)</span> of the relative error, versus <span class="math notranslate nohighlight">\(\log_{10}\)</span> of the number of points used.</p>
 <div class="cell docutils container">
@@ -1369,7 +1382,7 @@ Fractional error= 1.7563469643870083e-16
 </section>
 </section>
 <section id="minor-digression-python-functools-and-partial-functions">
-<h2><span class="section-number">4.4. </span>Minor Digression: Python functools and partial functions<a class="headerlink" href="#minor-digression-python-functools-and-partial-functions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.5. </span>Minor Digression: Python functools and partial functions<a class="headerlink" href="#minor-digression-python-functools-and-partial-functions" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">functools</span></code> module is for higher-order functions: functions that act on or return other functions. In general, any callable object can be treated as a function for the purposes of this module.</p>
 <p>See <a class="reference external" href="https://docs.python.org/3/library/functools.html">https://docs.python.org/3/library/functools.html</a> for details.</p>
 <p>Here, I wish to discuss <code class="docutils literal notranslate"><span class="pre">partial</span></code> functions.</p>
@@ -1481,49 +1494,50 @@ Integral of a*x+b in [0,1], for a= 0.3 b= 0.6 = 0.7499999999999999
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-differentiation">4.1. Numerical Differentiation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">4.1.1. Introduction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-forward-difference-derivative">4.1.2. The Forward-Difference Derivative</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-1-calculate-the-forward-difference-derivative-for-the-above-data-points-and-plot-it-in-a-numpy-array-called-y">4.1.2.1. Example 4.1: Calculate the forward-difference derivative for the above data points and plot it (in a NumPy array called <code class="docutils literal notranslate"><span class="pre">y</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">4.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-differentiation">4.2. Numerical Differentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">4.2.1. Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-forward-difference-derivative">4.2.2. The Forward-Difference Derivative</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-1-calculate-the-forward-difference-derivative-for-the-above-data-points-and-plot-it-in-a-numpy-array-called-dydt-fd">4.2.2.1. Example 4.1: Calculate the forward-difference derivative for the above data points and plot it (in a NumPy array called <code class="docutils literal notranslate"><span class="pre">dydt_FD</span></code>)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-2-calculate-the-forward-difference-derivatives-for-f-t-cos-t-and-g-t-exp-t-at-t-0-1-1-100-for-h-10-6-compare-to-the-analytic-results">4.1.3. Example 4.2: Calculate the forward-difference derivatives for f(t) = \cos t and g(t) = \exp(t) at t=0.1, 1., 100, for h=10^{-6}. Compare to the analytic results.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-central-difference-derivative">4.1.4. The Central-Difference Derivative</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-3-calculate-as-in-example-4-2-but-with-the-central-difference-derivative">4.1.4.1. Example 4.3: Calculate as in Example 4.2, but with the central-difference derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-2-calculate-the-forward-difference-derivatives-for-f-t-cos-t-and-g-t-exp-t-at-t-0-1-1-100-for-h-10-6-compare-to-the-analytic-results">4.2.3. Example 4.2: Calculate the forward-difference derivatives for <span class="math notranslate nohighlight">\(f(t) = \cos t\)</span> and <span class="math notranslate nohighlight">\(g(t) = \exp(t)\)</span> at t=0.1, 1., 100, for <span class="math notranslate nohighlight">\(h=10^{-6}\)</span>. Compare to the analytic results.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-central-difference-derivative">4.2.4. The Central-Difference Derivative</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-3-calculate-as-in-example-4-2-but-with-the-central-difference-derivative">4.2.4.1. Example 4.3: Calculate as in Example 4.2, but with the central-difference derivative</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolated-difference-derivative">4.1.5. Extrapolated-Difference Derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extrapolated-difference-derivative">4.2.5. Extrapolated-Difference Derivative</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-assessment-in-numerical-differentiation">4.2. Error Assessment in Numerical Differentiation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.2.1. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-4-use-the-sweet-spot-values-of-the-step-size-to-calculate-the-derivatives-of-cos-t-and-exp-t-at-the-same-points-as-the-previous-examples">4.2.1.1. Example 4.4: Use the sweet-spot values of the step size to calculate the derivatives of \cos (t) and \exp(t) at the same points as the previous examples.</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-5-using-the-known-analytical-results-calculate-the-relative-error-varepsilon-obtained-by-both-methods-for-the-cos-t-and-exp-t-functions-at-t-0-1-for-varying-step-size-h-down-to-h-simeq-epsilon-m-simeq-10-15-and-plot-log-10-varepsilon-vs-log-10-h-comment-on-the-behavior-at-small-and-large-h">4.2.1.2. Example 4.5: Using the known analytical results calculate the <em>relative error</em>, \varepsilon, obtained by both methods for the \cos(t) and \exp(t) functions at t=0.1, for varying step size h down to h\simeq \epsilon_m \simeq 10^{-15} and plot \log_{10}|\varepsilon| vs. \log_{10} h. Comment on the behavior at small and large h</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-6-take-the-numerical-derivative-of-the-function-f-t-exp-t-cos-t-at-t-0-1-and-following-example-4-5-perform-an-error-assessment">4.2.1.3. Example 4.6: Take the numerical derivative of the function f(t) = \exp(t) \cos(t) at t=0.1, and following Example 4.5, perform an error assessment.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-assessment-in-numerical-differentiation">4.3. Error Assessment in Numerical Differentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.3.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-4-use-the-sweet-spot-values-of-the-step-size-to-calculate-the-derivatives-of-cos-t-and-exp-t-at-the-same-points-as-the-previous-examples">4.3.1.1. Example 4.4: Use the sweet-spot values of the step size to calculate the derivatives of \cos (t) and \exp(t) at the same points as the previous examples.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-5-using-the-known-analytical-results-calculate-the-relative-error-varepsilon-obtained-by-both-methods-for-the-cos-t-and-exp-t-functions-at-t-0-1-for-varying-step-size-h-down-to-h-simeq-epsilon-m-simeq-10-15-and-plot-log-10-varepsilon-vs-log-10-h-comment-on-the-behavior-at-small-and-large-h">4.3.1.2. Example 4.5: Using the known analytical results calculate the <em>relative error</em>, \varepsilon, obtained by both methods for the \cos(t) and \exp(t) functions at t=0.1, for varying step size h down to h\simeq \epsilon_m \simeq 10^{-15} and plot \log_{10}|\varepsilon| vs. \log_{10} h. Comment on the behavior at small and large h</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-6-take-the-numerical-derivative-of-the-function-f-t-exp-t-cos-t-at-t-0-1-and-following-example-4-5-perform-an-error-assessment">4.3.1.3. Example 4.6: Take the numerical derivative of the function f(t) = \exp(t) \cos(t) at t=0.1, and following Example 4.5, perform an error assessment.</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-integration">4.3. Numerical Integration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.3.1. Introduction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-trapezoid-rule">4.3.2. The Trapezoid Rule</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-7-construct-a-function-that-implements-the-trapezoid-rule-on-an-interval-a-b-using-n-points-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-compare-to-the-analytic-value-for-n-10-6-intervals">4.3.2.1. Example 4.7: Construct a function that implements the trapezoid rule on an interval [a,b] using N points, and use to integrate f(x) = \exp(-x) in the interval [0,1]. Compare to the analytic value for N=10^6 intervals.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-integration">4.4. Numerical Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.4.1. Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-trapezoid-rule">4.4.2. The Trapezoid Rule</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-7-construct-a-function-that-implements-the-trapezoid-rule-on-an-interval-a-b-using-n-intervals-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-compare-to-the-analytic-value-for-n-10-6-intervals">4.4.2.1. Example 4.7: Construct a function that implements the trapezoid rule on an interval <span class="math notranslate nohighlight">\([a,b]\)</span> using <span class="math notranslate nohighlight">\(N\)</span> intervals, and use to integrate <span class="math notranslate nohighlight">\(f(x) = \exp(-x)\)</span> in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>. Compare to the analytic value for <span class="math notranslate nohighlight">\(N=10^6\)</span> intervals.</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-s-rule">4.3.3. Simpson’s Rule</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-8-construct-a-function-that-implements-simpson-s-rule-on-an-interval-a-b-using-n-points-n-is-odd-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1">4.3.3.1. Example 4.8: Construct a function that implements Simpson’s rule on an interval [a,b] using N points (N is odd!), and use to integrate f(x) = \exp(-x) in the interval [0,1].</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-s-rule">4.4.3. Simpson’s Rule</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-8-construct-a-function-that-implements-simpson-s-rule-on-an-interval-a-b-using-n-points-n-is-odd-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1">4.4.3.1. Example 4.8: Construct a function that implements Simpson’s rule on an interval <span class="math notranslate nohighlight">\([a,b]\)</span> using <span class="math notranslate nohighlight">\(N\)</span> points (<span class="math notranslate nohighlight">\(N\)</span> is odd!), and use to integrate <span class="math notranslate nohighlight">\(f(x) = \exp(-x)\)</span> in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>.</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature">4.3.4. Gaussian Quadrature</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-9-use-special-functions-to-get-the-gauss-legendre-points-and-weights-for-n-2-to-n-8-points">4.3.4.1. Example 4.9: Use special functions to get the Gauss-Legendre points and weights for N=2 to N=8 points.</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8">4.3.4.2. Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval [a,b], and use to integrate f(x) = \exp(-x) in the interval [0,1] for N=8.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature">4.4.4. Gaussian Quadrature</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-9-use-special-functions-to-get-the-gauss-legendre-points-and-weights-for-n-2-to-n-8-points">4.4.4.1. Example 4.9: Use special functions to get the Gauss-Legendre points and weights for N=2 to N=8 points.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8">4.4.4.2. Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval [a,b], and use to integrate f(x) = \exp(-x) in the interval [0,1] for N=8.</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-rules-3-8-and-milne-rules">4.3.5. Higher Order Rules (3/8 and Milne Rules)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-error-assessment">4.3.6. Integration Error Assessment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-rules-3-8-and-milne-rules">4.4.5. Higher Order Rules (3/8 and Milne Rules)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-error-assessment">4.4.6. Integration Error Assessment</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minor-digression-python-functools-and-partial-functions">4.4. Minor Digression: Python functools and partial functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minor-digression-python-functools-and-partial-functions">4.5. Minor Digression: Python functools and partial functions</a></li>
 </ul>
   </nav></div>
 
