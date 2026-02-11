@@ -690,6 +690,47 @@ d(exp(t))/dt at t= 100.0 = 2.6881171349366646e+43 vs analytic= 2.688117141816135
 <p>And it can be shown (again via Taylor series expansions) that this algorithm has an error of <span class="math notranslate nohighlight">\(\mathcal{O}(h^4)\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(\left.\frac{ \mathrm{d} y(t) } {\mathrm{d} t } \right|_\mathrm{ed} \simeq y'(t) - \frac{h^4}{4 \cdot 16 \cdot 120}y^{(5)}(t) + ... \)</span>.</p>
 <p>Finally, when working with the aproximations, it is important to remember that they may work for well-behaved functions, they may fail badly for functions containing noise, which will most likely be the case if they are coming from measurements or other computations. In that case, it may be necessary to “smooth” the data or fit them with some analytic function (see later chapter) and then differentiate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Example 4.4: Calculate as in Example 4.2, but with the extrapolated-difference derivative</span>
+
+<span class="c1"># define a function for the central-difference derivative.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dfdt_CD</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the central-difference derivative of a function func at t, with step size h&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">func</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">h</span>
+
+<span class="c1"># define a function that uses dfdt_CD:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dfdt_ED</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the extrapolated-difference derivative of a function func at t, with step size h&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">dfdt_CD</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">dfdt_CD</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="mi">3</span>
+
+<span class="c1"># calculate the derivatives at various points in an array t:</span>
+<span class="n">tarray</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">]</span>
+
+<span class="c1"># the step h is taken to be 1E-8:</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">1E-6</span>
+
+<span class="c1"># for the cos function:</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tarray</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;d(cos(t))/dt at t=&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">dfdt_ED</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">h</span><span class="p">),</span> <span class="s1">&#39;vs analytic=&#39;</span><span class="p">,</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="s1">&#39;with error=&#39;</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dfdt_ED</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">))))</span>
+
+<span class="c1"># for the exp function:</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tarray</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;d(exp(t))/dt at t=&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">dfdt_ED</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">h</span><span class="p">),</span> <span class="s1">&#39;vs analytic=&#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="s1">&#39;with error=&#39;</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dfdt_ED</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d(cos(t))/dt at t= 0.1 = -0.09983341664465684 vs analytic= -0.09983341664682815 with error= 2.17131868041065e-12
+d(cos(t))/dt at t= 1.0 = -0.8414709849284089 vs analytic= -0.8414709848078965 with error= 1.2051237785470903e-10
+d(cos(t))/dt at t= 100.0 = 0.5063656398999564 vs analytic= 0.5063656411097588 with error= 1.2098023693951632e-09
+d(exp(t))/dt at t= 0.1 = 1.1051709184102994 vs analytic= 1.1051709180756477 with error= 3.346516397328969e-10
+d(exp(t))/dt at t= 1.0 = 2.7182818291097512 vs analytic= 2.718281828459045 with error= 6.507061556249027e-10
+d(exp(t))/dt at t= 100.0 = 2.6881171349366646e+43 vs analytic= 2.6881171418161356e+43 with error= 6.879470977972417e+34
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="error-assessment-in-numerical-differentiation">
