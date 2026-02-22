@@ -392,23 +392,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">5.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basic-monte-carlo-strategy">5.2. The Basic Monte Carlo Strategy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-1-use-the-monte-carlo-integration-method-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-frac-pi-4-also-calculate-the-error">5.2.1. Example 5.1: Use the Monte Carlo integration method to calculate the integral \int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 } = \frac{\pi}{4}. Also calculate the error.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-2-for-the-function-of-example-5-1-calculate-the-error-as-a-function-of-the-number-of-points-n-from-n-10-to-n-10-4-plot-the-the-logarithm-of-the-error-versus-the-log-of-the-number-of-points-does-it-agree-with-our-expectations">5.2.2. Example 5.2: For the function of example 5.1, calculate the error as a function of the number of points N, from N=10 to N=10^4. Plot the the logarithm of the error versus the log of the number of points. Does it agree with our expectations?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-reduction">5.2.3. Variance Reduction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-3-use-the-monte-carlo-integration-method-with-the-variance-reduction-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-over-the-same-number-of-points-as-in-example-5-2-make-a-plot-comparing-to-the-error-calculated-in-example-5-2">5.2.4. Example 5.3: Use the Monte Carlo integration method with the variance reduction to calculate the integral \int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 } over the same number of points as in Example 5.2. Make a plot comparing to the error calculated in Example 5.2.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">5.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">5.2. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basic-monte-carlo-strategy">5.3. The Basic Monte Carlo Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-1-use-the-monte-carlo-integration-method-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-frac-pi-4-also-calculate-the-error">5.3.1. Example 5.1: Use the Monte Carlo integration method to calculate the integral <span class="math notranslate nohighlight">\(\int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 } = \frac{\pi}{4}\)</span>. Also calculate the error.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-2-for-the-function-of-example-5-1-calculate-the-error-as-a-function-of-the-number-of-points-n-from-n-10-to-n-10-4-plot-the-the-logarithm-of-the-relative-error-versus-the-log-of-the-number-of-points-does-it-agree-with-our-expectations">5.3.2. Example 5.2: For the function of example 5.1, calculate the error as a function of the number of points <span class="math notranslate nohighlight">\(N\)</span>, from <span class="math notranslate nohighlight">\(N=10\)</span> to <span class="math notranslate nohighlight">\(N=10^4\)</span>. Plot the the logarithm of the relative error versus the log of the number of points. Does it agree with our expectations?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-reduction">5.3.3. Variance Reduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-3-use-the-monte-carlo-integration-method-with-the-variance-reduction-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-over-the-same-number-of-points-as-in-example-5-2-make-a-plot-comparing-to-the-error-calculated-in-example-5-2">5.3.4. Example 5.3: Use the Monte Carlo integration method with the variance reduction to calculate the integral <span class="math notranslate nohighlight">\(\int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 }\)</span> over the same number of points as in Example 5.2. Make a plot comparing to the error calculated in Example 5.2.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-dimensional-monte-carlo-integration">5.3. Multi-Dimensional Monte Carlo Integration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-4-use-multi-dimensional-monte-carlo-integration-to-calculate">5.3.1. Example 5.4: Use multi-dimensional Monte Carlo integration to calculate π!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-dimensional-monte-carlo-integration">5.4. Multi-Dimensional Monte Carlo Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-4-use-multi-dimensional-monte-carlo-integration-to-calculate">5.4.1. Example 5.4: Use multi-dimensional Monte Carlo integration to calculate π!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#von-neumann-rejection-sampling-hit-or-miss">5.4. von Neumann Rejection Sampling (“Hit-or-Miss”)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-5-use-von-neumann-rejection-to-sample-points-in-the-interval-0-1-distributed-as-w-x-frac-6-5-1-frac-1-2-x-2-plot-a-histogram-of-the-points-and-verify-that-they-are-indeed-distributed-according-to-w-x-evaluate-the-integral-i-int-0-1-frac-1-1-x-2-mathrm-d-x-and-its-uncertainty-with-these-points">5.4.1. Example 5.5: Use von Neumann rejection to sample points in the interval [0,1], distributed as w(x) = \frac{6}{5} ( 1 - \frac{1}{2} x^2). Plot a histogram of the points and verify that they are indeed distributed according to w(x). Evaluate the integral I = \int_0^1 \frac{1}{1+x^2} \mathrm{d} x and its uncertainty with these points.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-introduction-to-monte-carlo-simulations">5.4.2. An Introduction to Monte Carlo Simulations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-5-due-to-the-uncertainty-principle-the-mass-m-of-an-unstable-particle-which-can-be-measured-through-the-momenta-of-its-decay-products-is-distributed-according-to-the-breit-wigner-distribution-in-natural-units">5.4.3. Example 5.5: Due to the uncertainty principle, the mass, m of an unstable particle (which can be measured through the momenta of its decay products), is distributed according to the Breit-Wigner distribution (in natural units):</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-6-generate-events-distributed-according-to-a-gaussian-distribution">5.4.4. Example 5.6: Generate events distributed according to a Gaussian distribution:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#von-neumann-rejection-sampling-hit-or-miss">5.5. von Neumann Rejection Sampling (“Hit-or-Miss”)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-5-use-von-neumann-rejection-to-sample-points-in-the-interval-0-1-distributed-as-w-x-frac-6-5-1-frac-1-2-x-2-plot-a-histogram-of-the-points-and-verify-that-they-are-indeed-distributed-according-to-w-x-evaluate-the-integral-i-int-0-1-frac-1-1-x-2-mathrm-d-x-and-its-uncertainty-with-these-points">5.5.1. Example 5.5: Use von Neumann rejection to sample points in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>, distributed as <span class="math notranslate nohighlight">\(w(x) = \frac{6}{5} ( 1 - \frac{1}{2} x^2)\)</span>. Plot a histogram of the points and verify that they are indeed distributed according to w(x). Evaluate the integral <span class="math notranslate nohighlight">\(I = \int_0^1 \frac{1}{1+x^2} \mathrm{d} x\)</span> and its uncertainty with these points.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-introduction-to-monte-carlo-simulations">5.5.2. An Introduction to Monte Carlo Simulations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-6-due-to-the-uncertainty-principle-the-mass-m-of-an-unstable-particle-which-can-be-measured-through-the-momenta-of-its-decay-products-is-distributed-according-to-the-breit-wigner-distribution-in-natural-units">5.5.3. Example 5.6: Due to the uncertainty principle, the mass, <span class="math notranslate nohighlight">\(m\)</span>, of an unstable particle (which can be measured through the momenta of its decay products), is distributed according to the Breit-Wigner distribution (in natural units):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-7-generate-events-distributed-according-to-a-gaussian-distribution">5.5.4. Example 5.7: Generate events distributed according to a Gaussian distribution:</a></li>
 </ul>
 </li>
 </ul>
@@ -424,8 +425,21 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="monte-carlo-methods">
 <h1><span class="section-number">5. </span>Monte Carlo Methods<a class="headerlink" href="#monte-carlo-methods" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">5.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, students should be able to:</p>
+<ul class="simple">
+<li><p>Explain the basic idea of <strong>Monte Carlo integration</strong> (estimating an integral via random sampling) and identify when it is advantageous (especially in <strong>higher dimensions</strong>).</p></li>
+<li><p>Implement a basic <strong>Monte Carlo integral function</strong> for <span class="math notranslate nohighlight">\((\int_a^b f(x)\,dx)\)</span>, including a sensible <strong>uncertainty estimate</strong> from sample variance.</p></li>
+<li><p>Demonstrate and interpret the characteristic Monte Carlo convergence rate, <span class="math notranslate nohighlight">\((\sigma \propto 1/\sqrt{N})\)</span>, by running numerical experiments and analyzing error vs <span class="math notranslate nohighlight">\((N)\)</span>.</p></li>
+<li><p>Extend Monte Carlo integration to <strong>multiple dimensions</strong> and use it on simple benchmark problems (e.g., estimating <span class="math notranslate nohighlight">\(\pi\)</span> geometrically).</p></li>
+<li><p>Apply <strong>importance sampling</strong> (choice of <span class="math notranslate nohighlight">\(w(x)\)</span>, change of variables) to reduce variance and quantitatively compare performance against uniform sampling.</p></li>
+<li><p>Generate samples from non-uniform distributions using <strong>accept–reject (von Neumann) sampling</strong>, and validate the sampled distribution (e.g., via histograms/sanity checks).</p></li>
+<li><p>Sample from common physics-motivated PDFs (e.g., <strong>Gaussian</strong>, <strong>Breit–Wigner</strong>) and interpret how parameters control the generated “event” distributions.</p></li>
+</ul>
+</section>
 <section id="introduction">
-<h2><span class="section-number">5.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>In physics we are often interested in systems with large degrees of freedom, e.g.:</p>
 <ul class="simple">
 <li><p>many atoms in a chunk of matter,</p></li>
@@ -436,13 +450,13 @@ document.write(`
 <p>For example, imagine that we need to integrate atomic wave functions over the three coordinates of each of the 12 electrons in a magnesium atom. This amounts to 3x12=36 dimensions!</p>
 <p>If we use 64 points for each integration, this requires about <span class="math notranslate nohighlight">\(64^{36} \simeq 10^{65}\)</span> evaluations of the integrand. If you had a very fast computer, capable of <span class="math notranslate nohighlight">\(10^6\)</span> evaluations per second, this would take <span class="math notranslate nohighlight">\(10^{59}\)</span> s, which is significantly longer than the age of the universe! (<span class="math notranslate nohighlight">\(\sim 10^{17}\)</span> s).</p>
 <p>Direct quadrature is hopeless, if you still want to be alive when your integration is done!</p>
-<p>Monte Carlo methods provide a way to efficiently evaluating integrals of high dimension.</p>
+<p>Monte Carlo methods provide a way to efficiently evaluate integrals of high dimension.</p>
 <p>“Monte Carlo”: arises from the random or “chance” character of the method, through the famous casino in Monaco.</p>
 <p><strong>Basic idea</strong>: evaluate the integrand at a representative random sample of points. Analogous to predicting the results of an election on the basis of a poll of a small number of voters.</p>
 <p>It turns out that the Monte Carlo strategy is very appropriate for a broad class of problems in statistical and quantum mechanics.</p>
 </section>
 <section id="the-basic-monte-carlo-strategy">
-<h2><span class="section-number">5.2. </span>The Basic Monte Carlo Strategy<a class="headerlink" href="#the-basic-monte-carlo-strategy" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>The Basic Monte Carlo Strategy<a class="headerlink" href="#the-basic-monte-carlo-strategy" title="Link to this heading">#</a></h2>
 <p>Even though the real power of Monte Carlo methods (henceforth: MC) is in evaluating multi-dimensional integrals, it is easiest to illustrate the basic ideas in a one-dimensional situation.</p>
 <p>Suppose we have to evaluate the integral:</p>
 <p><span class="math notranslate nohighlight">\(I = \int_0^1 f(x) \mathrm{d} x\)</span>.</p>
@@ -456,7 +470,7 @@ document.write(`
 <p>Some important aspects of Monte Carlo integration are revealed by the above integration formula:</p>
 <ul class="simple">
 <li><p>The uncertainty in the estimate of the integral, <span class="math notranslate nohighlight">\(\sigma_I\)</span>, decreases as <span class="math notranslate nohighlight">\(1/\sqrt{N}\)</span>. If more points are used, we will get a more precise answer, although the error decreases very slowly with the number of points: you need to do four times more numerical work to halve the error in your answer!</p></li>
-<li><p>The trapezium rule error scales as <span class="math notranslate nohighlight">\(1/N^2\)</span>, therefore having a much greater accuracy for a given amount of numerical work. This advantage vasnishes in the multi-dimensional case, as we will see shortly.</p></li>
+<li><p>The trapezium rule error scales as <span class="math notranslate nohighlight">\(1/N^2\)</span>, therefore having a much greater accuracy for a given amount of numerical work. This advantage vanishes in the multi-dimensional case, as we will see shortly.</p></li>
 <li><p>The precision is greater if <span class="math notranslate nohighlight">\(\sigma_f\)</span> is smaller: i.e. if <span class="math notranslate nohighlight">\(f\)</span> is as smooth as possible. One limit to consider is that when <span class="math notranslate nohighlight">\(f\)</span> is constant, in which case we need its value only at one point to define its average. In the other limit, consider a situation in which <span class="math notranslate nohighlight">\(f\)</span> is zero everywhere, except for a very narrow peak above some value of <span class="math notranslate nohighlight">\(x\)</span>. Then, if we pick <span class="math notranslate nohighlight">\(x_i\)</span>s with an equal probability in <span class="math notranslate nohighlight">\([0,1]\)</span>, it is probable that all but a few of them will lie outside the peak of <span class="math notranslate nohighlight">\(f\)</span>, and this will lead to a poor estimate of <span class="math notranslate nohighlight">\(I\)</span>.</p></li>
 </ul>
 <p>The method is extended to any interval <span class="math notranslate nohighlight">\([a,b]\)</span>, by choosing random, uniform <span class="math notranslate nohighlight">\(x_i\)</span>s in <span class="math notranslate nohighlight">\([a,b]\)</span> and:</p>
@@ -465,27 +479,28 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(\int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 } = \frac{\pi}{4}\)</span>.</p>
 <p>Let’s also calculate the error using the formula for <span class="math notranslate nohighlight">\(\sigma_I\)</span>.</p>
 <section id="example-5-1-use-the-monte-carlo-integration-method-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-frac-pi-4-also-calculate-the-error">
-<h3><span class="section-number">5.2.1. </span>Example 5.1: Use the Monte Carlo integration method to calculate the integral \int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 } = \frac{\pi}{4}. Also calculate the error.<a class="headerlink" href="#example-5-1-use-the-monte-carlo-integration-method-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-frac-pi-4-also-calculate-the-error" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.3.1. </span>Example 5.1: Use the Monte Carlo integration method to calculate the integral <span class="math notranslate nohighlight">\(\int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 } = \frac{\pi}{4}\)</span>. Also calculate the error.<a class="headerlink" href="#example-5-1-use-the-monte-carlo-integration-method-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-frac-pi-4-also-calculate-the-error" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span> <span class="c1"># we need random numbers for the Monte Carlo method!</span>
 
+<span class="c1"># set the seed</span>
 <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
 
 <span class="c1"># Let&#39;s define a function that performs one-dimensional MC integration of an arbitrary for N points</span>
 <span class="c1"># We&#39;ll also make it capable of performing the integration in an interval a,b</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">mcint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
-    <span class="n">sumi</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">sumisq</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sum_f</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sum_f2</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
         <span class="n">xi</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">+</span> <span class="n">a</span>
-        <span class="n">sumi</span> <span class="o">=</span> <span class="n">sumi</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
-        <span class="n">sumisq</span> <span class="o">=</span> <span class="n">sumisq</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-    <span class="n">I</span> <span class="o">=</span> <span class="n">sumi</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
-    <span class="n">sumisq</span> <span class="o">=</span> <span class="n">sumisq</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">sum_f</span> <span class="o">=</span> <span class="n">sum_f</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+        <span class="n">sum_f2</span> <span class="o">=</span> <span class="n">sum_f2</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">sum_f</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="n">sumisq</span> <span class="o">=</span> <span class="n">sum_f2</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
     <span class="c1"># sumisq *= (b-a)**2</span>
-    <span class="n">sigmaI</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">sumisq</span> <span class="o">-</span> <span class="n">I</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">sigmaI</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">sum_f2</span> <span class="o">-</span> <span class="n">I</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">I</span><span class="p">,</span> <span class="n">sigmaI</span> <span class="c1"># return the integral and its error</span>
 
@@ -506,8 +521,8 @@ Let&#39;s compare to the analytical value= 0.7853981633974483
 </div>
 </div>
 </section>
-<section id="example-5-2-for-the-function-of-example-5-1-calculate-the-error-as-a-function-of-the-number-of-points-n-from-n-10-to-n-10-4-plot-the-the-logarithm-of-the-error-versus-the-log-of-the-number-of-points-does-it-agree-with-our-expectations">
-<h3><span class="section-number">5.2.2. </span>Example 5.2: For the function of example 5.1, calculate the error as a function of the number of points N, from N=10 to N=10^4. Plot the the logarithm of the error versus the log of the number of points. Does it agree with our expectations?<a class="headerlink" href="#example-5-2-for-the-function-of-example-5-1-calculate-the-error-as-a-function-of-the-number-of-points-n-from-n-10-to-n-10-4-plot-the-the-logarithm-of-the-error-versus-the-log-of-the-number-of-points-does-it-agree-with-our-expectations" title="Link to this heading">#</a></h3>
+<section id="example-5-2-for-the-function-of-example-5-1-calculate-the-error-as-a-function-of-the-number-of-points-n-from-n-10-to-n-10-4-plot-the-the-logarithm-of-the-relative-error-versus-the-log-of-the-number-of-points-does-it-agree-with-our-expectations">
+<h3><span class="section-number">5.3.2. </span>Example 5.2: For the function of example 5.1, calculate the error as a function of the number of points <span class="math notranslate nohighlight">\(N\)</span>, from <span class="math notranslate nohighlight">\(N=10\)</span> to <span class="math notranslate nohighlight">\(N=10^4\)</span>. Plot the the logarithm of the relative error versus the log of the number of points. Does it agree with our expectations?<a class="headerlink" href="#example-5-2-for-the-function-of-example-5-1-calculate-the-error-as-a-function-of-the-number-of-points-n-from-n-10-to-n-10-4-plot-the-the-logarithm-of-the-relative-error-versus-the-log-of-the-number-of-points-does-it-agree-with-our-expectations" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The array of the number of points to integrate over:</span>
@@ -530,26 +545,28 @@ Let&#39;s compare to the analytical value= 0.7853981633974483
 <span class="n">yexpect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Narray</span><span class="p">))</span>
 
 <span class="c1"># plot: </span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># make a one-dimensional plot using the above arrays</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;calculated&#39;</span><span class="p">)</span> <span class="c1"># make a one-dimensional plot using the above arrays</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yexpect</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;theoretical&#39;</span><span class="p">)</span> <span class="c1"># make a one-dimensional plot using the above arrays</span>
 
 <span class="c1"># labels:</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\log_</span><span class="si">{10}</span><span class="s1">(N)$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\log_</span><span class="si">{10}</span><span class="s1">(\epsilon)$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$\\log_{10}(\\epsilon)$&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x106a73e50&gt;
 </pre></div>
 </div>
-<img alt="../../_images/662fde1f14bd035769d8dac4a93a593ad03cb1d824241fe4a83d55a8cca6d964.png" src="../../_images/662fde1f14bd035769d8dac4a93a593ad03cb1d824241fe4a83d55a8cca6d964.png" />
+<img alt="../../_images/75a040375868e5f334b9a4bfbc4391219826ca0be8e70529cef1a328901eb52f.png" src="../../_images/75a040375868e5f334b9a4bfbc4391219826ca0be8e70529cef1a328901eb52f.png" />
 </div>
 </div>
 </section>
 <section id="variance-reduction">
-<h3><span class="section-number">5.2.3. </span>Variance Reduction<a class="headerlink" href="#variance-reduction" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.3.3. </span>Variance Reduction<a class="headerlink" href="#variance-reduction" title="Link to this heading">#</a></h3>
 <p>The uncertainty (squared) in a MC quadrature is proportional to the variance of the integrand:</p>
 <p><span class="math notranslate nohighlight">\(\sigma_I^2 \approx \frac{1}{N} \sigma_f^2\)</span>,</p>
 <p>with the variance of the integrand:</p>
@@ -592,7 +609,7 @@ This will result in a reduction in the variance of the MC estimate.</p>
 <span class="c1"># make a one-dimensional plot:</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$f(x) = 1/(x^2 + 1)$&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
 
-<span class="c1"># check if this agrees with a line with slope -1/2 (on the log-log plot):</span>
+<span class="c1"># plot the weight</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$w(x) = (4-2x)/3$&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
 <span class="c1"># construct the legend:</span>
@@ -613,12 +630,15 @@ This will result in a reduction in the variance of the MC estimate.</p>
 <p>Let’s see this change of variables in action!</p>
 </section>
 <section id="example-5-3-use-the-monte-carlo-integration-method-with-the-variance-reduction-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-over-the-same-number-of-points-as-in-example-5-2-make-a-plot-comparing-to-the-error-calculated-in-example-5-2">
-<h3><span class="section-number">5.2.4. </span>Example 5.3: Use the Monte Carlo integration method with the variance reduction to calculate the integral \int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 } over the same number of points as in Example 5.2. Make a plot comparing to the error calculated in Example 5.2.<a class="headerlink" href="#example-5-3-use-the-monte-carlo-integration-method-with-the-variance-reduction-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-over-the-same-number-of-points-as-in-example-5-2-make-a-plot-comparing-to-the-error-calculated-in-example-5-2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.3.4. </span>Example 5.3: Use the Monte Carlo integration method with the variance reduction to calculate the integral <span class="math notranslate nohighlight">\(\int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 }\)</span> over the same number of points as in Example 5.2. Make a plot comparing to the error calculated in Example 5.2.<a class="headerlink" href="#example-5-3-use-the-monte-carlo-integration-method-with-the-variance-reduction-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-over-the-same-number-of-points-as-in-example-5-2-make-a-plot-comparing-to-the-error-calculated-in-example-5-2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start by modifying the mcint function to accept the x(y) and w(x) functions as input</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span> <span class="c1"># we need random numbers for the Monte Carlo method!</span>
+
+<span class="c1"># set the seed</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -626,7 +646,7 @@ This will result in a reduction in the variance of the MC estimate.</p>
 </section>
 </section>
 <section id="multi-dimensional-monte-carlo-integration">
-<h2><span class="section-number">5.3. </span>Multi-Dimensional Monte Carlo Integration<a class="headerlink" href="#multi-dimensional-monte-carlo-integration" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.4. </span>Multi-Dimensional Monte Carlo Integration<a class="headerlink" href="#multi-dimensional-monte-carlo-integration" title="Link to this heading">#</a></h2>
 <p>The one-dimensional discussion above can be readily generalized to <span class="math notranslate nohighlight">\(d\)</span>-dimensional integrals of the form:</p>
 <p><span class="math notranslate nohighlight">\(I = \int \mathrm{d}^d x f(\vec{x})\)</span>.</p>
 <p>MC integration proceeds as it did in the one-dimensional case:</p>
@@ -646,7 +666,7 @@ This will result in a reduction in the variance of the MC estimate.</p>
 <span class="c1"># set the labels and titles:</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># set the x label</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># set the y label. Note that the &#39;r&#39; is necessary to remove the need for double slashes. You can use LaTeX! </span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Area of quadrant of cirlce vs. that of square of side 1&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># set the title </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Area of quadrant of circle vs. that of square of side 1&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># set the title </span>
 
 <span class="c1"># plot the circle</span>
 <span class="n">circle1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -660,11 +680,22 @@ This will result in a reduction in the variance of the MC estimate.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9bc3b809433f07f8e2dc3ca1a1cd8e9f837973318f2dbd7c5a2d736fed54632a.png" src="../../_images/9bc3b809433f07f8e2dc3ca1a1cd8e9f837973318f2dbd7c5a2d736fed54632a.png" />
+<img alt="../../_images/6c228bfd1223924b1940215324ff973a8d1d0d13aef706692ececcdc98e93f49.png" src="../../_images/6c228bfd1223924b1940215324ff973a8d1d0d13aef706692ececcdc98e93f49.png" />
 </div>
 </div>
 <section id="example-5-4-use-multi-dimensional-monte-carlo-integration-to-calculate">
-<h3><span class="section-number">5.3.1. </span>Example 5.4: Use multi-dimensional Monte Carlo integration to calculate π!<a class="headerlink" href="#example-5-4-use-multi-dimensional-monte-carlo-integration-to-calculate" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.1. </span>Example 5.4: Use multi-dimensional Monte Carlo integration to calculate π!<a class="headerlink" href="#example-5-4-use-multi-dimensional-monte-carlo-integration-to-calculate" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span> <span class="c1"># we need random numbers for the Monte Carlo method!</span>
+
+<span class="c1"># set the seed</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can also use variance reduction in many dimensions. For a weight function <span class="math notranslate nohighlight">\(w(\vec{x})\)</span> normalized so that its integral over the region is unity, the new variable is a vector <span class="math notranslate nohighlight">\(\vec{y}\)</span>, where the <em>Jacobian</em> is:</p>
 <p><span class="math notranslate nohighlight">\(\left| \frac{\partial \vec{y}}{\partial \vec{x}}\right| = w(\vec{x})\)</span>.</p>
 <p>It’s generally very difficult to construct <span class="math notranslate nohighlight">\(\vec{x}(\vec{y})\)</span> explicitly. We will discuss methods to do this below.</p>
@@ -679,7 +710,7 @@ This will result in a reduction in the variance of the MC estimate.</p>
 </section>
 </section>
 <section id="von-neumann-rejection-sampling-hit-or-miss">
-<h2><span class="section-number">5.4. </span>von Neumann Rejection Sampling (“Hit-or-Miss”)<a class="headerlink" href="#von-neumann-rejection-sampling-hit-or-miss" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.5. </span>von Neumann Rejection Sampling (“Hit-or-Miss”)<a class="headerlink" href="#von-neumann-rejection-sampling-hit-or-miss" title="Link to this heading">#</a></h2>
 <p>During our integration of <span class="math notranslate nohighlight">\(I = \int_0^1 \frac{1}{1+x^2} \mathrm{d} x\)</span>, if we had wanted to use the weight function:</p>
 <p><span class="math notranslate nohighlight">\(w(x) = \frac{6}{5} (1 - \frac{1}{2} x^2)\)</span>,</p>
 <p>then we would have been faced with solving a cubic equation to find <span class="math notranslate nohighlight">\(x(y)\)</span>. While this is certainly possible, choices of the weight that might follow <span class="math notranslate nohighlight">\(f\)</span> more generally will lead to more complicated functions that cannot be inverted analytically.</p>
@@ -695,10 +726,21 @@ This will result in a reduction in the variance of the MC estimate.</p>
 </ul>
 <p>This technique is clearly efficient only if <span class="math notranslate nohighlight">\(w'\)</span> is close to <span class="math notranslate nohighlight">\(w\)</span> throughout the entire range of integration, otherwise too much time is wasted rejecting “useless” points.</p>
 <section id="example-5-5-use-von-neumann-rejection-to-sample-points-in-the-interval-0-1-distributed-as-w-x-frac-6-5-1-frac-1-2-x-2-plot-a-histogram-of-the-points-and-verify-that-they-are-indeed-distributed-according-to-w-x-evaluate-the-integral-i-int-0-1-frac-1-1-x-2-mathrm-d-x-and-its-uncertainty-with-these-points">
-<h3><span class="section-number">5.4.1. </span>Example 5.5: Use von Neumann rejection to sample points in the interval [0,1], distributed as w(x) = \frac{6}{5} ( 1 - \frac{1}{2} x^2). Plot a histogram of the points and verify that they are indeed distributed according to w(x). Evaluate the integral I = \int_0^1 \frac{1}{1+x^2} \mathrm{d} x and its uncertainty with these points.<a class="headerlink" href="#example-5-5-use-von-neumann-rejection-to-sample-points-in-the-interval-0-1-distributed-as-w-x-frac-6-5-1-frac-1-2-x-2-plot-a-histogram-of-the-points-and-verify-that-they-are-indeed-distributed-according-to-w-x-evaluate-the-integral-i-int-0-1-frac-1-1-x-2-mathrm-d-x-and-its-uncertainty-with-these-points" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.5.1. </span>Example 5.5: Use von Neumann rejection to sample points in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>, distributed as <span class="math notranslate nohighlight">\(w(x) = \frac{6}{5} ( 1 - \frac{1}{2} x^2)\)</span>. Plot a histogram of the points and verify that they are indeed distributed according to w(x). Evaluate the integral <span class="math notranslate nohighlight">\(I = \int_0^1 \frac{1}{1+x^2} \mathrm{d} x\)</span> and its uncertainty with these points.<a class="headerlink" href="#example-5-5-use-von-neumann-rejection-to-sample-points-in-the-interval-0-1-distributed-as-w-x-frac-6-5-1-frac-1-2-x-2-plot-a-histogram-of-the-points-and-verify-that-they-are-indeed-distributed-according-to-w-x-evaluate-the-integral-i-int-0-1-frac-1-1-x-2-mathrm-d-x-and-its-uncertainty-with-these-points" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span> <span class="c1"># we need random numbers for the Monte Carlo method!</span>
+
+<span class="c1"># set the seed</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="an-introduction-to-monte-carlo-simulations">
-<h3><span class="section-number">5.4.2. </span>An Introduction to Monte Carlo Simulations<a class="headerlink" href="#an-introduction-to-monte-carlo-simulations" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.5.2. </span>An Introduction to Monte Carlo Simulations<a class="headerlink" href="#an-introduction-to-monte-carlo-simulations" title="Link to this heading">#</a></h3>
 <p>A Monte Carlo simulation contains the following ingredients:</p>
 <ul class="simple">
 <li><p>A probability density function that characterizes the system that we wish to simulate,</p></li>
@@ -709,8 +751,8 @@ This will result in a reduction in the variance of the MC estimate.</p>
 <p>The von Neumann rejection method of sampling provides a simple way to generate “simulations”, i.e. samples of “events” that are distributed according to a certain probability density function, and look “realistic”.</p>
 <p>Let’s examine an example in one dimension!</p>
 </section>
-<section id="example-5-5-due-to-the-uncertainty-principle-the-mass-m-of-an-unstable-particle-which-can-be-measured-through-the-momenta-of-its-decay-products-is-distributed-according-to-the-breit-wigner-distribution-in-natural-units">
-<h3><span class="section-number">5.4.3. </span>Example 5.5: Due to the uncertainty principle, the mass, m of an unstable particle (which can be measured through the momenta of its decay products), is distributed according to the Breit-Wigner distribution (in natural units):<a class="headerlink" href="#example-5-5-due-to-the-uncertainty-principle-the-mass-m-of-an-unstable-particle-which-can-be-measured-through-the-momenta-of-its-decay-products-is-distributed-according-to-the-breit-wigner-distribution-in-natural-units" title="Link to this heading">#</a></h3>
+<section id="example-5-6-due-to-the-uncertainty-principle-the-mass-m-of-an-unstable-particle-which-can-be-measured-through-the-momenta-of-its-decay-products-is-distributed-according-to-the-breit-wigner-distribution-in-natural-units">
+<h3><span class="section-number">5.5.3. </span>Example 5.6: Due to the uncertainty principle, the mass, <span class="math notranslate nohighlight">\(m\)</span>, of an unstable particle (which can be measured through the momenta of its decay products), is distributed according to the Breit-Wigner distribution (in natural units):<a class="headerlink" href="#example-5-6-due-to-the-uncertainty-principle-the-mass-m-of-an-unstable-particle-which-can-be-measured-through-the-momenta-of-its-decay-products-is-distributed-according-to-the-breit-wigner-distribution-in-natural-units" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(f(m) = \frac{k}{ (m^2 - M^2)^2 + \Gamma^2 M^2 }\)</span>,</p>
 <p>where <span class="math notranslate nohighlight">\(k\)</span> is a normalization constant, <span class="math notranslate nohighlight">\(M\)</span> is the particle’s “nominal” mass and, <span class="math notranslate nohighlight">\(\Gamma = 1/\tau\)</span> is its width, defined as the inverse of its lifetime, <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
 <p>Our goal is to generate <span class="math notranslate nohighlight">\(N\)</span> decays of the particle in its rest frame, distributed according to the Breit-Wigner distribution.</p>
@@ -721,6 +763,9 @@ This will result in a reduction in the variance of the MC estimate.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="c1"># set the seed</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
 
 <span class="c1"># first let&#39;s define our distribution: </span>
 <span class="k">def</span><span class="w"> </span><span class="nf">fBW</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">Gam</span><span class="p">):</span>
@@ -733,7 +778,7 @@ This will result in a reduction in the variance of the MC estimate.</p>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># n will be the counter of generated &quot;events&quot;</span>
 <span class="c1"># set the properties of the particle:</span>
 <span class="n">M</span> <span class="o">=</span> <span class="mf">172.7</span>
-<span class="n">Gam</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">Gam</span> <span class="o">=</span> <span class="mf">1.4</span>
 <span class="c1"># let&#39;s also set a minimum and maximum mass (in GeV) </span>
 <span class="n">mmax</span> <span class="o">=</span> <span class="mi">200</span> 
 <span class="n">mmin</span> <span class="o">=</span> <span class="mi">150</span>
@@ -781,19 +826,19 @@ This will result in a reduction in the variance of the MC estimate.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8aa6d228450eebdc3a2cd3d4d998ded8ae918d0a59700d9cb325947e770e0a8b.png" src="../../_images/8aa6d228450eebdc3a2cd3d4d998ded8ae918d0a59700d9cb325947e770e0a8b.png" />
+<img alt="../../_images/5b1c463336ce17d4a10f3a23cd32cd7670c8c44926b5e231e5abf6e3d9d8686d.png" src="../../_images/5b1c463336ce17d4a10f3a23cd32cd7670c8c44926b5e231e5abf6e3d9d8686d.png" />
 </div>
 </div>
 <p>In this case, we can perform a change of variables to obtain an efficiency of 100%:</p>
 <p><span class="math notranslate nohighlight">\(m^2 = M\Gamma \tan\eta + M^2\)</span>.</p>
 <p>and with this:</p>
 <p><span class="math notranslate nohighlight">\(\frac{ \mathrm{d} m^2 }{ \mathrm{d} \eta} = M\Gamma \sec^2 \eta\)</span>, which turns the Breit-Wigner distribution flat, e.g., under the integral:</p>
-<p><span class="math notranslate nohighlight">\(I = \int_{m_\mathrm{min}}^{m_\mathrm{max}} \mathrm{d} m^2 \frac{k}{ (m^2 - M^2)^2 + \Gamma^2 M^2 }\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(I = \int_{m_\mathrm{min}^2}^{m_\mathrm{max}^2} \mathrm{d} m^2 \frac{k}{ (m^2 - M^2)^2 + \Gamma^2 M^2 }\)</span>,</p>
 <p>which turns into:</p>
-<p><span class="math notranslate nohighlight">\(I = \int_{m_\mathrm{min}}^{m_\mathrm{max}} \mathrm{d} \eta \left|\frac{ \mathrm{d} m^2 }{ \mathrm{d} \eta}\right|  \frac{k}{ (m^2 - M^2)^2 + \Gamma^2 M^2 } = \int_{\eta_\mathrm{min}}^{\eta_\mathrm{max}} \frac{k}{\Gamma M} \mathrm{d} \rho\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(I = \int_{\eta_\mathrm{min}}^{\eta_\mathrm{max}} \mathrm{d} \eta \left|\frac{ \mathrm{d} m^2 }{ \mathrm{d} \eta}\right|  \frac{k}{ (m^2 - M^2)^2 + \Gamma^2 M^2 } = \int_{\eta_\mathrm{min}}^{\eta_\mathrm{max}} \frac{k}{\Gamma M} \mathrm{d} \eta\)</span>.</p>
 </section>
-<section id="example-5-6-generate-events-distributed-according-to-a-gaussian-distribution">
-<h3><span class="section-number">5.4.4. </span>Example 5.6: Generate events distributed according to a Gaussian distribution:<a class="headerlink" href="#example-5-6-generate-events-distributed-according-to-a-gaussian-distribution" title="Link to this heading">#</a></h3>
+<section id="example-5-7-generate-events-distributed-according-to-a-gaussian-distribution">
+<h3><span class="section-number">5.5.4. </span>Example 5.7: Generate events distributed according to a Gaussian distribution:<a class="headerlink" href="#example-5-7-generate-events-distributed-according-to-a-gaussian-distribution" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(f(x) = \frac{1}{\sigma \sqrt{2 \pi}} \exp(- (x-\mu)^2 / (2\sigma^2))\)</span></p>
 <p>Plot the results in a histogram.</p>
 <div class="cell docutils container">
@@ -802,13 +847,16 @@ This will result in a reduction in the variance of the MC estimate.</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
+<span class="c1"># set the seed</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+
 <span class="c1"># first let&#39;s define our distribution: </span>
 <span class="k">def</span><span class="w"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the Gaussan distribution&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the Gaussian distribution&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">sigma</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="c1"># and perform the von Neumann rejection:</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span> <span class="c1"># we will generate N poits</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span> <span class="c1"># we will generate N points</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># n will be the counter of generated &quot;events&quot;</span>
 <span class="c1"># set the properties of the particle:</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span>
@@ -859,7 +907,7 @@ This will result in a reduction in the variance of the MC estimate.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b99fc3086d48d6ce50270f6495976b73f30efeff759e5bd0c93116fe67552486.png" src="../../_images/b99fc3086d48d6ce50270f6495976b73f30efeff759e5bd0c93116fe67552486.png" />
+<img alt="../../_images/abfeabc6a295b7c674992727cc70ad629a77890159367af9331574b62a940622.png" src="../../_images/abfeabc6a295b7c674992727cc70ad629a77890159367af9331574b62a940622.png" />
 </div>
 </div>
 </section>
@@ -930,23 +978,24 @@ This will result in a reduction in the variance of the MC estimate.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">5.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basic-monte-carlo-strategy">5.2. The Basic Monte Carlo Strategy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-1-use-the-monte-carlo-integration-method-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-frac-pi-4-also-calculate-the-error">5.2.1. Example 5.1: Use the Monte Carlo integration method to calculate the integral \int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 } = \frac{\pi}{4}. Also calculate the error.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-2-for-the-function-of-example-5-1-calculate-the-error-as-a-function-of-the-number-of-points-n-from-n-10-to-n-10-4-plot-the-the-logarithm-of-the-error-versus-the-log-of-the-number-of-points-does-it-agree-with-our-expectations">5.2.2. Example 5.2: For the function of example 5.1, calculate the error as a function of the number of points N, from N=10 to N=10^4. Plot the the logarithm of the error versus the log of the number of points. Does it agree with our expectations?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-reduction">5.2.3. Variance Reduction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-3-use-the-monte-carlo-integration-method-with-the-variance-reduction-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-over-the-same-number-of-points-as-in-example-5-2-make-a-plot-comparing-to-the-error-calculated-in-example-5-2">5.2.4. Example 5.3: Use the Monte Carlo integration method with the variance reduction to calculate the integral \int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 } over the same number of points as in Example 5.2. Make a plot comparing to the error calculated in Example 5.2.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">5.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">5.2. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basic-monte-carlo-strategy">5.3. The Basic Monte Carlo Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-1-use-the-monte-carlo-integration-method-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-frac-pi-4-also-calculate-the-error">5.3.1. Example 5.1: Use the Monte Carlo integration method to calculate the integral <span class="math notranslate nohighlight">\(\int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 } = \frac{\pi}{4}\)</span>. Also calculate the error.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-2-for-the-function-of-example-5-1-calculate-the-error-as-a-function-of-the-number-of-points-n-from-n-10-to-n-10-4-plot-the-the-logarithm-of-the-relative-error-versus-the-log-of-the-number-of-points-does-it-agree-with-our-expectations">5.3.2. Example 5.2: For the function of example 5.1, calculate the error as a function of the number of points <span class="math notranslate nohighlight">\(N\)</span>, from <span class="math notranslate nohighlight">\(N=10\)</span> to <span class="math notranslate nohighlight">\(N=10^4\)</span>. Plot the the logarithm of the relative error versus the log of the number of points. Does it agree with our expectations?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-reduction">5.3.3. Variance Reduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-3-use-the-monte-carlo-integration-method-with-the-variance-reduction-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-over-the-same-number-of-points-as-in-example-5-2-make-a-plot-comparing-to-the-error-calculated-in-example-5-2">5.3.4. Example 5.3: Use the Monte Carlo integration method with the variance reduction to calculate the integral <span class="math notranslate nohighlight">\(\int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 }\)</span> over the same number of points as in Example 5.2. Make a plot comparing to the error calculated in Example 5.2.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-dimensional-monte-carlo-integration">5.3. Multi-Dimensional Monte Carlo Integration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-4-use-multi-dimensional-monte-carlo-integration-to-calculate">5.3.1. Example 5.4: Use multi-dimensional Monte Carlo integration to calculate π!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-dimensional-monte-carlo-integration">5.4. Multi-Dimensional Monte Carlo Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-4-use-multi-dimensional-monte-carlo-integration-to-calculate">5.4.1. Example 5.4: Use multi-dimensional Monte Carlo integration to calculate π!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#von-neumann-rejection-sampling-hit-or-miss">5.4. von Neumann Rejection Sampling (“Hit-or-Miss”)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-5-use-von-neumann-rejection-to-sample-points-in-the-interval-0-1-distributed-as-w-x-frac-6-5-1-frac-1-2-x-2-plot-a-histogram-of-the-points-and-verify-that-they-are-indeed-distributed-according-to-w-x-evaluate-the-integral-i-int-0-1-frac-1-1-x-2-mathrm-d-x-and-its-uncertainty-with-these-points">5.4.1. Example 5.5: Use von Neumann rejection to sample points in the interval [0,1], distributed as w(x) = \frac{6}{5} ( 1 - \frac{1}{2} x^2). Plot a histogram of the points and verify that they are indeed distributed according to w(x). Evaluate the integral I = \int_0^1 \frac{1}{1+x^2} \mathrm{d} x and its uncertainty with these points.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-introduction-to-monte-carlo-simulations">5.4.2. An Introduction to Monte Carlo Simulations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-5-due-to-the-uncertainty-principle-the-mass-m-of-an-unstable-particle-which-can-be-measured-through-the-momenta-of-its-decay-products-is-distributed-according-to-the-breit-wigner-distribution-in-natural-units">5.4.3. Example 5.5: Due to the uncertainty principle, the mass, m of an unstable particle (which can be measured through the momenta of its decay products), is distributed according to the Breit-Wigner distribution (in natural units):</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-6-generate-events-distributed-according-to-a-gaussian-distribution">5.4.4. Example 5.6: Generate events distributed according to a Gaussian distribution:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#von-neumann-rejection-sampling-hit-or-miss">5.5. von Neumann Rejection Sampling (“Hit-or-Miss”)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-5-use-von-neumann-rejection-to-sample-points-in-the-interval-0-1-distributed-as-w-x-frac-6-5-1-frac-1-2-x-2-plot-a-histogram-of-the-points-and-verify-that-they-are-indeed-distributed-according-to-w-x-evaluate-the-integral-i-int-0-1-frac-1-1-x-2-mathrm-d-x-and-its-uncertainty-with-these-points">5.5.1. Example 5.5: Use von Neumann rejection to sample points in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>, distributed as <span class="math notranslate nohighlight">\(w(x) = \frac{6}{5} ( 1 - \frac{1}{2} x^2)\)</span>. Plot a histogram of the points and verify that they are indeed distributed according to w(x). Evaluate the integral <span class="math notranslate nohighlight">\(I = \int_0^1 \frac{1}{1+x^2} \mathrm{d} x\)</span> and its uncertainty with these points.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-introduction-to-monte-carlo-simulations">5.5.2. An Introduction to Monte Carlo Simulations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-6-due-to-the-uncertainty-principle-the-mass-m-of-an-unstable-particle-which-can-be-measured-through-the-momenta-of-its-decay-products-is-distributed-according-to-the-breit-wigner-distribution-in-natural-units">5.5.3. Example 5.6: Due to the uncertainty principle, the mass, <span class="math notranslate nohighlight">\(m\)</span>, of an unstable particle (which can be measured through the momenta of its decay products), is distributed according to the Breit-Wigner distribution (in natural units):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-7-generate-events-distributed-according-to-a-gaussian-distribution">5.5.4. Example 5.7: Generate events distributed according to a Gaussian distribution:</a></li>
 </ul>
 </li>
 </ul>

@@ -428,7 +428,7 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature">4.4.4. Gaussian Quadrature</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-9-use-special-functions-to-get-the-gauss-legendre-points-and-weights-for-n-2-to-n-8-points">4.4.4.1. Example 4.9: Use special functions to get the Gauss-Legendre points and weights for N=2 to N=8 points.</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8">4.4.4.2. Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval [a,b], and use to integrate f(x) = \exp(-x) in the interval [0,1] for N=8.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8">4.4.4.2. Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval <span class="math notranslate nohighlight">\([a,b]\)</span>, and use to integrate <span class="math notranslate nohighlight">\(f(x) = \exp(-x)\)</span> in the interval <span class="math notranslate nohighlight">\([0,1]\)</span> for <span class="math notranslate nohighlight">\(N=8\)</span>.</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-rules-3-8-and-milne-rules">4.4.5. Higher Order Rules (3/8 and Milne Rules)</a></li>
@@ -1243,10 +1243,7 @@ Fractional error= 9.378892789826624e-14
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N=2 Gaussian quadrature, evaluated at:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [-0.57735027  0.57735027]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N=2 Gaussian quadrature, evaluated at: [-0.57735027  0.57735027]
 with weights [1. 1.]
 n= 3 Gaussian quadrature, evaluated at: [-0.77459667  0.          0.77459667]
 with weights [0.55555556 0.88888889 0.55555556] 
@@ -1276,7 +1273,7 @@ with weights [0.10122854 0.22238103 0.31370665 0.36268378 0.36268378 0.31370665
 <p>Let’s now use this to evaluate an integral!</p>
 </section>
 <section id="example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8">
-<h4><span class="section-number">4.4.4.2. </span>Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval [a,b], and use to integrate f(x) = \exp(-x) in the interval [0,1] for N=8.<a class="headerlink" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.4.4.2. </span>Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval <span class="math notranslate nohighlight">\([a,b]\)</span>, and use to integrate <span class="math notranslate nohighlight">\(f(x) = \exp(-x)\)</span> in the interval <span class="math notranslate nohighlight">\([0,1]\)</span> for <span class="math notranslate nohighlight">\(N=8\)</span>.<a class="headerlink" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8" title="Link to this heading">#</a></h4>
 <p>Compare to the results obtained through the trapezoid rule with <span class="math notranslate nohighlight">\(N=10^6\)</span> points, and Simpson’s rule with <span class="math notranslate nohighlight">\(N=2001\)</span> points.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1346,7 +1343,8 @@ Fractional error= 1.7563469643870083e-16
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span> 
 
-<span class="n">Narray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">)])</span> <span class="c1"># the NumPy logspace returns numbers spaced evenly on a log scale.</span>
+<span class="n">NarrayT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">)])</span> <span class="c1"># the NumPy logspace returns numbers spaced evenly on a log scale.</span>
+<span class="n">NarrayG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">)])</span> <span class="c1"># the NumPy logspace returns numbers spaced evenly on a log scale.</span>
 
 <span class="c1"># test the function for exp(-t) in [0,1]:</span>
 <span class="c1"># first define the function we wish to integrate: </span>
@@ -1354,14 +1352,14 @@ Fractional error= 1.7563469643870083e-16
     <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
 
 <span class="c1"># Trapezoid rule result:</span>
-<span class="n">I_trapezoid</span> <span class="o">=</span> <span class="p">[</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="n">Narray</span><span class="p">]</span>
+<span class="n">I_trapezoid</span> <span class="o">=</span> <span class="p">[</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="n">NarrayT</span><span class="p">]</span>
 
 <span class="c1"># Simpson&#39;s rule result:</span>
 <span class="c1"># reinstate after we have written the function:</span>
 <span class="c1">#I_simpson = [simpson(f,0,1,N) for N in Narray]</span>
 
 <span class="c1"># Gaussian Quadrature result:</span>
-<span class="n">I_gaussian</span> <span class="o">=</span> <span class="p">[</span><span class="n">gauss</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="n">Narray</span><span class="p">]</span>
+<span class="n">I_gaussian</span> <span class="o">=</span> <span class="p">[</span><span class="n">gauss</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="n">NarrayG</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1387,7 +1385,8 @@ Fractional error= 1.7563469643870083e-16
 <span class="n">log10_eps_gaussian</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">eps_gaussian</span><span class="p">)</span>
 
 <span class="c1"># and of the array: </span>
-<span class="n">log10_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">Narray</span><span class="p">)</span>
+<span class="n">log10_NT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">NarrayT</span><span class="p">)</span>
+<span class="n">log10_NG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">NarrayG</span><span class="p">)</span>
 
 <span class="c1"># Now let&#39;s plot them! </span>
 </pre></div>
@@ -1408,9 +1407,9 @@ Fractional error= 1.7563469643870083e-16
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Error assessment in numerical integration of $f(x)=\exp(x)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># set the title </span>
 
 <span class="c1"># make a one-dimensional plot using the arrays relevant to the cosine:</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log10_N</span><span class="p">,</span> <span class="n">log10_eps_trapezoid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Trapezoid&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log10_NT</span><span class="p">,</span> <span class="n">log10_eps_trapezoid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Trapezoid&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
 <span class="c1">#ax.plot(log10_N, log10_eps_simpson, label=&#39;Simpson&#39;, ls=&#39;-&#39;, color=&#39;green&#39;) </span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log10_N</span><span class="p">,</span> <span class="n">log10_eps_gaussian</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Gaussian&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log10_NG</span><span class="p">,</span> <span class="n">log10_eps_gaussian</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Gaussian&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
 
 <span class="c1"># construct the legend:</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>  <span class="c1"># Add a legend</span>
@@ -1420,7 +1419,7 @@ Fractional error= 1.7563469643870083e-16
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9a0a13220c70208e82a7156f8cac8095adcb7cee357e56595377fceefa967aa9.png" src="../../_images/9a0a13220c70208e82a7156f8cac8095adcb7cee357e56595377fceefa967aa9.png" />
+<img alt="../../_images/dd0b18aed1259f46b6583398d0e9dbe923172362008d255f148c32c58a63025f.png" src="../../_images/dd0b18aed1259f46b6583398d0e9dbe923172362008d255f148c32c58a63025f.png" />
 </div>
 </div>
 </section>
@@ -1574,7 +1573,7 @@ Integral of a*x+b in [0,1], for a= 0.3 b= 0.6 = 0.7499999999999999
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature">4.4.4. Gaussian Quadrature</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-9-use-special-functions-to-get-the-gauss-legendre-points-and-weights-for-n-2-to-n-8-points">4.4.4.1. Example 4.9: Use special functions to get the Gauss-Legendre points and weights for N=2 to N=8 points.</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8">4.4.4.2. Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval [a,b], and use to integrate f(x) = \exp(-x) in the interval [0,1] for N=8.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-10-construct-a-function-that-implements-n-th-order-gaussian-quadrature-in-the-interval-a-b-and-use-to-integrate-f-x-exp-x-in-the-interval-0-1-for-n-8">4.4.4.2. Example 4.10: Construct a function that implements N-th order Gaussian quadrature in the interval <span class="math notranslate nohighlight">\([a,b]\)</span>, and use to integrate <span class="math notranslate nohighlight">\(f(x) = \exp(-x)\)</span> in the interval <span class="math notranslate nohighlight">\([0,1]\)</span> for <span class="math notranslate nohighlight">\(N=8\)</span>.</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-rules-3-8-and-milne-rules">4.4.5. Higher Order Rules (3/8 and Milne Rules)</a></li>
