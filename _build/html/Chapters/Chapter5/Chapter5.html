@@ -558,7 +558,7 @@ Let&#39;s compare to the analytical value= 0.7853981633974483
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x106a73e50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10c85f710&gt;
 </pre></div>
 </div>
 <img alt="../../_images/75a040375868e5f334b9a4bfbc4391219826ca0be8e70529cef1a328901eb52f.png" src="../../_images/75a040375868e5f334b9a4bfbc4391219826ca0be8e70529cef1a328901eb52f.png" />
@@ -613,7 +613,7 @@ This will result in a reduction in the variance of the MC estimate.</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$w(x) = (4-2x)/3$&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
 <span class="c1"># construct the legend:</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>  <span class="c1"># Add a legend</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>  <span class="c1"># Add a legend </span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># show the plot here</span>
 </pre></div>
@@ -631,18 +631,6 @@ This will result in a reduction in the variance of the MC estimate.</p>
 </section>
 <section id="example-5-3-use-the-monte-carlo-integration-method-with-the-variance-reduction-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-over-the-same-number-of-points-as-in-example-5-2-make-a-plot-comparing-to-the-error-calculated-in-example-5-2">
 <h3><span class="section-number">5.3.4. </span>Example 5.3: Use the Monte Carlo integration method with the variance reduction to calculate the integral <span class="math notranslate nohighlight">\(\int_0^1 \frac{ \mathrm{d} x } { 1 + x^2 }\)</span> over the same number of points as in Example 5.2. Make a plot comparing to the error calculated in Example 5.2.<a class="headerlink" href="#example-5-3-use-the-monte-carlo-integration-method-with-the-variance-reduction-to-calculate-the-integral-int-0-1-frac-mathrm-d-x-1-x-2-over-the-same-number-of-points-as-in-example-5-2-make-a-plot-comparing-to-the-error-calculated-in-example-5-2" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start by modifying the mcint function to accept the x(y) and w(x) functions as input</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">random</span> <span class="c1"># we need random numbers for the Monte Carlo method!</span>
-
-<span class="c1"># set the seed</span>
-<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="multi-dimensional-monte-carlo-integration">
@@ -685,17 +673,6 @@ This will result in a reduction in the variance of the MC estimate.</p>
 </div>
 <section id="example-5-4-use-multi-dimensional-monte-carlo-integration-to-calculate">
 <h3><span class="section-number">5.4.1. </span>Example 5.4: Use multi-dimensional Monte Carlo integration to calculate π!<a class="headerlink" href="#example-5-4-use-multi-dimensional-monte-carlo-integration-to-calculate" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">random</span> <span class="c1"># we need random numbers for the Monte Carlo method!</span>
-
-<span class="c1"># set the seed</span>
-<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>We can also use variance reduction in many dimensions. For a weight function <span class="math notranslate nohighlight">\(w(\vec{x})\)</span> normalized so that its integral over the region is unity, the new variable is a vector <span class="math notranslate nohighlight">\(\vec{y}\)</span>, where the <em>Jacobian</em> is:</p>
 <p><span class="math notranslate nohighlight">\(\left| \frac{\partial \vec{y}}{\partial \vec{x}}\right| = w(\vec{x})\)</span>.</p>
 <p>It’s generally very difficult to construct <span class="math notranslate nohighlight">\(\vec{x}(\vec{y})\)</span> explicitly. We will discuss methods to do this below.</p>

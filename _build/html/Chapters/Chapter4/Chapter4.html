@@ -1340,12 +1340,89 @@ Fractional error= 1.7563469643870083e-16
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="c1"># test the function for exp(-t) in [0,1]:</span>
+<span class="c1"># first define the function we wish to integrate: </span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s write a higher-order function that implements the Simpson rule:</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Let&#39;s write a higher-order function that implements Simpson&#39;s rule:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">simpson</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the numerical integral of a function in the interval a,b using Simpson&#39;s rule for N points&quot;&quot;&quot;</span>
+    <span class="c1"># throw error if N is not even:</span>
+    <span class="k">if</span> <span class="n">N</span><span class="o">%</span><span class="k">2</span> == 0:
+        <span class="n">N</span> <span class="o">=</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c1"># calculate the width:</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># apply Simpson&#39;s rule: </span>
+    <span class="c1"># create the weights array:</span>
+    <span class="n">wis</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">]</span>
+    <span class="c1"># append N-2 weights </span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">int</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)):</span>
+        <span class="n">wis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">wis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">wis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">wis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Check of sum of weights=&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">wis</span><span class="p">))</span>
+    <span class="c1"># now use the general formula to get the integral:</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">wj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">wis</span><span class="p">):</span>
+        <span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">+</span> <span class="n">wj</span> <span class="o">*</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">j</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">integral</span>
+
+<span class="c1"># test the function for exp(-t) in [0,1]:</span>
+<span class="c1"># first define the function we wish to integrate: </span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">2001</span><span class="c1"># the number of points</span>
+<span class="n">simp_int</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral of exp(-t) in [0,1] via Simpson&#39;s rule=&quot;</span><span class="p">,</span> <span class="n">simp_int</span><span class="p">)</span>
+
+<span class="c1"># the analytic integral is simply 1 - exp(-1):</span>
+<span class="n">analytic_int</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Analytic integral=&#39;</span><span class="p">,</span> <span class="n">analytic_int</span><span class="p">)</span>
+
+<span class="c1"># compare by calculating the fractional error:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fractional error=&#39;</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span> <span class="p">(</span><span class="n">simp_int</span><span class="o">-</span><span class="n">analytic_int</span><span class="p">)</span><span class="o">/</span><span class="n">analytic_int</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="n">integral_simpson</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2001</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Integral of exp(-t) in [0,1] via the Simpson rule=&#39;</span><span class="p">,</span> <span class="n">integral_simpson</span><span class="p">)</span>
+
+<span class="c1"># the analytic integral is simply 1 - exp(-1):</span>
+<span class="n">analytic_int</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Analytic integral=&#39;</span><span class="p">,</span> <span class="n">analytic_int</span><span class="p">)</span>
+
+<span class="c1"># compare by calculating the fractional error:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fractional error=&#39;</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span> <span class="p">(</span><span class="n">integral_simpson</span><span class="o">-</span><span class="n">analytic_int</span><span class="p">)</span><span class="o">/</span><span class="n">analytic_int</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Check of sum of weights= 1.0
+Integral of exp(-t) in [0,1] via Simpson&#39;s rule= 0.6321205588285581
+Analytic integral= 0.6321205588285577
+Fractional error= 7.025387857548033e-16
+Check of sum of weights= 1.0
+Integral of exp(-t) in [0,1] via the Simpson rule= 0.6321205588285581
+Analytic integral= 0.6321205588285577
+Fractional error= 7.025387857548033e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span> 
 
 <span class="n">NarrayT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">)])</span> <span class="c1"># the NumPy logspace returns numbers spaced evenly on a log scale.</span>
 <span class="n">NarrayG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">)])</span> <span class="c1"># the NumPy logspace returns numbers spaced evenly on a log scale.</span>
-
 <span class="c1"># test the function for exp(-t) in [0,1]:</span>
 <span class="c1"># first define the function we wish to integrate: </span>
 <span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1356,10 +1433,53 @@ Fractional error= 1.7563469643870083e-16
 
 <span class="c1"># Simpson&#39;s rule result:</span>
 <span class="c1"># reinstate after we have written the function:</span>
-<span class="c1">#I_simpson = [simpson(f,0,1,N) for N in Narray]</span>
-
+<span class="n">I_simpson</span> <span class="o">=</span> <span class="p">[</span><span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="n">NarrayT</span> <span class="k">if</span> <span class="n">N</span><span class="o">%</span><span class="k">2</span>!=0]
+<span class="n">NarrayS</span> <span class="o">=</span> <span class="p">[</span><span class="n">N</span> <span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="n">NarrayT</span> <span class="k">if</span> <span class="n">N</span><span class="o">%</span><span class="k">2</span>!=0]
 <span class="c1"># Gaussian Quadrature result:</span>
 <span class="n">I_gaussian</span> <span class="o">=</span> <span class="p">[</span><span class="n">gauss</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="n">NarrayG</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Check of sum of weights= 0.9999999999999999
+Check of sum of weights= 0.9999999999999999
+Check of sum of weights= 1.0
+Check of sum of weights= 0.9142634445297293
+Check of sum of weights= 1.056521906849585
+Check of sum of weights= 0.9992166891490184
+Check of sum of weights= 1.0357769686015375
+Check of sum of weights= 1.032496974509606
+Check of sum of weights= 1.0020520147428083
+Check of sum of weights= 1.0133804082749123
+Check of sum of weights= 0.993881076015906
+Check of sum of weights= 0.9950490852431274
+Check of sum of weights= 1.00380475364729
+Check of sum of weights= 1.0119938201665941
+Check of sum of weights= 0.9907238764265054
+Check of sum of weights= 0.9968096669748717
+Check of sum of weights= 1.0034607592790086
+Check of sum of weights= 1.005171144429076
+Check of sum of weights= 0.9995459384908905
+Check of sum of weights= 1.0022936715833546
+Check of sum of weights= 0.9985208976799355
+Check of sum of weights= 0.9985175223424143
+Check of sum of weights= 1.001305979352336
+Check of sum of weights= 1.0012449154267107
+Check of sum of weights= 0.9986339382550796
+Check of sum of weights= 0.998995540424378
+Check of sum of weights= 0.9991900822540962
+Check of sum of weights= 0.9993488791721135
+Check of sum of weights= 0.9999279052661438
+Check of sum of weights= 0.9998504459858725
+Check of sum of weights= 1.000040582481976
+Check of sum of weights= 1.0002219894159183
+Check of sum of weights= 1.0002536494230445
+Check of sum of weights= 0.9999689370992066
+Check of sum of weights= 1.000090604013059
+Check of sum of weights= 0.9998207083587456
+Check of sum of weights= 1.0001674196076693
+Check of sum of weights= 0.9999945429739314
+Check of sum of weights= 1.0000266959510828
 </pre></div>
 </div>
 </div>
@@ -1373,7 +1493,7 @@ Fractional error= 1.7563469643870083e-16
 <span class="c1"># trapezoid:</span>
 <span class="n">eps_trapezoid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">I_trapezoid</span><span class="p">,</span><span class="n">I_analytic</span><span class="p">)</span><span class="o">/</span><span class="n">I_analytic</span> <span class="p">)</span>
 <span class="c1"># simpson: (uncomment)</span>
-<span class="c1"># eps_simpson = np.abs( np.subtract(I_simpson,I_analytic)/I_analytic )</span>
+<span class="n">eps_simpson</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">I_simpson</span><span class="p">,</span><span class="n">I_analytic</span><span class="p">)</span><span class="o">/</span><span class="n">I_analytic</span> <span class="p">)</span>
 
 <span class="n">eps_gaussian</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">I_gaussian</span><span class="p">,</span><span class="n">I_analytic</span><span class="p">)</span><span class="o">/</span><span class="n">I_analytic</span> <span class="p">)</span>
 <span class="c1"># if a zero has been found, set it to machine precision:</span>
@@ -1381,12 +1501,13 @@ Fractional error= 1.7563469643870083e-16
 
 <span class="c1"># get the log10:</span>
 <span class="n">log10_eps_trapezoid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">eps_trapezoid</span><span class="p">)</span>
-<span class="c1"># log10_eps_simpson = np.log10(eps_simpson) # UNCOMMENT!</span>
+<span class="n">log10_eps_simpson</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">eps_simpson</span><span class="p">)</span> <span class="c1"># UNCOMMENT!</span>
 <span class="n">log10_eps_gaussian</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">eps_gaussian</span><span class="p">)</span>
 
 <span class="c1"># and of the array: </span>
 <span class="n">log10_NT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">NarrayT</span><span class="p">)</span>
 <span class="n">log10_NG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">NarrayG</span><span class="p">)</span>
+<span class="n">log10_NS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">NarrayS</span><span class="p">)</span>
 
 <span class="c1"># Now let&#39;s plot them! </span>
 </pre></div>
@@ -1408,7 +1529,7 @@ Fractional error= 1.7563469643870083e-16
 
 <span class="c1"># make a one-dimensional plot using the arrays relevant to the cosine:</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log10_NT</span><span class="p">,</span> <span class="n">log10_eps_trapezoid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Trapezoid&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
-<span class="c1">#ax.plot(log10_N, log10_eps_simpson, label=&#39;Simpson&#39;, ls=&#39;-&#39;, color=&#39;green&#39;) </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log10_NS</span><span class="p">,</span> <span class="n">log10_eps_simpson</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simpson&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span> 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log10_NG</span><span class="p">,</span> <span class="n">log10_eps_gaussian</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Gaussian&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
 
 <span class="c1"># construct the legend:</span>
@@ -1419,7 +1540,7 @@ Fractional error= 1.7563469643870083e-16
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dd0b18aed1259f46b6583398d0e9dbe923172362008d255f148c32c58a63025f.png" src="../../_images/dd0b18aed1259f46b6583398d0e9dbe923172362008d255f148c32c58a63025f.png" />
+<img alt="../../_images/abff9cd8120f819e730c1f6f3415fc2eceeec2bd04789e912812c2441e485adb.png" src="../../_images/abff9cd8120f819e730c1f6f3415fc2eceeec2bd04789e912812c2441e485adb.png" />
 </div>
 </div>
 </section>

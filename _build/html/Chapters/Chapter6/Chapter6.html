@@ -392,58 +392,59 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-and-error-root-finding">6.1. Trial-and-Error Root Finding</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">6.1.1. Introduction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-and-error-roots-via-bisection">6.1.2. Trial-and-error Roots via Bisection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-1-temperature-dependence-of-magnetization">6.1.3. Example 6.1: Temperature Dependence of Magnetization.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">6.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-and-error-root-finding">6.2. Trial-and-Error Root Finding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">6.2.1. Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-and-error-roots-via-bisection">6.2.2. Trial-and-error Roots via Bisection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-1-temperature-dependence-of-magnetization">6.2.3. Example 6.1: Temperature Dependence of Magnetization.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-raphson-searching">6.2. Newton-Raphson Searching</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-raphson-with-backtracking">6.3. Newton-Raphson with Backtracking</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-2-newton-raphson-applied-to-the-temperature-dependence-of-magnetization">6.3.1. Example 6.2: Newton-Raphson applied to the Temperature Dependence of Magnetization.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-raphson-searching">6.3. Newton-Raphson Searching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-raphson-with-backtracking">6.4. Newton-Raphson with Backtracking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-2-newton-raphson-applied-to-the-temperature-dependence-of-magnetization">6.4.1. Example 6.2: Newton-Raphson applied to the Temperature Dependence of Magnetization.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-computing">6.4. Matrix Computing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-matrix-computing">6.4.1. Why Matrix Computing?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-of-matrix-problems">6.4.2. Classes of Matrix Problems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math-recap-matrix-multiplication-inverses-and-determinants">6.4.3. Math Recap: Matrix Multiplication, Inverses and Determinants</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-3-in-this-problem-we-will-find-the-inverse-of-a-3x3-matrix-analytically-and-show-via-direct-matrix-multiplication-that-it-indeed-gives-back-the-identity-matrix">6.4.4. Example 6.3: In this problem we will find the inverse of a 3x3 matrix <em>analytically</em> and show via direct matrix multiplication that it indeed gives back the identity matrix.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math-recap-solving-eigenvalue-problems">6.4.5. Math Recap: Solving Eigenvalue Problems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-4-find-the-eigenvalues-and-eigenvectors-of-the-matrix">6.4.6. Example 6.4: Find the eigenvalues and eigenvectors of the matrix:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-5-given-that-lambda-1-5-is-an-eigenvalue-find-the-remaining-eigenvalues-of-the-matrix">6.4.7. Example 6.5: Given that \lambda_1 = 5 is an eigenvalue, find the remaining eigenvalues of the matrix:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-computing">6.5. Matrix Computing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-matrix-computing">6.5.1. Why Matrix Computing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-of-matrix-problems">6.5.2. Classes of Matrix Problems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math-recap-matrix-multiplication-inverses-and-determinants">6.5.3. Math Recap: Matrix Multiplication, Inverses and Determinants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-3-in-this-problem-we-will-find-the-inverse-of-a-3x3-matrix-analytically-and-show-via-direct-matrix-multiplication-that-it-indeed-gives-back-the-identity-matrix">6.5.4. Example 6.3: In this problem we will find the inverse of a 3x3 matrix <em>analytically</em> and show via direct matrix multiplication that it indeed gives back the identity matrix.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math-recap-solving-eigenvalue-problems">6.5.5. Math Recap: Solving Eigenvalue Problems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-4-find-the-eigenvalues-and-eigenvectors-of-the-matrix">6.5.6. Example 6.4: Find the eigenvalues and eigenvectors of the matrix:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-5-given-that-lambda-1-5-is-an-eigenvalue-find-the-remaining-eigenvalues-of-the-matrix">6.5.7. Example 6.5: Given that \lambda_1 = 5 is an eigenvalue, find the remaining eigenvalues of the matrix:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-matrix-computing">6.5. Practical Matrix Computing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-in-python-python-lists-numpy-arrays">6.6. Matrices in Python: Python Lists, NumPy Arrays</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lists">6.6.1. Python Lists</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">6.6.2. NumPy Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-matrix-computing">6.6. Practical Matrix Computing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-in-python-python-lists-numpy-arrays">6.7. Matrices in Python: Python Lists, NumPy Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lists">6.7.1. Python Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">6.7.2. NumPy Arrays</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-s-linalg-package">6.7. NumPy’s linalg Package</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-6-solve-examples-6-3-to-6-5-numerically">6.7.1. Example 6.6: Solve Examples 6.3 to 6.5 numerically!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-s-linalg-package">6.8. NumPy’s linalg Package</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-6-solve-examples-6-3-to-6-5-numerically">6.8.1. Example 6.6: Solve Examples 6.3 to 6.5 numerically!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-dimensional-newton-raphson">6.8. N-Dimensional Newton-Raphson</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-matrix-examples">6.9. More Matrix Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-6-your-model-of-some-physical-system-results-in-n-100-coupled-linear-equations-with-n-unknowns">6.9.1. Example 6.6: Your model of some physical system results in N=100 coupled linear equations with N unknowns:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-7-dirac-gamma-matrices">6.9.2. Example 6.7: Dirac Gamma Matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-8-2-dimensional-newton-raphson-warmup">6.9.3. Example 6.8: 2-Dimensional Newton-Raphson Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-dimensional-newton-raphson">6.9. N-Dimensional Newton-Raphson</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-matrix-examples">6.10. More Matrix Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-6-your-model-of-some-physical-system-results-in-n-100-coupled-linear-equations-with-n-unknowns">6.10.1. Example 6.6: Your model of some physical system results in N=100 coupled linear equations with N unknowns:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-7-dirac-gamma-matrices">6.10.2. Example 6.7: Dirac Gamma Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-8-2-dimensional-newton-raphson-warmup">6.10.3. Example 6.8: 2-Dimensional Newton-Raphson Warmup</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-fitting">6.10. Data Fitting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-data-fitting">6.10.1. Introduction to Data Fitting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-interpolation">6.10.2. Lagrange Interpolation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-9-lagrange-interpolation">6.10.3. Example 6.9: Lagrange Interpolation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline-interpolation">6.10.4. Cubic Spline Interpolation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-10-cubic-spline-interpolation-with-scipy">6.10.5. Example 6.10: Cubic Spline Interpolation with scipy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-scipy-interpolators">6.10.6. Other SciPy Interpolators</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-11-global-temperature-load-data-with-pandas-and-interpolate-with-scipy">6.10.7. Example 6.11: Global Temperature: Load data with Pandas and Interpolate with SciPy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-interpolation">6.10.8. 2-D Interpolation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-fitting">6.10.9. Least-Squares Fitting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">6.10.10. Linear Regression</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-12-hubble-s-law">6.10.11. Example 6.12: Hubble’s Law</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-fits">6.10.12. Quadratic Fits</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-fitting">6.10.13. Nonlinear Fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-fitting">6.11. Data Fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-data-fitting">6.11.1. Introduction to Data Fitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-interpolation">6.11.2. Lagrange Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-9-lagrange-interpolation">6.11.3. Example 6.9: Lagrange Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline-interpolation">6.11.4. Cubic Spline Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-10-cubic-spline-interpolation-with-scipy">6.11.5. Example 6.10: Cubic Spline Interpolation with scipy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-scipy-interpolators">6.11.6. Other SciPy Interpolators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-11-global-temperature-load-data-with-pandas-and-interpolate-with-scipy">6.11.7. Example 6.11: Global Temperature: Load data with Pandas and Interpolate with SciPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-interpolation">6.11.8. 2-D Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-fitting">6.11.9. Least-Squares Fitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">6.11.10. Linear Regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-12-hubble-s-law">6.11.11. Example 6.12: Hubble’s Law</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-fits">6.11.12. Quadratic Fits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-fitting">6.11.13. Nonlinear Fitting</a></li>
 </ul>
 </li>
 </ul>
@@ -459,10 +460,25 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="matrix-computing-trial-and-error-searching-and-data-fitting">
 <h1><span class="section-number">6. </span>Matrix Computing, Trial-and-Error Searching and Data Fitting<a class="headerlink" href="#matrix-computing-trial-and-error-searching-and-data-fitting" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">6.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, students should be able to:</p>
+<ul class="simple">
+<li><p>Implement <strong>bisection</strong> root finding and explain why it is reliable but slow.</p></li>
+<li><p>Implement <strong>Newton–Raphson</strong> root finding and describe common failure modes / sensitivity to initial guesses.</p></li>
+<li><p>Improve Newton–Raphson robustness using <strong>backtracking/step control</strong>.</p></li>
+<li><p>Use <strong>NumPy arrays</strong> for vectors/matrices and perform basic operations (multiplication, solving systems).</p></li>
+<li><p>Use <strong><code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code></strong> to solve linear systems and compute <strong>eigenvalues/eigenvectors</strong>, and verify results.</p></li>
+<li><p>Apply <strong>multidimensional Newton–Raphson</strong> using Jacobians.</p></li>
+<li><p>Perform <strong>interpolation</strong> (Lagrange, cubic splines) and choose an appropriate method for a dataset.</p></li>
+<li><p>Fit data with <strong>least squares / regression</strong> (linear and nonlinear) and interpret fitted parameters.</p></li>
+<li><p>Use Pyhon’s <strong>pandas</strong> to load and manipulate tabular data for interpolation/fitting workflows.</p></li>
+</ul>
+</section>
 <section id="trial-and-error-root-finding">
-<h2><span class="section-number">6.1. </span>Trial-and-Error Root Finding<a class="headerlink" href="#trial-and-error-root-finding" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Trial-and-Error Root Finding<a class="headerlink" href="#trial-and-error-root-finding" title="Link to this heading">#</a></h2>
 <section id="introduction">
-<h3><span class="section-number">6.1.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.2.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h3>
 <p>Trial-and-error may not sound very precise, but it is in fact used to solve problems where analytic solutions do not exist, or are not practical.</p>
 <p>In trial-and-error algorithms, decisions on what path to follow are made based on the current values of variables, and the program quits only when it thinks it has solved the problem.</p>
 <p>Trial-and-error root finding looks for a value of <span class="math notranslate nohighlight">\(x\)</span> for which:</p>
@@ -474,7 +490,7 @@ document.write(`
 <p>The procedure continues until <span class="math notranslate nohighlight">\(f(x) \simeq 0\)</span> to some desired level of precision, or until the changes in <span class="math notranslate nohighlight">\(x\)</span> are insignificant, or if the search seems endless.</p>
 </section>
 <section id="trial-and-error-roots-via-bisection">
-<h3><span class="section-number">6.1.2. </span>Trial-and-error Roots via Bisection<a class="headerlink" href="#trial-and-error-roots-via-bisection" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.2.2. </span>Trial-and-error Roots via Bisection<a class="headerlink" href="#trial-and-error-roots-via-bisection" title="Link to this heading">#</a></h3>
 <p>The most elementary example of trial-and-error root finding is the <em>bisection algorithm</em>. It is reliable, but slow.</p>
 <p>If you know some interval in which <span class="math notranslate nohighlight">\(f(x)\)</span> changes sign, then the bisection algorithm will always converge to the root by finding progressively smaller and smaller intervals within which the zero lies.</p>
 <p>The bisection algorithm can be described as follows:</p>
@@ -486,7 +502,7 @@ document.write(`
 <p>Let’s implement the bisection algorith and use it in a concrete example!</p>
 </section>
 <section id="example-6-1-temperature-dependence-of-magnetization">
-<h3><span class="section-number">6.1.3. </span>Example 6.1: Temperature Dependence of Magnetization.<a class="headerlink" href="#example-6-1-temperature-dependence-of-magnetization" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.2.3. </span>Example 6.1: Temperature Dependence of Magnetization.<a class="headerlink" href="#example-6-1-temperature-dependence-of-magnetization" title="Link to this heading">#</a></h3>
 <p>The magnetization of <span class="math notranslate nohighlight">\(N\)</span> spin-1/2 particles, each with magnetic moment <span class="math notranslate nohighlight">\(\mu\)</span> at a temperature <span class="math notranslate nohighlight">\(T\)</span>, in an external magnetic field <span class="math notranslate nohighlight">\(B\)</span> is given by:</p>
 <p><span class="math notranslate nohighlight">\(m(t) = \tanh\left(\frac{ m(t) }{ t } \right)\)</span>,</p>
 <p>where <span class="math notranslate nohighlight">\(m(t)\)</span> is the “reduced” magnetization and <span class="math notranslate nohighlight">\(t\)</span> is the “reduced” temperature.</p>
@@ -496,7 +512,7 @@ document.write(`
 </section>
 </section>
 <section id="newton-raphson-searching">
-<h2><span class="section-number">6.2. </span>Newton-Raphson Searching<a class="headerlink" href="#newton-raphson-searching" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.3. </span>Newton-Raphson Searching<a class="headerlink" href="#newton-raphson-searching" title="Link to this heading">#</a></h2>
 <p>The Newton-Raphson algorithm finds approximate roots of equations of the same type, <span class="math notranslate nohighlight">\(f(x)=0\)</span>, more quickly than the bisection method.</p>
 <p>The algorithm is the equivalent of drawing a straight line <span class="math notranslate nohighlight">\(f(x) \simeq mx + b\)</span>, tangent to the curve at an <span class="math notranslate nohighlight">\(x\)</span> value for which <span class="math notranslate nohighlight">\(f(x) \simeq 0\)</span> and then using the intrercept of the line with the <span class="math notranslate nohighlight">\(x\)</span>-axis at <span class="math notranslate nohighlight">\(x=-b/m\)</span> as an improved guess for the root.</p>
 <p>If the curve was in fact a straight line, the answer would be exact. Otherwise it is a good approximation if the guess is close enough to the root for <span class="math notranslate nohighlight">\(f(x)\)</span> to be nearly linear.</p>
@@ -580,7 +596,7 @@ document.write(`
 <p>A central-difference derivative can also be used, but it would require additional evaluations of the function.</p>
 </section>
 <section id="newton-raphson-with-backtracking">
-<h2><span class="section-number">6.3. </span>Newton-Raphson with Backtracking<a class="headerlink" href="#newton-raphson-with-backtracking" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.4. </span>Newton-Raphson with Backtracking<a class="headerlink" href="#newton-raphson-with-backtracking" title="Link to this heading">#</a></h2>
 <p>Potential problems may arise while performing Newton-Raphson searching:</p>
 <ul class="simple">
 <li><p>The search can take us to an <span class="math notranslate nohighlight">\(x\)</span> value where the function has a local minimum or maximum, i.e.: <span class="math notranslate nohighlight">\(\mathrm{d}f/\mathrm{d} x = 0\)</span>. This would lead to a horizontal tangent and then the next guess would be <span class="math notranslate nohighlight">\(x \rightarrow \infty\)</span>, which is hard to return from!</p></li>
@@ -591,14 +607,14 @@ document.write(`
 <p><strong>Backtracking</strong>: in cases where the new guess leads to an <em>increase</em> in the magnitude of the function, i.e. <span class="math notranslate nohighlight">\(|f(x_0 + \Delta x)|^2 &gt; |f(x_0)|^2\)</span>, you can backtrack somewhat and try a smaller step, say <span class="math notranslate nohighlight">\(x_0 + \Delta x / 2\)</span>. If the magnitude still increases, then backtrack some more, say by trying <span class="math notranslate nohighlight">\(x_0 + \Delta x / 4\)</span>, and so on.</p>
 <p>An alternative solution: start with a bisection search algorithm and switch to faster Newton-Raphson when you get closer to zero.</p>
 <section id="example-6-2-newton-raphson-applied-to-the-temperature-dependence-of-magnetization">
-<h3><span class="section-number">6.3.1. </span>Example 6.2: Newton-Raphson applied to the Temperature Dependence of Magnetization.<a class="headerlink" href="#example-6-2-newton-raphson-applied-to-the-temperature-dependence-of-magnetization" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.4.1. </span>Example 6.2: Newton-Raphson applied to the Temperature Dependence of Magnetization.<a class="headerlink" href="#example-6-2-newton-raphson-applied-to-the-temperature-dependence-of-magnetization" title="Link to this heading">#</a></h3>
 <p>Implement the Newton-Raphson search algorithm to find the root of the Transcendental equation given in Example 6.1 for <span class="math notranslate nohighlight">\(t=0.5\)</span> and a precision of <span class="math notranslate nohighlight">\(\mathcal{O}(10^{-10})\)</span>. Use a central-difference derivative while implementing the algorithm and print the number of iterations.</p>
 </section>
 </section>
 <section id="matrix-computing">
-<h2><span class="section-number">6.4. </span>Matrix Computing<a class="headerlink" href="#matrix-computing" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.5. </span>Matrix Computing<a class="headerlink" href="#matrix-computing" title="Link to this heading">#</a></h2>
 <section id="why-matrix-computing">
-<h3><span class="section-number">6.4.1. </span>Why Matrix Computing?<a class="headerlink" href="#why-matrix-computing" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.1. </span>Why Matrix Computing?<a class="headerlink" href="#why-matrix-computing" title="Link to this heading">#</a></h3>
 <p>Physical systems are often modeled by systems of simultaneous equations that can be written in matrix form.</p>
 <p>As models are made more realistic, matrices become correspondingly bigger. It is therefore important to use a good linear algebra library.</p>
 <p>“Industrial-strength” subroutines for matrix computing can be found in well-established scientific libraries. They can be an order of magnitude or more faster than elementary methods found in linear algebra texts.</p>
@@ -607,7 +623,7 @@ document.write(`
 <p>Note that GPUs (Graphics Processing Units) can perform matrix algebra very efficiently, since they can execute many commands in parallel. This requires programming in specific frameworks, but it’s good to keep in mind at this point.</p>
 </section>
 <section id="classes-of-matrix-problems">
-<h3><span class="section-number">6.4.2. </span>Classes of Matrix Problems<a class="headerlink" href="#classes-of-matrix-problems" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.2. </span>Classes of Matrix Problems<a class="headerlink" href="#classes-of-matrix-problems" title="Link to this heading">#</a></h3>
 <p>The most basic matrix problem: a system of linear equations, e.g.:</p>
 <p><span class="math notranslate nohighlight">\(\mathbf{A} \vec{x} = \vec{b}\)</span>,</p>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is an <span class="math notranslate nohighlight">\(N\times N\)</span> matrix, <span class="math notranslate nohighlight">\(\vec{x}\)</span> is an <em>unknown</em> vector of length <span class="math notranslate nohighlight">\(N\)</span>, and <span class="math notranslate nohighlight">\(\vec{b}\)</span> is a known vector of length <span class="math notranslate nohighlight">\(N\)</span>.</p>
@@ -637,7 +653,7 @@ document.write(`
 <p>i.e. the eigenvectors are the columns of the matrix <span class="math notranslate nohighlight">\(\mathbf{U}^{-1}\)</span>.</p>
 </section>
 <section id="math-recap-matrix-multiplication-inverses-and-determinants">
-<h3><span class="section-number">6.4.3. </span>Math Recap: Matrix Multiplication, Inverses and Determinants<a class="headerlink" href="#math-recap-matrix-multiplication-inverses-and-determinants" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.3. </span>Math Recap: Matrix Multiplication, Inverses and Determinants<a class="headerlink" href="#math-recap-matrix-multiplication-inverses-and-determinants" title="Link to this heading">#</a></h3>
 <p>Matrix Multiplication:</p>
 <p>To multiply two matrices <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>:</p>
 <p><span class="math notranslate nohighlight">\( \mathbf{A} =  \left(\begin{array}{ccc} 
@@ -676,7 +692,7 @@ a_{01} a_{12} - a_{11} a_{02} &amp; a_{20} a_{02} - a_{00} a_{22} &amp; a_{00} a
 <p><span class="math notranslate nohighlight">\(\mathbf{A}^{-1} = \frac{1}{\det[A]} \mathbf{C}^T\)</span>, where the superscript <span class="math notranslate nohighlight">\(T\)</span> denotes a transposition, i.e. an exchange of rows and columns.</p>
 </section>
 <section id="example-6-3-in-this-problem-we-will-find-the-inverse-of-a-3x3-matrix-analytically-and-show-via-direct-matrix-multiplication-that-it-indeed-gives-back-the-identity-matrix">
-<h3><span class="section-number">6.4.4. </span>Example 6.3: In this problem we will find the inverse of a 3x3 matrix <em>analytically</em> and show via direct matrix multiplication that it indeed gives back the identity matrix.<a class="headerlink" href="#example-6-3-in-this-problem-we-will-find-the-inverse-of-a-3x3-matrix-analytically-and-show-via-direct-matrix-multiplication-that-it-indeed-gives-back-the-identity-matrix" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.4. </span>Example 6.3: In this problem we will find the inverse of a 3x3 matrix <em>analytically</em> and show via direct matrix multiplication that it indeed gives back the identity matrix.<a class="headerlink" href="#example-6-3-in-this-problem-we-will-find-the-inverse-of-a-3x3-matrix-analytically-and-show-via-direct-matrix-multiplication-that-it-indeed-gives-back-the-identity-matrix" title="Link to this heading">#</a></h3>
 <p>(a) Find the determinant of the matrix:</p>
 <p><span class="math notranslate nohighlight">\( \mathbf{A} =  \left(\begin{array}{ccc} 
 +4 &amp; -2 &amp; +1 \\
@@ -687,7 +703,7 @@ a_{01} a_{12} - a_{11} a_{02} &amp; a_{20} a_{02} - a_{00} a_{22} &amp; a_{00} a
 <p>(c) Check that the inverse indeed satisfies <span class="math notranslate nohighlight">\(\mathbf{A}^{-1} \mathbf{A} = \mathbf{I}\)</span>.</p>
 </section>
 <section id="math-recap-solving-eigenvalue-problems">
-<h3><span class="section-number">6.4.5. </span>Math Recap: Solving Eigenvalue Problems<a class="headerlink" href="#math-recap-solving-eigenvalue-problems" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.5. </span>Math Recap: Solving Eigenvalue Problems<a class="headerlink" href="#math-recap-solving-eigenvalue-problems" title="Link to this heading">#</a></h3>
 <p>To find the eigenvalues of a matrix we first subtract <span class="math notranslate nohighlight">\(\lambda\)</span> from its diagonal, take the determinant and set it to zero. We then solve the resulting characteristic equation.</p>
 <p>E.g. for a 2x2 matrix,</p>
 <p><span class="math notranslate nohighlight">\( \mathbf{A} =  \left(\begin{array}{cc} 
@@ -729,14 +745,14 @@ y_i  \\
 <p>Let’s find the eigenvectors and eigenvalues in a concrete example.</p>
 </section>
 <section id="example-6-4-find-the-eigenvalues-and-eigenvectors-of-the-matrix">
-<h3><span class="section-number">6.4.6. </span>Example 6.4: Find the eigenvalues and eigenvectors of the matrix:<a class="headerlink" href="#example-6-4-find-the-eigenvalues-and-eigenvectors-of-the-matrix" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.6. </span>Example 6.4: Find the eigenvalues and eigenvectors of the matrix:<a class="headerlink" href="#example-6-4-find-the-eigenvalues-and-eigenvectors-of-the-matrix" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\mathbf{A} = \left(\begin{array}{cc} 
 \alpha &amp; \beta \\
 -\beta &amp; \alpha \\
 \end{array}\right)\)</span></p>
 </section>
 <section id="example-6-5-given-that-lambda-1-5-is-an-eigenvalue-find-the-remaining-eigenvalues-of-the-matrix">
-<h3><span class="section-number">6.4.7. </span>Example 6.5: Given that \lambda_1 = 5 is an eigenvalue, find the remaining eigenvalues of the matrix:<a class="headerlink" href="#example-6-5-given-that-lambda-1-5-is-an-eigenvalue-find-the-remaining-eigenvalues-of-the-matrix" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.7. </span>Example 6.5: Given that \lambda_1 = 5 is an eigenvalue, find the remaining eigenvalues of the matrix:<a class="headerlink" href="#example-6-5-given-that-lambda-1-5-is-an-eigenvalue-find-the-remaining-eigenvalues-of-the-matrix" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\( \mathbf{A} =  \left(\begin{array}{ccc} 
 -2 &amp; +2 &amp; -3 \\
 +2 &amp; +1 &amp; -6 \\
@@ -746,7 +762,7 @@ y_i  \\
 </section>
 </section>
 <section id="practical-matrix-computing">
-<h2><span class="section-number">6.5. </span>Practical Matrix Computing<a class="headerlink" href="#practical-matrix-computing" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.6. </span>Practical Matrix Computing<a class="headerlink" href="#practical-matrix-computing" title="Link to this heading">#</a></h2>
 <p>Many scientific programming bugs arise from improper use of arrays.</p>
 <p>These may be a result of the extensive use of matrices, or to the complexity of keeping track of indices and dimensions. Here are some rules of thumb to observe!</p>
 <ul class="simple">
@@ -763,9 +779,9 @@ y_i  \\
 </ul>
 </section>
 <section id="matrices-in-python-python-lists-numpy-arrays">
-<h2><span class="section-number">6.6. </span>Matrices in Python: Python Lists, NumPy Arrays<a class="headerlink" href="#matrices-in-python-python-lists-numpy-arrays" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.7. </span>Matrices in Python: Python Lists, NumPy Arrays<a class="headerlink" href="#matrices-in-python-python-lists-numpy-arrays" title="Link to this heading">#</a></h2>
 <section id="python-lists">
-<h3><span class="section-number">6.6.1. </span>Python Lists<a class="headerlink" href="#python-lists" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.7.1. </span>Python Lists<a class="headerlink" href="#python-lists" title="Link to this heading">#</a></h3>
 <p>Lists contain sequences of objects that are <em>mutable</em> (i.e. changeable) .</p>
 <p>Python also has a builtin type called a <em>tuple</em>. Its elements are <em>not</em> mutable. (See Chapter 1).</p>
 <p>Most programming languages require you to specify the size of an array before you can start storing objects in it. On the other hand, Python lists are dynamic, i.e. their sizes are adjusted as needed.</p>
@@ -796,7 +812,7 @@ y_i  \\
 </div>
 </section>
 <section id="numpy-arrays">
-<h3><span class="section-number">6.6.2. </span>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.7.2. </span>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Link to this heading">#</a></h3>
 <p>Python lists are rather limited. Instead it is recommended to use NumPy arrays for actual mathematical manipulations involving matrices.</p>
 <p>NumPy Arrays:</p>
 <ul class="simple">
@@ -938,7 +954,7 @@ NumpyMatrixD transposed= [[1 3 5]
 </section>
 </section>
 <section id="numpy-s-linalg-package">
-<h2><span class="section-number">6.7. </span>NumPy’s linalg Package<a class="headerlink" href="#numpy-s-linalg-package" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.8. </span>NumPy’s linalg Package<a class="headerlink" href="#numpy-s-linalg-package" title="Link to this heading">#</a></h2>
 <p>NumPy’s linalg package treates 2D arrays (1D arrays of 1D arrays) as mathematical matrices, and provides an interface to the powerful LAPACK linear algebra library.</p>
 <p>There is much to be gained in speed and reliability from using these libraries, rather than writing your own matrix routines.</p>
 <p>As a first example, let’s look at the standard matrix equation:</p>
@@ -1064,7 +1080,7 @@ Eigenvectors= [[ 0.70710678  0.70710678]
 </div>
 </div>
 <section id="example-6-6-solve-examples-6-3-to-6-5-numerically">
-<h3><span class="section-number">6.7.1. </span>Example 6.6: Solve Examples 6.3 to 6.5 numerically!<a class="headerlink" href="#example-6-6-solve-examples-6-3-to-6-5-numerically" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.8.1. </span>Example 6.6: Solve Examples 6.3 to 6.5 numerically!<a class="headerlink" href="#example-6-6-solve-examples-6-3-to-6-5-numerically" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1141,7 +1157,7 @@ Eigenvectors= [[-0.95257934  0.40824829 -0.02296692]
 </section>
 </section>
 <section id="n-dimensional-newton-raphson">
-<h2><span class="section-number">6.8. </span>N-Dimensional Newton-Raphson<a class="headerlink" href="#n-dimensional-newton-raphson" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.9. </span>N-Dimensional Newton-Raphson<a class="headerlink" href="#n-dimensional-newton-raphson" title="Link to this heading">#</a></h2>
 <p>Using what we have learned thus far about matrix computing, we can solve, numerically, any system of <span class="math notranslate nohighlight">\(N\)</span> coupled <em>linear</em> equations, e.g. by directly asking NumPy’s linalg package to solve:</p>
 <p><span class="math notranslate nohighlight">\(\mathbf{A} \vec{x} = \vec{b}\)</span>.</p>
 <p>What about a system of <span class="math notranslate nohighlight">\(N\)</span> <em>nonlinear</em> equations?</p>
@@ -1221,10 +1237,10 @@ f_{N}
 <p>As for the case of the one-dimensional Newton-Raphson method, this search can fail if the initial guess is not close enough to the zero of all the <span class="math notranslate nohighlight">\(f_i\)</span>’s so that they can be approximated by a linear function. The backtracking technique may be applied here as well, in the present case, progressively decreasing the corrections <span class="math notranslate nohighlight">\(\Delta x_i\)</span>, until <span class="math notranslate nohighlight">\(|f|^2 = |f_1|^2 + |f_2|^2 + ... + |f_N|^2\)</span> decreases.</p>
 </section>
 <section id="more-matrix-examples">
-<h2><span class="section-number">6.9. </span>More Matrix Examples<a class="headerlink" href="#more-matrix-examples" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.10. </span>More Matrix Examples<a class="headerlink" href="#more-matrix-examples" title="Link to this heading">#</a></h2>
 <p>Before we proceed to Exercise 6.2, let’s tackle two more matrix problems.</p>
 <section id="example-6-6-your-model-of-some-physical-system-results-in-n-100-coupled-linear-equations-with-n-unknowns">
-<h3><span class="section-number">6.9.1. </span>Example 6.6: Your model of some physical system results in N=100 coupled linear equations with N unknowns:<a class="headerlink" href="#example-6-6-your-model-of-some-physical-system-results-in-n-100-coupled-linear-equations-with-n-unknowns" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.10.1. </span>Example 6.6: Your model of some physical system results in N=100 coupled linear equations with N unknowns:<a class="headerlink" href="#example-6-6-your-model-of-some-physical-system-results-in-n-100-coupled-linear-equations-with-n-unknowns" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(a_{00} y_0 + a_{01} y_1 + ... + a_{0(N-1)} y_{N-1} = b_0\)</span></p>
 <p><span class="math notranslate nohighlight">\(a_{10} y_0 + a_{11} y_1 + ... + a_{1(N-1)} y_{N-1} = b_1\)</span></p>
 <p><span class="math notranslate nohighlight">\(...\)</span></p>
@@ -1254,7 +1270,7 @@ f_{N}
 \)</span></p>
 </section>
 <section id="example-6-7-dirac-gamma-matrices">
-<h3><span class="section-number">6.9.2. </span>Example 6.7: Dirac Gamma Matrices<a class="headerlink" href="#example-6-7-dirac-gamma-matrices" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.10.2. </span>Example 6.7: Dirac Gamma Matrices<a class="headerlink" href="#example-6-7-dirac-gamma-matrices" title="Link to this heading">#</a></h3>
 <p>The Dirac equation extends quantum mechanics to include relativity and spin-1/2 particles (fermions). The extension of the Hamiltonian operator for an electron (a fermion), requires it to contain matrices, and those matrices are expressed in terms of <span class="math notranslate nohighlight">\(4 \times 4\)</span> <span class="math notranslate nohighlight">\(\mathbf{\gamma}\)</span> matrices, that can be represented in terms of the familiar <span class="math notranslate nohighlight">\(2 \times 2\)</span> Pauli matrices <span class="math notranslate nohighlight">\(\mathbf{\sigma}_i\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(\mathbf{\gamma}_i = \left(\begin{array}{c}
 0 &amp; \mathbf{\sigma}_i \\
@@ -1283,7 +1299,7 @@ i &amp; 0\\
 \end{array}\right)\)</span></p>
 </section>
 <section id="example-6-8-2-dimensional-newton-raphson-warmup">
-<h3><span class="section-number">6.9.3. </span>Example 6.8: 2-Dimensional Newton-Raphson Warmup<a class="headerlink" href="#example-6-8-2-dimensional-newton-raphson-warmup" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.10.3. </span>Example 6.8: 2-Dimensional Newton-Raphson Warmup<a class="headerlink" href="#example-6-8-2-dimensional-newton-raphson-warmup" title="Link to this heading">#</a></h3>
 <p>As a warmup towards solving Exercise 6.2, implement a 2-Dimensional Newton-Raphson method:</p>
 <p><span class="math notranslate nohighlight">\(\vec{f} + \mathbf{J} \Delta \vec{x} = 0\)</span></p>
 <p>where:</p>
@@ -1321,9 +1337,9 @@ f_{2}  \\
 </section>
 </section>
 <section id="data-fitting">
-<h2><span class="section-number">6.10. </span>Data Fitting<a class="headerlink" href="#data-fitting" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.11. </span>Data Fitting<a class="headerlink" href="#data-fitting" title="Link to this heading">#</a></h2>
 <section id="introduction-to-data-fitting">
-<h3><span class="section-number">6.10.1. </span>Introduction to Data Fitting<a class="headerlink" href="#introduction-to-data-fitting" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.1. </span>Introduction to Data Fitting<a class="headerlink" href="#introduction-to-data-fitting" title="Link to this heading">#</a></h3>
 <p>Data fitting is an art that should be studied by all scientists.</p>
 <p>This section gives an introduction to the subject, examining how to interpolate data, and how to perform least-squares fits to data.</p>
 <p>A problem that we wish to tackle: Given a table of measured values, e.g. cross sections for the resonant scattering of neutrons from a nucleus at certain energies, we wish to determine the values for the cross sections at energy values lying between those in the table.</p>
@@ -1375,7 +1391,7 @@ f_{2}  \\
 <p>Both interpolation and least-squares fitting are powerful tools that let you treat tables of numbers as if they were analytic functions, and sometimes let you deduce statistically meaningful constraints from measurements.</p>
 </section>
 <section id="lagrange-interpolation">
-<h3><span class="section-number">6.10.2. </span>Lagrange Interpolation<a class="headerlink" href="#lagrange-interpolation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.2. </span>Lagrange Interpolation<a class="headerlink" href="#lagrange-interpolation" title="Link to this heading">#</a></h3>
 <p>Consider a table of data that we wish to interpolate. We call the independent variables <span class="math notranslate nohighlight">\(x\)</span> and its tabulated values <span class="math notranslate nohighlight">\(x_i\)</span>, (<span class="math notranslate nohighlight">\(i=1,2,...\)</span>). We assume that the dependent variable is represented by a function <span class="math notranslate nohighlight">\(g(x)\)</span>, with tabulated values <span class="math notranslate nohighlight">\(g_i = g(x_i)\)</span>.</p>
 <p>In Lagrange interpolation, we assume that <span class="math notranslate nohighlight">\(g(x)\)</span> can be approximated as an <span class="math notranslate nohighlight">\((n-1)\)</span>-degree polynomial in each interval <span class="math notranslate nohighlight">\(i\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(g_i(x) \simeq a_0 + a_1 x + a_2 x^2 + ... + a_{n-1} x^{n-1}\)</span> for <span class="math notranslate nohighlight">\(x\simeq x_i\)</span>.</p>
@@ -1404,12 +1420,12 @@ f_{2}  \\
 <p>Let’s apply Lagrange interpolation to the neutron scattering data!</p>
 </section>
 <section id="example-6-9-lagrange-interpolation">
-<h3><span class="section-number">6.10.3. </span>Example 6.9: Lagrange Interpolation<a class="headerlink" href="#example-6-9-lagrange-interpolation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.3. </span>Example 6.9: Lagrange Interpolation<a class="headerlink" href="#example-6-9-lagrange-interpolation" title="Link to this heading">#</a></h3>
 <p>Apply <span class="math notranslate nohighlight">\(n\)</span>-point Lagrange interpolation to the data given in the table above, varying the number of points <span class="math notranslate nohighlight">\(n\)</span>. Plot both the data points and the resulting fits.</p>
 <p>Which number of points “looks” the best?</p>
 </section>
 <section id="cubic-spline-interpolation">
-<h3><span class="section-number">6.10.4. </span>Cubic Spline Interpolation<a class="headerlink" href="#cubic-spline-interpolation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.4. </span>Cubic Spline Interpolation<a class="headerlink" href="#cubic-spline-interpolation" title="Link to this heading">#</a></h3>
 <p>Through our example of trying to interpolate the resonant cross section with Lagrange interpolation, we saw that fitting parabolas (i.e. 3-point interpolation), within subintervals in the table, may avoid the erroneous and possibly catastrophic deviations of a high-order formula (e.g. 9-point interpolation).</p>
 <p>We also saw that a two-point interpolation with straight lines may not lead you far astray, but it is rarely pleasing to the eye, or precise.</p>
 <p>A sophisticated variation of an <span class="math notranslate nohighlight">\(n=4\)</span> interpolation, known as <em>cubic splines</em>, often leads to surprisingly eye-pleasing fits.</p>
@@ -1418,7 +1434,7 @@ f_{2}  \\
 <p>The complexity of simultaneously matching polynomials and their derivatives over all the interpolation points leads to many simultaneous linear equations to be solved. This makes splines unattractive for calculations by hand, yet easy for computers, and popular in both calculations and computer drawing programs.</p>
 </section>
 <section id="example-6-10-cubic-spline-interpolation-with-scipy">
-<h3><span class="section-number">6.10.5. </span>Example 6.10: Cubic Spline Interpolation with scipy<a class="headerlink" href="#example-6-10-cubic-spline-interpolation-with-scipy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.5. </span>Example 6.10: Cubic Spline Interpolation with scipy<a class="headerlink" href="#example-6-10-cubic-spline-interpolation-with-scipy" title="Link to this heading">#</a></h3>
 <p>Let’s use SciPy’s interpolation packages to interpolate the resonant cross section.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1503,7 +1519,7 @@ f_{2}  \\
 </div>
 </section>
 <section id="other-scipy-interpolators">
-<h3><span class="section-number">6.10.6. </span>Other SciPy Interpolators<a class="headerlink" href="#other-scipy-interpolators" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.6. </span>Other SciPy Interpolators<a class="headerlink" href="#other-scipy-interpolators" title="Link to this heading">#</a></h3>
 <p>There are many other 1-D interpolating methods in SciPy’s interpolate module:</p>
 <p>Cubic splines are by construction twice continuously differentiable. This may lead to the spline function oscillating and “overshooting” in between the data points. In these situations, an alternative is to use the so-called monotone cubic interpolants: these are constructed to be only once continuously differentiable, and attempt to preserve the local shape implied by the data. <code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code> provides two objects of this kind: PchipInterpolator and Akima1DInterpolator:</p>
 <div class="cell docutils container">
@@ -1589,7 +1605,7 @@ f_{2}  \\
 <p>By default, the result of <code class="docutils literal notranslate"><span class="pre">make_interp_spline(x,</span> <span class="pre">y)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">CubicSpline(x,</span> <span class="pre">y)</span></code>. The difference is that the former allows several optional capabilities, e.g. it can construct splines of various degrees (via the optional argument <code class="docutils literal notranslate"><span class="pre">k</span></code>).</p>
 </section>
 <section id="example-6-11-global-temperature-load-data-with-pandas-and-interpolate-with-scipy">
-<h3><span class="section-number">6.10.7. </span>Example 6.11: Global Temperature: Load data with Pandas and Interpolate with SciPy<a class="headerlink" href="#example-6-11-global-temperature-load-data-with-pandas-and-interpolate-with-scipy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.7. </span>Example 6.11: Global Temperature: Load data with Pandas and Interpolate with SciPy<a class="headerlink" href="#example-6-11-global-temperature-load-data-with-pandas-and-interpolate-with-scipy" title="Link to this heading">#</a></h3>
 <p>Taken from: <a class="reference external" href="https://climate.nasa.gov/vital-signs/global-temperature/">https://climate.nasa.gov/vital-signs/global-temperature/</a></p>
 <p>This graph (data from: “No_Smoothing” column of <a class="reference external" href="https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt">https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt</a>) shows the change in global surface temperature compared to the long-term average from 1951 to 1980. Earth’s average surface temperature in 2023 was the warmest on record since recordkeeping began in 1880 (source: NASA/GISS).</p>
 <p>Let’s load the data using Python’s <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and interpolate them. We can use (very cautiously in this case – this is not a model!) what the temperature <em>could</em> be in 2050.</p>
@@ -1740,7 +1756,7 @@ f_{2}  \\
 <p>As we will see later in this chapter, data with so much noise is better addressed by least-squares fitting with a theoretical prediction rather than an interpolator.</p>
 </section>
 <section id="d-interpolation">
-<h3><span class="section-number">6.10.8. </span>2-D Interpolation<a class="headerlink" href="#d-interpolation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.8. </span>2-D Interpolation<a class="headerlink" href="#d-interpolation" title="Link to this heading">#</a></h3>
 <p>You can also interpolate in multiple dimensions. Let’s look at an example in 2D, i.e. two independent variables and one dependent variable that we wish to interpolate.</p>
 <p>E.g. we have the data:</p>
 <div class="cell docutils container">
@@ -1784,7 +1800,7 @@ f_{2}  \\
 </div>
 </section>
 <section id="least-squares-fitting">
-<h3><span class="section-number">6.10.9. </span>Least-Squares Fitting<a class="headerlink" href="#least-squares-fitting" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.9. </span>Least-Squares Fitting<a class="headerlink" href="#least-squares-fitting" title="Link to this heading">#</a></h3>
 <p>Within the context of data fitting, it is important to emphasize three points:</p>
 <ol class="arabic simple">
 <li><p>If the data being fit contains errors, the “best-fit”, in a statistical sense, should not pass through all the data points.</p></li>
@@ -1823,7 +1839,7 @@ f_{2}  \\
 </ul>
 </section>
 <section id="linear-regression">
-<h3><span class="section-number">6.10.10. </span>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.10. </span>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h3>
 <p>The <span class="math notranslate nohighlight">\(N_P\)</span> simultaneous equations can be simplified considerably if the functions <span class="math notranslate nohighlight">\(g(x;\{a_m\})\)</span> depend <em>linearly</em> on the parameter values <span class="math notranslate nohighlight">\(a_m\)</span>, e.g.:</p>
 <p><span class="math notranslate nohighlight">\(g(x; a_1, a_2) = a_1 + a_2 x\)</span>.</p>
 <p>In this case, known as “linear regression”, there are two parameters: the slope <span class="math notranslate nohighlight">\(a_2\)</span> and the <span class="math notranslate nohighlight">\(y\)</span>-intercept <span class="math notranslate nohighlight">\(a_1\)</span>.</p>
@@ -1850,7 +1866,7 @@ f_{2}  \\
 <p><span class="math notranslate nohighlight">\(a_1 = \bar{y} - a_2 \bar{x}\)</span>, <span class="math notranslate nohighlight">\(a_2 = \frac{ S_{xy} } { S_{xx} }\)</span>, <span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{N} \sum_{i=1}^{N_D} x_i\)</span>, <span class="math notranslate nohighlight">\(\bar{y} = \frac{1}{N} \sum_{i=1}^{N_D} y_i\)</span>, <span class="math notranslate nohighlight">\(S_{xy} = \sum_{i=1}^{N_D} \frac{(x_i - \bar{x}) (y_i - \bar{y})}{\sigma_i^2}\)</span>, <span class="math notranslate nohighlight">\(S_{xx} = \sum_{i=1}^{N_D} \frac{(x_i - \bar{x})^2}{\sigma_i^2}\)</span></p>
 </section>
 <section id="example-6-12-hubble-s-law">
-<h3><span class="section-number">6.10.11. </span>Example 6.12: Hubble’s Law<a class="headerlink" href="#example-6-12-hubble-s-law" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.11. </span>Example 6.12: Hubble’s Law<a class="headerlink" href="#example-6-12-hubble-s-law" title="Link to this heading">#</a></h3>
 <p>In 1929, Edwin Hubble examined the data related the radial velocity <span class="math notranslate nohighlight">\(v\)</span> of 24 extra-galactic nebulae, to their distance <span class="math notranslate nohighlight">\(r\)</span> from our galaxy. He fit them with a straight line:</p>
 <p><span class="math notranslate nohighlight">\( v = Hr\)</span>, where <span class="math notranslate nohighlight">\(H\)</span> is now known as the Hubble constant.</p>
 <p>His measurements are given in the file <code class="docutils literal notranslate"><span class="pre">hubble.txt</span></code>, where the first column represents the distance <span class="math notranslate nohighlight">\(r\)</span> in Mpc (pc=parsec, defined as the distance at which 1 astronomical unit, the mean Earth-sun distance, subtends an angle of one arcsecond, i.e. 1/3600 of a degree), and the second column is the velocity <span class="math notranslate nohighlight">\(v\)</span> in km/s.</p>
@@ -1863,7 +1879,7 @@ f_{2}  \\
 <p>d) Determine the <span class="math notranslate nohighlight">\(\chi^2\)</span> of the fit. Given its value, what would a better estimate of the average error on the measurements be?</p>
 </section>
 <section id="quadratic-fits">
-<h3><span class="section-number">6.10.12. </span>Quadratic Fits<a class="headerlink" href="#quadratic-fits" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.12. </span>Quadratic Fits<a class="headerlink" href="#quadratic-fits" title="Link to this heading">#</a></h3>
 <p>As long as the function being fitted depends <em>linearly</em> on the unknown parameters <span class="math notranslate nohighlight">\(a_i\)</span>, the condition of minimum <span class="math notranslate nohighlight">\(\chi^2\)</span> leads to a set of simultaneous <em>linear</em> equations for the <span class="math notranslate nohighlight">\(a_m\)</span>’s that can be solved by hand or on a computer using matrix techniques. This is true if the function being fitted is a polynomial of any degree.</p>
 <p>E.g. suppose we want to fit the quadratic polynomial:</p>
 <p><span class="math notranslate nohighlight">\(g(x) = a_1 + a_2 x + a_3 x^2\)</span>,</p>
@@ -1902,7 +1918,7 @@ S_{xxy}
 <p><span class="math notranslate nohighlight">\(\mathbf{A} \vec{a} = \vec{b}\)</span>, for <span class="math notranslate nohighlight">\(\vec{a}\)</span>, using the techniques that we have previously discussed in this chapter.</p>
 </section>
 <section id="nonlinear-fitting">
-<h3><span class="section-number">6.10.13. </span>Nonlinear Fitting<a class="headerlink" href="#nonlinear-fitting" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.11.13. </span>Nonlinear Fitting<a class="headerlink" href="#nonlinear-fitting" title="Link to this heading">#</a></h3>
 <p>Earlier in this section we saw the Breit-Wigner resonance formula:</p>
 <p><span class="math notranslate nohighlight">\(f(E) = \frac{ f_r } { (E-E_r)^2 + \Gamma^2 / 4 }\)</span>.</p>
 <p>If we have a set of data that we wish to describe with such a formula, we would need to determine what values for the parameters <span class="math notranslate nohighlight">\(E_r\)</span>, <span class="math notranslate nohighlight">\(f_r\)</span> and <span class="math notranslate nohighlight">\(\Gamma\)</span> provide the best fit to the data.</p>
@@ -1991,58 +2007,59 @@ S_{xxy}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-and-error-root-finding">6.1. Trial-and-Error Root Finding</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">6.1.1. Introduction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-and-error-roots-via-bisection">6.1.2. Trial-and-error Roots via Bisection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-1-temperature-dependence-of-magnetization">6.1.3. Example 6.1: Temperature Dependence of Magnetization.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">6.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-and-error-root-finding">6.2. Trial-and-Error Root Finding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">6.2.1. Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-and-error-roots-via-bisection">6.2.2. Trial-and-error Roots via Bisection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-1-temperature-dependence-of-magnetization">6.2.3. Example 6.1: Temperature Dependence of Magnetization.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-raphson-searching">6.2. Newton-Raphson Searching</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-raphson-with-backtracking">6.3. Newton-Raphson with Backtracking</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-2-newton-raphson-applied-to-the-temperature-dependence-of-magnetization">6.3.1. Example 6.2: Newton-Raphson applied to the Temperature Dependence of Magnetization.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-raphson-searching">6.3. Newton-Raphson Searching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-raphson-with-backtracking">6.4. Newton-Raphson with Backtracking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-2-newton-raphson-applied-to-the-temperature-dependence-of-magnetization">6.4.1. Example 6.2: Newton-Raphson applied to the Temperature Dependence of Magnetization.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-computing">6.4. Matrix Computing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-matrix-computing">6.4.1. Why Matrix Computing?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-of-matrix-problems">6.4.2. Classes of Matrix Problems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math-recap-matrix-multiplication-inverses-and-determinants">6.4.3. Math Recap: Matrix Multiplication, Inverses and Determinants</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-3-in-this-problem-we-will-find-the-inverse-of-a-3x3-matrix-analytically-and-show-via-direct-matrix-multiplication-that-it-indeed-gives-back-the-identity-matrix">6.4.4. Example 6.3: In this problem we will find the inverse of a 3x3 matrix <em>analytically</em> and show via direct matrix multiplication that it indeed gives back the identity matrix.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math-recap-solving-eigenvalue-problems">6.4.5. Math Recap: Solving Eigenvalue Problems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-4-find-the-eigenvalues-and-eigenvectors-of-the-matrix">6.4.6. Example 6.4: Find the eigenvalues and eigenvectors of the matrix:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-5-given-that-lambda-1-5-is-an-eigenvalue-find-the-remaining-eigenvalues-of-the-matrix">6.4.7. Example 6.5: Given that \lambda_1 = 5 is an eigenvalue, find the remaining eigenvalues of the matrix:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-computing">6.5. Matrix Computing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-matrix-computing">6.5.1. Why Matrix Computing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-of-matrix-problems">6.5.2. Classes of Matrix Problems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math-recap-matrix-multiplication-inverses-and-determinants">6.5.3. Math Recap: Matrix Multiplication, Inverses and Determinants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-3-in-this-problem-we-will-find-the-inverse-of-a-3x3-matrix-analytically-and-show-via-direct-matrix-multiplication-that-it-indeed-gives-back-the-identity-matrix">6.5.4. Example 6.3: In this problem we will find the inverse of a 3x3 matrix <em>analytically</em> and show via direct matrix multiplication that it indeed gives back the identity matrix.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math-recap-solving-eigenvalue-problems">6.5.5. Math Recap: Solving Eigenvalue Problems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-4-find-the-eigenvalues-and-eigenvectors-of-the-matrix">6.5.6. Example 6.4: Find the eigenvalues and eigenvectors of the matrix:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-5-given-that-lambda-1-5-is-an-eigenvalue-find-the-remaining-eigenvalues-of-the-matrix">6.5.7. Example 6.5: Given that \lambda_1 = 5 is an eigenvalue, find the remaining eigenvalues of the matrix:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-matrix-computing">6.5. Practical Matrix Computing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-in-python-python-lists-numpy-arrays">6.6. Matrices in Python: Python Lists, NumPy Arrays</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lists">6.6.1. Python Lists</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">6.6.2. NumPy Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-matrix-computing">6.6. Practical Matrix Computing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-in-python-python-lists-numpy-arrays">6.7. Matrices in Python: Python Lists, NumPy Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-lists">6.7.1. Python Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">6.7.2. NumPy Arrays</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-s-linalg-package">6.7. NumPy’s linalg Package</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-6-solve-examples-6-3-to-6-5-numerically">6.7.1. Example 6.6: Solve Examples 6.3 to 6.5 numerically!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-s-linalg-package">6.8. NumPy’s linalg Package</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-6-solve-examples-6-3-to-6-5-numerically">6.8.1. Example 6.6: Solve Examples 6.3 to 6.5 numerically!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-dimensional-newton-raphson">6.8. N-Dimensional Newton-Raphson</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-matrix-examples">6.9. More Matrix Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-6-your-model-of-some-physical-system-results-in-n-100-coupled-linear-equations-with-n-unknowns">6.9.1. Example 6.6: Your model of some physical system results in N=100 coupled linear equations with N unknowns:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-7-dirac-gamma-matrices">6.9.2. Example 6.7: Dirac Gamma Matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-8-2-dimensional-newton-raphson-warmup">6.9.3. Example 6.8: 2-Dimensional Newton-Raphson Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-dimensional-newton-raphson">6.9. N-Dimensional Newton-Raphson</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-matrix-examples">6.10. More Matrix Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-6-your-model-of-some-physical-system-results-in-n-100-coupled-linear-equations-with-n-unknowns">6.10.1. Example 6.6: Your model of some physical system results in N=100 coupled linear equations with N unknowns:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-7-dirac-gamma-matrices">6.10.2. Example 6.7: Dirac Gamma Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-8-2-dimensional-newton-raphson-warmup">6.10.3. Example 6.8: 2-Dimensional Newton-Raphson Warmup</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-fitting">6.10. Data Fitting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-data-fitting">6.10.1. Introduction to Data Fitting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-interpolation">6.10.2. Lagrange Interpolation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-9-lagrange-interpolation">6.10.3. Example 6.9: Lagrange Interpolation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline-interpolation">6.10.4. Cubic Spline Interpolation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-10-cubic-spline-interpolation-with-scipy">6.10.5. Example 6.10: Cubic Spline Interpolation with scipy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-scipy-interpolators">6.10.6. Other SciPy Interpolators</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-11-global-temperature-load-data-with-pandas-and-interpolate-with-scipy">6.10.7. Example 6.11: Global Temperature: Load data with Pandas and Interpolate with SciPy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-interpolation">6.10.8. 2-D Interpolation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-fitting">6.10.9. Least-Squares Fitting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">6.10.10. Linear Regression</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-12-hubble-s-law">6.10.11. Example 6.12: Hubble’s Law</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-fits">6.10.12. Quadratic Fits</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-fitting">6.10.13. Nonlinear Fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-fitting">6.11. Data Fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-data-fitting">6.11.1. Introduction to Data Fitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-interpolation">6.11.2. Lagrange Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-9-lagrange-interpolation">6.11.3. Example 6.9: Lagrange Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-spline-interpolation">6.11.4. Cubic Spline Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-10-cubic-spline-interpolation-with-scipy">6.11.5. Example 6.10: Cubic Spline Interpolation with scipy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-scipy-interpolators">6.11.6. Other SciPy Interpolators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-11-global-temperature-load-data-with-pandas-and-interpolate-with-scipy">6.11.7. Example 6.11: Global Temperature: Load data with Pandas and Interpolate with SciPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-interpolation">6.11.8. 2-D Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-fitting">6.11.9. Least-Squares Fitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">6.11.10. Linear Regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-12-hubble-s-law">6.11.11. Example 6.12: Hubble’s Law</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-fits">6.11.12. Quadratic Fits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-fitting">6.11.13. Nonlinear Fitting</a></li>
 </ul>
 </li>
 </ul>
