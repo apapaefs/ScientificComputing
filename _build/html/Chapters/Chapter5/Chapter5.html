@@ -507,14 +507,14 @@ document.write(`
 <span class="k">def</span><span class="w"> </span><span class="nf">fEX51</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">Iex51</span><span class="p">,</span> <span class="n">err_ex51</span> <span class="o">=</span> <span class="n">mcint</span><span class="p">(</span><span class="n">fEX51</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Iex51</span><span class="p">,</span> <span class="n">err_ex51</span> <span class="o">=</span> <span class="n">mcint</span><span class="p">(</span><span class="n">fEX51</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The estimate of the integral is=&#39;</span><span class="p">,</span> <span class="n">Iex51</span><span class="p">,</span> <span class="s1">&#39;+-&#39;</span><span class="p">,</span> <span class="n">err_ex51</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let&#39;s compare to the analytical value=&quot;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The estimate of the integral is= 0.8066530303708649 +- 0.016105612466499625
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The estimate of the integral is= 0.7846803138258434 +- 0.0016060636432708253
 Let&#39;s compare to the analytical value= 0.7853981633974483
 </pre></div>
 </div>
@@ -558,10 +558,10 @@ Let&#39;s compare to the analytical value= 0.7853981633974483
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10c85f710&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x106dcc050&gt;
 </pre></div>
 </div>
-<img alt="../../_images/75a040375868e5f334b9a4bfbc4391219826ca0be8e70529cef1a328901eb52f.png" src="../../_images/75a040375868e5f334b9a4bfbc4391219826ca0be8e70529cef1a328901eb52f.png" />
+<img alt="../../_images/f9b26c31a9d03c45d8d4fd03cf08c2a0ca321711cc2fb9c276967de0f5a95d5a.png" src="../../_images/f9b26c31a9d03c45d8d4fd03cf08c2a0ca321711cc2fb9c276967de0f5a95d5a.png" />
 </div>
 </div>
 </section>
@@ -825,7 +825,7 @@ This will result in a reduction in the variance of the MC estimate.</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="c1"># set the seed</span>
-<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">12344</span><span class="p">)</span>
 
 <span class="c1"># first let&#39;s define our distribution: </span>
 <span class="k">def</span><span class="w"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">):</span>
@@ -833,7 +833,7 @@ This will result in a reduction in the variance of the MC estimate.</p>
     <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">sigma</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="c1"># and perform the von Neumann rejection:</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span> <span class="c1"># we will generate N points</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># we will generate N points</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># n will be the counter of generated &quot;events&quot;</span>
 <span class="c1"># set the properties of the particle:</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span>
@@ -884,7 +884,7 @@ This will result in a reduction in the variance of the MC estimate.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/abfeabc6a295b7c674992727cc70ad629a77890159367af9331574b62a940622.png" src="../../_images/abfeabc6a295b7c674992727cc70ad629a77890159367af9331574b62a940622.png" />
+<img alt="../../_images/5a9b93b0bc50ef078e5869080327307f450b04a20a796355fe843b43bb476e07.png" src="../../_images/5a9b93b0bc50ef078e5869080327307f450b04a20a796355fe843b43bb476e07.png" />
 </div>
 </div>
 </section>
