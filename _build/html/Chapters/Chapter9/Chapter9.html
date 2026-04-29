@@ -16,42 +16,45 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d948cb1" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -68,6 +71,7 @@
     <link rel="prev" title="8. An Introduction to Nonlinear Dynamics and Chaos" href="../Chapter8/Chapter8.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -83,19 +87,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -103,7 +96,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -111,8 +103,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -128,7 +120,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -158,21 +151,17 @@
     
     
     <img src="../../_static/newlogo2.png" class="logo__image only-light" alt="An Introduction to Scientific Computing - Home"/>
-    <script>document.write(`<img src="../../_static/newlogo2.png" class="logo__image only-dark" alt="An Introduction to Scientific Computing - Home"/>`);</script>
+    <img src="../../_static/newlogo2.png" class="logo__image only-dark pst-js-only" alt="An Introduction to Scientific Computing - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -205,9 +194,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -337,7 +331,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -351,25 +345,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -671,10 +657,88 @@ z_0^2 = \frac{2 m a^2 V_0}{\hbar^2}\;,
 <p>To determine whether the energy is an eigenvalue, <span class="math notranslate nohighlight">\(\psi_&lt;(x)\)</span> and <span class="math notranslate nohighlight">\(\psi_&gt;(x)\)</span> can be compared at a matching point <span class="math notranslate nohighlight">\(x_m\)</span>, chosen so that neither integration will be inaccurate. A convenient choice for <span class="math notranslate nohighlight">\(x_m\)</span> is the left turning point.</p>
 <p>Since both <span class="math notranslate nohighlight">\(\psi_&lt;(x)\)</span> and <span class="math notranslate nohighlight">\(\psi_&gt;(x)\)</span> satisfy a homogeneous equation, their normalizations can always be chosen so that the two functions are equal at <span class="math notranslate nohighlight">\(x_m\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(\psi_&lt;(x_m) = \psi_&gt;(x_m)\)</span>.</p>
-<p>Furthermore, the derivative has to be continuous as well:</p>
-<p><span class="math notranslate nohighlight">\( \int_{x_m- \varepsilon}^{x_m + \varepsilon} \mathrm{d} x \frac{ \mathrm{d}^2 \psi}{\mathrm{d}x^2} = 0\)</span>, and so:</p>
+<p>Furthermore, the first derivative has to be continuous as well:</p>
 <p><span class="math notranslate nohighlight">\(\left.\frac{ \mathrm{d} \psi_&lt; }{\mathrm{d}x}\right|_\mathrm{x_m} = \left.\frac{\mathrm{d} \psi_&gt;}{\mathrm{d} x}\right|_{x_m}\)</span>.</p>
-<p>If we approximate the derivatives by their simplest forward-difference approximations, i.e.:</p>
+<p>To see why <span class="math notranslate nohighlight">\(\mathrm{d}\psi/\mathrm{d}x\)</span> must be continuous, integrate the
+Schrödinger equation across a tiny interval around the possible discontinuity, or
+matching point, <span class="math notranslate nohighlight">\(x_m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{x_m-\varepsilon}^{x_m+\varepsilon}
+\frac{\mathrm{d}^2\psi}{\mathrm{d}x^2}\,\mathrm{d}x
+=
+z_0^2
+\int_{x_m-\varepsilon}^{x_m+\varepsilon}
+[v(x)-\epsilon]\psi(x)\,\mathrm{d}x .
+\]</div>
+<p>The left-hand side is</p>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{\mathrm{d}\psi}{\mathrm{d}x}\right|_{x_m+\varepsilon}
+-
+\left.\frac{\mathrm{d}\psi}{\mathrm{d}x}\right|_{x_m-\varepsilon}.
+\]</div>
+<p>For example, at the right boundary of the finite square well, <span class="math notranslate nohighlight">\(x_m=1\)</span>, where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+v(x)=
+\begin{cases}
+-1, &amp; x&lt;1,\\
+0, &amp; x&gt;1,
+\end{cases}
+\end{split}\]</div>
+<p>the right-hand side can be written explicitly as</p>
+<div class="math notranslate nohighlight">
+\[
+z_0^2
+\left[
+\int_{1-\varepsilon}^{1}
+(-1-\epsilon)\psi(x)\,\mathrm{d}x
++
+\int_{1}^{1+\varepsilon}
+(-\epsilon)\psi(x)\,\mathrm{d}x
+\right].
+\]</div>
+<p>That is,</p>
+<div class="math notranslate nohighlight">
+\[
+z_0^2
+\left[
+-(1+\epsilon)\int_{1-\varepsilon}^{1}\psi(x)\,\mathrm{d}x
+-
+\epsilon\int_{1}^{1+\varepsilon}\psi(x)\,\mathrm{d}x
+\right].
+\]</div>
+<p>Assuming <span class="math notranslate nohighlight">\(\psi(x)\)</span> is finite near <span class="math notranslate nohighlight">\(x=1\)</span>, both integrals go to zero as
+<span class="math notranslate nohighlight">\(\varepsilon\to 0\)</span>, because they are taken over intervals whose widths shrink to
+zero. More generally, if <span class="math notranslate nohighlight">\(v(x)\)</span> is finite on both sides of <span class="math notranslate nohighlight">\(x_m\)</span>, even if it is
+discontinuous, then <span class="math notranslate nohighlight">\([v(x)-\epsilon]\psi(x)\)</span> is finite on both sides. Therefore,
+the integral of this finite quantity over a tiny interval of width
+<span class="math notranslate nohighlight">\(2\varepsilon\)</span> goes to zero as <span class="math notranslate nohighlight">\(\varepsilon \to 0\)</span>. So we get</p>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{\mathrm{d}\psi}{\mathrm{d}x}\right|_{x_m^+}
+-
+\left.\frac{\mathrm{d}\psi}{\mathrm{d}x}\right|_{x_m^-}
+=0,
+\]</div>
+<p>or equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{\mathrm{d}\psi}{\mathrm{d}x}\right|_{x_m^+}
+=
+\left.\frac{\mathrm{d}\psi}{\mathrm{d}x}\right|_{x_m^-}.
+\]</div>
+<p>Thus a finite discontinuity in the potential does not produce a discontinuity in
+the first derivative of the wavefunction. Instead, the discontinuity appears in
+the second derivative, since</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d}^2\psi}{\mathrm{d}x^2}
+=
+z_0^2 [v(x)-\epsilon]\psi(x).
+\]</div>
+<p>If we then approximate the derivatives by their simplest forward-difference approximations, i.e.:</p>
 <p><span class="math notranslate nohighlight">\(\frac{ \mathrm{d} \psi (x) }{\mathrm{d}x} \approx \frac{ \psi(x) - \psi(x-h) } { h }\)</span>,</p>
 <p>then an equivalent condition for the continuity condition of the derivatives is:</p>
 <p><span class="math notranslate nohighlight">\(f = \frac{ \psi_&lt;(x_m - h) - \psi_&gt;(x_m - h) } { \phi } \approx 0\)</span>,</p>
@@ -747,14 +811,16 @@ V(x)=
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">9.1. Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">9.2. Introduction</a></li>
@@ -826,8 +892,8 @@ By Andreas Papaefstathiou
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
