@@ -5,6 +5,10 @@ title: An Introduction to Scientific Computing
 author: Andreas Papaefstathiou
 logo: newlogo2.png
 copyright : 2024, 2025
+
+# Keep scratch notebooks and generated files out of the Sphinx source graph.
+only_build_toc_files: true
+
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
