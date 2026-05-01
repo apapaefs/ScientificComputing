@@ -4,7 +4,7 @@
 title: An Introduction to Scientific Computing
 author: Andreas Papaefstathiou
 logo: newlogo2.png
-copyright : 2024, 2025
+copyright : 2024, 2025, 2026
 
 # Keep scratch notebooks and generated files out of the Sphinx source graph.
 only_build_toc_files: true
